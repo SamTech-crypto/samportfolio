@@ -1,43 +1,4 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -197,7 +158,12 @@
             <div class="container mx-auto text-center">
                 <h2 class="text-4xl font-bold mb-8 fade-in">Ready to Transform Your Finances?</h2>
                 <p class="text-lg max-w-2xl mx-auto mb-8 fade-in">Let's discuss consulting, partnerships, or SaaS solutions to unlock your business's potential.</p>
-                <a href="mailto:samuel@financialstrategist.com" class="inline-block bg-white text-blue-900 font-semibold py-3 px-8 rounded-full hover:bg-blue-100 transition-colors fade-in">Contact Me Now</a>
+                <div class="flex justify-center space-x-4">
+                    <a href="mailto:samuel@financialstrategist.com" class="inline-block bg-white text-blue-900 font-semibold py-3 px-8 rounded-full hover:bg-blue-100 transition-colors fade-in">Contact Me Now</a>
+                    <a href="https://wa.me/254712238286" target="_blank" class="inline-block bg-green-500 text-white font-semibold py-3 px-6 rounded-full hover:bg-green-600 transition-colors fade-in flex items-center">
+                        <span class="mr-2">💬</span> Chat on WhatsApp
+                    </a>
+                </div>
             </div>
         </section>
     </main>
@@ -206,6 +172,11 @@
     <footer class="bg-gray-800 text-white py-6" role="contentinfo">
         <div class="container mx-auto text-center">
             <p>© 2025 Samuel Mwendwa. All rights reserved.</p>
+            <p class="mt-2">
+                <a href="https://wa.me/254712238286" target="_blank" class="text-green-400 hover:underline flex justify-center items-center">
+                    <span class="mr-2">💬</span> Reach me on WhatsApp: +254 712 238 286
+                </a>
+            </p>
         </div>
     </footer>
 
