@@ -30,6 +30,16 @@
             opacity: 1;
             transform: translateY(0);
         }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
@@ -41,6 +51,7 @@
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
+                <span class="sr-only">Toggle menu</span>
             </button>
             <ul class="hidden md:flex space-x-6" id="nav-menu">
                 <li><a href="#home" class="hover:text-blue-300 transition-colors">Home</a></li>
@@ -60,73 +71,78 @@
             <div class="container mx-auto text-center">
                 <h2 class="text-5xl font-extrabold mb-6 fade-in">Your Partner in Financial Innovation</h2>
                 <p class="text-xl max-w-3xl mx-auto mb-8 fade-in">Samuel Mwendwa delivers fintech, ESG, and AI-driven solutions to empower SMEs and startups with growth-focused financial strategies.</p>
-                <a href="#contact" class="inline-block bg-white text-blue-900 font-semibold py-3 px-8 rounded-full hover:bg-blue-100 transition-colors fade-in">Book a Consultation</a>
+                <a href="#contact" class="inline-block bg-white text-blue-900 font-semibold py-3 px-8 rounded-full hover:bg-blue-100 transition-colors fade-in">Book.Getenv("USER") a Consultation</a>
             </div>
         </section>
 
         <!-- Projects Section -->
-<section id="projects" class="py-20 bg-white" role="region" aria-label="Projects">
-    <div class="container mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-16 fade-in">Innovative Projects</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Existing Project: FinDash -->
-            <div class="bg-gray-50 p-6 rounded-xl shadow-lg animate-card fade-in">
-                <h3 class="text-2xl font-semibold mb-3 text-blue-900">FinDash</h3>
-                <p class="text-gray-600 mb-4">Real-time SME dashboard for KPIs, burn rate, and runway analysis.</p>
-                <p><strong>Tools:</strong> Tableau, SQL, Python</p>
-                <div class="mt-4 space-x-4">
-                    <a href="https://github.com/SamTech-crypto/findash" target="_blank" class="text-blue-600 hover:underline">GitHub</a>
-                    <a href="https://public.tableau.com/app/profile/samuel.mwendwa" target="_blank" class="text-blue-600 hover:underline">Tableau Demo</a>
+        <section id="projects" class="py-20 bg-white" role="region" aria-label="Projects">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-16 fade-in"> Innovative Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project: FinDash -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg animate-card fade-in">
+                        <h3 class="text-2xl font-semibold mb-3 text-blue-900">FinDash</h3>
+                        <p class="text-gray-600 mb-4">Real-time SME dashboard for KPIs, burn rate, and runway analysis, reducing reporting time by 50%.</p>
+                        <p><strong>Tools:</strong> Tableau, SQL, Python</p>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://github.com/SamTech-crypto/findash" target="_blank" class="text-blue-600 hover:underline">GitHub</a>
+                            <a href="https://public.tableau.com/app/profile/samuel.mwendwa" target="_blank" class="text-blue-600 hover:underline">Tableau Demo</a>
+                        </div>
+                    </div>
+                    <!-- Project: AutoModeler -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg animate-card fade-in">
+                        <h3 class="text-2xl font-semibold mb-3 text-blue-900">AutoModeler</h3>
+                        <p class="text-gray-600 mb-4">Automated 3-statement financial models from user inputs, streamlining financial planning.</p>
+                        <p><strong>Tools:</strong> Python, Streamlit</p>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://github.com/SamTech-crypto/automodeler" target="_blank" class="text-blue-600 hover:underline">GitHub</a>
+                            <a href="https://samtech-crypto-automodeler.streamlit.app" target="_blank" class="text-blue-600 hover:underline">Live Demo</a>
+                        </div>
+                    </div>
+                    <!-- Project: ESG Radar -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg animate-card fade-in">
+                        <h3 class="text-2xl font-semibold mb-3 text-blue-900">ESG Radar</h3>
+                        <p class="text-gray-600 mb-4">ESG scoring engine for small-scale investments, aligning with sustainable goals.</p>
+                        <p><strong>Tools:</strong> Python, BI Tools</p>
+                        <div class="mt-4">
+                            <a href="https://github.com/SamTech-crypto/esg-radar" target="_blank" class="text-blue-600 hover:underline">GitHub</a>
+                        </div>
+                    </div>
+                    <!-- Project: Predictive Risk Modeling -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg animate-card fade-in">
+                        <h3 class="text-2xl font-semibold mb-3 text-blue-900">Predictive Risk Modeling</h3>
+                        <p class="text-gray-600 mb-4">A web app for predictive risk modeling using advanced analytics to identify and mitigate financial risks.</p>
+                        <p><strong>Tools:</strong> Python, Streamlit, pandas, scikit-learn</p>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://github.com/SamTech-crypto/predictive-risk-app" target="_blank" class="text-blue-600 hover:underline">GitHub</a>
+                            <a href="https://predictive-risk-app.streamlit.app" target="_blank" class="text-blue-600 hover:underline">Live App</a>
+                            <a href="/notebooks/predictive-risk-modeling.html" target="_blank" class="text-blue-600 hover:underline">Interactive Notebook</a>
+                        </div>
+                    </div>
+                    <!-- Project: VAS Performance Analysis -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg animate-card fade-in">
+                        <h3 class="text-2xl font-semibold mb-3 text-blue-900">VAS Performance Analysis</h3>
+                        <p class="text-gray-600 mb-4">Analyze VAS logs to detect trends, downtimes, and risks with interactive visualizations.</p>
+                        <p><strong>Tools:</strong> pandas, plotly, matplotlib, seaborn, SQLAlchemy, Dash/Streamlit</p>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://github.com/SamTech-crypto/vas-performance-analysis" target="_blank" class="text-blue-600 hover:underline">GitHub</a>
+                            <a href="/notebooks/vas-performance-analysis.html" target="_blank" class="text-blue-600 hover:underline">Interactive Notebook</a>
+                        </div>
+                    </div>
+                    <!-- Project: Audit Workflow Automation -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg animate-card fade-in">
+                        <h3 class="text-2xl font-semibold mb-3 text-blue-900">Audit Workflow Automation</h3>
+                        <p class="text-gray-600 mb-4">Automate audit tasks like email reminders and report generation for improved efficiency.</p>
+                        <p><strong>Tools:</strong> Python, datetime, smtplib, pandas, openpyxl, networkx/graphviz</p>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://github.com/SamTech-crypto/audit-workflow-automation" target="_blank" class="text-blue-600 hover:underline">GitHub</a>
+                            <a href="/notebooks/audit-workflow-automation.html" target="_blank" class="text-blue-600 hover:underline">Interactive Notebook</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- Existing Project: AutoModeler -->
-            <div class="bg-gray-50 p-6 rounded-xl shadow-lg animate-card fade-in">
-                <h3 class="text-2xl font-semibold mb-3 text-blue-900">AutoModeler</h3>
-                <p class="text-gray-600 mb-4">Automated 3-statement financial models from user inputs.</p>
-                <p><strong>Tools:</strong> Python, Streamlit</p>
-                <div class="mt-4 space-x-4">
-                    <a href="https://github.com/SamTech-crypto/automodeler" target="_blank" class="text-blue-600 hover:underline">GitHub</a>
-                    <a href="https://samtech-crypto-automodeler.streamlit.app" target="_blank" class="text-blue-600 hover:underline">Live Demo</a>
-                </div>
-            </div>
-            <!-- Existing Project: ESG Radar -->
-            <div class="bg-gray-50 p-6 rounded-xl shadow-lg animate-card fade-in">
-                <h3 class="text-2xl font-semibold mb-3 text-blue-900">ESG Radar</h3>
-                <p class="text-gray-600 mb-4">ESG scoring engine for small-scale investments.</p>
-                <p><strong>Tools:</strong> Python, BI Tools</p>
-                <div class="mt-4">
-                    <a href="https://github.com/SamTech-crypto/esg-radar" target="_blank" class="text-blue-600 hover:underline">GitHub</a>
-                </div>
-            </div>
-            <!-- New Project: Predictive Risk Modeling Using Analytics -->
-           <div class="mt-4 space-x-4">
-    <a href="https://github.com/SamTech-crypto/predictive-risk-modeling" target="_blank" class="text-blue-600 hover:underline">GitHub</a>
-    <a href="https://predictive-risk-app.streamlit.app" target="_blank" class="text-blue-600 hover:underline">Live App</a>
-    <a href="/notebooks/predictive-risk-modeling.html" target="_blank" class="text-blue-600 hover:underline">Interactive Notebook</a>
-</div>
-            <!-- New Project: VAS Performance and Risk Analysis -->
-            <div class="bg-gray-50 p-6 rounded-xl shadow-lg animate-card fade-in">
-                <h3 class="text-2xl font-semibold mb-3 text-blue-900">VAS Performance Analysis</h3>
-                <p class="text-gray-600 mb-4">Analyze VAS logs to detect trends, downtimes, and risks with visualizations.</p>
-                <p><strong>Tools:</strong> pandas, plotly, matplotlib, seaborn, SQLAlchemy, Dash/Streamlit</p>
-                <div class="mt-4 space-x-4">
-                    <a href="https://github.com/SamTech-crypto/vas-performance-analysis" target="_blank" class="text-blue-600 hover:underline">GitHub</a>
-                    <a href="/notebooks/vas-performance-analysis.html" target="_blank" class="text-blue-600 hover:underline">Interactive Notebook</a>
-                </div>
-            </div>
-            <!-- New Project: Audit Workflow Automation Prototype -->
-            <div class="bg-gray-50 p-6 rounded-xl shadow-lg animate-card fade-in">
-                <h3 class="text-2xl font-semibold mb-3 text-blue-900">Audit Workflow Automation</h3>
-                <p class="text-gray-600 mb-4">Automate audit tasks like email reminders and report generation.</p>
-                <p><strong>Tools:</strong> Python, datetime, smtplib, pandas, openpyxl, networkx/graphviz</p>
-                <div class="mt-4 space-x-4">
-                    <a href="https://github.com/SamTech-crypto/audit-workflow-automation" target="_blank" class="text-blue-600 hover:underline">GitHub</a>
-                    <a href="/notebooks/audit-workflow-automation.html" target="_blank" class="text-blue-600 hover:underline">Interactive Notebook</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
 
         <!-- Solutions Section (Pain Points) -->
         <section id="solutions" class="py-20 bg-gray-100" role="region" aria-label="Solutions">
@@ -190,7 +206,7 @@
                 <div class="flex justify-center space-x-4 flex-wrap gap-4">
                     <a href="mailto:samuel@financialstrategist.com" class="inline-block bg-white text-blue-900 font-semibold py-3 px-8 rounded-full hover:bg-blue-100 transition-colors fade-in">Contact Me Now</a>
                     <a href="https://wa.me/254712238286" target="_blank" class="inline-block bg-green-500 text-white font-semibold py-3 px-6 rounded-full hover:bg-green-600 transition-colors fade-in flex items-center">
-                         <i class="fab fa-whatsapp mr-2"></i> Start a WhatsApp Chat
+                        <span class="mr-2">💬</span> Start a WhatsApp Chat
                     </a>
                     <a href="https://www.linkedin.com/in/samuel-mwendwa/" target="_blank" class="inline-block bg-blue-700 text-white font-semibold py-3 px-6 rounded-full hover:bg-blue-800 transition-colors fade-in flex items-center">
                         <span class="mr-2">🔗</span> Connect on LinkedIn
@@ -209,11 +225,11 @@
             <p>© 2025 Samuel Mwendwa. All rights reserved.</p>
             <div class="mt-2 space-y-2">
                 <p>
-    <a href="https://wa.me/254712238286" target="_blank" class="text-green-400 hover:underline flex justify-center items-center">
-        <!-- WhatsApp icon using emoji or Font Awesome -->
-        <span class="mr-2">💬</span> Message me on WhatsApp
-    </a>
-</p>
+                    <a href="https://wa.me/254712238286" target="_blank" class="text-green-400 hover:underline flex justify-center items-center">
+                        <span class="mr-2">💬</span> Message me on WhatsApp
+                    </a>
+                </p>
+                <p>
                     <a href="https://www.linkedin.com/in/samuel-mwendwa/" target="_blank" class="text-blue-400 hover:underline flex justify-center items-center">
                         <span class="mr-2">🔗</span> Connect on LinkedIn
                     </a>
@@ -227,39 +243,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript for File Handling, Smooth Scrolling, Mobile Menu, and Animations -->
-    <script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-            return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-            if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-                try {
-                    var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                    var firstSheetName = workbook.SheetNames[0];
-                    var worksheet = workbook.Sheets[firstSheetName];
-                    var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                    var filteredData = jsonData.filter(row => row.some(filledCell));
-                    var headerRowIndex = filteredData.findIndex((row, index) =>
-                        row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                    );
-                    if (headerRowIndex === -1 || headerRowIndex > 25) {
-                        headerRowIndex = 0;
-                    }
-                    var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex));
-                    csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                    return csv;
-                } catch (e) {
-                    console.error(e);
-                    return "";
-                }
-            }
-            return gk_fileData[filename] || "";
-        }
-    </script>
+    <!-- JavaScript for Smooth Scrolling, Mobile Menu, and Animations -->
     <script>
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
