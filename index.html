@@ -315,7 +315,7 @@
                     <a href="https://wa.me/254712238286" target="_blank" class="inline-block bg-teal-600 text-white font-semibold py-3 px-6 rounded-full hover:bg-teal-700 transition-colors fade-in flex items-center">
                         <span class="mr-2">💬</span> WhatsApp
                     </a>
-                    <a href="https://www.linkedin.com/company/nexlify-solutions" target="_blank" class="inline-block bg-teal-800 text-white font-semibold py-3 px-6 rounded-full hover:bg-teal-900 transition-colors fade-in flex items-center">
+                    <a href="https://www.linkedin.com/in/samuel-mwendwa/" target="_blank" class="inline-block bg-teal-800 text-white font-semibold py-3 px-6 rounded-full hover:bg-teal-900 transition-colors fade-in flex items-center">
                         <span class="mr-2">🔗</span> LinkedIn
                     </a>
                 </div>
@@ -323,8 +323,9 @@
                 <div class="mt-8">
                     <h3 class="text-2xl font-semibold mb-4 fade-in">Join Our Newsletter</h3>
                     <div class="flex justify-center gap-4 flex-wrap">
-                        <input type="email" id="newsletter-email" placeholder="Your Email" class="p-3 rounded-full text-gray-800" required>
-                        <button onclick="subscribeNewsletter()" class="btn-accent font-semibold py-3 px-6 rounded-full">Subscribe</button>
+                        <a href="https://www.linkedin.com/newsletters/nexlify-solutions-7280665831749898242/" target="_blank" class="inline-block btn-accent font-semibold py-3 px-8 rounded-full transition-colors fade-in">
+                            Subscribe on LinkedIn
+                        </a>
                     </div>
                 </div>
             </div>
@@ -351,7 +352,7 @@
             <p>© 2025 Nexlify Solutions. All rights reserved.</p>
             <div class="mt-2 space-y-2">
                 <p><a href="https://wa.me/254712238286" target="_blank" class="text-emerald-200 hover:underline flex justify-center items-center"><span class="mr-2">💬</span> WhatsApp</a></p>
-                <p><a href="https://www.linkedin.com/company/nexlify-solutions" target="_blank" class="text-emerald-200 hover:underline flex justify-center items-center"><span class="mr-2">🔗</span> LinkedIn</a></p>
+                <p><a href="https://www.linkedin.com/in/samuel-mwendwa/" target="_blank" class="text-emerald-200 hover:underline flex justify-center items-center"><span class="mr-2">🔗</span> LinkedIn</a></p>
             </div>
         </div>
     </footer>
@@ -401,17 +402,6 @@
             const input = document.getElementById('chatbot-input').value;
             alert('Your question: ' + input + '\nWe’ll get back to you soon! For now, use email or WhatsApp.');
             // Future: Integrate Rust WebAssembly chatbot
-        }
-
-        // Newsletter subscription
-        function subscribeNewsletter() {
-            const email = document.getElementById('newsletter-email').value;
-            if (email) {
-                alert('Thank you for subscribing: ' + email);
-                // Future: Integrate with newsletter API
-            } else {
-                alert('Please enter a valid email.');
-            }
         }
     </script>
 </body>
