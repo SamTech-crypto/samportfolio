@@ -265,68 +265,83 @@
         <!-- Our Why and Ethos Section -->
         <section id="why-ethos" class="py-20 bg-white" role="region" aria-label="Our Why and Ethos">
   <div class="container mx-auto text-center">
-    <h2 class="text-4xl font-bold mb-8 fade-in text-teal-800 color-change-text">Our Why and Ethos</h2>
+    <!-- Animated Heading -->
+    <h2 class="text-4xl font-bold mb-8 text-teal-800 fade-in-up">Our Why and Ethos</h2>
+
     <p class="text-lg max-w-3xl mx-auto mb-12 fade-in text-gray-700">
       At Nexlify Solutions, we empower SMEs with AI, blockchain, and ESG tools to cut costs by 60% and drive sustainable growth. Led by Samuel Mwendwa, a Founder Institute mentor since 2023, our mission is to make cutting-edge fintech accessible, transparent, and impactful.
     </p>
+
     <blockquote class="text-gray-700 italic text-lg max-w-2xl mx-auto mb-12 fade-in">
       "SMEs are the backbone of every economy. At Nexlify, we’re tearing down the barriers to advanced fintech—so innovation, transparency, and impact aren’t luxuries, but the standard for every small business."
       — Samuel Mwendwa, Founder Institute Mentor
     </blockquote>
 
-    <div class="ethos-marquee-container" role="marquee" aria-label="Scrolling ethos values">
-      <div class="ethos-marquee-track">
+    <!-- Ethos Cards without background -->
+    <div class="ethos-marquee-container bg-white p-4 rounded-lg overflow-hidden">
+      <div class="ethos-marquee-track flex animate-scroll">
         <!-- Innovation -->
-        <div class="ethos-card">
-          <i class="fas fa-lightbulb text-teal-800 text-xl mb-2"></i>
-          <h3 class="text-xl font-semibold mb-2 text-teal-800">Innovation</h3>
-          <p class="text-gray-600">
-            We unlock next-gen solutions like the
-            <a href="#projects" class="text-teal-600 hover:underline color-change-text">*CFO AI Agent*</a>,
-            cutting SME reporting time by 40%.
-          </p>
-        </div>
+        <div class="ethos-card">...</div>
         <!-- Impact -->
-        <div class="ethos-card">
-          <i class="fas fa-leaf text-teal-800 text-xl mb-2"></i>
-          <h3 class="text-xl font-semibold mb-2 text-teal-800">Impact</h3>
-          <p class="text-gray-600">
-            Our
-            <a href="#projects" class="text-teal-600 hover:underline color-change-text">*ESG Scoring Engine*</a>
-            helped green startups raise $2M—because doing good should drive growth.
-          </p>
-        </div>
+        <div class="ethos-card">...</div>
         <!-- Integrity -->
-        <div class="ethos-card">
-          <i class="fas fa-shield-alt text-teal-800 text-xl mb-2"></i>
-          <h3 class="text-xl font-semibold mb-2 text-teal-800">Integrity</h3>
-          <p class="text-gray-600">
-            With tools like
-            <a href="#projects" class="text-teal-600 hover:underline color-change-text">*InvoFi*</a>,
-            we use blockchain to slash costs and shine a light on every transaction.
-          </p>
-        </div>
+        <div class="ethos-card">...</div>
         <!-- Collaboration -->
+        <div class="ethos-card">...</div>
+        <!-- Optional New Values -->
         <div class="ethos-card">
-          <i class="fas fa-handshake text-teal-800 text-xl mb-2"></i>
-          <h3 class="text-xl font-semibold mb-2 text-teal-800">Collaboration</h3>
+          <i class="fas fa-scale-balanced text-teal-800 text-xl mb-2"></i>
+          <h3 class="text-xl font-semibold mb-2 text-teal-800">Accountability</h3>
           <p class="text-gray-600">
-            From mentorship at the Founder Institute to
-            <a href="#projects" class="text-teal-600 hover:underline color-change-text">*ChurnGuard’s*</a>
-            25% retention boost, we scale success through shared vision.
+            We measure outcomes, not intentions—ensuring our tools create real-world results for SMEs.
           </p>
         </div>
-
-        <!-- Duplicates for seamless scrolling -->
-        <!-- Add same four cards again if needed for smooth marquee loop -->
+        <div class="ethos-card">
+          <i class="fas fa-users text-teal-800 text-xl mb-2"></i>
+          <h3 class="text-xl font-semibold mb-2 text-teal-800">Inclusion</h3>
+          <p class="text-gray-600">
+            We build with empathy, designing fintech that works across cultures, regions, and business stages.
+          </p>
+        </div>
       </div>
     </div>
 
-    <button onclick="pauseMarquee()" class="btn-accent py-2 px-4 rounded mt-6" aria-label="Pause or resume scrolling ethos values">Pause Scroll</button>
+    <!-- Optionally Remove the Pause Button -->
+    <!-- <button onclick="pauseMarquee()" class="btn-accent py-2 px-4 rounded mt-6">Pause Scroll</button> -->
+
     <a href="#contact" class="mt-6 inline-block btn-accent text-white py-3 px-8 rounded-full transition-colors fade-in">Join Our Mission</a>
   </div>
 </section>
 
+<!-- Optional CSS Animation -->
+<style>
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-scroll {
+    animation: marquee 25s linear infinite;
+    display: flex;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+</style>
         <!-- Projects Section -->
         <section id="projects" class="py-20 bg-gray-100" role="region" aria-label="Projects">
             <div class="container mx-auto">
