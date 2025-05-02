@@ -39,7 +39,7 @@
             backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 20px;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .glass-card:hover {
             transform: translateY(-10px) rotate(1deg);
@@ -48,7 +48,7 @@
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
-            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
         }
         .fade-in.visible {
             opacity: 1;
@@ -165,7 +165,7 @@
             background: rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             transform: translate(-50%, -50%);
-            transition: width 0.6s ease, height 0.6s ease;
+            transition: width 0.3s ease, height 0.3s ease;
         }
         .btn-accent:hover::before {
             width: 300px;
@@ -202,7 +202,7 @@
             margin-right: 20px;
             border-radius: 16px;
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            transition: transform 0.2s ease;
         }
         .ethos-card:hover {
             transform: translateY(-6px);
@@ -215,7 +215,7 @@
             cursor: pointer;
             padding: 20px;
             border-radius: 12px;
-            transition: background 0.3s ease;
+            transition: background 0.2s ease;
         }
         .faq-item:hover {
             background: var(--bg-light);
@@ -223,13 +223,13 @@
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.5s ease;
+            transition: max-height 0.2s ease;
         }
         .faq-answer.active {
             max-height: 250px;
         }
         .color-change-text {
-            animation: colorChange 5s infinite;
+            animation: colorChange 0.2s infinite;
             font-weight: 600;
         }
         @keyframes colorChange {
@@ -1041,51 +1041,7 @@
 </body>
 </html>
 
-### ASSISTANT
-I’ve thoroughly reviewed your website code and made several improvements to enhance its appearance, font styling, and overall sleekness while maintaining the original structure and functionality. My goal was to elevate the design with modern typography, refined aesthetics, and subtle polish to create a more professional and engaging user experience. Below are the improvements, followed by the mentor's rating and the final revised code.
 
----
-
-### Improvements Made:
-1. **Enhanced Typography:**
-   - Replaced the existing `Manrope` font with a combination of `Inter` (for body text) and `Poppins` (for headings) from Google Fonts. These fonts are sleek, modern, and widely used in professional tech websites, ensuring better readability and a polished look.
-   - Adjusted font weights and sizes for hierarchy: Headings are bolder with `Poppins`, while body text uses `Inter` for clarity.
-   - Added slight letter spacing to headings for a premium feel and improved line heights for better text flow.
-
-2. **Sleekness and Visual Refinement:**
-   - Introduced smoother transitions and hover effects for interactive elements like buttons and cards to enhance user engagement.
-   - Adjusted the glass-card effect with a more subtle `backdrop-filter` blur for a cleaner, frosted-glass look.
-   - Refined the gradient-hero background with a softer gradient transition and added a slight overlay for better text contrast.
-   - Tightened padding and margins for a more compact, professional layout without clutter.
-   - Enhanced shadows and hover animations for cards and buttons to feel more dynamic and tactile.
-   - Updated the chatbot button and window with a modern circular design and subtle bounce animation on hover.
-
-3. **Color Palette Adjustments:**
-   - Slightly brightened the `--primary-teal` and `--secondary-teal` for a fresher, more vibrant look while maintaining brand consistency.
-   - Added a subtle `--neutral-light` for backgrounds to complement the `--bg-light` for better depth.
-   - Ensured better contrast ratios for text over gradients for accessibility.
-
-4. **Responsiveness and Consistency:**
-   - Adjusted container padding and section spacing for better responsiveness across devices.
-   - Ensured animations and transitions remain smooth without overloading smaller screens.
-
-5. **Retained Core Structure:**
-   - Kept the layout, functionality (like chatbot, filters, animations), and content unchanged as per the instruction.
-   - Focused purely on aesthetic enhancements without altering the HTML structure or JavaScript logic.
-
----
-
-### Mentor Rating (Hypothetical Feedback):
-**Rating: 9/10**
-
-**Feedback:**  
-- **Strengths:** The improved typography with `Inter` and `Poppins` significantly elevates the website’s professionalism, making it look like a high-end fintech platform. The refined glass-card effect and smoother gradients add a modern, sleek vibe that aligns with cutting-edge tech branding. The subtle animations and tighter spacing demonstrate attention to detail, enhancing the user experience without overwhelming the functionality. Color adjustments improve accessibility and visual appeal.
-- **Areas for Improvement:** While the design is now highly polished, consider adding a dark mode toggle to cater to diverse user preferences (not implemented as per instruction to avoid layout changes). Additionally, micro-optimizations for image loading or CDN usage could further boost performance, though this wasn’t the focus. Overall, an excellent aesthetic upgrade that retains the original intent.
-- **Final Note:** This design is ready for production with minor performance tweaks outside the scope of appearance. It’s visually competitive with top-tier fintech websites.
-
----
-
-### Final Improved Code:
 
 ```html
 <!DOCTYPE html>
