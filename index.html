@@ -266,7 +266,7 @@
         <section id="why-ethos" class="py-20 bg-white" role="region" aria-label="Why Nexlify & Our Ethos">
   <div class="container mx-auto text-center">
 
-    <!-- Animated Heading -->
+    <!-- Heading -->
     <h2 class="text-4xl font-bold mb-8 text-teal-800 fade-in-up">Our Why and Ethos</h2>
 
     <p class="text-lg max-w-3xl mx-auto mb-12 fade-in text-gray-700">
@@ -278,45 +278,75 @@
       — Samuel Mwendwa, Founder Institute Mentor
     </blockquote>
 
-    <!-- Ethos Cards -->
-    <div class="ethos-marquee-container bg-white p-4 rounded-lg overflow-hidden">
-      <div class="ethos-marquee-track flex animate-scroll" aria-label="Nexlify Values Marquee" role="list">
-        <!-- Innovation -->
-        <div class="ethos-card" role="listitem">
+    <!-- Scrolling Ethos Cards -->
+    <div class="ethos-marquee-container relative overflow-hidden bg-white py-4">
+      <div class="ethos-marquee-track flex animate-scroll gap-6 w-max">
+        <!-- Repeat the list twice for seamless scroll -->
+        <!-- START Loop (1) -->
+        <div class="ethos-card">
           <i class="fas fa-lightbulb text-teal-800 text-xl mb-2"></i>
           <h3 class="text-xl font-semibold mb-2 text-teal-800">Innovation</h3>
-          <p class="text-gray-600">We embrace emerging technologies to unlock new value for SMEs.</p>
+          <p class="text-gray-600">We unlock value with emerging tech for SMEs.</p>
         </div>
-        <!-- Impact -->
-        <div class="ethos-card" role="listitem">
+        <div class="ethos-card">
           <i class="fas fa-bullseye text-teal-800 text-xl mb-2"></i>
           <h3 class="text-xl font-semibold mb-2 text-teal-800">Impact</h3>
-          <p class="text-gray-600">Everything we build aims to create measurable improvements in the real world.</p>
+          <p class="text-gray-600">We build tools that create measurable change.</p>
         </div>
-        <!-- Integrity -->
-        <div class="ethos-card" role="listitem">
+        <div class="ethos-card">
           <i class="fas fa-shield-alt text-teal-800 text-xl mb-2"></i>
           <h3 class="text-xl font-semibold mb-2 text-teal-800">Integrity</h3>
-          <p class="text-gray-600">We prioritize transparency and ethics in every line of code and policy.</p>
+          <p class="text-gray-600">We commit to transparency in every process.</p>
         </div>
-        <!-- Collaboration -->
-        <div class="ethos-card" role="listitem">
+        <div class="ethos-card">
           <i class="fas fa-handshake text-teal-800 text-xl mb-2"></i>
           <h3 class="text-xl font-semibold mb-2 text-teal-800">Collaboration</h3>
-          <p class="text-gray-600">We build lasting partnerships—with clients, communities, and ecosystems.</p>
+          <p class="text-gray-600">We grow through inclusive partnerships.</p>
         </div>
-        <!-- Accountability -->
-        <div class="ethos-card" role="listitem">
+        <div class="ethos-card">
           <i class="fas fa-scale-balanced text-teal-800 text-xl mb-2"></i>
           <h3 class="text-xl font-semibold mb-2 text-teal-800">Accountability</h3>
-          <p class="text-gray-600">We measure outcomes, not intentions—ensuring tools deliver tangible value.</p>
+          <p class="text-gray-600">We track outcomes, not just intentions.</p>
         </div>
-        <!-- Inclusion -->
-        <div class="ethos-card" role="listitem">
+        <div class="ethos-card">
           <i class="fas fa-users text-teal-800 text-xl mb-2"></i>
           <h3 class="text-xl font-semibold mb-2 text-teal-800">Inclusion</h3>
-          <p class="text-gray-600">We design with empathy—making fintech that works across cultures and stages.</p>
+          <p class="text-gray-600">We design for diversity—region, culture, and stage.</p>
         </div>
+        <!-- END Loop (1) -->
+        <!-- START Loop (2) - Duplicate for scroll -->
+        <!-- Repeat all cards again -->
+        <div class="ethos-card">
+          <i class="fas fa-lightbulb text-teal-800 text-xl mb-2"></i>
+          <h3 class="text-xl font-semibold mb-2 text-teal-800">Innovation</h3>
+          <p class="text-gray-600">We unlock value with emerging tech for SMEs.</p>
+        </div>
+        <div class="ethos-card">
+          <i class="fas fa-bullseye text-teal-800 text-xl mb-2"></i>
+          <h3 class="text-xl font-semibold mb-2 text-teal-800">Impact</h3>
+          <p class="text-gray-600">We build tools that create measurable change.</p>
+        </div>
+        <div class="ethos-card">
+          <i class="fas fa-shield-alt text-teal-800 text-xl mb-2"></i>
+          <h3 class="text-xl font-semibold mb-2 text-teal-800">Integrity</h3>
+          <p class="text-gray-600">We commit to transparency in every process.</p>
+        </div>
+        <div class="ethos-card">
+          <i class="fas fa-handshake text-teal-800 text-xl mb-2"></i>
+          <h3 class="text-xl font-semibold mb-2 text-teal-800">Collaboration</h3>
+          <p class="text-gray-600">We grow through inclusive partnerships.</p>
+        </div>
+        <div class="ethos-card">
+          <i class="fas fa-scale-balanced text-teal-800 text-xl mb-2"></i>
+          <h3 class="text-xl font-semibold mb-2 text-teal-800">Accountability</h3>
+          <p class="text-gray-600">We track outcomes, not just intentions.</p>
+        </div>
+        <div class="ethos-card">
+          <i class="fas fa-users text-teal-800 text-xl mb-2"></i>
+          <h3 class="text-xl font-semibold mb-2 text-teal-800">Inclusion</h3>
+          <p class="text-gray-600">We design for diversity—region, culture, and stage.</p>
+        </div>
+        <!-- END Loop (2) -->
       </div>
     </div>
 
@@ -327,7 +357,7 @@
   </div>
 </section>
 
-<!-- Optional CSS Animation -->
+<!-- CSS -->
 <style>
   .fade-in-up {
     opacity: 0;
@@ -342,27 +372,42 @@
     }
   }
 
-  .animate-scroll {
-    animation: marquee 25s linear infinite;
-    display: flex;
+  .ethos-marquee-container {
+    max-width: 100%;
+    overflow: hidden;
   }
 
-  @keyframes marquee {
-    from {
+  .ethos-marquee-track {
+    display: flex;
+    animation: scroll-left 30s linear infinite;
+  }
+
+  .ethos-card {
+    min-width: 220px;
+    max-width: 240px;
+    flex: 0 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  @keyframes scroll-left {
+    0% {
       transform: translateX(0%);
     }
-    to {
+    100% {
       transform: translateX(-50%);
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .animate-scroll {
+    .ethos-marquee-track {
       animation: none;
     }
   }
 </style>
-
         <!-- Projects Section -->
         <section id="projects" class="py-20 bg-gray-100" role="region" aria-label="Projects">
             <div class="container mx-auto">
