@@ -263,53 +263,67 @@
         </section>
 
         <!-- Our Why and Ethos Section -->
-        <section id="why-ethos" class="py-20 bg-white" role="region" aria-label="Our Why and Ethos">
+        <section id="why-ethos" class="py-20 bg-white" role="region" aria-label="Why Nexlify & Our Ethos">
   <div class="container mx-auto text-center">
+
     <!-- Animated Heading -->
     <h2 class="text-4xl font-bold mb-8 text-teal-800 fade-in-up">Our Why and Ethos</h2>
 
     <p class="text-lg max-w-3xl mx-auto mb-12 fade-in text-gray-700">
-      At Nexlify Solutions, we empower SMEs with AI, blockchain, and ESG tools to cut costs by 60% and drive sustainable growth. Led by Samuel Mwendwa, a Founder Institute mentor since 2023, our mission is to make cutting-edge fintech accessible, transparent, and impactful.
+      At Nexlify Solutions, we equip small and medium enterprises with AI, blockchain, and ESG-powered fintech to cut operational costs by up to 60%—fueling scalable, sustainable growth. Founded by Samuel Mwendwa, a Founder Institute mentor since 2023, our goal is to make advanced financial tools accessible, transparent, and truly transformative for businesses worldwide.
     </p>
 
     <blockquote class="text-gray-700 italic text-lg max-w-2xl mx-auto mb-12 fade-in">
-      "SMEs are the backbone of every economy. At Nexlify, we’re tearing down the barriers to advanced fintech—so innovation, transparency, and impact aren’t luxuries, but the standard for every small business."
+      "SMEs are the backbone of every economy. At Nexlify, we’re removing the barriers to advanced fintech—so innovation, transparency, and impact become the standard, not the exception."
       — Samuel Mwendwa, Founder Institute Mentor
     </blockquote>
 
-    <!-- Ethos Cards without background -->
+    <!-- Ethos Cards -->
     <div class="ethos-marquee-container bg-white p-4 rounded-lg overflow-hidden">
-      <div class="ethos-marquee-track flex animate-scroll">
+      <div class="ethos-marquee-track flex animate-scroll" aria-label="Nexlify Values Marquee" role="list">
         <!-- Innovation -->
-        <div class="ethos-card">...</div>
+        <div class="ethos-card" role="listitem">
+          <i class="fas fa-lightbulb text-teal-800 text-xl mb-2"></i>
+          <h3 class="text-xl font-semibold mb-2 text-teal-800">Innovation</h3>
+          <p class="text-gray-600">We embrace emerging technologies to unlock new value for SMEs.</p>
+        </div>
         <!-- Impact -->
-        <div class="ethos-card">...</div>
+        <div class="ethos-card" role="listitem">
+          <i class="fas fa-bullseye text-teal-800 text-xl mb-2"></i>
+          <h3 class="text-xl font-semibold mb-2 text-teal-800">Impact</h3>
+          <p class="text-gray-600">Everything we build aims to create measurable improvements in the real world.</p>
+        </div>
         <!-- Integrity -->
-        <div class="ethos-card">...</div>
+        <div class="ethos-card" role="listitem">
+          <i class="fas fa-shield-alt text-teal-800 text-xl mb-2"></i>
+          <h3 class="text-xl font-semibold mb-2 text-teal-800">Integrity</h3>
+          <p class="text-gray-600">We prioritize transparency and ethics in every line of code and policy.</p>
+        </div>
         <!-- Collaboration -->
-        <div class="ethos-card">...</div>
-        <!-- Optional New Values -->
-        <div class="ethos-card">
+        <div class="ethos-card" role="listitem">
+          <i class="fas fa-handshake text-teal-800 text-xl mb-2"></i>
+          <h3 class="text-xl font-semibold mb-2 text-teal-800">Collaboration</h3>
+          <p class="text-gray-600">We build lasting partnerships—with clients, communities, and ecosystems.</p>
+        </div>
+        <!-- Accountability -->
+        <div class="ethos-card" role="listitem">
           <i class="fas fa-scale-balanced text-teal-800 text-xl mb-2"></i>
           <h3 class="text-xl font-semibold mb-2 text-teal-800">Accountability</h3>
-          <p class="text-gray-600">
-            We measure outcomes, not intentions—ensuring our tools create real-world results for SMEs.
-          </p>
+          <p class="text-gray-600">We measure outcomes, not intentions—ensuring tools deliver tangible value.</p>
         </div>
-        <div class="ethos-card">
+        <!-- Inclusion -->
+        <div class="ethos-card" role="listitem">
           <i class="fas fa-users text-teal-800 text-xl mb-2"></i>
           <h3 class="text-xl font-semibold mb-2 text-teal-800">Inclusion</h3>
-          <p class="text-gray-600">
-            We build with empathy, designing fintech that works across cultures, regions, and business stages.
-          </p>
+          <p class="text-gray-600">We design with empathy—making fintech that works across cultures and stages.</p>
         </div>
       </div>
     </div>
 
-    <!-- Optionally Remove the Pause Button -->
-    <!-- <button onclick="pauseMarquee()" class="btn-accent py-2 px-4 rounded mt-6">Pause Scroll</button> -->
-
-    <a href="#contact" class="mt-6 inline-block btn-accent text-white py-3 px-8 rounded-full transition-colors fade-in">Join Our Mission</a>
+    <!-- CTA -->
+    <a href="#contact" class="mt-6 inline-block bg-teal-600 hover:bg-teal-700 text-white py-3 px-8 rounded-full transition-colors fade-in">
+      Partner with Us
+    </a>
   </div>
 </section>
 
@@ -341,7 +355,14 @@
       transform: translateX(-50%);
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-scroll {
+      animation: none;
+    }
+  }
 </style>
+
         <!-- Projects Section -->
         <section id="projects" class="py-20 bg-gray-100" role="region" aria-label="Projects">
             <div class="container mx-auto">
