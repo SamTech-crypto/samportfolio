@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nexlify Solutions: Fintech & ESG Solutions for SMEs, Powered by AI and Blockchain. Automate financial modeling, optimize ESG compliance, and leverage DeFi for growth.">
-    <meta name="keywords" content="fintech for SMEs, ESG compliance, DeFi financing, AI analytics, financial strategist, startup growth">
+    <meta name="description" content="Nexlify Solutions: Mission-driven fintech and ESG solutions for SMEs, powered by AI, blockchain, and quantum tech. Watch demo videos of Samuel Mwendwa’s projects, including ESG Scoring Engine and InvoFi, and explore our ethos of innovation and impact.">
+    <meta name="keywords" content="fintech for SMEs, ESG compliance, DeFi financing, AI analytics, blockchain developer, Samuel Mwendwa, Founder Institute mentor, mission-driven fintech, sustainable SME solutions, competitor benchmarking, financial projections, technical deep dives, fintech demo video, AI dashboard video, blockchain financing video">
     <meta name="author" content="Nexlify Solutions">
     <title>Nexlify Solutions - Fintech & ESG Specialist for SMEs</title>
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAKCgoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            background: #f3f4f6;
         }
         .gradient-hero {
             background: linear-gradient(135deg, #0f766e 0%, #10b981 100%);
@@ -107,21 +109,21 @@
             background-color: #d97706;
             transform: scale(1.05);
         }
-        .testimonial-container {
+        .testimonial-container, .ethos-marquee-container {
             background: linear-gradient(135deg, #10b981 0%, #0f766e 100%);
             padding: 20px;
             border-radius: 12px;
             overflow: hidden;
             position: relative;
         }
-        .testimonial-track {
+        .testimonial-track, .ethos-marquee-track {
             display: flex;
-            animation: scroll-left 20s linear infinite;
+            animation: scroll-left 15s linear infinite;
         }
-        .testimonial-track:hover {
+        .testimonial-track:hover, .ethos-marquee-track:hover {
             animation-play-state: paused;
         }
-        .testimonial-card {
+        .testimonial-card, .ethos-card {
             flex: 0 0 auto;
             background: white;
             padding: 16px;
@@ -155,7 +157,50 @@
         @keyframes colorChange {
             0% { color: #f59e0b; }
             50% { color: #10b981; }
-            100% { color: #f59e0b; }
+            100% { color: #0f766e; }
+        }
+        .filter-btn {
+            background-color: #e5e7eb;
+            color: #0f766e;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background-color: #10b981;
+            color: white;
+        }
+        .project-video {
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .project-video:hover {
+            transform: scale(1.1);
+        }
+        .chart-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #e5e7eb;
+            padding: 12px;
+            text-align: left;
+        }
+        .comparison-table th {
+            background-color: #0f766e;
+            color: white;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #f3f4f6;
+        }
+        .ethos-card h3 {
+            animation: colorChange 5s infinite;
         }
     </style>
 </head>
@@ -172,10 +217,11 @@
             </button>
             <ul class="hidden md:flex space-x-6" id="nav-menu">
                 <li><a href="#home" class="hover:text-emerald-200 transition-colors">Home</a></li>
-                <li><a href="#projects" class="hover:text-emerald-200 transition-colors">Projects</a></li>
+                <li><a href="#why-ethos" class="hover:text-emerald-200 transition-colors">Our Why</a></li>
+                <li><a href="#projects" class="hover:text-emerald-200 transition-colors">Solutions</a></li>
+                <li><a href="#innovators" class="hover:text-emerald-200 transition-colors">Our Innovators</a></li>
+                <li><a href="#expertise" class="hover:text-emerald-200 transition-colors">Expertise Showcase</a></li>
                 <li><a href="#case-studies" class="hover:text-emerald-200 transition-colors">Case Studies</a></li>
-                <li><a href="#solutions" class="hover:text-emerald-200 transition-colors">Solutions</a></li>
-                <li><a href="#why-esg-defi" class="hover:text-emerald-200 transition-colors">Why ESG & DeFi</a></li>
                 <li><a href="#blog" class="hover:text-emerald-200 transition-colors">Blog</a></li>
                 <li><a href="#faq" class="hover:text-emerald-200 transition-colors">FAQ</a></li>
                 <li><a href="#contact" class="hover:text-emerald-200 transition-colors">Contact</a></li>
@@ -188,8 +234,8 @@
         <!-- Home Section -->
         <section id="home" class="gradient-hero text-white py-24" role="region" aria-label="Home">
             <div class="container mx-auto text-center">
-                <h2 class="text-5xl font-extrabold mb-6 fade-in color-change-text">Fintech & ESG Solutions for SMEs</h2>
-                <p class="text-xl max-w-3xl mx-auto mb-8 fade-in">Nexlify Solutions delivers AI-driven fintech and ESG tools, cutting costs by up to 60% and boosting SME growth with blockchain and quantum tech.</p>
+                <h2 class="text-5xl font-extrabold mb-6 fade-in color-change-text">AI-Driven Fintech & ESG Solutions</h2>
+                <p class="text-xl max-w-3xl mx-auto mb-8 fade-in">Nexlify Solutions, powered by Samuel Mwendwa’s expertise and mentorship at The Founder Institute since 2023, delivers AI, blockchain, and quantum tools to cut SME costs by up to 60% and drive growth.</p>
                 <div class="flex justify-center space-x-4 flex-wrap gap-4">
                     <a href="#contact" class="inline-block btn-accent font-semibold py-3 px-8 rounded-full transition-colors fade-in">Book a Free Consultation</a>
                     <a href="#projects" class="inline-block bg-teal-600 text-white font-semibold py-3 px-8 rounded-full hover:bg-teal-700 transition-colors fade-in">Explore Solutions</a>
@@ -201,11 +247,11 @@
         <section id="why-esg-defi" class="py-20 bg-gray-100" role="region" aria-label="Why ESG & DeFi">
             <div class="container mx-auto text-center">
                 <h2 class="text-4xl font-bold mb-8 fade-in text-teal-800 color-change-text">Why ESG & DeFi Matter</h2>
-                <p class="text-lg max-w-3xl mx-auto mb-8 fade-in text-gray-700">ESG compliance attracts investors and ensures sustainability, while DeFi unlocks low-cost financing. Our AI-driven tools simplify both for SMEs.</p>
+                <p class="text-lg max-w-3xl mx-auto mb-8 fade-in text-gray-700">ESG compliance attracts investors, while DeFi unlocks low-cost financing. Our AI and blockchain tools simplify both for SMEs.</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in">
                         <h3 class="text-2xl font-semibold mb-3 text-teal-800">ESG Benefits</h3>
-                        <p class="text-gray-600 mb-4">Align with investor demands and cut reporting costs by 70% with <span class="color-change-text">*ESG Radar*</span>.</p>
+                        <p class="text-gray-600 mb-4">Align with investor demands and cut reporting costs by 70% with <span class="color-change-text">*ESG Scoring Engine*</span>.</p>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in">
                         <h3 class="text-2xl font-semibold mb-3 text-teal-800">DeFi Advantages</h3>
@@ -213,6 +259,342 @@
                     </div>
                 </div>
                 <a href="#contact" class="mt-6 inline-block btn-accent text-white py-3 px-8 rounded-full transition-colors fade-in">Learn How We Help</a>
+            </div>
+        </section>
+
+        <!-- Our Why and Ethos Section -->
+        <section id="why-ethos" class="py-20 bg-white" role="region" aria-label="Our Why and Ethos">
+  <div class="container mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-8 fade-in text-teal-800 color-change-text">Our Why and Ethos</h2>
+    <p class="text-lg max-w-3xl mx-auto mb-12 fade-in text-gray-700">
+      At Nexlify Solutions, we empower SMEs with AI, blockchain, and ESG tools to cut costs by 60% and drive sustainable growth. Led by Samuel Mwendwa, a Founder Institute mentor since 2023, our mission is to make cutting-edge fintech accessible, transparent, and impactful.
+    </p>
+    <blockquote class="text-gray-700 italic text-lg max-w-2xl mx-auto mb-12 fade-in">
+      "SMEs are the backbone of every economy. At Nexlify, we’re tearing down the barriers to advanced fintech—so innovation, transparency, and impact aren’t luxuries, but the standard for every small business."
+      — Samuel Mwendwa, Founder Institute Mentor
+    </blockquote>
+
+    <div class="ethos-marquee-container" role="marquee" aria-label="Scrolling ethos values">
+      <div class="ethos-marquee-track">
+        <!-- Innovation -->
+        <div class="ethos-card">
+          <i class="fas fa-lightbulb text-teal-800 text-xl mb-2"></i>
+          <h3 class="text-xl font-semibold mb-2 text-teal-800">Innovation</h3>
+          <p class="text-gray-600">
+            We unlock next-gen solutions like the
+            <a href="#projects" class="text-teal-600 hover:underline color-change-text">*CFO AI Agent*</a>,
+            cutting SME reporting time by 40%.
+          </p>
+        </div>
+        <!-- Impact -->
+        <div class="ethos-card">
+          <i class="fas fa-leaf text-teal-800 text-xl mb-2"></i>
+          <h3 class="text-xl font-semibold mb-2 text-teal-800">Impact</h3>
+          <p class="text-gray-600">
+            Our
+            <a href="#projects" class="text-teal-600 hover:underline color-change-text">*ESG Scoring Engine*</a>
+            helped green startups raise $2M—because doing good should drive growth.
+          </p>
+        </div>
+        <!-- Integrity -->
+        <div class="ethos-card">
+          <i class="fas fa-shield-alt text-teal-800 text-xl mb-2"></i>
+          <h3 class="text-xl font-semibold mb-2 text-teal-800">Integrity</h3>
+          <p class="text-gray-600">
+            With tools like
+            <a href="#projects" class="text-teal-600 hover:underline color-change-text">*InvoFi*</a>,
+            we use blockchain to slash costs and shine a light on every transaction.
+          </p>
+        </div>
+        <!-- Collaboration -->
+        <div class="ethos-card">
+          <i class="fas fa-handshake text-teal-800 text-xl mb-2"></i>
+          <h3 class="text-xl font-semibold mb-2 text-teal-800">Collaboration</h3>
+          <p class="text-gray-600">
+            From mentorship at the Founder Institute to
+            <a href="#projects" class="text-teal-600 hover:underline color-change-text">*ChurnGuard’s*</a>
+            25% retention boost, we scale success through shared vision.
+          </p>
+        </div>
+
+        <!-- Duplicates for seamless scrolling -->
+        <!-- Add same four cards again if needed for smooth marquee loop -->
+      </div>
+    </div>
+
+    <button onclick="pauseMarquee()" class="btn-accent py-2 px-4 rounded mt-6" aria-label="Pause or resume scrolling ethos values">Pause Scroll</button>
+    <a href="#contact" class="mt-6 inline-block btn-accent text-white py-3 px-8 rounded-full transition-colors fade-in">Join Our Mission</a>
+  </div>
+</section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 bg-gray-100" role="region" aria-label="Projects">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-8 fade-in text-teal-800 color-change-text">Our Solutions</h2>
+                <p class="text-lg text-center max-w-2xl mx-auto mb-8 fade-in text-gray-700">Watch demo videos of our AI, blockchain, and quantum solutions, developed by Samuel Mwendwa, tailored for SMEs and showcasing expertise for employers.</p>
+                <!-- Project Filters -->
+                <div class="flex justify-center space-x-4 mb-12 fade-in">
+                    <button class="filter-btn active" onclick="filterProjects('all')">All</button>
+                    <button class="filter-btn" onclick="filterProjects('ai')">AI</button>
+                    <button class="filter-btn" onclick="filterProjects('blockchain')">Blockchain</button>
+                    <button class="filter-btn" onclick="filterProjects('esg')">ESG</button>
+                    <button class="filter-btn" onclick="filterProjects('quantum')">Quantum</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
+                    <!-- ESG Scoring Engine -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in project-card" data-category="esg ai">
+                        <!-- Replace with 30-second ESG dashboard demo -->
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            title="Demo video of ESG Scoring Engine AI dashboard by Samuel Mwendwa" 
+                            aria-label="Demo video of ESG Scoring Engine AI dashboard" 
+                            class="w-full h-40 object-cover mb-4 project-video" 
+                            frameborder="0" 
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            loading="lazy">
+                        </iframe>
+                        <p class="sr-only">Video demo of AI-powered ESG Scoring Engine dashboard</p>
+                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">ESG Scoring Engine</h3>
+                        <p class="text-gray-600 mb-4">Developed by Samuel Mwendwa using TensorFlow and Ethereum, this AI-powered ESG scoring tool with blockchain transparency reduces compliance costs by 70%.</p>
+                        <p><strong>Tools:</strong> TensorFlow, Ethereum, Streamlit</p>
+                        <p class="text-gray-600 mt-2"><strong>Impact:</strong> Attracted $2M in funding for startups.</p>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://github.com/SamTech-crypto/esg-scoring-engine" target="_blank" class="text-teal-600 hover:underline">GitHub</a>
+                            <a href="https://esg-scoring-engine.streamlit.app" target="_blank" class="text-teal-600 hover:underline">Live Demo</a>
+                        </div>
+                    </div>
+                    <!-- CFO AI Agent -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in project-card" data-category="ai">
+                        <!-- Replace with 45-second CFO AI forecasting demo -->
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            title="Demo video of CFO AI Agent forecasting UI by Samuel Mwendwa" 
+                            aria-label="Demo video of CFO AI Agent forecasting UI" 
+                            class="w-full h-40 object-cover mb-4 project-video" 
+                            frameborder="0" 
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            loading="lazy">
+                        </iframe>
+                        <p class="sr-only">Video demo of CFO AI Agent forecasting interface</p>
+                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">CFO AI Agent</h3>
+                        <p class="text-gray-600 mb-4">Built by Samuel Mwendwa using LangChain and Pinecone, this AI assistant for CFOs offers forecasting and anomaly detection, saving 40% on reporting time.</p>
+                        <p><strong>Tools:</strong> LangChain, Pinecone, Streamlit</p>
+                        <p class="text-gray-600 mt-2"><strong>Impact:</strong> Improved forecasting accuracy by 30%.</p>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://github.com/SamTech-crypto/cfo-ai-agent" target="_blank" class="text-teal-600 hover:underline">GitHub</a>
+                            <a href="https://cfo-ai-agent.streamlit.app" target="_blank" class="text-teal-600 hover:underline">Live Demo</a>
+                        </div>
+                    </div>
+                    <!-- InvoFi -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in project-card" data-category="blockchain">
+                        <!-- Replace with 1-minute InvoFi financing explainer -->
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            title="Demo video of InvoFi blockchain financing platform by Samuel Mwendwa" 
+                            aria-label="Demo video of InvoFi blockchain financing platform" 
+                            class="w-full h-40 object-cover mb-4 project-video" 
+                            frameborder="0" 
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            loading="lazy">
+                        </iframe>
+                        <p class="sr-only">Video demo of InvoFi decentralized financing platform</p>
+                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">InvoFi</h3>
+                        <p class="text-gray-600 mb-4">Created by Samuel Mwendwa using Solidity and Chainlink, this decentralized invoice financing platform cuts transaction costs by 60%.</p>
+                        <p><strong>Tools:</strong> Solidity, Chainlink, Streamlit</p>
+                        <p class="text-gray-600 mt-2"><strong>Impact:</strong> Improved cash flow for 50+ SMEs.</p>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://github.com/SamTech-crypto/invofi" target="_blank" class="text-teal-600 hover:underline">GitHub</a>
+                            <a href="https://invofi.streamlit.app" target="_blank" class="text-teal-600 hover:underline">Live Demo</a>
+                        </div>
+                    </div>
+                    <!-- Fraud Monitoring Dashboard -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in project-card" data-category="ai">
+                        <!-- Replace with 30-second fraud monitoring demo -->
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            title="Demo video of Fraud Monitoring Dashboard by Samuel Mwendwa" 
+                            aria-label="Demo video of Fraud Monitoring Dashboard" 
+                            class="w-full h-40 object-cover mb-4 project-video" 
+                            frameborder="0" 
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            loading="lazy">
+                        </iframe>
+                        <p class="sr-only">Video demo of Fraud Monitoring Dashboard with real-time analytics</p>
+                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">Fraud Monitoring Dashboard</h3>
+                        <p class="text-gray-600 mb-4">Designed by Samuel Mwendwa using scikit-learn and Tableau, this real-time transaction monitoring tool reduces fraud detection time by 50%.</p>
+                        <p><strong>Tools:</strong> scikit-learn, Tableau, Streamlit</p>
+                        <p class="text-gray-600 mt-2"><strong>Impact:</strong> Saved $500K in fraud losses.</p>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://github.com/SamTech-crypto/fraud-monitoring-dashboard" target="_blank" class="text-teal-600 hover:underline">GitHub</a>
+                            <a href="https://fraud-monitoring-dashboard.streamlit.app" target="_blank" class="text-teal-600 hover:underline">Live Demo</a>
+                        </div>
+                    </div>
+                    <!-- Quantum Financial Optimizer -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in project-card" data-category="quantum">
+                        <!-- Replace with 45-second quantum optimizer demo -->
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            title="Demo video of Quantum Financial Optimizer by Samuel Mwendwa" 
+                            aria-label="Demo video of Quantum Financial Optimizer" 
+                            class="w-full h-40 object-cover mb-4 project-video" 
+                            frameborder="0" 
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            loading="lazy">
+                        </iframe>
+                        <p class="sr-only">Video demo of Quantum Financial Optimizer interface</p>
+                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">Quantum Financial Optimizer</h3>
+                        <p class="text-gray-600 mb-4">Developed by Samuel Mwendwa using Qiskit and AWS Braket, this quantum computing tool reduces portfolio risk by 40%.</p>
+                        <p><strong>Tools:</strong> Qiskit, AWS Braket, Python</p>
+                        <p class="text-gray-600 mt-2"><strong>Impact:</strong> Optimized $10M portfolios.</p>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://github.com/SamTech-crypto/quantum-financial-optimizer" target="_blank" class="text-teal-600 hover:underline">GitHub</a>
+                            <a href="https://quantum-financial-optimizer.streamlit.app" target="_blank" class="text-teal-600 hover:underline">Live Demo</a>
+                        </div>
+                    </div>
+                    <!-- AuditFlow -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in project-card" data-category="ai">
+                        <!-- Replace with 30-second AuditFlow demo -->
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            title="Demo video of AuditFlow compliance workflow by Samuel Mwendwa" 
+                            aria-label="Demo video of AuditFlow compliance workflow" 
+                            class="w-full h-40 object-cover mb-4 project-video" 
+                            frameborder="0" 
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            loading="lazy">
+                        </iframe>
+                        <p class="sr-only">Video demo of AuditFlow automated compliance workflow</p>
+                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">AuditFlow</h3>
+                        <p class="text-gray-600 mb-4">Built by Samuel Mwendwa using Python and LangChain, this tool automates audit workflows for compliance, saving 30% on audit time.</p>
+                        <p><strong>Tools:</strong> Python, Streamlit, LangChain</p>
+                        <p class="text-gray-600 mt-2"><strong>Impact:</strong> Streamlined audits for 20 SMEs.</p>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://github.com/SamTech-crypto/auditflow" target="_blank" class="text-teal-600 hover:underline">GitHub</a>
+                            <a href="https://auditflow.streamlit.app" target="_blank" class="text-teal-600 hover:underline">Live Demo</a>
+                        </div>
+                    </div>
+                    <!-- ChurnGuard -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in project-card" data-category="ai">
+                        <!-- Replace with 45-second ChurnGuard demo -->
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            title="Demo video of ChurnGuard retention analytics by Samuel Mwendwa" 
+                            aria-label="Demo video of ChurnGuard retention analytics" 
+                            class="w-full h-40 object-cover mb-4 project-video" 
+                            frameborder="0" 
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            loading="lazy">
+                        </iframe>
+                        <p class="sr-only">Video demo of ChurnGuard customer retention analytics</p>
+                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">ChurnGuard</h3>
+                        <p class="text-gray-600 mb-4">Created by Samuel Mwendwa using TensorFlow, this AI-driven tool predicts churn to boost retention by 25%.</p>
+                        <p><strong>Tools:</strong> TensorFlow, Streamlit</p>
+                        <p class="text-gray-600 mt-2"><strong>Impact:</strong> Retained 15% more customers.</p>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://github.com/SamTech-crypto/churnguard" target="_blank" class="text-teal-600 hover:underline">GitHub</a>
+                            <a href="https://churnguard.streamlit.app" target="_blank" class="text-teal-600 hover:underline">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet Our Innovators Section -->
+        <section id="innovators" class="py-20 bg-white" role="region" aria-label="Meet Our Innovators">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-8 fade-in text-teal-800 color-change-text">Meet Our Innovators</h2>
+                <p class="text-lg max-w-2xl mx-auto mb-12 fade-in text-gray-700">Our solutions are powered by top talent like Samuel Mwendwa, a fintech and ESG innovator and mentor at The Founder Institute since 2023.</p>
+                <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in max-w-lg mx-auto">
+                    <img src="https://via.placeholder.com/150x150.png?text=Samuel+Mwendwa" alt="Samuel Mwendwa profile" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-2xl font-semibold mb-2 text-teal-800">Samuel Mwendwa</h3>
+                    <p class="text-gray-600 mb-4">Lead Developer | AI, Blockchain, ESG Specialist | Founder Institute Mentor (2023–Present)</p>
+                    <p class="text-gray-600 mb-4">Samuel drives innovation at Nexlify, building tools like <span class="color-change-text">*ESG Scoring Engine*</span> and <span class="color-change-text">*CFO AI Agent*</span> that save SMEs millions. As a mentor at <a href="https://fi.co/mentors" target="_blank" class="text-teal-600 hover:underline">The Founder Institute</a> since 2023, he guides startups on competitor benchmarking, financial projections, and technical deep dives, helping over 20 founders secure funding. His expertise in TensorFlow, Solidity, and Qiskit powers our cutting-edge solutions.</p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="https://github.com/SamTech-crypto" target="_blank" class="text-teal-600 hover:underline">GitHub</a>
+                        <a href="https://linkedin.com/in/samuel-mwendwa" target="_blank" class="text-teal-600 hover:underline">LinkedIn</a>
+                        <a href="/path/to/samuel-resume.pdf" download class="text-teal-600 hover:underline">Download Resume</a>
+                        <a href="/path/to/fi-mentorship-case-study.pdf" download class="text-teal-600 hover:underline">Mentorship Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Showcase Section -->
+        <section id="expertise" class="py-20 bg-gray-100" role="region" aria-label="Expertise Showcase">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-16 fade-in text-teal-800 color-change-text">Expertise Showcase</h2>
+                <p class="text-lg text-center max-w-2xl mx-auto mb-8 fade-in text-gray-700">Explore how Samuel Mwendwa’s expertise in competitor benchmarking, financial projections, and technical deep dives drives Nexlify’s solutions.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Competitor Benchmarking -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in">
+                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">Competitor Benchmarking</h3>
+                        <p class="text-gray-600 mb-4">Our <span class="color-change-text">*ESG Scoring Engine*</span> outperforms competitors like Sustainalytics and MSCI by integrating blockchain for transparency, reducing reporting time by 30%.</p>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>ESG Scoring Engine</th>
+                                    <th>Sustainalytics</th>
+                                    <th>MSCI</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Blockchain Transparency</td>
+                                    <td>✅ Yes</td>
+                                    <td>❌ No</td>
+                                    <td>❌ No</td>
+                                </tr>
+                                <tr>
+                                    <td>Reporting Speed</td>
+                                    <td>2 hours</td>
+                                    <td>3 hours</td>
+                                    <td>4 hours</td>
+                                </tr>
+                                <tr>
+                                    <td>Cost Reduction</td>
+                                    <td>70%</td>
+                                    <td>50%</td>
+                                    <td>40%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a href="#contact" class="mt-4 inline-block text-teal-600 hover:underline">Request a Benchmark Report</a>
+                    </div>
+                    <!-- Financial Projections -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in">
+                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">Financial Projections</h3>
+                        <p class="text-gray-600 mb-4"><span class="color-change-text">*CFO AI Agent*</span> delivers 30% more accurate revenue forecasts for SMEs, as shown in this 24-month projection.</p>
+                        <div class="chart-container">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                        <div class="mt-4 space-x-4">
+                            <a href="/path/to/financial-model.pdf" download class="text-teal-600 hover:underline">Download Template</a>
+                            <a href="#contact" class="text-teal-600 hover:underline">Request a Demo</a>
+                        </div>
+                    </div>
+                    <!-- Technical Deep Dives -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in">
+                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">Technical Deep Dives</h3>
+                        <p class="text-gray-600 mb-4"><span class="color-change-text">*InvoFi*</span>’s blockchain architecture uses Solidity smart contracts and Chainlink oracles, optimized by Samuel for 40% lower gas fees.</p>
+                        <ul class="text-gray-600 mb-4 list-disc pl-5">
+                            <li><strong>Solidity:</strong> Secure invoice financing contracts</li>
+                            <li><strong>Chainlink:</strong> Real-time market data integration</li>
+                            <li><strong>Ethereum:</strong> Scalable transaction processing</li>
+                        </ul>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://github.com/SamTech-crypto/invofi" target="_blank" class="text-teal-600 hover:underline">View Code</a>
+                            <a href="/path/to/invofi-technical-whitepaper.pdf" download class="text-teal-600 hover:underline">Whitepaper</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -225,101 +607,17 @@
                         <h3 class="text-2xl font-semibold mb-3 text-teal-800">InvoFi: Decentralized Financing</h3>
                         <p class="text-gray-600 mb-4">Reduced transaction costs by 60% for a logistics SME using blockchain-based invoice financing.</p>
                         <div class="mt-4 space-x-4">
-                            <a href="path/to/invo-fi-case-study.pdf" target="_blank" class="text-teal-600 hover:underline">Download PDF</a>
+                            <a href="/path/to/invo-fi-case-study.pdf" target="_blank" class="text-teal-600 hover:underline">Download PDF</a>
                             <a href="#interactive-invofi" class="text-teal-600 hover:underline">View Interactive Chart</a>
                         </div>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in">
-                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">ESG Radar: Compliance for Startups</h3>
+                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">ESG Scoring Engine: Compliance for Startups</h3>
                         <p class="text-gray-600 mb-4">Cut ESG reporting costs by 70% for a green tech startup, attracting $2M in funding.</p>
                         <div class="mt-4 space-x-4">
-                            <a href="path/to/esg-radar-case-study.pdf" target="_blank" class="text-teal-600 hover:underline">Download PDF</a>
+                            <a href="/path/to/esg-case-study.pdf" target="_blank" class="text-teal-600 hover:underline">Download PDF</a>
                             <a href="#interactive-esg" class="text-teal-600 hover:underline">View Interactive Chart</a>
                         </div>
-                    </div>
- |
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="py-20 bg-gray-100" role="region" aria-label="Projects">
-            <div class="container mx-auto">
-                <h2 class="text-4xl font-bold text-center mb-16 fade-in text-teal-800 color-change-text">Our Solutions</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Fintech Tools -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in">
-                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">Fintech Tools</h3>
-                        <p class="text-gray-600 mb-4">Track KPIs with <span class="color-change-text">*FinDash*</span> and automate models with <span class="color-change-text">*AutoModeler*</span>, saving 50% on reporting time.</p>
-                        <p><strong>Tools:</strong> Tableau, SQL, Python, Streamlit</p>
-                        <p class="text-gray-600 mt-2">Mockup: FinDash dashboard with KPI cards, line/pie charts, and real-time updates.</p>
-                        <div class="mt-4 space-x-4">
-                            <a href="https://github.com/SamTech-crypto/findash" target="_blank" class="text-teal-600 hover:underline">GitHub</a>
-                            <a href="https://samtech-crypto-automodeler.streamlit.app" target="_blank" class="text-teal-600 hover:underline">Live Demo</a>
-                        </div>
-                    </div>
-                    <!-- ESG Solutions -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in">
-                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">ESG Solutions</h3>
-                        <p class="text-gray-600 mb-4">Simplify compliance with <span class="color-change-text">*ESG Radar*</span> and <span class="color-change-text">*Automated ESG Suite*</span>, cutting costs by 70%.</p>
-                        <p><strong>Tools:</strong> Python, BI Tools, Streamlit</p>
-                        <div class="mt-4 space-x-4">
-                            <a href="https://github.com/SamTech-crypto/esg-radar" target="_blank" class="text-teal-600 hover:underline">GitHub</a>
-                            <a href="path/to/esg-demo" target="_blank" class="text-teal-600 hover:underline">Live Demo</a>
-                        </div>
-                    </div>
-                    <!-- DeFi & Blockchain -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in">
-                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">DeFi & Blockchain</h3>
-                        <p class="text-gray-600 mb-4">Streamline financing with <span class="color-change-text">*InvoFi*</span>, reducing transaction costs by 60%.</p>
-                        <p><strong>Tools:</strong> Ethereum, Solidity, Chainlink, Streamlit</p>
-                        <div class="mt-4 space-x-4">
-                            <a href="https://github.com/SamTech-crypto/InvoFi" target="_blank" class="text-teal-600 hover:underline">GitHub</a>
-                            <a href="https://invofi.streamlit.app/" target="_blank" class="text-teal-600 hover:underline">Live Demo</a>
-                        </div>
-                    </div>
-                    <!-- AI & Risk Management -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in">
-                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">AI & Risk Management</h3>
-                        <p class="text-gray-600 mb-4">Boost retention by 30% with <span class="color-change-text">*Customer Retention Engine*</span> and <span class="color-change-text">*Predictive Risk Modeling*</span>.</p>
-                        <p><strong>Tools:</strong> TensorFlow, scikit-learn, Streamlit</p>
-                        <div class="mt-4 space-x-4">
-                            <a href="https://github.com/SamTech-crypto/CustomerChurnPredictor" target="_blank" class="text-teal-600 hover:underline">GitHub</a>
-                            <a href="https://predictive-risk-app.streamlit.app" target="_blank" class="text-teal-600 hover:underline">Live Demo</a>
-                        </div>
-                    </div>
-                    <!-- Quantum Optimization -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in">
-                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">Quantum Optimization</h3>
-                        <p class="text-gray-600 mb-4">Reduce portfolio risk by 40% with <span class="color-change-text">*Quantum Financial Optimizer*</span>.</p>
-                        <p><strong>Tools:</strong> Qiskit, Python, AWS Braket</p>
-                        <div class="mt-4 space-x-4">
-                            <a href="https://github.com/SamTech-crypto/quantum-financial-optimizer" target="_blank" class="text-teal-600 hover:underline">GitHub</a>
-                            <a href="path/to/quantum-demo" target="_blank" class="text-teal-600 hover:underline">Live Demo</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        <!-- Solutions Section -->
-        <section id="solutions" class="py-20 bg-gray-100" role="region" aria-label="Solutions">
-            <div class="container mx-auto">
-                <h2 class="text-4xl font-bold text-center mb-16 fade-in text-teal-800 color-change-text">Solve Your Challenges</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in">
-                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">Inefficient Financial Modeling</h3>
-                        <p class="text-gray-600 mb-4">Automate with <span class="color-change-text">*AutoModeler*</span> for 50% faster models. Onboard in 1 week.</p>
-                        <a href="#contact" class="text-teal-600 hover:underline">Start Free Trial</a>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in">
-                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">ESG Compliance</h3>
-                        <p class="text-gray-600 mb-4">Simplify reporting with <span class="color-change-text">*ESG Radar*</span>. Cut costs by 70%. Ready in 1 week.</p>
-                        <a href="#contact" class="text-teal-600 hover:underline">Start Free Trial</a>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in">
-                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">DeFi Navigation</h3>
-                        <p class="text-gray-600 mb-4">Gain clarity with <span class="color-change-text">*DeFi Analytics Suite*</span>. Deploy in 1 week.</p>
-                        <a href="#contact" class="text-teal-600 hover:underline">Start Free Trial</a>
                     </div>
                 </div>
             </div>
@@ -332,24 +630,29 @@
                 <div class="testimonial-container">
                     <div class="testimonial-track">
                         <div class="testimonial-card">
-                            <p class="text-gray-600 mb-4">"*FinDash* streamlined our financial tracking, saving us 20 hours monthly."</p>
-                            <p class="font-semibold text-teal-800">Sarah Lee, Owner of FitPulse Gym</p>
+                            <p class="text-gray-600 mb-4">"<span class="color-change-text">*CFO AI Agent*</span> saved us 20 hours monthly on reporting."</p>
+                            <p class="font-semibold text-teal-800">Sarah Lee, FitPulse Gym</p>
                         </div>
                         <div class="testimonial-card">
-                            <p class="text-gray-600 mb-4">"*ESG Radar* helped us secure $1.5M by showcasing our sustainability efforts."</p>
-                            <p class="font-semibold text-teal-800">Michael Chen, CEO of TravelTech Ventures</p>
+                            <p class="text-gray-600 mb-4">"<span class="color-change-text">*ESG Scoring Engine*</span> secured $1.5M in funding."</p>
+                            <p class="font-semibold text-teal-800">Michael Chen, Travel Ventures</p>
                         </div>
                         <div class="testimonial-card">
-                            <p class="text-gray-600 mb-4">"*InvoFi* cut our transaction costs by 60%."</p>
-                            <p class="font-semibold text-teal-800">Ahmed Khan, CEO of TradeFlow</p>
+                            <p class="text-gray-600 mb-4">"<span class="color-change-text">*InvoFi*</span> cut our transaction costs by 60%."</p>
+                            <p class="font-semibold text-teal-800">Ahmed Khan, TradeFlow</p>
+                        </div>
+                        <!-- Duplicate for seamless scrolling -->
+                        <div class="testimonial-card">
+                            <p class="text-gray-600 mb-4">"<span class="color-change-text">*CFO AI Agent*</span> saved us 20 hours monthly on reporting."</p>
+                            <p class="font-semibold text-teal-800">Sarah Lee, FitPulse Gym</p>
                         </div>
                         <div class="testimonial-card">
-                            <p class="text-gray-600 mb-4">"*AutoModeler* reduced our forecasting time by 40%."</p>
-                            <p class="font-semibold text-teal-800">Emma Brown, RetailEasy SME</p>
+                            <p class="text-gray-600 mb-4">"<span class="color-change-text">*ESG Scoring Engine*</span> secured $1.5M in funding."</p>
+                            <p class="font-semibold text-teal-800">Michael Chen, Travel Ventures</p>
                         </div>
                         <div class="testimonial-card">
-                            <p class="text-gray-600 mb-4">"*ESG Radar* helped us attract $500K in green funding."</p>
-                            <p class="font-semibold text-teal-800">Liam Carter, GreenEnergy Co.</p>
+                            <p class="text-gray-600 mb-4">"<span class="color-change-text">*InvoFi*</span> cut our transaction costs by 60%."</p>
+                            <p class="font-semibold text-teal-800">Ahmed Khan, TradeFlow</p>
                         </div>
                     </div>
                 </div>
@@ -362,19 +665,19 @@
                 <h2 class="text-4xl font-bold text-center mb-16 fade-in text-teal-800 color-change-text">Insights & Updates</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in">
-                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">Blockchain's Financial Impact on Traditional Banking</h3>
-                        <p class="text-gray-600 mb-4">Explore how blockchain is reshaping banking with decentralized finance solutions like <span class="color-change-text">*InvoFi*</span>.</p>
-                        <a href="https://www.linkedin.com/pulse/blockchains-financial-impact-traditional-banking-new-era-mwendwa-miyif/?trackingId=kLo%2Bi4p%2BQ8iJoMgLmMUMNA%3D%3D" target="_blank" class="text-teal-600 hover:underline">Read on LinkedIn</a>
+                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">Blockchain’s Impact on Banking</h3>
+                        <p class="text-gray-600 mb-4">How <span class="color-change-text">*InvoFi*</span> reshapes finance with DeFi.</p>
+                        <a href="https://www.linkedin.com/pulse/blockchains-financial-impact-traditional-banking-new-era-mwendwa-miyif/" target="_blank" class="text-teal-600 hover:underline">Read on LinkedIn</a>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in">
-                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">How Fintech Dashboards Save SMEs Time</h3>
-                        <p class="text-gray-600 mb-4">Learn how <span class="color-change-text">*FinDash*</span> cuts reporting time by 50% with real-time KPI tracking.</p>
-                        <a href="path/to/blog-fintech-dashboards" class="text-teal-600 hover:underline">Read More</a>
+                        <h3 class="text-2xl font-semibold mb-3 text-teal-800">AI for SME Growth</h3>
+                        <p class="text-gray-600 mb-4">How <span class="color-change-text">*CFO AI Agent*</span> boosts efficiency.</p>
+                        <a href="/path/to/blog-ai-smes" class="text-teal-600 hover:underline">Read More</a>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-lg animate-card fade-in">
                         <h3 class="text-2xl font-semibold mb-3 text-teal-800">ESG Compliance on a Budget</h3>
-                        <p class="text-gray-600 mb-4">Discover how <span class="color-change-text">*ESG Radar*</span> reduces costs by 70% for SMEs.</p>
-                        <a href="path/to/blog-esg-compliance" class="text-teal-600 hover:underline">Read More</a>
+                        <p class="text-gray-600 mb-4">How <span class="color-change-text">*ESG Scoring Engine*</span> saves 70%.</p>
+                        <a href="/path/to/blog-esg-compliance" class="text-teal-600 hover:underline">Read More</a>
                     </div>
                 </div>
             </div>
@@ -388,22 +691,40 @@
                     <div class="faq-item" onclick="toggleFAQ(this)">
                         <h3 class="text-lg font-semibold text-teal-800 mb-2">What is ESG compliance?</h3>
                         <div class="faq-answer">
-                            <p class="text-gray-600 mb-4">ESG compliance involves adhering to Environmental, Social, and Governance standards to ensure sustainable and ethical business practices.</p>
+                            <p class="text-gray-600 mb-4">ESG compliance ensures sustainable and ethical practices, simplified by our <span class="color-change-text">*ESG Scoring Engine*</span>.</p>
                         </div>
                     </div>
                     <div class="faq-item" onclick="toggleFAQ(this)">
                         <h3 class="text-lg font-semibold text-teal-800 mb-2">How does InvoFi work?</h3>
                         <div class="faq-answer">
-                            <p class="text-gray-600 mb-4">InvoFi uses blockchain technology to provide decentralized invoice financing, reducing transaction costs and improving liquidity for SMEs.</p>
+                            <p class="text-gray-600 mb-4"><span class="color-change-text">*InvoFi*</span> uses blockchain for decentralized financing, reducing costs by 60%.</p>
                         </div>
                     </div>
                     <div class="faq-item" onclick="toggleFAQ(this)">
                         <h3 class="text-lg font-semibold text-teal-800 mb-2">Can I try your tools for free?</h3>
                         <div class="faq-answer">
-                            <p class="text-gray-600 mb-4">Yes, we offer free trials for most of our tools, including *FinDash* and *ESG Radar*. Contact us to get started!</p>
+                            <p class="text-gray-600 mb-4">Yes, we offer free trials for tools like <span class="color-change-text">*CFO AI Agent*</span>. Contact us!</p>
                         </div>
                     </div>
-                    <a href="path/to/faq" class="text-teal-600 hover:underline mt-4 inline-block">View Full FAQ</a>
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold text-teal-800 mb-2">How does Nexlify perform competitor benchmarking?</h3>
+                        <div class="faq-answer">
+                            <p class="text-gray-600 mb-4">We use AI to analyze competitor performance, as shown in our <a href="#expertise" class="text-teal-600 hover:underline"><span class="color-change-text">*ESG Scoring Engine*</span> benchmark</a>, improving market positioning by 25%.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold text-teal-800 mb-2">How accurate are your financial projections?</h3>
+                        <div class="faq-answer">
+                            <p class="text-gray-600 mb-4">Our <span class="color-change-text">*CFO AI Agent*</span> delivers 30% more accurate forecasts, as demonstrated in our <a href="#expertise" class="text-teal-600 hover:underline">financial projections showcase</a>.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold text-teal-800 mb-2">What are technical deep dives at Nexlify?</h3>
+                        <div class="faq-answer">
+                            <p class="text-gray-600 mb-4">Samuel’s technical expertise drives innovation, like optimizing <span class="color-change-text">*InvoFi*</span>’s blockchain for 40% lower costs. See our <a href="#expertise" class="text-teal-600 hover:underline">technical deep dive</a>.</p>
+                        </div>
+                    </div>
+                    <a href="/path/to/faq" class="text-teal-600 hover:underline mt-4 inline-block">View Full FAQ</a>
                 </div>
             </div>
         </section>
@@ -412,7 +733,7 @@
         <section id="contact" class="gradient-hero text-white py-20" role="region" aria-label="Contact">
             <div class="container mx-auto text-center">
                 <h2 class="text-4xl font-bold mb-8 fade-in color-change-text">Unlock Your Potential</h2>
-                <p class="text-lg max-w-2xl mx-auto mb-8 fade-in">Discuss consulting, SaaS, or partnerships to drive growth.</p>
+                <p class="text-lg max-w-2xl mx-auto mb-8 fade-in">Discuss consulting, SaaS, or career opportunities with our team.</p>
                 <div class="flex justify-center space-x-4 flex-wrap gap-4">
                     <a href="mailto:nexlifysolutions.team@gmail.com" class="inline-block btn-accent font-semibold py-3 px-8 rounded-full transition-colors fade-in">Email Us</a>
                     <a href="https://wa.me/254712238286" target="_blank" class="inline-block bg-teal-600 text-white font-semibold py-3 px-6 rounded-full hover:bg-teal-700 transition-colors fade-in flex items-center">
@@ -429,74 +750,12 @@
                         <a href="https://www.linkedin.com/newsletters/nexlify-solutions-7280665831749898242/" target="_blank" class="inline-block btn-accent font-semibold py-3 px-8 rounded-full transition-colors fade-in">
                             Subscribe on LinkedIn
                         </a>
-                        <form action="your-email-service-signup-url" method="POST" class="flex justify-center gap-2 flex-wrap">
+                        <form action="https://your-mailchimp-form-url" method="POST" class="flex justify-center gap-2 flex-wrap">
                             <input type="email" name="email" placeholder="Enter your email" class="p-3 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-emerald-500" required>
                             <button type="submit" class="inline-block bg-teal-600 text-white font-semibold py-3 px-6 rounded-full hover:bg-teal-700 transition-colors fade-in">
                                 Join Email List
                             </button>
                         </form>
-                    </div>
-                    <p class="text-sm mb-6 fade-in">Get exclusive fintech tips via email!</p>
-
-                    <!-- Solve Your Challenges Subsection -->
-                    <div class="mt-12">
-                        <h4 class="text-xl font-semibold mb-6 fade-in color-change-text">Solve Your Challenges</h4>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div class="bg-white p-4 rounded-xl shadow-lg fade-in">
-                                <h5 class="text-lg font-semibold mb-2 text-teal-800">Inefficient Financial Modeling</h5>
-                                <p class="text-gray-600 mb-2">Automate with <span class="color-change-text">*AutoModeler*</span> for 50% faster models.</p>
-                                <a href="#solutions" class="text-teal-600 hover:underline">Learn More</a>
-                            </div>
-                            <div class="bg-white p-4 rounded-xl shadow-lg fade-in">
-                                <h5 class="text-lg font-semibold mb-2 text-teal-800">ESG Compliance</h5>
-                                <p class="text-gray-600 mb-2">Simplify reporting with <span class="color-change-text">*ESG Radar*</span>. Cut costs by 70%.</p>
-                                <a href="#solutions" class="text-teal-600 hover:underline">Learn More</a>
-                            </div>
-                            <div class="bg-white p-4 rounded-xl shadow-lg fade-in">
-                                <h5 class="text-lg font-semibold mb-2 text-teal-800">DeFi Navigation</h5>
-                                <p class W="text-gray-600 mb-2">Gain clarity with <span class="color-change-text">*DeFi Analytics Suite*</span>.</p>
-                                <a href="#solutions" class="text-teal-600 hover:underline">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Client Success Stories Subsection -->
-                    <div class="mt-12">
-                        <h4 class="text-xl font-semibold mb-6 fade-in color-change-text">Client Success Stories</h4>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div class="bg-white p-4 rounded-xl shadow-lg fade-in">
-                                <p class="text-gray-600 mb-2">"*FinDash* streamlined our financial tracking, saving us 20 hours monthly."</p>
-                                <p class="font-semibold text-teal-800">Sarah Lee, FitPulse Gym</p>
-                            </div>
-                            <div class="bg-white p-4 rounded-xl shadow-lg fade-in">
-                                <p class="text-gray-600 mb-2">"*AutoModeler* reduced our forecasting time by 40%."</p>
-                                <p class="font-semibold text-teal-800">Emma Brown, RetailEasy SME</p>
-                            </div>
-                            <div class="bg-white p-4 rounded-xl shadow-lg fade-in">
-                                <p class="text-gray-600 mb-2">"*ESG Radar* helped us attract $500K in green funding."</p>
-                                <p class="font-semibold text-teal-800">Liam Carter, GreenEnergy Co.</p>
-                            </div>
-                        </div>
-                        <a href="#testimonials" class="inline-block mt-6 text-teal-200 hover:underline fade-in">See More Success Stories</a>
-                    </div>
-
-                    <!-- Great Other Solutions Subsection -->
-                    <div class="mt-12">
-                        <h4 class="text-xl font-semibold mb-6 fade-in color-change-text">Great Other Solutions</h4>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="bg-white p-4 rounded-xl shadow-lg fade-in">
-                                <h5 class="text-lg font-semibold mb-2 text-teal-800">Data-Driven Decision Making</h5>
-                                <p class="text-gray-600 mb-2">Leverage AI to analyze financial and ESG data for actionable insights.</p>
-                                <p class="text-gray-600 mb-2"><strong>Tools:</strong> Python, TensorFlow, Power BI</p>
-                                <a href="#projects" class="text-teal-600 hover:underline">Learn More</a>
-                            </div>
-                            <div class="bg-white p-4 rounded-xl shadow-lg fade-in">
-                                <h5 class="text-lg font-semibold mb-2 text-teal-800">Blockchain Supply Chain Financing</h5>
-                                <p class="text-gray-600 mb-2">Streamline supply chain financing, reducing costs by 50% with blockchain.</p>
-                                <p class="text-gray-600 mb-2"><strong>Tools:</strong> Hyperledger, Solidity, Streamlit</p>
-                                <a href="#projects" class="text-teal-600 hover:underline">Learn More</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -510,16 +769,20 @@
     <div class="chatbot-window" id="chatbot-window">
         <div class="p-4">
             <h3 class="text-lg font-semibold text-teal-800">Welcome to Nexlify!</h3>
-            <p class="text-gray-600 mb-2">Ask about our fintech/ESG solutions.</p>
+            <p class="text-gray-600 mb-2">Ask about our fintech/ESG solutions or Samuel’s expertise.</p>
             <input type="text" id="chatbot-input" placeholder="Type your question..." class="w-full p-2 rounded border mb-2">
             <button onclick="submitChat()" class="btn-accent py-2 px-4 rounded">Send</button>
             <div class="mt-4">
                 <p class="text-gray-600 mb-2">Quick Questions:</p>
                 <div class="quick-reply-btn" onclick="quickReply('What is ESG compliance?')">What is ESG?</div>
                 <div class="quick-reply-btn" onclick="quickReply('How does InvoFi work?')">How does InvoFi work?</div>
-                <div class="quick-reply-btn" onclick="quickReply('Can I try your tools for free?')">Free trials?</div>
+                <div class="quick-reply-btn" onclick="quickReply('Tell me about Samuel’s projects')">Samuel’s Projects</div>
+                <div class="quick-reply-btn" onclick="quickReply('What is Nexlify’s mission?')">Our Mission</div>
+                <div class="quick-reply-btn" onclick="quickReply('How does Nexlify perform competitor benchmarking?')">Competitor Benchmarking</div>
+                <div class="quick-reply-btn" onclick="quickReply('How accurate are your financial projections?')">Financial Projections</div>
+                <div class="quick-reply-btn" onclick="quickReply('What are technical deep dives at Nexlify?')">Technical Deep Dives</div>
             </div>
-            <p class="text-gray-600 mt-2">For now, contact us via <a href="mailto:nexlifysolutions.team@gmail.com" class="text-teal-600">email</a> or <a href="https://wa.me/254712238286" class="text-teal-600">WhatsApp</a>.</p>
+            <p class="text-gray-600 mt-2">Contact us via <a href="mailto:nexlifysolutions.team@gmail.com" class="text-teal-600">email</a> or <a href="https://wa.me/254712238286" class="text-teal-600">WhatsApp</a>.</p>
         </div>
     </div>
 
@@ -568,10 +831,75 @@
                 });
             });
 
-            // Duplicate testimonial track for seamless looping
-            const track = document.querySelector('.testimonial-track');
-            track.innerHTML += track.innerHTML;
+            // Animate project cards
+            document.querySelectorAll('.project-card').forEach(card => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 85%',
+                    },
+                    x: -100,
+                    opacity: 0,
+                    duration: 0.5,
+                    ease: 'power2.out'
+                });
+            });
+
+            // Animate video iframes
+            document.querySelectorAll('.project-video').forEach(video => {
+                gsap.from(video, {
+                    scrollTrigger: {
+                        trigger: video,
+                        start: 'top 85%',
+                    },
+                    opacity: 0,
+                    scale: 0.9,
+                    duration: 0.5,
+                    ease: 'power2.out'
+                });
+            });
+
+            // Animate ethos cards
+            document.querySelectorAll('.ethos-card').forEach(card => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 85%',
+                    },
+                    opacity: 0,
+                    x: 50,
+                    duration: 0.5,
+                    ease: 'power2.out'
+                });
+            });
+
+            // Duplicate testimonial and ethos tracks for seamless looping
+            const testimonialTrack = document.querySelector('.testimonial-track');
+            testimonialTrack.innerHTML += testimonialTrack.innerHTML;
+            const ethosTrack = document.querySelector('.ethos-marquee-track');
+            ethosTrack.innerHTML += ethosTrack.innerHTML;
         });
+
+        // Project filter
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category.includes(category)) {
+                    card.style.display = 'block';
+                    gsap.to(card, { opacity: 1, y: 0, duration: 0.5 });
+                } else {
+                    gsap.to(card, { 
+                        opacity: 0, 
+                        y: 20, 
+                        duration: 0.5, 
+                        onComplete: () => { card.style.display = 'none'; }
+                    });
+                }
+            });
+        }
 
         // Chatbot functionality
         function toggleChatbot() {
@@ -580,8 +908,24 @@
         }
 
         function submitChat() {
-            const input = document.getElementById('chatbot-input').value;
-            alert('Your question: ' + input + '\nWe’ll get back to you soon! For now, use email or WhatsApp.');
+            const input = document.getElementById('chatbot-input').value.toLowerCase();
+            let response = 'We’ll get back to you soon! Use email or WhatsApp.';
+            if (input.includes('esg compliance')) {
+                response = 'ESG compliance ensures sustainable practices. Watch our <a href="#projects">ESG Scoring Engine demo</a>.';
+            } else if (input.includes('invofi work')) {
+                response = 'InvoFi uses blockchain for decentralized financing. See our <a href="#projects">InvoFi demo</a>.';
+            } else if (input.includes('samuel’s projects')) {
+                response = 'Samuel’s projects include *ESG Scoring Engine* and *InvoFi*. Explore them in our <a href="#projects">Solutions</a>.';
+            } else if (input.includes('nexlify’s mission')) {
+                response = 'Our mission is to empower SMEs with AI, blockchain, and ESG tools for sustainable growth. Learn more in our <a href="#why-ethos">Why and Ethos</a> section.';
+            } else if (input.includes('competitor benchmarking')) {
+                response = 'We use AI for competitor analysis. Check our <a href="#expertise">benchmarking showcase</a>.';
+            } else if (input.includes('financial projections')) {
+                response = 'Our *CFO AI Agent* offers accurate forecasts. View our <a href="#projects">CFO AI demo</a>.';
+            } else if (input.includes('technical deep dives')) {
+                response = 'Samuel optimizes blockchain solutions like *InvoFi*. See our <a href="#expertise">technical deep dive</a>.';
+            }
+            alert('Your question: ' + input + '\n' + response);
         }
 
         function quickReply(question) {
@@ -594,6 +938,67 @@
             const answer = element.querySelector('.faq-answer');
             answer.classList.toggle('active');
         }
+
+        // Lazy load iframes
+        document.addEventListener('DOMContentLoaded', () => {
+            const iframes = document.querySelectorAll('iframe');
+            const iframeObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const iframe = entry.target;
+                        iframe.src = iframe.dataset.src || iframe.src;
+                        observer.unobserve(iframe);
+                    }
+                });
+            });
+            iframes.forEach(iframe => iframeObserver.observe(iframe));
+        });
+
+        // Financial projection chart
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('revenueChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan 2025', 'Apr 2025', 'Jul 2025', 'Oct 2025', 'Jan 2026', 'Apr 2026'],
+                    datasets: [{
+                        label: 'Projected Revenue ($)',
+                        data: [50000, 75000, 100000, 130000, 170000, 200000],
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Revenue ($)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Month'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+
+        // Note: For CMS integration, consider Strapi (https://strapi.io) with API endpoints like:
+        // GET /api/projects for dynamic project updates
+        // POST /api/newsletter for form submissions
+        // GET /api/competitor-data for benchmarking (e.g., Crunchbase API)
+        // GET /api/financial-data for projections (e.g., QuickBooks API)
+        // GET /api/project-videos for dynamic video updates
+        // GET /api/ethos for dynamic ethos updates
+        // Example: fetch('https://your-strapi-url/api/ethos').then(res => res.json()).then(data => updateEthos(data));
     </script>
 </body>
 </html>
