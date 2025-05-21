@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nexlify Solutions: The go-to platform for SMEs, offering integrated AI, blockchain, and ESG solutions. Explore live demos, scalability plans, and our transparent business model.">
-    <meta name="keywords" content="fintech platform, ESG compliance, DeFi financing, AI analytics, blockchain solutions, Samuel Mwendwa, Founder Institute, SME solutions, real-time analytics, SaaS platform, startup investment">
+    <meta name="description" content="Nexlify Solutions: Mission-driven fintech and ESG solutions for SMEs, powered by AI, blockchain, and quantum tech. Explore demo videos of Samuel Mwendwa’s projects, including ESG Scoring Engine and InvoFi, and discover our ethos of innovation and impact.">
+    <meta name="keywords" content="fintech for SMEs, ESG compliance, DeFi financing, AI analytics, blockchain developer, Samuel Mwendwa, Founder Institute mentor, mission-driven fintech, sustainable SME solutions, competitor benchmarking, financial projections, technical deep dives, fintech demo video, AI dashboard video, blockchain financing video">
     <meta name="author" content="Nexlify Solutions">
-    <title>Nexlify Solutions - The Go-To Platform for SME Fintech & ESG</title>
+    <title>Nexlify Solutions - Fintech & ESG Specialist for SMEs</title>
     <link rel="icon" type="image/png" href="https://via.placeholder.com/32x32.png?text=N">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -63,12 +63,32 @@
             background: var(--secondary-teal);
             color: var(--dark-text);
         }
-        body.dark-mode .pricing-table th, body.dark-mode .comparison-table th {
+        body.dark-mode .comparison-table th {
             background: var(--primary-teal);
             color: var(--dark-text);
         }
-        body.dark-mode .pricing-table tr:nth-child(even), body.dark-mode .comparison-table tr:nth-child(even) {
+        body.dark-mode .comparison-table tr:nth-child(even) {
             background: rgba(55, 65, 81, 0.5);
+        }
+        body.dark-mode .faq-item:hover {
+            background: rgba(55, 65, 81, 0.5);
+        }
+        body.dark-mode .filter-btn {
+            background: rgba(55, 65, 81, 0.8);
+            color: var(--secondary-teal);
+        }
+        body.dark-mode .filter-btn.active, body.dark-mode .filter-btn:hover {
+            background: var(--secondary-teal);
+            color: var(--dark-text);
+        }
+        body.dark-mode .ethos-marquee-container {
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.05), rgba(20, 195, 142, 0.05));
+        }
+        body.dark-mode .ethos-card {
+            background: var(--dark-card);
+        }
+        body.dark-mode .ethos-text {
+            color: var(--dark-text);
         }
         .gradient-hero {
             background: linear-gradient(135deg, rgba(5, 150, 105, 0.8), rgba(20, 195, 142, 0.6));
@@ -79,7 +99,7 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 16px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border 0.3s ease;
         }
         .glass-card:hover {
             transform: translateY(-8px);
@@ -119,10 +139,11 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
             cursor: pointer;
             z-index: 1000;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, background 0.3s ease;
         }
         .chatbot-btn:hover {
             transform: scale(1.1);
+            background: var(--secondary-teal);
         }
         .chatbot-window {
             position: fixed;
@@ -138,6 +159,7 @@
             z-index: 1000;
             border: 1px solid rgba(20, 195, 142, 0.2);
             flex-direction: column;
+            transition: background 0.3s ease, border 0.3s ease;
         }
         .chatbot-window.active {
             display: flex;
@@ -155,6 +177,7 @@
             padding: 10px 14px;
             border-radius: 12px;
             font-size: 0.9rem;
+            transition: background 0.3s ease, color 0.3s ease;
         }
         .chatbot-message.bot {
             background: var(--neutral-light);
@@ -179,6 +202,14 @@
         .quick-reply-btn:hover {
             background: var(--secondary-teal);
             color: white;
+            transform: translateY(-2px);
+        }
+        nav, footer {
+            background: var(--primary-teal);
+            transition: background 0.3s ease;
+        }
+        nav:hover {
+            background: #047857;
         }
         .btn-accent {
             background: var(--accent-amber);
@@ -186,49 +217,144 @@
             border-radius: 9999px;
             padding: 12px 24px;
             font-weight: 600;
+            position: relative;
+            overflow: hidden;
             transition: all 0.3s ease;
+        }
+        .btn-accent::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease;
+        }
+        .btn-accent:hover::before {
+            width: 250px;
+            height: 250px;
         }
         .btn-accent:hover {
             background: #e28705;
             transform: scale(1.05);
+            box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
         }
-        .workflow-diagram {
-            max-width: 100%;
-            height: auto;
+        .ethos-marquee-container {
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.08), rgba(20, 195, 142, 0.08));
+            padding: 28px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            transition: background 0.3s ease;
+        }
+        .ethos-marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 20s linear infinite;
+            will-change: transform;
+        }
+        .ethos-marquee-track:hover {
+            animation-play-state: paused;
+        }
+        .ethos-card {
+            flex: 0 0 260px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            margin-right: 18px;
             border-radius: 14px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
+            box-shadow: 0 5px 14px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, background 0.3s ease;
         }
-        .workflow-diagram:hover {
+        .ethos-card:hover {
+            transform: translateY(-5px);
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .faq-item {
+            cursor: pointer;
+            padding: 18px;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+        .faq-item:hover {
+            background: var(--neutral-light);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        .faq-answer.active {
+            max-height: 250px;
+        }
+        .color-change-text {
+            animation: colorChange 5s infinite;
+            font-weight: 600;
+        }
+        @keyframes colorChange {
+            0% { color: var(--accent-amber); }
+            50% { color: var(--secondary-teal); }
+            100% { color: var(--primary-teal); }
+        }
+        .filter-btn {
+            background: var(--neutral-light);
+            color: var(--primary-teal);
+            padding: 10px 20px;
+            border-radius: 9999px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--secondary-teal);
+            color: white;
+            transform: translateY(-2px);
+        }
+        .project-video, .tech-image {
+            border-radius: 14px;
+            transition: transform 0.3s ease;
+            object-fit: cover;
+        }
+        .project-video:hover, .tech-image:hover {
             transform: scale(1.05);
         }
-        .live-analytics {
-            max-width: 600px;
-            marginnesi: margin: 0 auto;
-            padding: 20px;
+        .chart-container {
+            max-width: 580px;
+            margin: 0 auto;
+            padding: 18px;
         }
-        .pricing-table, .comparison-table {
+        .comparison-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 18px;
             font-size: 0.9rem;
+            transition: background 0.3s ease;
         }
-        .pricing-table th, .pricing-table td, .comparison-table th, .comparison-table td {
+        .comparison-table th, .comparison-table td {
             border: 1px solid rgba(0, 0, 0, 0.08);
             padding: 12px;
             text-align: left;
         }
-        .pricing-table th, .comparison-table th {
+        .comparison-table th {
             background: var(--primary-teal);
             color: white;
             font-weight: 600;
         }
-        .pricing-table tr:nth-child(even), .comparison-table tr:nth-child(even) {
+        .comparison-table tr:nth-child(even) {
             background: var(--neutral-light);
         }
         h1, h2, h3, h4 {
             font-family: 'Poppins', sans-serif;
             font-weight: 700;
+            letter-spacing: -0.02em;
         }
         section {
             padding: 6rem 0;
@@ -236,7 +362,6 @@
         .container {
             max-width: 1240px;
             padding: 0 1.5rem;
-            margin: 0 auto;
         }
         .parallax-bg {
             position: absolute;
@@ -247,12 +372,34 @@
             background: linear-gradient(135deg, rgba(5, 150, 105, 0.15), rgba(20, 195, 142, 0.1));
             z-index: -1;
         }
+        .dark-mode-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .dark-mode-toggle:hover {
+            transform: scale(1.1);
+        }
         .social-icon {
             width: 20px;
             height: 20px;
             margin-right: 8px;
             fill: var(--secondary-teal);
             transition: fill 0.3s ease;
+        }
+        body.dark-mode .social-icon {
+            fill: var(--secondary-teal);
+        }
+        .social-link {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
         }
         .social-link:hover::after {
             content: attr(data-tooltip);
@@ -298,20 +445,22 @@
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                     </svg>
+                    <span class="sr-only">Toggle menu</span>
                 </button>
                 <button class="dark-mode-toggle" aria-label="Toggle dark mode" onclick="toggleDarkMode()">
                     <span id="_darkModeIcon">☀️</span>
                 </button>
             </div>
             <ul class="hidden md:flex space-x-8" id="nav-menu">
-                <li><a href="#home" class="hover:text-emerald-200 transition-colors">Home</a></li>
-                <li><a href="#why-ethos" class="hover:text-emerald-200 transition-colors">Our Why</a></li>
-                <li><a href="#platform" class="hover:text-emerald-200 transition-colors">Platform</a></li>
-                <li><a href="#scalability" class="hover:text-emerald-200 transition-colors">Scalability</a></li>
-                <li><a href="#business-model" class="hover:text-emerald-200 transition-colors">Business Model</a></li>
-                <li><a href="#team" class="hover:text-emerald-200 transition-colors">Team</a></li>
-                <li><a href="#projects" class="hover:text-emerald-200 transition-colors">Solutions</a></li>
-                <li><a href="#contact" class="hover:text-emerald-200 transition-colors">Contact</a></li>
+                <li><a href="#home" class="hover:text-emerald-200 transition-colors font-weight: 500;">Home</a></li>
+                <li><a href="#why-ethos" class="hover:text-emerald-200 transition-colors font-weight: 500;">Our Why</a></li>
+                <li><a href="#projects" class="hover:text-emerald-200 transition-colors font-weight: 500;">Solutions</a></li>
+                <li><a href="#innovators" class="hover:text-emerald-200 transition-colors font-weight: 500;">Our Innovators</a></li>
+                <li><a href="#expertise" class="hover:text-emerald-200 transition-colors font-weight: 500;">Expertise</a></li>
+                <li><a href="#case-studies" class="hover:text-emerald-200 transition-colors font-weight: 500;">Case Studies</a></li>
+                <li><a href="#blog" class="hover:text-emerald-200 transition-colors font-weight: 500;">Blog</a></li>
+                <li><a href="#faq" class="hover:text-emerald-200 transition-colors font-weight: 500;">FAQ</a></li>
+                <li><a href="#contact" class="hover:text-emerald-200 transition-colors font-weight: 500;">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -322,183 +471,122 @@
             <div class="parallax-bg"></div>
             <div class="container mx-auto text-center">
                 <h2 class="text-5xl md:text-6xl font-extrabold mb-6 fade-in color-change-text">
-                    The Go-To Platform for SME Fintech & ESG
+                    Empowering SMEs with AI & ESG Innovation
                 </h2>
                 <p class="text-base max-w-3xl mx-auto mb-4 fade-in">
-                    Nexlify Solutions integrates AI, blockchain, and ESG tools to cut SME costs by up to <strong>60%</strong> and drive sustainable growth. Backed by Founder Institute since 2024.
+                    Nexlify Solutions, founded by Samuel Mwendwa and backed by The Founder Institute since 2024, slashes SME costs by up to <strong>60%</strong> with AI, blockchain, and ethical tech.
                 </p>
                 <p class="text-sm max-w-2xl mx-auto mb-8 fade-in">
-                    Our scalable platform empowers SMEs with real-time analytics and transparent financing, offering investors a high-impact opportunity.
+                    Born from real SME challenges, we make advanced tools accessible and profitable, offering investors a scalable, impact-driven opportunity.
                 </p>
                 <div class="flex justify-center space-x-4 flex-wrap gap-4">
                     <a href="#contact" class="btn-accent fade-in">Book a Free Consultation</a>
-                    <a href="#platform" class="inline-block bg-teal-600 text-white py-3 px-8 rounded-full hover:bg-teal-700 transition-colors fade-in">
-                        Explore Our Platform
+                    <a href="#projects" class="inline-block bg-teal-600 text-white py-3 px-8 rounded-full hover:bg-teal-700 transition-colors fade-in font-weight: 600;">
+                        Explore Our Solutions
                     </a>
                 </div>
             </div>
         </section>
-        <!-- Our Why Section (unchanged for brevity) -->
+        <!-- Our Why Section -->
         <section id="why-ethos" class="py-32 bg-white" role="region" aria-label="Our Why and Ethos">
             <div class="container mx-auto text-center">
                 <h2 class="text-4xl md:text-5xl font-bold mb-8 fade-in color-change-text">Our Why & Ethos</h2>
-                <p class="text-base max-w-3xl mx-auto mb-12 fade-in">
-                    At Nexlify, we empower SMEs with accessible AI, blockchain, and ESG tools, breaking barriers to profitability and sustainability.
+                <p class="text-base max-w-3xl mx-auto mb-12 fade-in ethos-text">
+                    At Nexlify, we’re driven to empower SMEs with accessible AI, blockchain, and ESG tools, breaking barriers to profitability and sustainability.
                 </p>
                 <div class="ethos-marquee-container mt-12">
                     <div class="ethos-marquee-track">
-                        <div class="ethos-card"><h3 class="text-xl font-semibold mb-2 color-change-text">Innovation</h3><p>Crafting AI and blockchain solutions for SME challenges.</p></div>
-                        <div class="ethos-card"><h3 class="text-xl font-semibold mb-2 color-change-text">Impact</h3><p>Driving cost savings and ESG compliance for growth.</p></div>
-                        <div class="ethos-card"><h3 class="text-xl font-semibold mb-2 color-change-text">Accessibility</h3><p>Making cutting-edge tech affordable for SMEs.</p></div>
-                        <div class="ethos-card"><h3 class="text-xl font-semibold mb-2 color-change-text">Transparency</h3><p>Building trust with blockchain-verified data.</p></div>
+                        <div class="ethos-card">
+                            <h3 class="text-xl font-semibold mb-2 color-change-text">Innovation</h3>
+                            <p>Crafting AI and blockchain solutions for real SME challenges.</p>
+                        </div>
+                        <div class="ethos-card">
+                            <h3 class="text-xl font-semibold mb-2 color-change-text">Impact</h3>
+                            <p>Driving cost savings and ESG compliance for sustainable growth.</p>
+                        </div>
+                        <div class="ethos-card">
+                            <h3 class="text-xl font-semibold mb-2 color-change-text">Accessibility</h3>
+                            <p>Making cutting-edge tech affordable for every SME.</p>
+                        </div>
+                        <div class="ethos-card">
+                            <h3 class="text-xl font-semibold mb-2 color-change-text">Transparency</h3>
+                            <p>Building trust with blockchain-verified data.</p>
+                        </div>
                         <!-- Duplicated for seamless looping -->
-                        <div class="ethos-card"><h3 class="text-xl font-semibold mb-2 color-change-text">Innovation</h3><p>Crafting AI and blockchain solutions for SME challenges.</p></div>
-                        <div class="ethos-card"><h3 class="text-xl font-semibold mb-2 color-change-text">Impact</h3><p>Driving cost savings and ESG compliance for growth.</p></div>
-                        <div class="ethos-card"><h3 class="text-xl font-semibold mb-2 color-change-text">Accessibility</h3><p>Making cutting-edge tech affordable for SMEs.</p></div>
-                        <div class="ethos-card"><h3 class="text-xl font-semibold mb-2 color-change-text">Transparency</h3><p>Building trust with blockchain-verified data.</p></div>
+                        <div class="ethos-card">
+                            <h3 class="text-xl font-semibold mb-2 color-change-text">Innovation</h3>
+                            <p>Crafting AI and blockchain solutions for real SME challenges.</p>
+                        </div>
+                        <div class="ethos-card">
+                            <h3 class="text-xl font-semibold mb-2 color-change-text">Impact</h3>
+                            <p>Driving cost savings and ESG compliance for sustainable growth.</p>
+                        </div>
+                        <div class="ethos-card">
+                            <h3 class="text-xl font-semibold mb-2 color-change-text">Accessibility</h3>
+                            <p>Making cutting-edge tech affordable for every SME.</p>
+                        </div>
+                        <div class="ethos-card">
+                            <h3 class="text-xl font-semibold mb-2 color-change-text">Transparency</h3>
+                            <p>Building trust with blockchain-verified data.</p>
+                        </div>
                     </div>
                 </div>
                 <a href="#contact" class="mt-10 btn-accent fade-in">Join Our Mission</a>
             </div>
         </section>
-        <!-- Integrated Platform Demo Section -->
-        <section id="platform" class="py-32 bg-gray-50 relative" role="region" aria-label="Integrated Platform Demo">
+        <!-- Why ESG & DeFi Section -->
+        <section id="why-esg-defi" class="py-32 bg-gray-50 relative" role="region" aria-label="Why ESG & DeFi">
             <div class="parallax-bg"></div>
             <div class="container mx-auto text-center">
-                <h2 class="text-4xl md:text-5xl font-bold mb-8 fade-in color-change-text">Our Integrated Platform</h2>
+                <h2 class="text-4xl md:text-5xl font-bold mb-8 fade-in color-change-text">
+                    ESG Insight & DeFi for SMEs
+                </h2>
                 <p class="text-base max-w-3xl mx-auto mb-12 fade-in">
-                    Nexlify’s unified platform combines ESG Scoring Engine, InvoFi, and CFO AI Agent to streamline SME decisions. Explore our interactive workflow below.
-                </p>
-                <div class="glass-card p-10 fade-in">
-                    <h3 class="text-2xl font-semibold mb-4 color-change-text">Decision Workflow: Financing</h3>
-                    <img src="https://via.placeholder.com/600x300.png?text=Workflow+Diagram" alt="Interactive workflow diagram for InvoFi financing" class="workflow-diagram mb-4" onclick="showWorkflowDemo()">
-                    <p class="mb-4">Click to explore how InvoFi integrates with CFO AI Agent for real-time loan approvals.</p>
-                    <div id="workflow-demo" class="hidden mt-4 p-4 bg-neutral-light rounded-lg">
-                        <p><strong>Step 1:</strong> Upload invoice to InvoFi (blockchain-verified).</p>
-                        <p><strong>Step 2:</strong> CFO AI Agent analyzes cash flow and credit risk.</p>
-                        <p><strong>Step 3:</strong> Receive loan offers in under 2 hours.</p>
-                        <a href="#contact" class="text-teal-600 hover:underline">Try It Now</a>
-                    </div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
-                    <div class="glass-card p-10 fade-in">
-                        <h3 class="text-xl font-semibold mb-2 color-change-text">For CFOs</h3>
-                        <p>Optimize budgets with 30% more accurate forecasts.</p>
-                        <a href="#projects" class="text-teal-600 hover:underline">Explore CFO AI Agent</a>
-                    </div>
-                    <div class="glass-card p-10 fade-in">
-                        <h3 class="text-xl font-semibold mb-2 color-change-text">For ESG Officers</h3>
-                        <p>Automate compliance, saving 70% on costs.</p>
-                        <a href="#projects" class="text-teal-600 hover:underline">Explore ESG Scoring Engine</a>
-                    </div>
-                    <div class="glass-card p-10 fade-in">
-                        <h3 class="text-xl font-semibold mb-2 color-change-text">For Investors</h3>
-                        <p>Access transparent data and scalable SaaS.</p>
-                        <a href="#business-model" class="text-teal-600 hover:underline">View Business Model</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Scalability Roadmap Section -->
-        <section id="scalability" class="py-32 bg-white" role="region" aria-label="Scalability Roadmap">
-            <div class="container mx-auto text-center">
-                <h2 class="text-4xl md:text-5xl font-bold mb-8 fade-in color-change-text">Scalability Roadmap</h2>
-                <p class="text-base max-w-3xl mx-auto mb-12 fade-in">
-                    Nexlify is built to scale, leveraging AWS, Kubernetes, and enterprise-grade security to support thousands of SMEs globally.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div class="glass-card p-10 fade-in">
-                        <h3 class="text-xl font-semibold mb-2 color-change-text">Cloud Infrastructure</h3>
-                        <p>AWS and Kubernetes for auto-scaling to handle 10,000+ daily transactions.</p>
-                    </div>
-                    <div class="glass-card p-10 fade-in">
-                        <h3 class="text-xl font-semibold mb-2 color-change-text">API Integrations</h3>
-                        <p>Chainlink and third-party APIs for real-time ESG and financial data.</p>
-                    </div>
-                    <div class="glass-card p-10 fade-in">
-                        <h3 class="text-xl font-semibold mb-2 color-change-text">Security</h3>
-                        <p>ISO 27001-compliant encryption and blockchain-verified data.</p>
-                    </div>
-                </div>
-                <div class="live-analytics mt-12 fade-in">
-                    <h3 class="text-2xl font-semibold mb-4 color-change-text">Live Analytics Demo</h3>
-                    <p class="mb-4">Simulated real-time ESG compliance metrics for SMEs.</p>
-                    <canvas id="liveAnalyticsChart" width="600" height="300"></canvas>
-                </div>
-            </div>
-        </section>
-        <!-- Business Model Section -->
-        <section id="business-model" class="py-32 bg-gray-50 relative" role="region" aria-label="Business Model">
-            <div class="parallax-bg"></div>
-            <div class="container mx-auto text-center">
-                <h2 class="text-4xl md:text-5xl font-bold mb-8 fade-in color-change-text">Transparent Business Model</h2>
-                <p class="text-base max-w-3xl mx-auto mb-12 fade-in">
-                    Nexlify operates a scalable SaaS model with clear pricing and growth metrics, ensuring transparency for investors and clients.
-                </p>
-                <div class="glass-card p-10 fade-in">
-                    <h3 class="text-2xl font-semibold mb-4 color-change-text">Pricing Tiers</h3>
-                    <table class="pricing-table">
-                        <thead>
-                            <tr>
-                                <th>Tier</th>
-                                <th>Price/Month</th>
-                                <th>Features</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Starter</td>
-                                <td>$99</td>
-                                <td>Basic ESG Scoring, CFO AI Agent access</td>
-                            </tr>
-                            <tr>
-                                <td>Pro</td>
-                                <td>$499</td>
-                                <td>Full platform access, InvoFi integration</td>
-                            </tr>
-                            <tr>
-                                <td>Enterprise</td>
-                                <td>Contact Us</td>
-                                <td>Custom API integrations, dedicated support</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <h3 class="text-2xl font-semibold mt-8 mb-4 color-change-text">Key Metrics</h3>
-                    <p>Customer Acquisition Cost (CAC): $200<br>Lifetime Value (LTV): $2,400<br>Monthly Recurring Revenue (MRR): $50K (May 2025)</p>
-                    <div class="mt-4 space-x-4">
-                        <a href="https://nexlify.s3.amazonaws.com/pitch-deck.pdf" target="_blank" class="text-teal-600 hover:underline">Investor Pitch Deck</a>
-                        <a href="https://nexlify.s3.amazonaws.com/business-model.pdf" target="_blank" class="text-teal-600 hover:underline">Business Model Details</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Team & Advisors Section -->
-        <section id="team" class="py-32 bg-white" role="region" aria-label="Team & Advisors">
-            <div class="container mx-auto text-center">
-                <h2 class="text-4xl md:text-5xl font-bold mb-8 fade-in color-change-text">Our Team & Advisors</h2>
-                <p class="text-base max-w-3xl mx-auto mb-12 fade-in">
-                    Led by Samuel Mwendwa and supported by industry experts, our team drives Nexlify’s mission.
+                    Our AI-driven ESG tools and DeFi platform deliver transparency and affordable capital, tailored for SMEs and trusted by investors.
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div class="glass-card p-10 fade-in">
-                        <h3 class="text-2xl font-semibold mb-2 color-change-text">Samuel Mwendwa</h3>
-                        <p class="mb-4">Founder & Lead Developer</p>
-                        <p>AI, blockchain, and ESG expert. Founder Institute mentor guiding 20+ startups.</p>
-                        <a href="https://linkedin.com/in/samuel-mwendwa" target="_blank" class="text-teal-600 hover:underline">LinkedIn</a>
+                        <h3 class="text-2xl font-semibold mb-4 color-change-text">ESG Scoring Engine</h3>
+                        <p>Automate sustainability reporting, boosting trust and cutting compliance costs by 70%.</p>
                     </div>
                     <div class="glass-card p-10 fade-in">
-                        <h3 class="text-2xl font-semibold mb-2 color-change-text">Advisory Board</h3>
-                        <p>Fintech and ESG experts from Founder Institute and industry partners.</p>
-                        <a href="https://nexlify.s3.amazonaws.com/advisors.pdf" target="_blank" class="text-teal-600 hover:underline">Advisor Bios</a>
+                        <h3 class="text-2xl font-semibold mb-4 color-change-text">InvoFi: Smart Lending</h3>
+                        <p>Unlock decentralized loans with verified invoices, reducing costs by 60%.</p>
                     </div>
+                </div>
+                <a href="#contact" class="mt-10 btn-accent fade-in">Discover Our Impact</a>
+                <!-- Trust Badges -->
+                <div class="mt-16 flex flex-col sm:flex-row items-center justify-center gap-8">
+                    <div class="glass-card px-8 py-6 fade-in flex items-center gap-4">
+                        <span class="text-sm font-semibold">Backed by Founder Institute</span>
+                    </div>
+                    <div class="glass-card px-8 py-6 fade-in flex items-center gap-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0-2.21 1.79-4 4-4s4 1.79 4 4v5h-8v-5zM8 11c0-2.21-1.79-4-4-4s-4 1.79-4 4v5h8v-5z" />
+                        </svg>
+                        <span class="text-sm font-semibold">Trusted by 20+ SMEs</span>
+                    </div>
+                    <div class="glass-card px-8 py-6 fade-in flex items-center gap-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-teal-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                            <path d="M10 2a1 1 0 01.894.553l7 14a1 1 0 01-.03.968A1 1 0 0117 18H3a1 1 0 01-.865-1.479l7-14A1 1 0 0110 2z" />
+                        </svg>
+                        <span class="text-sm font-semibold">DeFi Certified</span>
+                    </div>
+                </div>
+                <!-- Mini Testimonial -->
+                <div class="mt-16 max-w-2xl mx-auto glass-card p-10 fade-in">
+                    <p class="text-base italic mb-4">"Nexlify’s ESG tools halved our compliance time and secured funding faster."</p>
+                    <p class="text-sm font-semibold color-change-text">Faith M., GreenStack Africa</p>
+                    <p class="text-xs opacity-70">SME Client | Johannesburg</p>
                 </div>
             </div>
         </section>
-        <!-- Projects Section (Updated with Interactive Demos) -->
+        <!-- Projects Section -->
         <section id="projects" class="py-32 bg-gray-50" role="region" aria-label="Projects">
             <div class="container mx-auto">
                 <h2 class="text-4xl md:text-5xl font-bold text-center mb-8 fade-in color-change-text">Our Solutions</h2>
-                <p class="text-base text-center max-w-2xl mx-auto mb-12 fade-in">Explore our interactive demos for AI, blockchain, and ESG solutions.</p>
+                <p class="text-base text-center max-w-2xl mx-auto mb-12 fade-in">Explore demo videos of our AI, blockchain, and quantum solutions, crafted by Samuel Mwendwa.</p>
+                <!-- Project Filters -->
                 <div class="flex justify-center space-x-4 mb-16 fade-in">
                     <button class="filter-btn active" onclick="filterProjects('all')">All</button>
                     <button class="filter-btn" onclick="filterProjects('ai')">AI</button>
@@ -507,21 +595,311 @@
                     <button class="filter-btn" onclick="filterProjects('quantum')">Quantum</button>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" id="project-grid">
+                    <!-- ESG Scoring Engine -->
                     <div class="glass-card p-8 fade-in project-card" data-category="esg ai">
-                        <div class="interactive-demo mb-4" onclick="showDemo('esg')">
-                            <img src="https://via.placeholder.com/300x150.png?text=ESG+Demo" alt="ESG Scoring Engine demo" class="project-video">
-                            <p class="sr-only">Interactive ESG Scoring Engine demo</p>
-                        </div>
-                        <div id="esg-demo" class="hidden p-4 bg-neutral-light rounded-lg">
-                            <p>Real-time ESG compliance dashboard simulation.</p>
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_ESG" title="Demo video of ESG Scoring Engine AI dashboard by Samuel Mwendwa" aria-label="Demo video of ESG Scoring Engine AI dashboard" class="w-full h-48 project-video mb-4" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                        <p class="sr-only">30-second video demo of AI-powered ESG Scoring Engine dashboard with captions.</p>
+                        <h3 class="text-2xl font-semibold mb-3 color-change-text">ESG Scoring Engine</h3>
+                        <p class="mb-4">Built by Samuel Mwendwa using TensorFlow and Ethereum, cuts compliance costs by 70%.</p>
+                        <p><strong>Tools:</strong> TensorFlow, Ethereum, Streamlit</p>
+                        <p class="mt-2"><strong>Impact:</strong> Attracted $2M in funding.</p>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://github.com/SamTech-crypto/esg-scoring-engine" target="_blank" class="text-teal-600 hover:underline">GitHub</a>
                             <a href="https://esg-scoring-engine.streamlit.app" target="_blank" class="text-teal-600 hover:underline">Live Demo</a>
                         </div>
-                        <h3 class="text-2xl font-semibold mb-3 color-change-text">ESG Scoring Engine</h3>
-                        <p class="mb-4">Cuts compliance costs by 70% using TensorFlow and Ethereum.</p>
-                        <p><strong>Impact:</strong> Attracted $2M in funding.</p>
-                        <a href="https://nexlify.s3.amazonaws.com/esg-whitepaper.pdf" target="_blank" class="text-teal-600 hover:underline">Whitepaper</a>
                     </div>
-                    <!-- Additional projects omitted for brevity; follow similar structure -->
+                    <!-- CFO AI Agent -->
+                    <div class="glass-card p-8 fade-in project-card" data-category="ai">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_CFO" title="Demo video of CFO AI Agent forecasting UI by Samuel Mwendwa" aria-label="Demo video of CFO AI Agent forecasting UI" class="w-full h-48 project-video mb-4" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                        <p class="sr-only">45-second video demo of CFO AI Agent forecasting interface with captions.</p>
+                        <h3 class="text-2xl font-semibold mb-3 color-change-text">CFO AI Agent</h3>
+                        <p class="mb-4">Built by Samuel Mwendwa using LangChain, saves 40% on reporting time.</p>
+                        <p><strong>Tools:</strong> LangChain, Pinecone, Streamlit</p>
+                        <p class="mt-2"><strong>Impact:</strong> 30% better forecasting accuracy.</p>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://github.com/SamTech-crypto/FinSightAI" target="_blank" class="text-teal-600 hover:underline">GitHub</a>
+                            <a href="https://finsightai-ceox.streamlit.app/" target="_blank" class="text-teal-600 hover:underline">Live Demo</a>
+                        </div>
+                    </div>
+                    <!-- InvoFi -->
+                    <div class="glass-card p-8 fade-in project-card" data-category="blockchain">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_INVOFI" title="Demo video of InvoFi blockchain financing platform by Samuel Mwendwa" aria-label="Demo video of InvoFi blockchain financing platform" class="w-full h-48 project-video mb-4" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                        <p class="sr-only">60-second video demo of InvoFi decentralized financing platform with captions.</p>
+                        <h3 class="text-2xl font-semibold mb-3 color-change-text">InvoFi</h3>
+                        <p class="mb-4">Built by Samuel Mwendwa using Solidity, cuts transaction costs by 60%.</p>
+                        <p><strong>Tools:</strong> Solidity, Chainlink, Streamlit</p>
+                        <p class="mt-2"><strong>Impact:</strong> Improved cash flow for 50+ SMEs.</p>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://github.com/SamTech-crypto/invofi" target="_blank" class="text-teal-600 hover:underline">GitHub</a>
+                            <a href="https://invofi.streamlit.app" target="_blank" class="text-teal-600 hover:underline">Live Demo</a>
+                        </div>
+                    </div>
+                    <!-- Fraud Monitoring Dashboard -->
+                    <div class="glass-card p-8 fade-in project-card" data-category="ai">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_FRAUD" title="Demo video of Fraud Monitoring Dashboard by Samuel Mwendwa" aria-label="Demo video of Fraud Monitoring Dashboard" class="w-full h-48 project-video mb-4" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                        <p class="sr-only">30-second video demo of Fraud Monitoring Dashboard with captions.</p>
+                        <h3 class="text-2xl font-semibold mb-3 color-change-text">Fraud Monitoring Dashboard</h3>
+                        <p class="mb-4">Designed by Samuel Mwendwa, reduces fraud detection time by 50%.</p>
+                        <p><strong>Tools:</strong> scikit-learn, Tableau, Streamlit</p>
+                        <p class="mt-2"><strong>Impact:</strong> Saved $500K in fraud losses.</p>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://github.com/SamTech-crypto/fraud-monitoring-dashboard" target="_blank" class="text-teal-600 hover:underline">GitHub</a>
+                            <a href="https://fraud-monitoring-dashboard.streamlit.app" target="_blank" class="text-teal-600 hover:underline">Live Demo</a>
+                        </div>
+                    </div>
+                    <!-- Quantum Financial Optimizer -->
+                    <div class="glass-card p-8 fade-in project-card" data-category="quantum">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_QUANTUM" title="Demo video of Quantum Financial Optimizer by Samuel Mwendwa" aria-label="Demo video of Quantum Financial Optimizer" class="w-full h-48 project-video mb-4" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                        <p class="sr-only">45-second video demo of Quantum Financial Optimizer with captions.</p>
+                        <h3 class="text-2xl font-semibold mb-3 color-change-text">Quantum Financial Optimizer</h3>
+                        <p class="mb-4">Built by Samuel Mwendwa, reduces portfolio risk by 40%.</p>
+                        <p><strong>Tools:</strong> Qiskit, AWS Braket, Python</p>
+                        <p class="mt-2"><strong>Impact:</strong> Optimized $10M portfolios.</p>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://github.com/SamTech-crypto/quantum-financial-optimizer" target="_blank" class="text-teal-600 hover:underline">GitHub</a>
+                            <a href="https://quantum-financial-optimizer.streamlit.app" target="_blank" class="text-teal-600 hover:underline">Live Demo</a>
+                        </div>
+                    </div>
+                    <!-- AuditFlow -->
+                    <div class="glass-card p-8 fade-in project-card" data-category="ai">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_AUDIT" title="Demo video of AuditFlow compliance workflow by Samuel Mwendwa" aria-label="Demo video of AuditFlow compliance workflow" class="w-full h-48 project-video mb-4" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                        <p class="sr-only">30-second video demo of AuditFlow compliance workflow with captions.</p>
+                        <h3 class="text-2xl font-semibold mb-3 color-change-text">AuditFlow</h3>
+                        <p class="mb-4">Built by Samuel Mwendwa, saves 30% on audit time.</p>
+                        <p><strong>Tools:</strong> Python, Streamlit, LangChain</p>
+                        <p class="mt-2"><strong>Impact:</strong> Streamlined audits for 20 SMEs.</p>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://github.com/SamTech-crypto/auditflow" target="_blank" class="text-teal-600 hover:underline">GitHub</a>
+                            <a href="https://auditflow.streamlit.app" target="_blank" class="text-teal-600 hover:underline">Live Demo</a>
+                        </div>
+                    </div>
+                    <!-- ChurnGuard -->
+                    <div class="glass-card p-8 fade-in project-card" data-category="ai">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_CHURN" title="Demo video of ChurnGuard retention analytics by Samuel Mwendwa" aria-label="Demo video of ChurnGuard retention analytics" class="w-full h-48 project-video mb-4" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                        <p class="sr-only">45-second video demo of ChurnGuard retention analytics with captions.</p>
+                        <h3 class="text-2xl font-semibold mb-3 color-change-text">ChurnGuard</h3>
+                        <p class="mb-4">Built by Samuel Mwendwa, boosts retention by 25%.</p>
+                        <p><strong>Tools:</strong> TensorFlow, Streamlit</p>
+                        <p class="mt-2"><strong>Impact:</strong> Retained 15% more customers.</p>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://github.com/SamTech-crypto/churnguard" target="_blank" class="text-teal-600 hover:underline">GitHub</a>
+                            <a href="https://churnguard.streamlit.app" target="_blank" class="text-teal-600 hover:underline">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Meet Our Innovators Section -->
+        <section id="innovators" class="py-32 bg-white" role="region" aria-label="Meet Our Innovators">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8 fade-in color-change-text">Meet Our Innovators</h2>
+                <p class="text-base max-w-2xl mx-auto mb-12 fade-in">
+                    Our solutions are driven by Samuel Mwendwa, a fintech and ESG innovator and Founder Institute mentor since 2024.
+                </p>
+                <div class="glass-card p-10 max-w-lg mx-auto fade-in">
+                    <h3 class="text-2xl font-semibold mb-2 color-change-text">Samuel Mwendwa</h3>
+                    <p class="mb-4">Lead Developer | AI, Blockchain, ESG Specialist</p>
+                    <p class="mb-4">
+                        Samuel powers Nexlify’s tools like <span class="color-change-text">ESG Scoring Engine</span> and <span class="color-change-text">InvoFi</span>, saving SMEs millions. As a <a href="https://fi.co/mentors" target="_blank" class="text-teal-600 hover:underline">Founder Institute</a> mentor, he’s guided 20+ startups.
+                    </p>
+                    <div class="flex justify-center space-x-6 mt-6">
+                        <a href="https://github.com/SamTech-crypto" target="_blank" class="text-teal-600 hover:underline">GitHub</a>
+                        <a href="https://linkedin.com/in/samuel-mwendwa" target="_blank" class="text-teal-600 hover:underline">LinkedIn</a>
+                        <a href="https://nexlify.s3.amazonaws.com/samuel-resume.pdf" target="_blank" class="text-teal-600 hover:underline">Resume</a>
+                        <a href="https://nexlify.s3.amazonaws.com/fi-mentorship-case-study.pdf" target="_blank" class="text-teal-600 hover:underline">Mentorship Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Expertise Showcase Section -->
+        <section id="expertise" class="py-32 bg-gray-50 relative" role="region" aria-label="Expertise Showcase">
+            <div class="parallax-bg"></div>
+            <div class="container mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 fade-in color-change-text">Expertise Showcase</h2>
+                <p class="text-base text-center max-w-2xl mx-auto mb-12 fade-in">Discover Samuel Mwendwa’s expertise in benchmarking, projections, and technical deep dives.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <!-- Competitor Benchmarking -->
+                    <div class="glass-card p-10 fade-in">
+                        <h3 class="text-2xl font-semibold mb-4 color-change-text">Competitor Benchmarking</h3>
+                        <p class="mb-4"><span class="color-change-text">ESG Scoring Engine</span> outperforms Sustainalytics with blockchain transparency.</p>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>ESG Scoring Engine</th>
+                                    <th>Sustainalytics</th>
+                                    <th>MSCI</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Blockchain Transparency</td>
+                                    <td>✅ Yes</td>
+                                    <td>❌ No</td>
+                                    <td>❌ No</td>
+                                </tr>
+                                <tr>
+                                    <td>Reporting Speed</td>
+                                    <td>2 hours</td>
+                                    <td>3 hours</td>
+                                    <td>4 hours</td>
+                                </tr>
+                                <tr>
+                                    <td>Cost Reduction</td>
+                                    <td>70%</td>
+                                    <td>50%</td>
+                                    <td>40%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a href="#contact" class="mt-4 inline-block text-teal-600 hover:underline">Request Report</a>
+                    </div>
+                    <!-- Financial Projections -->
+                    <div class="glass-card p-10 fade-in">
+                        <h3 class="text-2xl font-semibold mb-4 color-change-text">Financial Projections</h3>
+                        <p class="mb-4"><span class="color-change-text">CFO AI Agent</span> delivers 30% more accurate forecasts.</p>
+                        <div class="chart-container mb-4">
+                            <canvas id="revenueChart" width="400" height="250"></canvas>
+                        </div>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://nexlify.s3.amazonaws.com/financial-model.pdf" target="_blank" class="text-teal-600 hover:underline">Download Template</a>
+                            <a href="#contact" class="text-teal-600 hover:underline">Request Demo</a>
+                        </div>
+                    </div>
+                    <!-- Technical Deep Dives -->
+                    <div class="glass-card p-10 fade-in">
+                        <!-- Use CDN for images in production, e.g., Cloudinary or Imgix for auto-optimization -->
+                        <img src="https://via.placeholder.com/300x150.png?text=Blockchain+Tech" alt="Blockchain technology illustration for InvoFi" class="w-full h-48 tech-image mb-4" loading="lazy">
+                        <h3 class="text-2xl font-semibold mb-4 color-change-text">Technical Deep Dives</h3>
+                        <p class="mb-4"><span class="color-change-text">InvoFi</span> uses Solidity and Chainlink, optimized for 40% lower gas fees.</p>
+                        <ul class="mb-4 list-disc pl-5">
+                            <li><strong>Solidity:</strong> Secure contracts</li>
+                            <li><strong>Chainlink:</strong> Real-time data</li>
+                            <li><strong>Ethereum:</strong> Scalable transactions</li>
+                        </ul>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://github.com/SamTech-crypto/invofi" target="_blank" class="text-teal-600 hover:underline">View Code</a>
+                            <a href="https://nexlify.s3.amazonaws.com/invofi-whitepaper.pdf" target="_blank" class="text-teal-600 hover:underline">Whitepaper</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Case Studies Section -->
+        <section id="case-studies" class="py-32 bg-white" role="region" aria-label="Case Studies">
+            <div class="container mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 fade-in color-change-text">Case Studies</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="glass-card p-10 fade-in">
+                        <h3 class="text-2xl font-semibold mb-4 color-change-text">InvoFi: Decentralized Financing</h3>
+                        <p class="mb-4">Cut transaction costs by 60% for a logistics SME using blockchain.</p>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://nexlify.s3.amazonaws.com/invo-fi-case-study.pdf" target="_blank" class="text-teal-600 hover:underline">Download PDF</a>
+                            <a href="#interactive-invofi" class="text-teal-600 hover:underline">View Chart</a>
+                        </div>
+                    </div>
+                    <div class="glass-card p-10 fade-in">
+                        <h3 class="text-2xl font-semibold mb-4 color-change-text">ESG Scoring Engine: Compliance</h3>
+                        <p class="mb-4">Reduced ESG reporting costs by 70%, attracting $2M in funding.</p>
+                        <div class="mt-4 space-x-4">
+                            <a href="https://nexlify.s3.amazonaws.com/esg-case-study.pdf" target="_blank" class="text-teal-600 hover:underline">Download PDF</a>
+                            <a href="#interactive-esg" class="text-teal-600 hover:underline">View Chart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Client Success Stories Section -->
+        <section id="testimonials" class="py-32 bg-gray-50 relative" role="region" aria-label="Client Success Stories">
+            <div class="parallax-bg"></div>
+            <div class="container mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 fade-in color-change-text">Client Success Stories</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                    <div class="glass-card p-8 fade-in">
+                        <p class="mb-4 italic text-base">"CFO AI Agent saved us 20+ hours a month."</p>
+                        <p class="font-semibold color-change-text text-sm">Sarah Lee, FitPulse Gym</p>
+                    </div>
+                    <div class="glass-card p-8 fade-in">
+                        <p class="mb-4 italic text-base">"ESG Scoring Engine unlocked $1.5M in funding."</p>
+                        <p class="font-semibold color-change-text text-sm">Michael Chen, Travel Ventures</p>
+                    </div>
+                    <div class="glass-card p-8 fade-in">
+                        <p class="mb-4 italic text-base">"InvoFi cut our processing costs by 60%."</p>
+                        <p class="font-semibold color-change-text text-sm">Ahmed Khan, TradeFlow</p>
+                    </div>
+                    <div class="glass-card p-8 fade-in">
+                        <p class="mb-4 italic text-base">"CFO AI Agent enabled real-time insights."</p>
+                        <p class="font-semibold color-change-text text-sm">Grace Otieno, GreenHarvest</p>
+                    </div>
+                </div>
+                <a href="#contact" class="mt-12 btn-accent fade-in mx-auto block w-fit">Start Your Success Story</a>
+            </div>
+        </section>
+        <!-- Blog Section -->
+        <section id="blog" class="py-32 bg-white" role="region" aria-label="Blog">
+            <div class="container mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 fade-in color-change-text">Insights & Updates</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="glass-card p-10 fade-in">
+                        <h3 class="text-2xl font-semibold mb-4 color-change-text">SaaS Growth Beyond Metrics</h3>
+                        <p class="mb-4">Insights from <span class="color-change-text">CFO AI Agent</span> for meaningful action.</p>
+                        <a href="https://www.linkedin.com/pulse/unlock-your-saas-growth-beyond-metrics-meaningful-action-mwendwa-xm4nf/" target="_blank" class="text-teal-600 hover:underline">Read on LinkedIn</a>
+                    </div>
+                    <div class="glass-card p-10 fade-in">
+                        <h3 class="text-2xl font-semibold mb-4 color-change-text">Navigating Fintech Regulations</h3>
+                        <p class="mb-4">How <span class="color-change-text">InvoFi</span> ensures global compliance.</p>
+                        <a href="https://www.linkedin.com/pulse/navigating-maze-international-regulations-fintech-beyond-mwendwa-6wdtf/" target="_blank" class="text-teal-600 hover:underline">Read on LinkedIn</a>
+                    </div>
+                    <div class="glass-card p-10 fade-in">
+                        <h3 class="text-2xl font-semibold mb-4 color-change-text">Optimizing R&D in Biotech</h3>
+                        <p class="mb-4">Using <span class="color-change-text">ESG Scoring Engine</span> for sustainable growth.</p>
+                        <a href="https://www.linkedin.com/pulse/optimizing-your-rd-investment-biotech-growth-samuel-mwendwa-v7c9f/" target="_blank" class="text-teal-600 hover:underline">Read on LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FAQ Section -->
+        <section id="faq" class="py-32 bg-gray-50" role="region" aria-label="FAQ">
+            <div class="container mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 fade-in color-change-text">Frequently Asked Questions</h2>
+                <div class="glass-card p-10 fade-in">
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold mb-2 color-change-text">What is ESG compliance?</h3>
+                        <div class="faq-answer">
+                            <p class="mb-4">ESG compliance ensures sustainable practices, simplified by our <span class="color-change-text">ESG Scoring Engine</span>.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold mb-2 color-change-text">How does InvoFi work?</h3>
+                        <div class="faq-answer">
+                            <p class="mb-4"><span class="color-change-text">InvoFi</span> uses blockchain for financing, cutting costs by 60%.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold mb-2 color-change-text">Can I try your tools for free?</h3>
+                        <div class="faq-answer">
+                            <p class="mb-4">Yes, we offer free trials for tools like <span class="color-change-text">CFO AI Agent</span>. Contact us!</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold mb-2 color-change-text">How does Nexlify perform benchmarking?</h3>
+                        <div class="faq-answer">
+                            <p class="mb-4">We use AI to analyze competitors. See our <a href="#expertise" class="text-teal-600 hover:underline">benchmarking showcase</a>.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold mb-2 color-change-text">How accurate are your projections?</h3>
+                        <div class="faq-answer">
+                            <p class="mb-4"><span class="color-change-text">CFO AI Agent</span> delivers 30% more accurate forecasts. See our <a href="#expertise" class="text-teal-600 hover:underline">showcase</a>.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold mb-2 color-change-text">What are technical deep dives?</h3>
+                        <div class="faq-answer">
+                            <p class="mb-4">Samuel optimizes solutions like <span class="color-change-text">InvoFi</span>. See our <a href="#expertise" class="text-teal-600 hover:underline">deep dive</a>.</p>
+                        </div>
+                    </div>
+                    <a href="https://nexlify.s3.amazonaws.com/faq.pdf" target="_blank" class="text-teal-600 hover:underline mt-4 inline-block">View Full FAQ</a>
                 </div>
             </div>
         </section>
@@ -530,22 +908,47 @@
             <div class="parallax-bg"></div>
             <div class="container mx-auto text-center">
                 <h2 class="text-4xl md:text-5xl font-bold mb-8 fade-in color-change-text">Unlock Your Potential</h2>
-                <p class="text-base max-w-2xl mx-auto mb-12 fade-in">Discuss consulting, SaaS, or investment opportunities.</p>
+                <p class="text-base max-w-2xl mx-auto mb-12 fade-in">Discuss consulting, SaaS, or career opportunities with our team.</p>
                 <div class="flex justify-center space-x-4 flex-wrap gap-4">
                     <a href="mailto:nexlifysolutions.team@gmail.com" class="btn-accent fade-in">Email Us</a>
-                    <a href="https://wa.me/254712238286" target="_blank" class="inline-block bg-teal-600 text-white py-3 px-6 rounded-full hover:bg-teal-700 transition-colors fade-in flex items-center social-link" data-tooltip="Contact via WhatsApp">
-                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-74-5.7-11.9-9.8-16.7-14.1-27.6-2.7-7.1-1.3-16.9 6-24.6 3.6-3.9 8.2-10.2 12.9-13.6 4.3-3 7.9-4.9 11.5-7.2 11-6.7 15.9-17.7 14.8-30.3-.3-3.2-3.8-17.4-6.1-21.9-2.7-5.3-6.7-9.1-12.8-9.9H198c-6.9 0-9.5 3.7-12.2 13.7-7.2 26.3-24.9 69.3-35.8 95.8-6 14.5-10.8 30-16.1 45.7-7.7 22.3-16.6 43.9-28.1 63.2-20.8 34.9-33.3 75.5-34.7 117.5-.5 14.2 2.3 27.9 7.9 40.3a115.28 115.28 0 0 0 24.3 30.3c2.4 2 4.8 3.9 7.3 5.8l1.6-5.2-1.6 5.2c4 3.1 8.3 5.7 12.7 7.9l1.6-5.2c5.9 4.4 12.3 7.8 19 10.2l-3.5 11.3-1.6 5.2 5.1-16.5c4-.9 7.9-2.7 11.5-5.3 8.6-6.1 14-16.2 13.6-27.2-.2-6.4-2.1-12.6-5.7-17.9l1.6 5.1c.5-1.7-.5 1.9-1.6-5.1l-4.7-15.6c-1.1-3.6-1.6-7.4-1.6-11.3 0-19.6 9.7-37.9 26.2-49l-5.9-19.3c-6.6 2-13.5 1.6-20-1.2-1.5-.6-2.9-1.5-4.2-2.5-6.2-5-9.2-13.1-8.1-21l5.9 19.4c1.9-1.5 3.9-2.8 6.1-3.9 10.9-5.5 23.8-2.9 31.1 5.9 3.9 4.8 5.2 11.1 3.7 17l-5.9-19.4c-.9 6.2 1.4 12.6 6.2 16.5l5.9 19.3c-.3-2.9-.8-5.7-1.6-8.4-1.9-6.7-.7-13.8 3.7-19.5 5-6.4 13-10.3 21.6-10l-1.6 5.3c-7.5-.2-14.9 3.3-20.3 9.2-4.6 5-6.6 11.6-5.7 18.2l1.6-5.5c5-.6 10-2.5 14.2-5.7 1.8-1.4 3.4-3 4.8-4.8 2.8-3.5 3.9-8.1 3.3-12.6-1.2-9.8 3.8-19.2 12.8-23.7 9.1-4.5 19.6-2.7 26.7 3.6l1.6-5.3c-10.1-7.9-23.7-10.3-35.4-6.5-11.8 3.8-20.5 14.1-22.6 26.4-2.6-.5-5.2-.5-7.8 0-4.6.9-8.9 3-12.8 5.9-10.2 7.7-14.9 20.2-12.7 32.5 1.6 8.9 7.2 16.2 14.9 20l-5.1 16.5c-11.9-5.1-20.6-16.6-23.1-29.5-2-10.4 1.3-21.2 9-28.8 2.9-2.8 6.2-4.9 9.8-6.1l5.1-16.4c-4.9-1.7-9.9-1.7-14.9-.1-9.9 3.2-17.5 11.7-20.1 22.1-3.3 13.3.6 27.1 10.9 36.7 6.5 6.1 14.8 9.6 23.6 9.9l3.9-12.5c-5.7.1-11.3-2.1-15.9-6-4.6-3.9-7.6-9.5-8.5-15.6l-3.9 12.5 9-28.8c2.5 6.7 8.5 11.5 15.9 12.8-7.9-24.9-6.6-25.7 18-32.7 21.7-6.2 35.6-1.7 49.7 9.2 19.1 14.9 24.1 42.5 14 64.5-2.5 5.5-6.7 10.1-12.1 13.2-10.9 6.3-24.9 4.1-33.6-5.5l-9 28.5c16.3 12.8 38.5 15.5 56.8 7.1 9.3-4.2 17.1-11.3 21.9-20.1 6.5-12 6.7-26.1 1-38.4-1.8-3.9-4.5-7.3-8-10.1l9-29c5.8 4.7 10 11.2 11.7 18.4 4.9 20.9-.7 42.9-14.9 59.1-17.2 19.5-45.8 25-69.2 15.7-23.7-9.5-40.2-32-42.7-57.5-2-20.2 4.8-40.1 17.9-54.5-14.9-8.9-25.9-24.6-29.1-42.5-3.9-22.2 4.3-45.2 21.2-59.5 16.9-14.3 38.5-19.5 58.7-14.7-5.7-18.3-24.9-29.9-45.1-27-3.6.5-7 1.9-10.2 4.1-15.8 11.1-23.2 34.9-18.3 54.7 4.9 20 19.8 35.2 39.4 41.2l5.1-16.4c-11.7-3.7-21.6-12.5-26.9-23.7-5.4-11.3-4.7-24.5 1.7-35.2l-5.1 16.4c-6.9 21.1 1.3 43.9 19.8 55.9 9.5 6.2 21.2 8.8 32.6 7.7l3.5-11.3c-8.7 1.3-17.6-1.2-24.8-6.7-7.3-5.5-11.9-14-12.9-23.2l-3.5 11.3c16-10 35.6-7.7 48.8 5l14.1-45.1c-16.6-13.1-39.8-15.5-57.6-6.7-9 4.4-16.4 11.9-21 21.1-6.2 12.4-6.4 26.7-1 39.1a76.13 76.13 0 0 0 9.7 13.1c13.5 15.7 33.9 22.5 53.5 19.9 9.7-1.3 18.8-5.5 26.6-11.7 15.7-12.4 22.6-35.5 18.6-56.5-1-5.2-3.1-10.1-6.1-14.5-2.1-3.2-4.6-6.1-7.4-8.7l14.2-45.4a75.3 75.3 0 0 1 6 6.9c2.6 3.5 4.9 7.3 6.7 11.3 7.1 16 5.9 34.2-3.1 48.9-2.9 4.7-7 8.5-11.8 11.1-4.7 2.6-9.9 3.4-15 2.5a55.32 55.32 0 0 1-24.5-10.8c-1.5-1.2-2.9-2.5-4.2-3.9-6.6-7-9.5-16.8-8-26.5.2-1.2.1-2.4-.3-3.6l-14.1 45.2c-1.9 5.9-.9 12.2 2.9 17.2 3.8 5 9.3 8.5 15.1 9.9 5.9 1.5 12.1 1 17.9-1.8 6-2.9 10.9-7.8 13.6-13.7 5.5-11.9 4-25.5-3.8-36l14.1-45.2c-10.7 8.8-17.3 22.7-16.6 37.5.7 14.9 8.7 28.7 21.7 36.3 12.9 7.6 27.9 8.9 42 4.3 14.1-4.6 25.6-14.8 31.6-28.1 8-17.8 6.5-38.3-3.7-54.3-2.5-3.9-5.6-7.3-9.2-10.2l-14.2 45.4c.9-5-.2 9.6 14.2-45.4-5.6-9.1-14.8-15.2-25.7-17.3z"></path></svg>
+                    <a href="https://wa.me/254712238286" target="_blank" class="inline-block bg-teal-600 text-white py-3 px-6 rounded-full hover:bg-teal-700 transition-colors fade-in flex items-center font-weight: 600; social-link" data-tooltip="Contact via WhatsApp" aria-label="Contact via WhatsApp">
+                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+                            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-74-5.7-11.9-9.8-16.7-14.1-27.6-2.7-7.1-1.3-16.9 6-24.6 3.6-3.9 8.2-10.2 12.9-13.6 4.3-3 7.9-4.9 11.5-7.2 11-6.7 15.9-17.7 14.8-30.3-.3-3.2-3.8-17.4-6.1-21.9-2.7-5.3-6.7-9.1-12.8-9.9H198c-6.9 0-9.5 3.7-12.2 13.7-7.2 26.3-24.9 69.3-35.8 95.8-6 14.5-10.8 30-16.1 45.7-7.7 22.3-16.6 43.9-28.1 63.2-20.8 34.9-33.3 75.5-34.7 117.5-.5 14.2 2.3 27.9 7.9 40.3a115.28 115.28 0 0 0 24.3 30.3c2.4 2 4.8 3.9 7.3 5.8l1.6-5.2-1.6 5.2c4 3.1 8.3 5.7 12.7 7.9l1.6-5.2c5.9 4.4 12.3 7.8 19 10.2l-3.5 11.3-1.6 5.2 5.1-16.5c4-.9 7.9-2.7 11.5-5.3 8.6-6.1 14-16.2 13.6-27.2-.2-6.4-2.1-12.6-5.7-17.9l1.6 5.1c.5-1.7-.5 1.9-1.6-5.1l-4.7-15.6c-1.1-3.6-1.6-7.4-1.6-11.3 0-19.6 9.7-37.9 26.2-49l-5.9-19.3c-6.6 2-13.5 1.6-20-1.2-1.5-.6-2.9-1.5-4.2-2.5-6.2-5-9.2-13.1-8.1-21l5.9 19.4c1.9-1.5 3.9-2.8 6.1-3.9 10.9-5.5 23.8-2.9 31.1 5.9 3.9 4.8 5.2 11.1 3.7 17l-5.9-19.4c-.9 6.2 1.4 12.6 6.2 16.5l5.9 19.3c-.3-2.9-.8-5.7-1.6-8.4-1.9-6.7-.7-13.8 3.7-19.5 5-6.4 13-10.3 21.6-10l-1.6 5.3c-7.5-.2-14.9 3.3-20.3 9.2-4.6 5-6.6 11.6-5.7 18.2l1.6-5.5c5-.6 10-2.5 14.2-5.7 1.8-1.4 3.4-3 4.8-4.8 2.8-3.5 3.9-8.1 3.3-12.6-1.2-9.8 3.8-19.2 12.8-23.7 9.1-4.5 19.6-2.7 26.7 3.6l1.6-5.3c-10.1-7.9-23.7-10.3-35.4-6.5-11.8 3.8-20.5 14.1-22.6 26.4-2.6-.5-5.2-.5-7.8 0-4.6.9-8.9 3-12.8 5.9-10.2 7.7-14.9 20.2-12.7 32.5 1.6 8.9 7.2 16.2 14.9 20l-5.1 16.5c-11.9-5.1-20.6-16.6-23.1-29.5-2-10.4 1.3-21.2 9-28.8 2.9-2.8 6.2-4.9 9.8-6.1l5.1-16.4c-4.9-1.7-9.9-1.7-14.9-.1-9.9 3.2-17.5 11.7-20.1 22.1-3.3 13.3.6 27.1 10.9 36.7 6.5 6.1 14.8 9.6 23.6 9.9l3.9-12.5c-5.7.1-11.3-2.1-15.9-6-4.6-3.9-7.6-9.5-8.5-15.6l-3.9 12.5 9-28.8c2.5 6.7 8.5 11.5 15.9 12.8-7.9-24.9-6.6-25.7 18-32.7 21.7-6.2 35.6-1.7 49.7 9.2 19.1 14.9 24.1 42.5 14 64.5-2.5 5.5-6.7 10.1-12.1 13.2-10.9 6.3-24.9 4.1-33.6-5.5l-9 28.5c16.3 12.8 38.5 15.5 56.8 7.1 9.3-4.2 17.1-11.3 21.9-20.1 6.5-12 6.7-26.1 1-38.4-1.8-3.9-4.5-7.3-8-10.1l9-29c5.8 4.7 10 11.2 11.7 18.4 4.9 20.9-.7 42.9-14.9 59.1-17.2 19.5-45.8 25-69.2 15.7-23.7-9.5-40.2-32-42.7-57.5-2-20.2 4.8-40.1 17.9-54.5-14.9-8.9-25.9-24.6-29.1-42.5-3.9-22.2 4.3-45.2 21.2-59.5 16.9-14.3 38.5-19.5 58.7-14.7-5.7-18.3-24.9-29.9-45.1-27-3.6.5-7 1.9-10.2 4.1-15.8 11.1-23.2 34.9-18.3 54.7 4.9 20 19.8 35.2 39.4 41.2l5.1-16.4c-11.7-3.7-21.6-12.5-26.9-23.7-5.4-11.3-4.7-24.5 1.7-35.2l-5.1 16.4c-6.9 21.1 1.3 43.9 19.8 55.9 9.5 6.2 21.2 8.8 32.6 7.7l3.5-11.3c-8.7 1.3-17.6-1.2-24.8-6.7-7.3-5.5-11.9-14-12.9-23.2l-3.5 11.3c16-10 35.6-7.7 48.8 5l14.1-45.1c-16.6-13.1-39.8-15.5-57.6-6.7-9 4.4-16.4 11.9-21 21.1-6.2 12.4-6.4 26.7-1 39.1a76.13 76.13 0 0 0 9.7 13.1c13.5 15.7 33.9 22.5 53.5 19.9 9.7-1.3 18.8-5.5 26.6-11.7 15.7-12.4 22.6-35.5 18.6-56.5-1-5.2-3.1-10.1-6.1-14.5-2.1-3.2-4.6-6.1-7.4-8.7l14.2-45.4a75.3 75.3 0 0 1 6 6.9c2.6 3.5 4.9 7.3 6.7 11.3 7.1 16 5.9 34.2-3.1 48.9-2.9 4.7-7 8.5-11.8 11.1-4.7 2.6-9.9 3.4-15 2.5a55.32 55.32 0 0 1-24.5-10.8c-1.5-1.2-2.9-2.5-4.2-3.9-6.6-7-9.5-16.8-8-26.5.2-1.2.1-2.4-.3-3.6l-14.1 45.2c-1.9 5.9-.9 12.2 2.9 17.2 3.8 5 9.3 8.5 15.1 9.9 5.9 1.5 12.1 1 17.9-1.8 6-2.9 10.9-7.8 13.6-13.7 5.5-11.9 4-25.5-3.8-36l14.1-45.2c-10.7 8.8-17.3 22.7-16.6 37.5.7 14.9 8.7 28.7 21.7 36.3 12.9 7.6 27.9 8.9 42 4.3 14.1-4.6 25.6-14.8 31.6-28.1 8-17.8 6.5-38.3-3.7-54.3-2.5-3.9-5.6-7.3-9.2-10.2l-14.2 45.4c.9-5-.2 9.6 14.2-45.4-5.6-9.1-14.8-15.2-25.7-17.3z"/>
+                        </svg>
                         WhatsApp
                     </a>
+                    <a href="https://www.linkedin.com/in/samuel-mwendwa/" target="_blank" class="inline-block bg-teal-800 text-white py-3 px-6 rounded-full hover:bg-teal-900 transition-colors fade-in flex items-center font-weight: 600; social-link" data-tooltip="Connect on LinkedIn" aria-label="Connect on LinkedIn">
+                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+                            <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                </div>
+                <!-- Newsletter Signup -->
+                <div class="mt-16">
+                    <h3 class="text-2xl font-semibold mb-6 fade-in color-change-text">Stay Updated</h3>
+                    <div class="flex justify-center gap-4 flex-wrap mb-8">
+                        <a href="https://www.linkedin.com/newsletters/nexlify-solutions-7280665831749898242/" target="_blank" class="btn-accent fade-in">
+                            Subscribe on LinkedIn
+                        </a>
+                        <form action="https://example.us1.list-manage.com/subscribe/post?u=1234567890abcdef&id=1234567890" method="POST" class="flex justify-center gap-2 flex-wrap">
+                            <input type="email" name="EMAIL" placeholder="Enter your email" class="p-3 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-emerald-500" required>
+                            <button type="submit" class="inline-block bg-teal-600 text-white py-3 px-6 rounded-full hover:bg-teal-700 transition-colors fade-in font-weight: 600;">
+                                Join Email List
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
-    <!-- Chatbot -->
-    <div class="chatbot-btn" onclick="toggleChatbot()" title="Chat with us">💬</div>
+    <!-- Chatbot Button & Window -->
+    <div class="chatbot-btn" onclick="toggleChatbot()" title="Chat with us">
+        💬
+    </div>
     <div class="chatbot-window" id="chatbot-window">
         <div class="chatbot-messages" id="chatbot-messages">
-            <div class="chatbot-message bot">Welcome to Nexlify! Select your role or ask about our platform.</div>
+            <div class="chatbot-message bot">Welcome to Nexlify! Ask about our fintech/ESG solutions or Samuel’s expertise.</div>
         </div>
         <div class="p-4 border-t">
             <input type="text" id="chatbot-input" placeholder="Type your question..." class="w-full p-3 rounded-lg border mb-2 focus:outline-none focus:ring-2 focus:ring-emerald-500">
@@ -553,10 +956,13 @@
             <div class="mt-4">
                 <p class="mb-2">Quick Questions:</p>
                 <div class="flex flex-wrap gap-2">
-                    <div class="quick-reply-btn" onclick="quickReply('I am a CFO')">I am a CFO</div>
-                    <div class="quick-reply-btn" onclick="quickReply('I am an ESG officer')">I am an ESG officer</div>
-                    <div class="quick-reply-btn" onclick="quickReply('I am an investor')">I am an investor</div>
-                    <div class="quick-reply-btn" onclick="quickReply('What is Nexlify’s platform?')">Platform Overview</div>
+                    <div class="quick-reply-btn" onclick="quickReply('What is ESG compliance?')">What is ESG?</div>
+                    <div class="quick-reply-btn" onclick="quickReply('How does InvoFi work?')">How does InvoFi work?</div>
+                    <div class="quick-reply-btn" onclick="quickReply('Tell me about Samuel’s projects')">Samuel’s Projects</div>
+                    <div class="quick-reply-btn" onclick="quickReply('What is Nexlify’s mission?')">Our Mission</div>
+                    <div class="quick-reply-btn" onclick="quickReply('How does Nexlify perform competitor benchmarking?')">Benchmarking</div>
+                    <div class="quick-reply-btn" onclick="quickReply('How accurate are your financial projections?')">Projections</div>
+                    <div class="quick-reply-btn" onclick="quickReply('What are technical deep dives at Nexlify?')">Deep Dives</div>
                 </div>
             </div>
         </div>
@@ -566,11 +972,15 @@
         <div class="container mx-auto text-center">
             <p>© 2025 Nexlify Solutions. All rights reserved.</p>
             <div class="mt-4 space-y-2">
-                <p><a href="https://wa.me/254712238286" target="_blank" class="text-emerald-200 hover:underline flex justify-center items-center social-link" data-tooltip="Contact via WhatsApp">
-                    <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-74-5.7-11.9-9.8-16.7-14.1-27.6-2.7-7.1-1.3-16.9 6-24.6 3.6-3.9 8.2-10.2 12.9-13.6 4.3-3 7.9-4.9 11.5-7.2 11-6.7 15.9-17.7 14.8-30.3-.3-3.2-3.8-17.4-6.1-21.9-2.7-5.3-6.7-9.1-12.8-9.9H198c-6.9 0-9.5 3.7-12.2 13.7-7.2 26.3-24.9 69.3-35.8 95.8-6 14.5-10.8 30-16.1 45.7-7.7 22.3-16.6 43.9-28.1 63.2-20.8 34.9-33.3 75.5-34.7 117.5-.5 14.2 2.3 27.9 7.9 40.3a115.28 115.28 0 0 0 24.3 30.3c2.4 2 4.8 3.9 7.3 5.8l1.6-5.2-1.6 5.2c4 3.1 8.3 5.7 12.7 7.9l1.6-5.2c5.9 4.4 12.3 7.8 19 10.2l-3.5 11.3-1.6 5.2 5.1-16.5c4-.9 7.9-2.7 11.5-5.3 8.6-6.1 14-16.2 13.6-27.2-.2-6.4-2.1-12.6-5.7-17.9l1.6 5.1c.5-1.7-.5 1.9-1.6-5.1l-4.7-15.6c-1.1-3.6-1.6-7.4-1.6-11.3 0-19.6 9.7-37.9 26.2-49l-5.9-19.3c-6.6 2-13.5 1.6-20-1.2-1.5-.6-2.9-1.5-4.2-2.5-6.2-5-9.2-13.1-8.1-21l5.9 19.4c1.9-1.5 3.9-2.8 6.1-3.9 10.9-5.5 23.8-2.9 31.1 5.9 3.9 4.8 5.2 11.1 3.7 17l-5.9-19.4c-.9 6.2 1.4 12.6 6.2 16.5l5.9 19.3c-.3-2.9-.8-5.7-1.6-8.4-1.9-6.7-.7-13.8 3.7-19.5 5-6.4 13-10.3 21.6-10l-1.6 5.3c-7.5-.2-14.9 3.3-20.3 9.2-4.6 5-6.6 11.6-5.7 18.2l1.6-5.5c5-.6 10-2.5 14.2-5.7 1.8-1.4 3.4-3 4.8-4.8 2.8-3.5 3.9-8.1 3.3-12.6-1.2-9.8 3.8-19.2 12.8-23.7 9.1-4.5 19.6-2.7 26.7 3.6l1.6-5.3c-10.1-7.9-23.7-10.3-35.4-6.5-11.8 3.8-20.5 14.1-22.6 26.4-2.6-.5-5.2-.5-7.8 0-4.6.9-8.9 3-12.8 5.9-10.2 7.7-14.9 20.2-12.7 32.5 1.6 8.9 7.2 16.2 14.9 20l-5.1 16.5c-11.9-5.1-20.6-16.6-23.1-29.5-2-10.4 1.3-21.2 9-28.8 2.9-2.8 6.2-4.9 9.8-6.1l5.1-16.4c-4.9-1.7-9.9-1.7-14.9-.1-9.9 3.2-17.5 11.7-20.1 22.1-3.3 13.3.6 27.1 10.9 36.7 6.5 6.1 14.8 9.6 23.6 9.9l3.9-12.5c-5.7.1-11.3-2.1-15.9-6-4.6-3.9-7.6-9.5-8.5-15.6l-3.9 12.5 9-28.8c2.5 6.7 8.5 11.5 15.9 12.8-7.9-24.9-6.6-25.7 18-32.7 21.7-6.2 35.6-1.7 49.7 9.2 19.1 14.9 24.1 42.5 14 64.5-2.5 5.5-6.7 10.1-12.1 13.2-10.9 6.3-24.9 4.1-33.6-5.5l-9 28.5c16.3 12.8 38.5 15.5 56.8 7.1 9.3-4.2 17.1-11.3 21.9-20.1 6.5-12 6.7-26.1 1-38.4-1.8-3.9-4.5-7.3-8-10.1l9-29c5.8 4.7 10 11.2 11.7 18.4 4.9 20.9-.7 42.9-14.9 59.1-17.2 19.5-45.8 25-69.2 15.7-23.7-9.5-40.2-32-42.7-57.5-2-20.2 4.8-40.1 17.9-54.5-14.9-8.9-25.9-24.6-29.1-42.5-3.9-22.2 4.3-45.2 21.2-59.5 16.9-14.3 38.5-19.5 58.7-14.7-5.7-18.3-24.9-29.9-45.1-27-3.6.5-7 1.9-10.2 4.1-15.8 11.1-23.2 34.9-18.3 54.7 4.9 20 19.8 35.2 39.4 41.2l5.1-16.4c-11.7-3.7-21.6-12.5-26.9-23.7-5.4-11.3-4.7-24.5 1.7-35.2l-5.1 16.4c-6.9 21.1 1.3 43.9 19.8 55.9 9.5 6.2 21.2 8.8 32.6 7.7l3.5-11.3c-8.7 1.3-17.6-1.2-24.8-6.7-7.3-5.5-11.9-14-12.9-23.2l-3.5 11.3c16-10 35.6-7.7 48.8 5l14.1-45.1c-16.6-13.1-39.8-15.5-57.6-6.7-9 4.4-16.4 11.9-21 21.1-6.2 12.4-6.4 26.7-1 39.1a76.13 76.13 0 0 0 9.7 13.1c13.5 15.7 33.9 22.5 53.5 19.9 9.7-1.3 18.8-5.5 26.6-11.7 15.7-12.4 22.6-35.5 18.6-56.5-1-5.2-3.1-10.1-6.1-14.5-2.1-3.2-4.6-6.1-7.4-8.7l14.2-45.4a75.3 75.3 0 0 1 6 6.9c2.6 3.5 4.9 7.3 6.7 11.3 7.1 16 5.9 34.2-3.1 48.9-2.9 4.7-7 8.5-11.8 11.1-4.7 2.6-9.9 3.4-15 2.5a55.32 55.32 0 0 1-24.5-10.8c-1.5-1.2-2.9-2.5-4.2-3.9-6.6-7-9.5-16.8-8-26.5.2-1.2.1-2.4-.3-3.6l-14.1 45.2c-1.9 5.9-.9 12.2 2.9 17.2 3.8 5 9.3 8.5 15.1 9.9 5.9 1.5 12.1 1 17.9-1.8 6-2.9 10.9-7.8 13.6-13.7 5.5-11.9 4-25.5-3.8-36l14.1-45.2c-10.7 8.8-17.3 22.7-16.6 37.5.7 14.9 8.7 28.7 21.7 36.3 12.9 7.6 27.9 8.9 42 4.3 14.1-4.6 25.6-14.8 31.6-28.1 8-17.8 6.5-38.3-3.7-54.3-2.5-3.9-5.6-7.3-9.2-10.2l-14.2 45.4c.9-5-.2 9.6 14.2-45.4-5.6-9.1-14.8-15.2-25.7-17.3z"></path></svg>
+                <p><a href="https://wa.me/254712238286" target="_blank" class="text-emerald-200 hover:underline flex justify-center items-center social-link" data-tooltip="Contact via WhatsApp" aria-label="Contact via WhatsApp">
+                    <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+                        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-74-5.7-11.9-9.8-16.7-14.1-27.6-2.7-7.1-1.3-16.9 6-24.6 3.6-3.9 8.2-10.2 12.9-13.6 4.3-3 7.9-4.9 11.5-7.2 11-6.7 15.9-17.7 14.8-30.3-.3-3.2-3.8-17.4-6.1-21.9-2.7-5.3-6.7-9.1-12.8-9.9H198c-6.9 0-9.5 3.7-12.2 13.7-7.2 26.3-24.9 69.3-35.8 95.8-6 14.5-10.8 30-16.1 45.7-7.7 22.3-16.6 43.9-28.1 63.2-20.8 34.9-33.3 75.5-34.7 117.5-.5 14.2 2.3 27.9 7.9 40.3a115.28 115.28 0 0 0 24.3 30.3c2.4 2 4.8 3.9 7.3 5.8l1.6-5.2-1.6 5.2c4 3.1 8.3 5.7 12.7 7.9l1.6-5.2c5.9 4.4 12.3 7.8 19 10.2l-3.5 11.3-1.6 5.2 5.1-16.5c4-.9 7.9-2.7 11.5-5.3 8.6-6.1 14-16.2 13.6-27.2-.2-6.4-2.1-12.6-5.7-17.9l1.6 5.1c.5-1.7-.5 1.9-1.6-5.1l-4.7-15.6c-1.1-3.6-1.6-7.4-1.6-11.3 0-19.6 9.7-37.9 26.2-49l-5.9-19.3c-6.6 2-13.5 1.6-20-1.2-1.5-.6-2.9-1.5-4.2-2.5-6.2-5-9.2-13.1-8.1-21l5.9 19.4c1.9-1.5 3.9-2.8 6.1-3.9 10.9-5.5 23.8-2.9 31.1 5.9 3.9 4.8 5.2 11.1 3.7 17l-5.9-19.4c-.9 6.2 1.4 12.6 6.2 16.5l5.9 19.3c-.3-2.9-.8-5.7-1.6-8.4-1.9-6.7-.7-13.8 3.7-19.5 5-6.4 13-10.3 21.6-10l-1.6 5.3c-7.5-.2-14.9 3.3-20.3 9.2-4.6 5-6.6 11.6-5.7 18.2l1.6-5.5c5-.6 10-2.5 14.2-5.7 1.8-1.4 3.4-3 4.8-4.8 2.8-3.5 3.9-8.1 3.3-12.6-1.2-9.8 3.8-19.2 12.8-23.7 9.1-4.5 19.6-2.7 26.7 3.6l1.6-5.3c-10.1-7.9-23.7-10.3-35.4-6.5-11.8 3.8-20.5 14.1-22.6 26.4-2.6-.5-5.2-.5-7.8 0-4.6.9-8.9 3-12.8 5.9-10.2 7.7-14.9 20.2-12.7 32.5 1.6 8.9 7.2 16.2 14.9 20l-5.1 16.5c-11.9-5.1-20.6-16.6-23.1-29.5-2-10.4 1.3-21.2 9-28.8 2.9-2.8 6.2-4.9 9.8-6.1l5.1-16.4c-4.9-1.7-9.9-1.7-14.9-.1-9.9 3.2-17.5 11.7-20.1 22.1-3.3 13.3.6 27.1 10.9 36.7 6.5 6.1 14.8 9.6 23.6 9.9l3.9-12.5c-5.7.1-11.3-2.1-15.9-6-4.6-3.9-7.6-9.5-8.5-15.6l-3.9 12.5 9-28.8c2.5 6.7 8.5 11.5 15.9 12.8-7.9-24.9-6.6-25.7 18-32.7 21.7-6.2 35.6-1.7 49.7 9.2 19.1 14.9 24.1 42.5 14 64.5-2.5 5.5-6.7 10.1-12.1 13.2-10.9 6.3-24.9 4.1-33.6-5.5l-9 28.5c16.3 12.8 38.5 15.5 56.8 7.1 9.3-4.2 17.1-11.3 21.9-20.1 6.5-12 6.7-26.1 1-38.4-1.8-3.9-4.5-7.3-8-10.1l9-29c5.8 4.7 10 11.2 11.7 18.4 4.9 20.9-.7 42.9-14.9 59.1-17.2 19.5-45.8 25-69.2 15.7-23.7-9.5-40.2-32-42.7-57.5-2-20.2 4.8-40.1 17.9-54.5-14.9-8.9-25.9-24.6-29.1-42.5-3.9-22.2 4.3-45.2 21.2-59.5 16.9-14.3 38.5-19.5 58.7-14.7-5.7-18.3-24.9-29.9-45.1-27-3.6.5-7 1.9-10.2 4.1-15.8 11.1-23.2 34.9-18.3 54.7 4.9 20 19.8 35.2 39.4 41.2l5.1-16.4c-11.7-3.7-21.6-12.5-26.9-23.7-5.4-11.3-4.7-24.5 1.7-35.2l-5.1 16.4c-6.9 21.1 1.3 43.9 19.8 55.9 9.5 6.2 21.2 8.8 32.6 7.7l3.5-11.3c-8.7 1.3-17.6-1.2-24.8-6.7-7.3-5.5-11.9-14-12.9-23.2l-3.5 11.3c16-10 35.6-7.7 48.8 5l14.1-45.1c-16.6-13.1-39.8-15.5-57.6-6.7-9 4.4-16.4 11.9-21 21.1-6.2 12.4-6.4 26.7-1 39.1a76.13 76.13 0 0 0 9.7 13.1c13.5 15.7 33.9 22.5 53.5 19.9 9.7-1.3 18.8-5.5 26.6-11.7 15.7-12.4 22.6-35.5 18.6-56.5-1-5.2-3.1-10.1-6.1-14.5-2.1-3.2-4.6-6.1-7.4-8.7l14.2-45.4a75.3 75.3 0 0 1 6 6.9c2.6 3.5 4.9 7.3 6.7 11.3 7.1 16 5.9 34.2-3.1 48.9-2.9 4.7-7 8.5-11.8 11.1-4.7 2.6-9.9 3.4-15 2.5a55.32 55.32 0 0 1-24.5-10.8c-1.5-1.2-2.9-2.5-4.2-3.9-6.6-7-9.5-16.8-8-26.5.2-1.2.1-2.4-.3-3.6l-14.1 45.2c-1.9 5.9-.9 12.2 2.9 17.2 3.8 5 9.3 8.5 15.1 9.9 5.9 1.5 12.1 1 17.9-1.8 6-2.9 10.9-7.8 13.6-13.7 5.5-11.9 4-25.5-3.8-36l14.1-45.2c-10.7 8.8-17.3 22.7-16.6 37.5.7 14.9 8.7 28.7 21.7 36.3 12.9 7.6 27.9 8.9 42 4.3 14.1-4.6 25.6-14.8 31.6-28.1 8-17.8 6.5-38.3-3.7-54.3-2.5-3.9-5.6-7.3-9.2-10.2l-14.2 45.4c.9-5-.2 9.6 14.2-45.4-5.6-9.1-14.8-15.2-25.7-17.3z"/>
+                    </svg>
                     WhatsApp</a></p>
-                <p><a href="https://www.linkedin.com/in/samuel-mwendwa/" target="_blank" class="text-emerald-200 hover:underline flex justify-center items-center social-link" data-tooltip="Connect on LinkedIn">
-                    <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+                <p><a href="https://www.linkedin.com/in/samuel-mwendwa/" target="_blank" class="text-emerald-200 hover:underline flex justify-center items-center social-link" data-tooltip="Connect on LinkedIn" aria-label="Connect on LinkedIn">
+                    <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+                        <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/>
+                    </svg>
                     LinkedIn</a></p>
             </div>
         </div>
@@ -596,36 +1006,103 @@
             const body = document.body;
             const icon = document.getElementById('_darkModeIcon');
             body.classList.toggle('dark-mode');
-            icon.textContent = body.classList.contains('dark-mode') ? '🌙' : '☀️';
-            localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+            if (body.classList.contains('dark-mode')) {
+                icon.textContent = '🌙';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.textContent = '☀️';
+                localStorage.setItem('theme', 'light');
+            }
         }
-        // Load saved theme
+        // Load saved theme preference
         document.addEventListener('DOMContentLoaded', () => {
-            if (localStorage.getItem('theme') === 'dark') {
+            const savedTheme = localStorage.getItem('theme');
+            const icon = document.getElementById('_darkModeIcon');
+            if (savedTheme === 'dark') {
                 document.body.classList.add('dark-mode');
-                document.getElementById('_darkModeIcon').textContent = '🌙';
+                icon.textContent = '🌙';
+            } else {
+                icon.textContent = '☀️';
             }
         });
-        // GSAP animations
+        // GSAP animations with reduced timing
         document.addEventListener('DOMContentLoaded', () => {
             gsap.registerPlugin(ScrollTrigger);
+            // General fade-in animations - faster
             document.querySelectorAll('.fade-in').forEach((element, index) => {
-                gsap.fromTo(element, { opacity: 0, y: 30 }, {
+                gsap.fromTo(element, {
+                    opacity: 0,
+                    y: 30
+                }, {
                     opacity: 1,
                     y: 0,
                     duration: 0.6,
                     delay: index * 0.08,
                     ease: 'power4.out',
-                    scrollTrigger: { trigger: element, start: 'top 85%' }
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none'
+                    }
                 });
             });
+            // Enhanced Client Success Stories animations - faster
+            document.querySelectorAll('#testimonials .glass-card').forEach((card, index) => {
+                gsap.fromTo(card, {
+                    opacity: 0,
+                    y: 40,
+                    scale: 0.95
+                }, {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 0.6,
+                    delay: index * 0.1,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none'
+                    }
+                });
+            });
+            // General glass card animations - faster
             document.querySelectorAll('.glass-card').forEach((card, index) => {
                 gsap.from(card, {
                     opacity: 0,
                     x: index % 2 === 0 ? -50 : 50,
                     duration: 0.5,
                     ease: 'power2.out',
-                    scrollTrigger: { trigger: card, start: 'top 85%' }
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 85%'
+                    }
+                });
+            });
+            // Video/image animations - faster
+            document.querySelectorAll('.project-video, .tech-image').forEach(video => {
+                gsap.from(video, {
+                    opacity: 0,
+                    scale: 0.9,
+                    duration: 0.5,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: video,
+                        start: 'top 85%'
+                    }
+                });
+            });
+            // Parallax background
+            document.querySelectorAll('.parallax-bg').forEach(bg => {
+                gsap.to(bg, {
+                    y: 80,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: bg.parentElement,
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        scrub: 1
+                    }
                 });
             });
         });
@@ -651,7 +1128,8 @@
         }
         // Chatbot functionality
         function toggleChatbot() {
-            document.getElementById('chatbot-window').classList.toggle('active');
+            const chatbotWindow = document.getElementById('chatbot-window');
+            chatbotWindow.classList.toggle('active');
         }
         function submitChat() {
             const input = document.getElementById('chatbot-input');
@@ -662,15 +1140,21 @@
             userMessage.className = 'chatbot-message user';
             userMessage.innerHTML = question;
             messages.appendChild(userMessage);
-            let response = 'Contact us at <a href="mailto:nexlifysolutions.team@gmail.com" class="text-teal-600">email</a> or <a href="https://wa.me/254712238286" class="text-teal-600">WhatsApp</a>.';
-            if (question.includes('cfo')) {
-                response = 'For CFOs: Optimize budgets with our CFO AI Agent’s 30% more accurate forecasts. <a href="#projects" class="text-teal-600">Explore now</a>.';
-            } else if (question.includes('esg officer')) {
-                response = 'For ESG officers: Automate compliance with our ESG Scoring Engine. <a href="#projects" class="text-teal-600">See demo</a>.';
-            } else if (question.includes('investor')) {
-                response = 'For investors: Discover our scalable SaaS model. <a href="#business-model" class="text-teal-600">View business model</a>.';
-            } else if (question.includes('platform')) {
-                response = 'Nexlify’s platform integrates AI, blockchain, and ESG tools for SMEs. <a href="#platform" class="text-teal-600">Learn more</a>.';
+            let response = 'We’ll get back to you soon! Use <a href="mailto:nexlifysolutions.team@gmail.com" class="text-teal-600">email</a> or <a href="https://wa.me/254712238286" class="text-teal-600">WhatsApp</a>.';
+            if (question.includes('esg compliance')) {
+                response = 'ESG compliance ensures sustainable practices. Watch our <a href="#projects" class="text-teal-600">ESG Scoring Engine demo</a>.';
+            } else if (question.includes('invofi work')) {
+                response = 'InvoFi uses blockchain for decentralized financing. See our <a href="#projects" class="text-teal-600">InvoFi demo</a>.';
+            } else if (question.includes('samuel’s projects')) {
+                response = 'Samuel’s projects include ESG Scoring Engine and InvoFi. Explore them in our <a href="#projects" class="text-teal-600">Solutions</a>.';
+            } else if (question.includes('nexlify’s mission')) {
+                response = 'Our mission is to empower SMEs with AI, blockchain, and ESG tools. Learn more in our <a href="#why-ethos" class="text-teal-600">Why and Ethos</a> section.';
+            } else if (question.includes('competitor benchmarking')) {
+                response = 'We use AI for competitor analysis. Check our <a href="#expertise" class="text-teal-600">benchmarking showcase</a>.';
+            } else if (question.includes('financial projections')) {
+                response = 'Our CFO AI Agent offers accurate forecasts. View our <a href="#projects" class="text-teal-600">CFO AI demo</a>.';
+            } else if (question.includes('technical deep dives')) {
+                response = 'Samuel optimizes blockchain solutions like InvoFi. See our <a href="#expertise" class="text-teal-600">technical deep dive</a>.';
             }
             const botMessage = document.createElement('div');
             botMessage.className = 'chatbot-message bot';
@@ -683,28 +1167,36 @@
             document.getElementById('chatbot-input').value = question;
             submitChat();
         }
-        // Workflow demo
-        function showWorkflowDemo() {
-            const demo = document.getElementById('workflow-demo');
-            demo.classList.toggle('hidden');
-            gsap.fromTo(demo, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
+        // FAQ toggle
+        function toggleFAQ(element) {
+            const answer = element.querySelector('.faq-answer');
+            answer.classList.toggle('active');
         }
-        // Interactive demo
-        function showDemo(id) {
-            const demo = document.getElementById(`${id}-demo`);
-            demo.classList.toggle('hidden');
-            gsap.fromTo(demo, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
-        }
-        // Live analytics chart
+        // Lazy load iframes
         document.addEventListener('DOMContentLoaded', () => {
-            const ctx = document.getElementById('liveAnalyticsChart').getContext('2d');
-            const liveAnalyticsChart = new Chart(ctx, {
+            const iframes = document.querySelectorAll('iframe');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const iframe = entry.target;
+                        iframe.src = iframe.dataset.src || iframe.src;
+                        observer.unobserve(iframe);
+                    }
+                });
+            });
+            iframes.forEach(iframe => observer.observe(iframe));
+        });
+        // Financial projection chart
+        // Note: Consider async loading Chart.js in production for faster initial render
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('revenueChart').getContext('2d');
+            new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: ['Now', '1 min', '2 min', '3 min', '4 min', '5 min'],
+                    labels: ['Jan 2025', 'Apr 2025', 'Jul 2025', 'Oct 2025', 'Jan 2026', 'Apr 2026'],
                     datasets: [{
-                        label: 'ESG Compliance Score',
-                        data: [80, 82, 85, 83, 87, 90],
+                        label: 'Projected Revenue ($)',
+                        data: [50000, 75000, 100000, 130000, 170000, 200000],
                         borderColor: '#10b981',
                         backgroundColor: 'rgba(16, 185, 129, 0.2)',
                         fill: true,
@@ -714,22 +1206,11 @@
                 options: {
                     responsive: true,
                     scales: {
-                        y: { beginAtZero: false, title: { display: true, text: 'Compliance Score' } },
-                        x: { title: { display: true, text: 'Time' } }
+                        y: { beginAtZero: true, title: { display: true, text: 'Revenue ($)' } },
+                        x: { title: { display: true, text: 'Month' } }
                     }
                 }
             });
-            // Simulate real-time updates
-            setInterval(() => {
-                const newScore = Math.floor(Math.random() * 10 + 80);
-                liveAnalyticsChart.data.labels.push(new Date().toLocaleTimeString());
-                liveAnalyticsChart.data.datasets[0].data.push(newScore);
-                if (liveAnalyticsChart.data.labels.length > 6) {
-                    liveAnalyticsChart.data.labels.shift();
-                    liveAnalyticsChart.data.datasets[0].data.shift();
-                }
-                liveAnalyticsChart.update();
-            }, 5000);
         });
     </script>
 </body>
