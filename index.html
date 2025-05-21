@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Samuel M | Strategic Finance & Decision Intelligence</title>
+  <title>Samuel M | Decision Intelligence & Scalable Finance</title>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <style>
     :root {
       --bg-color: #ffffff;
@@ -58,6 +59,9 @@
       margin-bottom: 20px;
     }
 
+    ul { list-style: disc; padding-left: 20px; }
+    li { margin-bottom: 10px; }
+
     .cta {
       background: var(--header-bg);
       color: white;
@@ -71,6 +75,24 @@
       padding: 12px 25px;
       border-radius: 5px;
       text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .contact-form button {
+      background: var(--accent-color);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
       font-weight: bold;
     }
 
@@ -93,7 +115,6 @@
       cursor: pointer;
     }
 
-    /* Chat Box Styles */
     .chatbox {
       position: fixed;
       bottom: 20px;
@@ -107,19 +128,9 @@
       z-index: 999;
     }
 
-    .chatbox h3 {
-      margin-top: 0;
-    }
-
-    .chat-q {
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    .chat-a {
-      margin-left: 10px;
-      margin-bottom: 10px;
-    }
+    .chatbox h3 { margin-top: 0; }
+    .chat-q { font-weight: bold; margin-top: 10px; }
+    .chat-a { margin-left: 10px; margin-bottom: 10px; }
 
     @media (max-width: 768px) {
       header h1 { font-size: 2rem; }
@@ -127,14 +138,24 @@
       .chatbox { width: 90%; right: 5%; }
     }
   </style>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX'); // Replace with your GA4 code
+  </script>
 </head>
+
 <body>
 
   <button class="dark-toggle" onclick="toggleTheme()">Toggle Dark Mode</button>
 
-  <header>
+  <header data-aos="fade-in">
     <h1>Decision Intelligence Meets Scalable Finance</h1>
-    <p>Empowering startups and investors with insight-driven finance strategy, adaptive systems, and capital logic that fuels growth, resilience, and investment-worthiness.</p>
+    <p>Helping startups save money, scale faster, and achieve financial clarity. Specializing in investor-grade strategies and mission-aligned capital design.</p>
     <br>
     <a href="#contact" style="background:#28a745;color:white;padding:12px 24px;text-decoration:none;border-radius:5px;">Let’s Talk</a>
   </header>
@@ -142,71 +163,60 @@
   <nav>
     <a href="#about">About</a>
     <a href="#services">Services</a>
-    <a href="#results">Case Studies</a>
+    <a href="#results">Results</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <section id="about">
+  <section id="about" data-aos="fade-up">
     <h2>About Samuel M</h2>
-    <p>I specialize in helping scaling startups and mission-aligned companies turn finance into a strategic edge. With a background spanning fintech, ESG evolution, and cross-border operations, I bring a modern blend of FP&A, predictive modeling, and investor-grade clarity to every engagement.</p>
+    <p>I help scaling startups turn finance into a strategic edge. With cross-border fintech and ESG-evolved experience, I bring smart FP&A, predictive modeling, and investor-ready logic to every engagement.</p>
     <ul>
-      <li>💡 <strong>Decision Intelligence</strong> over dashboards — strategy powered by scenario logic and insight.</li>
-      <li>📈 <strong>Investment-Worthiness</strong> — from clean financials to capital narratives that close funding rounds.</li>
-      <li>🔄 <strong>Scalable Systems</strong> — finance stacks built lean, fast, and founder-first.</li>
+      <li>💡 Decision Intelligence > Dashboards</li>
+      <li>📈 Fundraising Readiness & Capital Strategy</li>
+      <li>⚙️ Scalable, Lean Finance Systems</li>
     </ul>
   </section>
 
-  <section id="services">
-    <h2>What I Do</h2>
+  <section id="services" data-aos="fade-up">
+    <h2>Services</h2>
     <ul>
-      <li><strong>Fractional CFO Services</strong> – High-growth startups needing clarity, capital efficiency, and investor prep.</li>
-      <li><strong>Decision Intelligence Consulting</strong> – Financial modeling, scenario analysis, capital strategy & risk navigation.</li>
-      <li><strong>Fundraising & Diligence Support</strong> – Data rooms, decks, models, and financial narratives that raise money.</li>
-      <li><strong>Finance Stack Optimization</strong> – ERP, automation, and reporting systems that scale with the business.</li>
+      <li>✅ Fractional CFO for Seed–Series A startups</li>
+      <li>✅ Capital Modeling & Scenario Planning</li>
+      <li>✅ Investor Data Room & Due Diligence Prep</li>
+      <li>✅ Finance Automation & Tech Stack Advisory</li>
     </ul>
   </section>
 
-  <section id="results">
-    <h2>Proven Results</h2>
+  <section id="results" data-aos="fade-up">
+    <h2>Results</h2>
     <ul>
-      <li>✅ Cut startup burn by 25% and extended runway by 9+ months.</li>
-      <li>✅ Modeled M&A paths that enabled a $12M acquisition.</li>
-      <li>✅ Built cross-border tax strategy reducing audit risk by 18%.</li>
-      <li>✅ Reduced payroll time by 50% via ERP integration.</li>
+      <li>📊 Reduced burn by 25% and extended runway 9+ months</li>
+      <li>💼 Modeled a $12M M&A acquisition scenario</li>
+      <li>🌐 Built a cross-border tax strategy reducing audit risk by 18%</li>
+      <li>⚡ Integrated ERP to cut payroll time in half</li>
     </ul>
   </section>
 
-  <section class="cta" id="contact">
+  <section id="contact" class="cta" data-aos="fade-up">
     <h2>Let’s Build Your Financial Edge</h2>
-    <p>Whether you're scaling a startup, preparing for a fundraise, or need sharper financial systems — I can help.</p>
-    <a href="mailto:samuel@example.com">Book a Strategy Call</a>
+    <p>Need strategic finance support? I’m currently open to consulting, diligence prep, and fractional CFO engagements.</p>
+
+    <form class="contact-form" action="https://formspree.io/f/yourFormID" method="POST">
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="email" name="_replyto" placeholder="Your email" required />
+      <textarea name="message" placeholder="Your message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
   </section>
 
   <footer>
-    © 2025 Samuel M | Strategic Finance & Decision Intelligence<br>
-    <a href="https://www.linkedin.com/in/samuel-mwendwa" target="_blank">Connect on LinkedIn</a>
+    © 2025 Samuel M — Strategic Finance | <a href="https://www.linkedin.com/in/samuel-mwendwa" target="_blank">LinkedIn</a>
   </footer>
 
-  <!-- Chat Box -->
+  <!-- Chat Widget -->
   <div class="chatbox">
     <h3>Ask Samuel</h3>
-    <div class="chat-q">What’s Decision Intelligence?</div>
-    <div class="chat-a">It’s the use of financial logic + predictive analytics to help founders make smarter, faster business decisions.</div>
-
-    <div class="chat-q">How do you help startups scale?</div>
-    <div class="chat-a">I build lean, automated financial systems and use scenario modeling to extend runway and reduce burn.</div>
-
-    <div class="chat-q">Do you support fundraising?</div>
-    <div class="chat-a">Yes! From data rooms to pitch-ready models, I help founders raise with clarity and investor confidence.</div>
-  </div>
-
-  <!-- Script -->
-  <script>
-    function toggleTheme() {
-      document.body.setAttribute('data-theme',
-        document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
-      );
-    }
-  </script>
-</body>
-</html>
+    <div class="chat-q">What is Decision Intelligence?</div>
+    <div class="chat-a">It’s data-informed logic to guide financial decisions, forecasts, and strategy beyond instinct or static models.</div>
+    <div class="chat-q">How do you support fundraising?</div>
+    <div class="chat-a">I prepare financial models, data rooms, and help shape the investor narrative to close
