@@ -3,52 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Providing fractional CFO services for VC-backed startups. Expert CFO leadership to help scale your business.">
+  <meta name="description" content="Expert Fractional CFO Services for Startups. Scale with Financial Leadership.">
   <meta name="author" content="Samuel Mwendwa, CFA, MBA">
   
-  <!-- Open Graph for Social Sharing -->
-  <meta property="og:title" content="Fractional CFO for Startups">
-  <meta property="og:description" content="Providing fractional finance leadership for VC-backed startups.">
-  <meta property="og:image" content="your-image-url.jpg">
-  <meta property="og:url" content="your-page-url">
-  
-  <!-- Schema Markup for SEO -->
-  <script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "Organization",
-      "name": "Fractional CFO Services",
-      "url": "your-page-url",
-      "logo": "your-logo-url",
-      "sameAs": [
-        "https://www.linkedin.com/in/yourprofile",
-        "https://www.twitter.com/yourprofile"
-      ]
-    }
-  </script>
-
   <title>Fractional CFO Services for Startups</title>
+  
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
     /* General Styles */
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
+    /* Header Section */
     header {
-      background: #333;
+      background-color: #333;
       color: white;
       padding: 20px;
       text-align: center;
     }
 
+    header h1 {
+      margin: 0;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-weight: 300;
+    }
+
+    /* Navigation */
     nav ul {
       list-style: none;
       padding: 0;
       text-align: center;
+      margin: 20px 0;
     }
 
     nav ul li {
@@ -60,33 +56,50 @@
       color: white;
       text-decoration: none;
       font-weight: 600;
-      transition: all 0.3s ease;
+      font-size: 16px;
+      transition: color 0.3s;
     }
 
     nav ul li a:hover {
-      text-decoration: underline;
+      color: #ff5733;
     }
 
-    /* Section Styles */
+    /* Sections */
     section {
-      padding: 40px;
+      padding: 60px 20px;
       text-align: center;
     }
 
-    .cta-link {
+    section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Button Styles */
+    .cta-button {
       display: inline-block;
-      padding: 10px 20px;
       background-color: #ff5733;
       color: white;
+      padding: 15px 30px;
+      font-size: 18px;
       text-decoration: none;
       border-radius: 5px;
+      margin-top: 20px;
       transition: background-color 0.3s ease;
     }
 
-    .cta-link:hover {
+    .cta-button:hover {
       background-color: #c04e2f;
     }
 
+    /* Testimonials */
     .testimonial {
       opacity: 0;
       transform: translateY(20px);
@@ -98,40 +111,48 @@
       transform: translateY(0);
     }
 
-    /* Dark Mode Toggle Styles */
+    /* Theme Toggle */
     body[data-theme='dark'] {
       background-color: #121212;
       color: white;
     }
 
-    /* Button for theme toggle */
     .theme-toggle-btn {
-      margin-top: 20px;
-      padding: 10px 20px;
       background-color: #444;
       color: white;
       border: none;
+      padding: 10px 20px;
       cursor: pointer;
       font-size: 16px;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s;
     }
 
     .theme-toggle-btn:hover {
       background-color: #666;
     }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
+  <!-- Header Section -->
   <header>
-    <h1>Welcome to Our Fractional CFO Services</h1>
-    <p>Expert CFO leadership for your startup, scaling finance to help your business grow.</p>
+    <h1>Fractional CFO Services</h1>
+    <p>Helping your startup scale with expert financial leadership.</p>
   </header>
 
   <!-- Navigation -->
   <nav>
     <ul>
       <li><a href="#services">Services</a></li>
-      <li><a href="#team">Team</a></li>
+      <li><a href="#team">Meet the Team</a></li>
       <li><a href="#testimonials">Testimonials</a></li>
       <li><a href="#cta">Contact</a></li>
     </ul>
@@ -140,50 +161,48 @@
   <!-- Services Section -->
   <section id="services">
     <h2>Our Services</h2>
-    <p>Fractional CFO services tailored to your startup's needs. Our services include financial strategy, forecasting, fundraising, and more.</p>
+    <p>We provide fractional CFO services, financial strategy, and leadership to help your startup grow and scale.</p>
+    <p>Whether you're preparing for funding, need budgeting and forecasting, or require strategic financial guidance, we’re here to assist.</p>
   </section>
 
   <!-- Team Section -->
   <section id="team">
     <h2>Meet the Team</h2>
-    <div>
-      <img src="https://via.placeholder.com/150" alt="Samuel Mwendwa, CFA, MBA, Expert CFO for Tech Startups">
-      <h3>Samuel Mwendwa, CFA, MBA</h3>
-      <p>Samuel brings over a decade of experience in finance and operations management, specializing in scaling startups for success.</p>
-    </div>
+    <p>Our team of experienced CFOs is ready to help your startup scale. Led by Samuel Mwendwa, CFA, MBA, our experts are committed to driving your financial success.</p>
   </section>
 
   <!-- Testimonials Section -->
   <section id="testimonials">
     <h2>What Our Clients Say</h2>
     <div class="testimonial">
-      <p>"Working with Samuel transformed our financial operations and helped us raise the capital we needed!" - Tech Startup</p>
+      <p>"Samuel helped us navigate complex financial decisions and secure the funding we needed to grow. Highly recommend!" - Tech Startup</p>
     </div>
     <div class="testimonial">
-      <p>"The strategic insights provided by Samuel's team were invaluable during our growth phase." - SaaS Company</p>
+      <p>"The strategic guidance from the team has been invaluable in our scaling journey. Couldn't have done it without them." - SaaS Company</p>
     </div>
   </section>
 
-  <!-- Call to Action Section -->
+  <!-- Call-to-Action Section -->
   <section id="cta">
     <h2>Ready to Scale Your Business?</h2>
-    <a href="#contact" class="cta-link">Book a Free Consultation</a>
+    <a href="#contact" class="cta-button">Book a Free Consultation</a>
   </section>
 
   <!-- Theme Toggle Button -->
   <button id="theme-toggle" class="theme-toggle-btn">Switch to Dark Mode</button>
 
-  <!-- Footer -->
+  <!-- Footer Section -->
   <footer>
     <p>&copy; 2025 Fractional CFO Services. All rights reserved.</p>
   </footer>
 
-  <!-- Script for Animations and Theme Toggle -->
+  <!-- JavaScript -->
   <script>
     // Theme Toggle Script
     const toggleButton = document.getElementById('theme-toggle');
     const htmlElement = document.documentElement;
 
+    // Set the theme based on user preference stored in localStorage
     if (localStorage.getItem('theme') === 'dark') {
       htmlElement.setAttribute('data-theme', 'dark');
       toggleButton.textContent = 'Switch to Light Mode';
