@@ -3,486 +3,210 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Former venture-backed CFOs providing fractional finance leadership, fundraising readiness, and capital strategy for SaaS, fintech, and climate tech startups.">
-  <title>Startup CFOs with Venture-Backed Experience | Fractional FP&A + Fundraising Support</title>
+  <meta name="description" content="Providing fractional CFO services for VC-backed startups. Expert CFO leadership to help scale your business.">
+  <meta name="author" content="Samuel Mwendwa, CFA, MBA">
+  
+  <!-- Open Graph for Social Sharing -->
+  <meta property="og:title" content="Fractional CFO for Startups">
+  <meta property="og:description" content="Providing fractional finance leadership for VC-backed startups.">
+  <meta property="og:image" content="your-image-url.jpg">
+  <meta property="og:url" content="your-page-url">
+  
+  <!-- Schema Markup for SEO -->
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "name": "Fractional CFO Services",
+      "url": "your-page-url",
+      "logo": "your-logo-url",
+      "sameAs": [
+        "https://www.linkedin.com/in/yourprofile",
+        "https://www.twitter.com/yourprofile"
+      ]
+    }
+  </script>
+
+  <title>Fractional CFO Services for Startups</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-color: #f5f7fa;
-      --text-color: #1a202c;
-      --section-bg: #fff;
-      --header-bg: linear-gradient(135deg, #1a202c, #2d3748);
-      --header-text: #fff;
-      --cta-bg: #3182ce;
-      --cta-text: #fff;
-      --footer-bg: #1a202c;
-      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Dark mode */
-    [data-theme="dark"] {
-      --bg-color: #1a202c;
-      --text-color: #e2e8f0;
-      --section-bg: #2d3748;
-      --header-bg: linear-gradient(135deg, #000, #1a202c);
-      --header-text: #e2e8f0;
-      --cta-bg: #2b6cb0;
-      --cta-text: #e2e8f0;
-      --footer-bg: #000;
-      --shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-    }
-
-    * {
+    /* General Styles */
+    body {
+      font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
-      transition: all 0.3s ease;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     header {
-      background: var(--header-bg);
-      color: var(--header-text);
+      background: #333;
+      color: white;
+      padding: 20px;
       text-align: center;
-      padding: 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 999;
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    header .tagline {
-      font-size: 1.2rem;
-      opacity: 0.9;
-      margin-bottom: 1rem;
-    }
-
-    header .who-we-serve {
-      font-size: 1.1rem;
-      font-weight: bold;
-      background: var(--cta-bg);
-      color: var(--cta-text);
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      display: inline-block;
-    }
-
-    nav {
-      background: var(--header-bg);
-      padding: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-    }
-
-    nav a {
-      color: var(--header-text);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 1rem;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--cta-bg);
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 1.5rem;
-      background: none;
-      border: none;
-      color: var(--header-text);
-      cursor: pointer;
-    }
-
-    .theme-toggle {
-      position: absolute;
-      bottom: 1rem;
-      right: 1rem;
-    }
-
-    .theme-toggle button {
-      background: none;
-      border: none;
-      color: var(--header-text);
-      font-size: 1rem;
-      cursor: pointer;
-      padding: 0.5rem;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-
-    section {
-      margin: 2rem 0;
-      background: var(--section-bg);
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: var(--text-color);
-    }
-
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-
-    .about, .offerings, .team, .success, .faq {
-      background: var(--section-bg);
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-    }
-
-    .team .bio {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .team img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .offerings ul, .success ul {
+    nav ul {
       list-style: none;
-    }
-
-    .offerings li, .success li {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-      padding-left: 1.5rem;
-      position: relative;
-    }
-
-    .offerings li:before, .success li:before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--cta-bg);
-      font-weight: bold;
-    }
-
-    .success .testimonials {
-      margin-top: 2rem;
-    }
-
-    .success .testimonial {
-      border-left: 4px solid var(--cta-bg);
-      padding-left: 1rem;
-      margin-bottom: 1.5rem;
-      font-style: italic;
-    }
-
-    .cta {
+      padding: 0;
       text-align: center;
-      padding: 2rem;
-      background: var(--cta-bg);
-      color: var(--cta-text);
-      border-radius: 8px;
-      margin: 2rem 0;
     }
 
-    .cta a {
-      color: var(--cta-text);
+    nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
       text-decoration: none;
-      font-weight: bold;
-      padding: 0.75rem 1.5rem;
-      border: 2px solid var(--cta-text);
-      border-radius: 5px;
-      transition: background 0.3s;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 40px;
+      text-align: center;
+    }
+
+    .cta-link {
       display: inline-block;
-      margin: 0.5rem;
-    }
-
-    .cta a:hover {
-      background: var(--section-bg);
-    }
-
-    .cta.secondary {
-      background: var(--section-bg);
-      color: var(--text-color);
-    }
-
-    .cta.secondary a {
-      border-color: var(--cta-bg);
-      color: var(--cta-bg);
-    }
-
-    .faq details {
-      margin-bottom: 1rem;
-    }
-
-    .faq summary {
-      font-size: 1.1rem;
-      font-weight: bold;
-      cursor: pointer;
-      padding: 0.5rem;
-      color: var(--text-color);
-    }
-
-    .faq details p {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-    }
-
-    .back-to-top {
-      position: fixed;
-      bottom: 1rem;
-      right: 1rem;
-      background: var(--cta-bg);
-      color: var(--cta-text);
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
+      padding: 10px 20px;
+      background-color: #ff5733;
+      color: white;
       text-decoration: none;
-      font-size: 1rem;
-      display: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
     }
 
-    .back-to-top.visible {
-      display: block;
+    .cta-link:hover {
+      background-color: #c04e2f;
     }
 
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: var(--footer-bg);
-      color: var(--header-text);
-      margin-top: 2rem;
+    .testimonial {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease-in-out;
     }
 
-    .trust-badges {
-      text-align: center;
-      margin: 2rem 0;
-    }
-
-    .trust-badges img {
-      width: 100px;
-      margin: 0 1rem;
-      filter: grayscale(100%);
-      opacity: 0.7;
-      transition: all 0.3s;
-    }
-
-    .trust-badges img:hover {
-      filter: grayscale(0);
+    .testimonial.visible {
       opacity: 1;
+      transform: translateY(0);
     }
 
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.8rem;
-      }
+    /* Dark Mode Toggle Styles */
+    body[data-theme='dark'] {
+      background-color: #121212;
+      color: white;
+    }
 
-      header .tagline, header .who-we-serve {
-        font-size: 1rem;
-      }
+    /* Button for theme toggle */
+    .theme-toggle-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #444;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
 
-      .container {
-        padding: 1rem;
-      }
-
-      h2 {
-        font-size: 1.5rem;
-      }
-
-      .team .bio {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      nav {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--header-bg);
-      }
-
-      nav.active {
-        display: flex;
-      }
-
-      .hamburger {
-        display: block;
-        position: absolute;
-        top: 1rem;
-        left: 1rem;
-      }
+    .theme-toggle-btn:hover {
+      background-color: #666;
     }
   </style>
 </head>
 <body>
   <header>
-    <button class="hamburger">☰</button>
-    <div class="theme-toggle">
-      <button id="theme-toggle">Toggle Dark Mode</button>
-    </div>
-    <h1>Fractional CFO for Startups</h1>
-    <p class="tagline">Financial Clarity for Fintech, SaaS, and ESG Startups</p>
-    <p class="who-we-serve">Who We Serve: VC-backed startups at pre-Series A or pre-acquisition stages (5-50 employees)</p>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#offerings">Services</a>
-      <a href="#success">Testimonials</a>
-      <a href="#faq">FAQ</a>
-      <a href="#cta">Contact</a>
-    </nav>
+    <h1>Welcome to Our Fractional CFO Services</h1>
+    <p>Expert CFO leadership for your startup, scaling finance to help your business grow.</p>
   </header>
 
-  <div class="container">
-    <section class="cta" id="cta">
-      <h2>Ready to Build Your Financial Edge?</h2>
-      <p>Schedule a free 30-minute strategy session or download our Startup Financial Checklist to get started. Limited spots available this month!</p>
-      <a href="https://calendly.com/nexlifysolutions/30min" target="_blank">Book a Free Consultation</a>
-      <a href="#download" class="secondary">Download Free Checklist</a>
-    </section>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#cta">Contact</a></li>
+    </ul>
+  </nav>
 
-    <section class="about" id="about">
-      <h2>About Our Services</h2>
-      <p>We partner with founders to turn financial chaos into clarity—and clarity into capital strategy. Specializing in decision intelligence, predictive FP&A, and scalable systems, we give early-stage startups a strategic edge.</p>
-      <p>From pressure-testing business models to preparing for investor diligence, we build frameworks and tools that convert data into smart, founder-friendly decisions.</p>
-      <h3>Why Choose Us?</h3>
-      <ul>
-        <li>Fintech: Tailored cash flow and compliance strategies.</li>
-        <li>SaaS: Metrics-driven growth and ARR optimization.</li>
-        <li>ESG: Impact-focused financial models for sustainability.</li>
-      </ul>
-    </section>
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <p>Fractional CFO services tailored to your startup's needs. Our services include financial strategy, forecasting, fundraising, and more.</p>
+  </section>
 
-    <section class="offerings" id="offerings">
-      <h2>Our Services</h2>
-      <ul>
-        <li><strong>Cash Flow Forecasting</strong>: Build 12-18 month projections to extend runway.</li>
-        <li><strong>Investor Pitch Support</strong>: Craft data-driven pitches for VC funding.</li>
-        <li><strong>Financial Systems Setup</strong>: Implement scalable tools like QuickBooks or Xero.</li>
-        <li><strong>Decision Intelligence</strong>: Turn data into actionable strategies.</li>
-      </ul>
-      <p>Engagement Models: Hourly ($250-$400/hr), project-based ($5,000-$20,000), or monthly retainer ($3,000-$10,000).</p>
-    </section>
+  <!-- Team Section -->
+  <section id="team">
+    <h2>Meet the Team</h2>
+    <div>
+      <img src="https://via.placeholder.com/150" alt="Samuel Mwendwa, CFA, MBA, Expert CFO for Tech Startups">
+      <h3>Samuel Mwendwa, CFA, MBA</h3>
+      <p>Samuel brings over a decade of experience in finance and operations management, specializing in scaling startups for success.</p>
+    </div>
+  </section>
 
-    <section class="team" id="team">
-      <h2>About Your CFO</h2>
-      <div class="bio">
-        <img src="https://via.placeholder.com/150" alt="Samuel Mwendwa">
-        <div>
-          <p><strong>Samuel Mwendwa, CFA, MBA</strong></p>
-          <p>With 15 years of finance experience, including as a mentor at <a href="https://www.linkedin.com/company/founderinstitute" target="_blank">The Founder Institute</a>, Samuel has mentored over 50 global businesses. He has raised $50M+ in VC funding and led 3 successful exits.</p>
-          <p>Formerly CFO at [Redacted Startup], he has worked with top VCs like Andreessen Horowitz and Sequoia. <a href="https://calendly.com/nexlifysolutions/30min" target="_blank">Book a consultation</a> or connect on <a href="https://www.linkedin.com/in/samuel-mwendwa" target="_blank">LinkedIn</a>.</p>
-        </div>
-      </div>
-    </section>
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial">
+      <p>"Working with Samuel transformed our financial operations and helped us raise the capital we needed!" - Tech Startup</p>
+    </div>
+    <div class="testimonial">
+      <p>"The strategic insights provided by Samuel's team were invaluable during our growth phase." - SaaS Company</p>
+    </div>
+  </section>
 
-    <section class="success" id="success">
-      <h2>Our Impact</h2>
-      <div class="testimonials">
-        <div class="testimonial">
-          <p>"Samuel’s cash flow forecasting extended our runway by 6 months, helping us secure $10M in Series A funding." – Jane Doe, CEO, Fintech Startup</p>
-        </div>
-        <div class="testimonial">
-          <p>"Their investor pitch support was a game-changer. We closed a $5M round with confidence." – John Smith, Founder, SaaS Platform</p>
-        </div>
-      </div>
-      <div class="trust-badges">
-        <img src="https://via.placeholder.com/100" alt="Founder Institute">
-        <img src="https://via.placeholder.com/100" alt="As Seen in TechCrunch">
-      </div>
-    </section>
+  <!-- Call to Action Section -->
+  <section id="cta">
+    <h2>Ready to Scale Your Business?</h2>
+    <a href="#contact" class="cta-link">Book a Free Consultation</a>
+  </section>
 
-    <section class="faq" id="faq">
-      <h2>Frequently Asked Questions</h2>
-      <details>
-        <summary>What does a Fractional CFO do for startups?</summary>
-        <p>We provide strategic financial leadership on a part-time or project basis, helping startups build scalable systems, optimize cash flow, and make data-driven decisions without a full-time CFO’s cost.</p>
-      </details>
-      <details>
-        <summary>How much does it cost?</summary>
-        <p>Our services range from $250-$400/hour, $5,000-$20,000 per project, or $3,000-$10,000/month for retainers, depending on your needs.</p>
-      </details>
-      <details>
-        <summary>How long is a typical engagement?</summary>
-        <p>Engagements range from 3 months for specific projects to ongoing retainers, tailored to your startup’s stage and goals.</p>
-      </details>
-    </section>
+  <!-- Theme Toggle Button -->
+  <button id="theme-toggle" class="theme-toggle-btn">Switch to Dark Mode</button>
 
-    <a href="#home" class="back-to-top">Back to Top</a>
-  </div>
-
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Fractional CFO Services. All rights reserved.</p>
+    <p>&copy; 2025 Fractional CFO Services. All rights reserved.</p>
   </footer>
 
+  <!-- Script for Animations and Theme Toggle -->
   <script>
+    // Theme Toggle Script
     const toggleButton = document.getElementById('theme-toggle');
     const htmlElement = document.documentElement;
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('nav');
-    const backToTop = document.querySelector('.back-to-top');
 
     if (localStorage.getItem('theme') === 'dark') {
       htmlElement.setAttribute('data-theme', 'dark');
-      toggleButton.textContent = 'Toggle Light Mode';
+      toggleButton.textContent = 'Switch to Light Mode';
     }
 
     toggleButton.addEventListener('click', () => {
       if (htmlElement.getAttribute('data-theme') === 'dark') {
         htmlElement.removeAttribute('data-theme');
-        toggleButton.textContent = 'Toggle Dark Mode';
+        toggleButton.textContent = 'Switch to Dark Mode';
         localStorage.setItem('theme', 'light');
       } else {
         htmlElement.setAttribute('data-theme', 'dark');
-        toggleButton.textContent = 'Toggle Light Mode';
+        toggleButton.textContent = 'Switch to Light Mode';
         localStorage.setItem('theme', 'dark');
       }
     });
 
-    hamburger.addEventListener('click', () => {
-      nav.classList.toggle('active');
-      hamburger.textContent = nav.classList.contains('active') ? '✕' : '☰';
-    });
-
+    // Scroll Animation for Testimonials
+    const testimonials = document.querySelectorAll('.testimonial');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        backToTop.classList.add('visible');
-      } else {
-        backToTop.classList.remove('visible');
-      }
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', (e) => {
-        e.preventDefault();
-        document.querySelector(anchor.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-        if (nav.classList.contains('active')) {
-          nav.classList.remove('active');
-          hamburger.textContent = '☰';
+      testimonials.forEach(testimonial => {
+        if (testimonial.getBoundingClientRect().top < window.innerHeight) {
+          testimonial.classList.add('visible');
         }
       });
     });
