@@ -368,8 +368,8 @@
             aria-label="Strategic Financials Availability Calendar">
           </iframe>
         </div>
-        <p class="mt-4 text-sm text-gray-600">Can’t find a slot? <a href="mailto:contact@strategicfinancials.com" class="text-[var(--primary)] hover:underline">Contact us</a>.</p>
-        <p class="mt-2 text-sm text-gray-600 hidden" id="calendly-fallback">Unable to load calendar. Please email <a href="mailto:contact@strategicfinancials.com" class="text-[var(--primary)] hover:underline">contact@strategicfinancials.com</a> to book a call.</p>
+        <p class="mt-4 text-sm text-gray-600">Can’t find a slot? <a href="mailto:nexlifysolutions.team@gmail.com" class="text-[var(--primary)] hover:underline">Contact us</a>.</p>
+        <p class="mt-2 text-sm text-gray-600 hidden" id="calendly-fallback">Unable to load calendar. Please email <a href="mailto:nexlifysolutions.team@gmail.com" class="text-[var(--primary)] hover:underline">nexlifysolutions.team@gmail.com</a> to book a call.</p>
       </div>
     </section>
     <!-- About -->
@@ -383,8 +383,8 @@
       <h2 class="text-3xl font-bold mb-6">Join Our Mission to Redefine Startup Finance</h2>
       <p class="text-lg mb-6 max-w-3xl mx-auto">At Strategic Financials, we’re building a world where startups scale effortlessly with AI-driven finance. Join our team to shape the future of funding with equity incentives and a collaborative culture.</p>
       <div class="mb-6">
-        <video controls class="w-full max-w-md mx-auto rounded-lg" poster="/assets/culture-video-poster.webp">
-          <source src="/assets/culture-video.mp4" type="video/mp4">
+        <video controls class="w-full max-w-md mx-auto rounded-lg" poster="/assets/mission-video-poster.webp">
+          <source src="/assets/strategic-financials-mission.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -448,7 +448,7 @@
     <div id="exit-popup" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <div class="bg-white rounded-lg p-6 max-w-md w-full text-center">
         <h3 class="text-2xl font-bold mb-4">Avoid These 5 VC Pitch Mistakes</h3>
-        <p class="text-lg mb-4">Download our free checklist to nail your next funding round — limited availability!</p>
+        <p class="text-lg mb-4">Download our free checklist to nail your next funding round — <span class="font-bold text-[var(--accent)]">limited availability!</span></p>
         <input type="email" id="popup-email" placeholder="your@email.com" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" required aria-required="true">
         <div class="flex space-x-4 justify-center">
           <button onclick="downloadChecklist()" class="btn-primary px-6 py-3 font-semibold">[Get Checklist]</button>
@@ -576,7 +576,7 @@
         resultDiv.textContent = `Your runway: ~${runwayMonths} months (vs. ${industryAvg}-month SaaS average).`;
         modalMessage.textContent = `With ~${runwayMonths} months of runway, our AI-driven tool can extend it by 6+ months. Book a call now.`;
         modal.classList.remove('hidden');
-        console.log(`Sending runway report to ${email}: ${runwayMonths} months`);
+        console.log(`Sending runway report to nexlifysolutions.team@gmail.com from ${email}: ${runwayMonths} months`);
 
         const ctx = document.getElementById('runway-chart').getContext('2d');
         new Chart(ctx, {
@@ -636,7 +636,7 @@
       function downloadChecklist() {
         const email = document.getElementById('popup-email').value;
         if (email) {
-          console.log(`Sending checklist to ${email}`);
+          console.log(`Sending checklist to nexlifysolutions.team@gmail.com from ${email}`);
           document.getElementById('exit-popup').classList.add('hidden');
         } else {
           alert('Please enter a valid email.');
