@@ -338,15 +338,6 @@
       sections.forEach(section => observer.observe(section));
     });
 
-    // Accordion for FAQ
-    document.querySelectorAll('.accordion-header').forEach(header => {
-      header.addEventListener('click', () => {
-        const content = header.nextElementSibling;
-        content.classList.toggle('active');
-        header.querySelector('svg').classList.toggle('rotate-180');
-      });
-    });
-
     // Runway Calculator with Chart
     function calculateRunway() {
       const cash = parseFloat(document.getElementById('cash').value);
