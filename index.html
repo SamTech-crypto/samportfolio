@@ -10,7 +10,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://assets.calendly.com/inline-widget.js" async></script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
   <style>
     :root {
       --primary: #004D4D;
@@ -52,12 +52,19 @@
       opacity: 1;
       transform: translateY(0);
     }
+    .logo-animate {
+      transform: scale(1);
+      transition: transform 0.3s ease;
+    }
+    .logo-animate.visible {
+      transform: scale(1.1);
+    }
     @media (prefers-reduced-motion: reduce) {
-      .fade-in, .btn-primary {
+      .fade-in, .btn-primary, .logo-animate {
         transition: none;
         transform: none;
       }
-      .fade-in.visible { opacity: 1; }
+      .fade-in.visible, .logo-animate.visible { opacity: 1; }
     }
     .active-nav {
       border-bottom: 2px solid var(--accent);
@@ -88,6 +95,37 @@
     .chart-font {
       font-family: 'Inter', sans-serif;
     }
+    .faq-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      background: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+    }
+    .faq-toggle {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.5rem;
+      border-radius: 0.5rem 0.5rem 0 0;
+      cursor: pointer;
+      text-align: center;
+      font-weight: 600;
+    }
+    .cookies-popup {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      max-width: 400px;
+      background: white;
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+    }
   </style>
 </head>
 <body>
@@ -101,7 +139,7 @@
         <a href="#solutions" class="text-white hover:text-[var(--accent)] font-medium">Solutions</a>
         <a href="#case-studies" class="text-white hover:text-[var(--accent)] font-medium">Case Studies</a>
         <a href="#team" class="text-white hover:text-[var(--accent)] font-medium">Team</a>
-        <a href="/careers.html" class="text-white hover:text-[var(--accent)] font-medium">Careers</a>
+        <a href="#careers" class="text-white hover:text-[var(--accent)] font-medium">Careers</a>
         <a href="#contact" class="text-white hover:text-[var(--accent)] font-medium">Contact</a>
       </nav>
       <button id="mobile-menu-toggle" class="md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" aria-label="Toggle Mobile Menu">
@@ -113,7 +151,7 @@
         <a href="#solutions" class="text-white hover:text-[var(--accent)] font-medium">Solutions</a>
         <a href="#case-studies" class="text-white hover:text-[var(--accent)] font-medium">Case Studies</a>
         <a href="#team" class="text-white hover:text-[var(--accent)] font-medium">Team</a>
-        <a href="/careers.html" class="text-white hover:text-[var(--accent)] font-medium">Careers</a>
+        <a href="#careers" class="text-white hover:text-[var(--accent)] font-medium">Careers</a>
         <a href="#contact" class="text-white hover:text-[var(--accent)] font-medium">Contact</a>
       </div>
     </div>
@@ -131,9 +169,9 @@
     <section class="mb-16 text-center">
       <h2 class="text-2xl font-bold mb-6">Featured In</h2>
       <div class="flex flex-wrap justify-center gap-8">
-        <img src="/assets/forbes-logo.png" alt="Forbes" class="w-32 h-12 object-contain">
-        <img src="/assets/techcrunch-logo.png" alt="TechCrunch" class="w-32 h-12 object-contain">
-        <img src="/assets/vc-insights-logo.png" alt="VC Insights" class="w-32 h-12 object-contain">
+        <img src="/assets/forbes-logo.png" alt="Forbes" class="w-32 h-12 object-contain logo-animate">
+        <img src="/assets/techcrunch-logo.png" alt="TechCrunch" class="w-32 h-12 object-contain logo-animate">
+        <img src="/assets/vc-insights-logo.png" alt="VC Insights" class="w-32 h-12 object-contain logo-animate">
       </div>
     </section>
     <!-- Solutions -->
@@ -265,16 +303,50 @@
       <p class="text-lg mb-6">Check our availability and book a free 30-minute strategy call. Limited slots for Q2 2025.</p>
       <div class="max-w-3xl mx-auto">
         <h3 class="text-2xl font-semibold mb-4">Book Your Call</h3>
-        <div data-calendly="https://calendly.com/strategic-financials/30min" class="calendly-inline-widget" style="min-width:320px;height:630px;"></div>
+        <div class="calendly-inline-widget" data-url="https://calendly.com/strategic-financials/30min?hide_gdpr_banner=1" style="min-width:320px;height:630px;"></div>
         <p class="mt-4 text-sm text-gray-600">Can’t find a slot? <a href="mailto:contact@strategicfinancials.com" class="text-[var(--primary)] hover:underline">Contact us</a>.</p>
+        <p class="mt-2 text-sm text-gray-600 hidden" id="calendly-fallback">Unable to load calendar. Please email <a href="mailto:contact@strategicfinancials.com" class="text-[var(--primary)] hover:underline">contact@strategicfinancials.com</a> to book a call.</p>
       </div>
     </section>
-    <!-- About (Scalability for VCs) -->
+    <!-- About -->
     <section id="about" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8 text-center">
       <h2 class="text-3xl font-bold mb-6">Our Vision</h2>
       <p class="text-lg mb-6 max-w-3xl mx-auto">Serving 50+ startups today, we’re scaling to empower 500 by 2027 with our AI-driven financial tools and exclusive VC network.</p>
       <a href="/assets/sample-roadmap.pdf" class="btn-primary px-8 py-4 font-semibold text-lg" download>Download Sample Roadmap</a>
     </section>
+    <!-- Careers -->
+    <section id="careers" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8 text-center">
+      <h2 class="text-3xl font-bold mb-6">Join Our Team</h2>
+      <p class="text-lg mb-6 max-w-3xl mx-auto">No current openings – check back soon for your next opportunity.</p>
+      <a href="mailto:careers@strategicfinancials.com" class="btn-primary px-8 py-4 font-semibold text-lg">Join Our Talent Pool</a>
+    </section>
+  </div>
+  <!-- FAQ Section -->
+  <div class="faq-container">
+    <div class="faq-toggle" role="button" aria-expanded="false" tabindex="0">FAQs</div>
+    <div class="faq-content hidden">
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">What is the 90-day roadmap?</div>
+        <div class="accordion-content">Our AI-driven roadmap optimizes your financials, cap table, and pitch deck to secure funding in 90 days.</div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">Who are your typical clients?</div>
+        <div class="accordion-content">We serve fintech, SaaS, and ESG startups aiming for Seed to Series A funding rounds.</div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">How do you ensure data security?</div>
+        <div class="accordion-content">We are SOC 2 compliant and GDPR-ready, ensuring your financial data is secure.</div>
+      </div>
+    </div>
+  </div>
+  <!-- Cookies Popup -->
+  <div id="cookies-popup" class="cookies-popup hidden">
+    <h3 class="text-lg font-bold mb-2">We Use Cookies</h3>
+    <p class="text-sm mb-4">We use cookies to improve your experience. By continuing, you agree to our <a href="/privacy-policy.html" class="text-[var(--primary)] hover:underline">Privacy Policy</a>.</p>
+    <div class="flex space-x-4 justify-center">
+      <button onclick="acceptCookies()" class="btn-primary px-4 py-2 font-semibold">Accept</button>
+      <a href="/privacy-policy.html" class="btn-primary px-4 py-2 font-semibold">Learn More</a>
+    </div>
   </div>
   <footer class="bg-[var(--dark)] text-white text-center py-12">
     <div class="max-w-7xl mx-auto px-4">
@@ -291,7 +363,6 @@
       </div>
     </div>
   </footer>
-
   <!-- Exit Intent Popup -->
   <div id="exit-popup" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
     <div class="bg-white rounded-lg p-6 max-w-md w-full text-center">
@@ -304,7 +375,6 @@
       </div>
     </div>
   </div>
-
   <!-- Modal for Runway Calculator -->
   <div id="calc-modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
     <div class="bg-white rounded-lg p-6 max-w-md w-full text-center">
@@ -316,7 +386,6 @@
       </div>
     </div>
   </div>
-
   <script>
     // Mobile Menu Toggle
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
@@ -348,7 +417,7 @@
 
     // Scroll-Triggered Animations
     document.addEventListener('DOMContentLoaded', () => {
-      const sections = document.querySelectorAll('.fade-in');
+      const sections = document.querySelectorAll('.fade-in, .logo-animate');
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -448,6 +517,58 @@
     function closePopup() {
       document.getElementById('exit-popup').classList.add('hidden');
     }
+
+    // Cookies Popup
+    document.addEventListener('DOMContentLoaded', () => {
+      if (!localStorage.getItem('cookiesAccepted')) {
+        document.getElementById('cookies-popup').classList.remove('hidden');
+      }
+    });
+
+    function acceptCookies() {
+      localStorage.setItem('cookiesAccepted', 'true');
+      document.getElementById('cookies-popup').classList.add('hidden');
+    }
+
+    // FAQ Toggle
+    const faqToggle = document.querySelector('.faq-toggle');
+    const faqContent = document.querySelector('.faq-content');
+    faqToggle.addEventListener('click', () => {
+      faqContent.classList.toggle('hidden');
+      faqToggle.setAttribute('aria-expanded', faqContent.classList.contains('hidden') ? 'false' : 'true');
+    });
+
+    faqToggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        faqContent.classList.toggle('hidden');
+        faqToggle.setAttribute('aria-expanded', faqContent.classList.contains('hidden') ? 'false' : 'true');
+      }
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        content.classList.toggle('active');
+        header.setAttribute('aria-expanded', content.classList.contains('active') ? 'true' : 'false');
+      });
+      header.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          const content = header.nextElementSibling;
+          content.classList.toggle('active');
+          header.setAttribute('aria-expanded', content.classList.contains('active') ? 'true' : 'false');
+        }
+      });
+    });
+
+    // Calendly Fallback
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        if (!document.querySelector('.calendly-inline-widget iframe')) {
+          document.getElementById('calendly-fallback').classList.remove('hidden');
+        }
+      }, 5000);
+    });
   </script>
 </body>
 </html>
