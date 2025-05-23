@@ -16,19 +16,21 @@
       --cta-text: #fff;
       --footer-bg: #1a202c;
       --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --highlight: #e2e8f0;
     }
 
-    /* Dark mode */
+    /* Dark mode with improved contrast */
     [data-theme="dark"] {
       --bg-color: #1a202c;
-      --text-color: #e2e8f0;
+      --text-color: #f7fafc;
       --section-bg: #2d3748;
       --header-bg: linear-gradient(135deg, #000, #1a202c);
-      --header-text: #e2e8f0;
+      --header-text: #f7fafc;
       --cta-bg: #2b6cb0;
-      --cta-text: #e2e8f0;
+      --cta-text: #f7fafc;
       --footer-bg: #000;
       --shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+      --highlight: #a0aec0;
     }
 
     * {
@@ -49,7 +51,7 @@
       background: var(--header-bg);
       color: var(--header-text);
       text-align: center;
-      padding: 4rem 2rem;
+      padding: 2rem;
       position: sticky;
       top: 0;
       z-index: 999;
@@ -91,6 +93,31 @@
       padding: 0.5rem;
     }
 
+    nav {
+      background: var(--section-bg);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--cta-bg);
+    }
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -118,43 +145,49 @@
       margin-bottom: 1rem;
     }
 
-    .about, .offerings, .team, .success, .faq {
+    .about, .offerings, .team, .success, .careers, .faq {
       background: var(--section-bg);
       padding: 2rem;
       border-radius: 8px;
       box-shadow: var(--shadow);
     }
 
-    .team .bio {
+    .team .bio, .careers .bio {
       display: flex;
       align-items: center;
       gap: 2rem;
     }
 
-    .team img {
+    .team img, .careers img {
       width: 150px;
       height: 150px;
       border-radius: 50%;
       object-fit: cover;
     }
 
-    .offerings ul, .success ul {
-      list-style: none;
+    .offerings .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
     }
 
-    .offerings li, .success li {
-      font-size: 1.1rem;
+    .offerings .service-item {
+      padding: 1rem;
+      border: 1px solid var(--highlight);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .offerings .service-item svg {
+      width: 40px;
+      height: 40px;
       margin-bottom: 1rem;
-      padding-left: 1.5rem;
-      position: relative;
+      fill: var(--cta-bg);
     }
 
-    .offerings li:before, .success li:before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--cta-bg);
-      font-weight: bold;
+    .offerings .service-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
     }
 
     .success .testimonials {
@@ -166,6 +199,51 @@
       padding-left: 1rem;
       margin-bottom: 1.5rem;
       font-style: italic;
+    }
+
+    .calculator {
+      background: var(--section-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      margin: 3rem 0;
+    }
+
+    .calculator label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .calculator input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--highlight);
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .calculator button {
+      background: var(--cta-bg);
+      color: var(--cta-text);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .calculator button:hover {
+      background: var(--section-bg);
+      color: var(--cta-bg);
+      border: 1px solid var(--cta-bg);
+    }
+
+    .calculator #result {
+      margin-top: 1rem;
+      font-weight: bold;
     }
 
     .cta {
@@ -232,7 +310,12 @@
         font-size: 1.5rem;
       }
 
-      .team .bio {
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .team .bio, .careers .bio {
         flex-direction: column;
         text-align: center;
       }
@@ -249,17 +332,50 @@
     <p class="who-we-serve">Who We Serve: VC-backed startups at pre-Series A or pre-acquisition stages (5-50 employees)</p>
   </header>
 
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#success">Success Stories</a></li>
+      <li><a href="#careers">Careers</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
   <div class="container">
-    <section class="about visible">
+    <section id="about" class="about visible">
       <h2>About Our Services</h2>
       <p>We partner with founders to turn financial chaos into clarity—and clarity into capital strategy. Specializing in decision intelligence, predictive FP&A, and scalable systems, we give early-stage startups a strategic edge.</p>
       <p>From pressure-testing business models to preparing for investor diligence, we build frameworks and tools that convert data into smart, founder-friendly decisions.</p>
     </section>
 
-    <section class="team visible">
+    <section id="services" class="offerings">
+      <h2>Our Services</h2>
+      <p>We provide tailored financial leadership to help your startup thrive. Our offerings include:</p>
+      <div class="service-grid">
+        <div class="service-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg>
+          <h3>Cash Flow Modeling</h3>
+          <p>Build robust cash flow forecasts to optimize runway and inform strategic decisions.</p>
+        </div>
+        <div class="service-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-7-2c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5z"/></svg>
+          <h3>Cap Table Management</h3>
+          <p>Streamline equity allocation and prepare for investor diligence with clear cap tables.</p>
+        </div>
+        <div class="service-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h3l-4 4-4-4h3V7z"/></svg>
+          <h3>Investor Pitch Support</h3>
+          <p>Craft compelling financial narratives to secure funding from top VCs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="team">
       <h2>About Your CFO</h2>
       <div class="bio">
-        <img src="https://via.placeholder.com/150" alt="Samuel Mwendwa">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Samuel Mwendwa">
         <div>
           <p><strong>Samuel Mwendwa, CFA, MBA</strong></p>
           <p>With 15 years of finance experience, including as a mentor at <a href="https://www.linkedin.com/company/founderinstitute" target="_blank">The Founder Institute</a>, Samuel has mentored over 50 global businesses. He has also raised $50M+ in VC funding and led 3 successful exits.</p>
@@ -268,18 +384,58 @@
       </div>
     </section>
 
-    <!-- Other sections like Offerings, Testimonials, etc. -->
+    <section id="success" class="success">
+      <h2>Success Stories</h2>
+      <p>We’ve helped startups achieve financial clarity and secure funding. Here’s what our clients say:</p>
+      <div class="testimonials">
+        <div class="testimonial">
+          <p>“Samuel’s cash flow models helped us extend our runway by 6 months, leading to a $10M Series A with a top VC.”</p>
+          <p><strong>— Jane Doe, CEO, Fintech Startup</strong></p>
+        </div>
+        <div class="testimonial">
+          <p>“Their investor pitch support was a game-changer. We secured $5M in funding with a clear, data-driven narrative.”</p>
+          <p><strong>— John Smith, Founder, SaaS Platform</strong></p>
+        </div>
+      </div>
+    </section>
 
-    <section class="faq">
+    <section class="calculator">
+      <h2>Runway Calculator</h2>
+      <p>Estimate your startup’s cash runway with our simple tool.</p>
+      <label for="cash">Current Cash Balance ($):</label>
+      <input type="number" id="cash" placeholder="e.g., 500000">
+      <label for="burn">Monthly Burn Rate ($):</label>
+      <input type="number" id="burn" placeholder="e.g., 50000">
+      <button onclick="calculateRunway()">Calculate Runway</button>
+      <div id="result"></div>
+    </section>
+
+    <section id="careers" class="careers">
+      <h2>Join Our Team</h2>
+      <p>Our mission is to empower startups with financial clarity and strategic growth. We value innovation, collaboration, and impact. Join us to work with cutting-edge fintech, SaaS, and ESG startups.</p>
+      <div class="bio">
+        <img src="https://images.unsplash.com/photo-1522075469751-6603afb1f7e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Team Culture">
+        <div>
+          <p><strong>Why Work With Us?</strong></p>
+          <p>Be part of a dynamic team shaping the future of startups. We offer flexible, remote-first roles, mentorship from industry leaders, and opportunities to grow in finance and strategy.</p>
+          <p>Email your resume to <a href="mailto:careers@nexlifysolutions.com">careers@nexlifysolutions.com</a> to explore opportunities.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="faq">
       <h2>Frequently Asked Questions</h2>
       <details>
         <summary>What does a Fractional CFO do for startups?</summary>
         <p>We provide strategic financial leadership on a part-time or project basis, helping startups build scalable systems, optimize cash flow, and make data-driven decisions without a full-time CFO’s cost.</p>
       </details>
-      <!-- Other FAQs -->
+      <details>
+        <summary>How do you support investor pitches?</summary>
+        <p>We craft data-driven financial narratives, pressure-test business models, and prepare cap tables to help you secure funding from top VCs.</p>
+      </details>
     </section>
 
-    <section class="cta">
+    <section id="contact" class="cta">
       <h2>Ready to Build Your Financial Edge?</h2>
       <p>Partner with us to turn data into strategy and impress investors. Let’s discuss your vision.</p>
       <a href="mailto:nexlifysolutions.team@gmail.com">Get in Touch</a>
@@ -311,7 +467,7 @@
       }
     });
 
-    // Animate the visibility of sections
+    // Animate section visibility
     document.addEventListener('DOMContentLoaded', () => {
       const sections = document.querySelectorAll('section');
       sections.forEach((section, index) => {
@@ -320,6 +476,21 @@
         }, index * 500);
       });
     });
+
+    // Runway Calculator
+    function calculateRunway() {
+      const cash = parseFloat(document.getElementById('cash').value);
+      const burn = parseFloat(document.getElementById('burn').value);
+      const resultDiv = document.getElementById('result');
+
+      if (isNaN(cash) || isNaN(burn) || burn <= 0) {
+        resultDiv.textContent = 'Please enter valid numbers for cash balance and burn rate.';
+        return;
+      }
+
+      const runwayMonths = Math.round(cash / burn);
+      resultDiv.textContent = `Your startup has approximately ${runwayMonths} months of runway.`;
+    }
   </script>
 </body>
 </html>
