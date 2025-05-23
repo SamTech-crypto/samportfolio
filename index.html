@@ -10,6 +10,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <style>
     :root {
       --primary: #004D4D;
@@ -71,24 +72,43 @@
     }
     .accordion-item {
       border-bottom: 1px solid #e2e8f0;
+      transition: all 0.3s ease;
     }
     .accordion-header {
       cursor: pointer;
       padding: 1rem;
       background-color: white;
-      transition: background-color 0.2s ease;
+      border-radius: 0.5rem;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: var(--primary);
     }
     .accordion-header:hover {
       background-color: #f8fafc;
+      transform: translateY(-2px);
+    }
+    .accordion-header::after {
+      content: '\25BC';
+      font-size: 0.8rem;
+      transition: transform 0.2s ease;
+    }
+    .accordion-header.active::after {
+      transform: rotate(180deg);
     }
     .accordion-content {
       max-height: 0;
       overflow: hidden;
       padding: 0 1rem;
-      transition: max-height 0.2s ease-out;
+      transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+      background-color: #f8fafc;
+      border-radius: 0 0 0.5rem 0.5rem;
+      color: var(--dark);
     }
     .accordion-content.active {
-      max-height: 250px;
+      max-height: 300px;
       padding: 1rem;
     }
     .chart-font {
@@ -98,20 +118,29 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      width: 300px;
+      width: 320px;
       background: white;
-      border-radius: 0.5rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 0.75rem;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
       z-index: 100;
+      transition: transform 0.3s ease;
+    }
+    .faq-container:hover {
+      transform: translateY(-5px);
     }
     .faq-toggle {
       background-color: var(--primary);
       color: white;
-      padding: 0.5rem;
-      border-radius: 0.5rem 0.5rem 0 0;
+      padding: 0.75rem;
+      border-radius: 0.75rem 0.75rem 0 0;
       cursor: pointer;
       text-align: center;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: background-color 0.2s ease;
+    }
+    .faq-toggle:hover {
+      background-color: #006666;
     }
     .cookies-popup {
       position: fixed;
@@ -149,13 +178,20 @@
     @media (max-width: 768px) {
       .calendar-iframe { height: 500px; }
     }
+    .hero-bg {
+      transform: scale(1);
+      transform-origin: center;
+    }
+    .featured-item {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
   </style>
 </head>
 <body>
   <header class="bg-[var(--primary)] text-white py-6 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
       <div class="flex items-center">
-        <img src="/assets/strategic-financials-logo.png" alt="Strategic Financials Logo" class="w-12 h-12 mr-4">
         <h1 class="text-2xl font-bold">Strategic Financials</h1>
       </div>
       <nav class="hidden md:flex items-center space-x-6" role="navigation" aria-label="Main Navigation">
@@ -179,12 +215,12 @@
       </div>
     </div>
   </header>
-  <section class="relative bg-cover bg-center h-[80vh] flex items-center justify-center" style="background-image: url('/assets/hero-vc-pitch.jpg');">
-    <div class="absolute inset-0 bg-black/50"></div>
+  <section class="relative bg-cover bg-center h-[80vh] flex items-center justify-center hero-bg" style="background-image: url('/assets/hero-vc-pitch.jpg');">
+    <div class="absolute inset-0 bg-black/50 hero-overlay"></div>
     <div class="relative z-10 max-w-7xl mx-auto px-4 text-center text-white">
-      <h1 class="text-4xl md:text-6xl font-bold mb-2">Raise Millions with Our AI-Driven 90-Day Roadmap</h1>
-      <p class="text-lg mb-6">Trusted by Sequoia-backed startups to secure funding fast.</p>
-      <a href="#contact" class="btn-primary text-lg" role="button">Book a Free Strategy Call</a>
+      <h1 class="text-4xl md:text-6xl font-bold mb-2 hero-headline">Raise Millions with Our AI-Driven 90-Day Roadmap</h1>
+      <p class="text-lg mb-6 hero-subtext">Trusted by Sequoia-backed startups to secure funding fast.</p>
+      <a href="#contact" class="btn-primary text-lg hero-cta" role="button">Book a Free Strategy Call</a>
     </div>
   </section>
   <div class="max-w-7xl mx-auto px-4 py-16">
@@ -192,9 +228,9 @@
     <section class="mb-16 text-center">
       <h2 class="text-2xl font-bold mb-6">Featured In</h2>
       <div class="flex flex-wrap justify-center gap-8">
-        <img src="/assets/forbes-logo.png" alt="Forbes" class="w-32 h-12 object-contain logo-animate">
-        <img src="/assets/techcrunch-logo.png" alt="TechCrunch" class="w-32 h-12 object-contain logo-animate">
-        <img src="/assets/vc-insights-logo.png" alt="VC Insights" class="w-32 h-12 object-contain logo-animate">
+        <a href="https://www.forbes.com" target="_blank" class="featured-item text-[var(--primary)] font-semibold hover:underline">Forbes</a>
+        <a href="https://techcrunch.com" target="_blank" class="featured-item text-[var(--primary)] font-semibold hover:underline">TechCrunch</a>
+        <a href="https://www.vcinsights.com" target="_blank" class="featured-item text-[var(--primary)] font-semibold hover:underline">VC Insights</a>
       </div>
     </section>
     <!-- Solutions -->
@@ -258,13 +294,13 @@
       <h2 class="text-3xl font-bold mb-6 text-center">Proven Results</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="border-l-4 border-[var(--accent)] pl-4 bg-gray-50 p-6 rounded-r-lg">
-          <img src="/assets/paystream-logo.png" alt="PayStream Logo" class="w-24 h-8 mb-4">
+          <a href="https://www.paystream.com" target="_blank" class="text-[var(--primary)] font-semibold hover:underline mb-4 block">PayStream</a>
           <h3 class="text-xl font-semibold mb-2">Fintech Series A: $12M Raised</h3>
           <p class="text-lg mb-4">Cut burn rate by 30%, extending runway by 8 months, leading to a $12M round with Sequoia Capital in 90 days.</p>
           <p class="text-sm text-gray-600 italic">“Their roadmap gave us the clarity to close our round.” — Alex Chen, CEO, PayStream</p>
         </div>
         <div class="border-l-4 border-[var(--accent)] pl-4 bg-gray-50 p-6 rounded-r-lg">
-          <img src="/assets/cloudcore-logo.png" alt="CloudCore Logo" class="w-24 h-8 mb-4">
+          <a href="https://www.cloudcore.com" target="_blank" class="text-[var(--primary)] font-semibold hover:underline mb-4 block">CloudCore</a>
           <h3 class="text-xl font-semibold mb-2">SaaS Seed: $7M Secured</h3>
           <p class="text-lg mb-4">Built a data-driven pitch deck, securing $7M from a16z in 6 weeks.</p>
           <p class="text-sm text-gray-600 italic">“They made our financials irresistible to VCs.” — Priya Patel, Founder, CloudCore</p>
@@ -280,7 +316,6 @@
       <h2 class="text-3xl font-bold mb-6 text-center">Our Leadership</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col md:flex-row gap-6 items-center">
-          <img src="/assets/team/samuel-mwendwa-headshot.jpg" alt="Samuel Mwendwa, CFA, MBA - Founder" class="w-32 h-32 rounded-full object-cover">
           <div>
             <p class="text-xl font-semibold">Samuel Mwendwa, CFA, MBA</p>
             <p class="text-lg mb-2">Founder & Lead Strategist. Raised $50M+ across 3 exits. Mentor at Y Combinator. Former CFO at Fintech Innovator.</p>
@@ -288,7 +323,6 @@
           </div>
         </div>
         <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col md:flex-row gap-6 items-center">
-          <img src="/assets/team/mary-n-headshot.jpg" alt="Mary N - Growth Strategist & Podcast Host" class="w-32 h-32 rounded-full object-cover">
           <div>
             <p class="text-xl font-semibold">Mary N</p>
             <p class="text-lg mb-2">Host of The Africa Startup CFO Podcast. Business coach and growth strategist, guiding founders to scale without overwhelm.</p>
@@ -362,262 +396,329 @@
 
   <a href="mailto:nexlifysolutions.team@gmail.com" class="btn-primary px-8 py-4 font-semibold text-lg">Join Our Talent Pool</a>
 </section>
-
-  <!-- FAQ Section -->
-  <div class="faq-container">
-    <div class="faq-toggle" role="button" aria-expanded="false" tabindex="0">FAQs</div>
-    <div class="faq-content hidden">
-      <div class="accordion-item">
-        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">What is the 90-day roadmap?</div>
-        <div class="accordion-content">Our AI-driven roadmap optimizes your financials, cap table, and pitch deck to secure funding in 90 days.</div>
-      </div>
-      <div class="accordion-item">
-        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">Who are your typical clients?</div>
-        <div class="accordion-content">We serve fintech, SaaS, and ESG startups aiming for Seed to Series A funding rounds.</div>
-      </div>
-      <div class="accordion-item">
-        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">How do you ensure data security?</div>
-        <div class="accordion-content">We are SOC 2 compliant and GDPR-ready, ensuring your financial data is secure.</div>
-      </div>
-    </div>
-  </div>
-  <!-- Cookies Popup -->
-  <div id="cookies-popup" class="cookies-popup hidden">
-    <h3 class="text-lg font-bold mb-2">We Use Cookies</h3>
-    <p class="text-sm mb-4">We use cookies to improve your experience. By continuing, you agree to our <a href="/privacy-policy.html" class="text-[var(--primary)] hover:underline">Privacy Policy</a>.</p>
-    <div class="flex space-x-4 justify-center">
-      <button onclick="acceptCookies()" class="btn-primary px-4 py-2 font-semibold">Accept</button>
-      <a href="/privacy-policy.html" class="btn-primary px-4 py-2 font-semibold">Learn More</a>
-    </div>
-  </div>
-  <footer class="bg-[var(--dark)] text-white text-center py-12">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="flex justify-center gap-8 mb-6">
-        <img src="/assets/cfa-logo.png" alt="CFA Institute" class="w-24 h-12 object-contain">
-        <img src="/assets/soc2-badge.png" alt="SOC 2 Compliant" class="w-24 h-12 object-contain">
-        <img src="/assets/gdpr-badge.png" alt="GDPR Ready" class="w-24 h-12 object-contain">
-      </div>
-      <p>© 2025 Strategic Financial Leadership. All rights reserved.</p>
-      <div class="mt-4 flex justify-center space-x-6">
-        <a href="https://www.linkedin.com/company/strategic-financials" class="text-gray-400 hover:text-white">LinkedIn</a>
-        <a href="https://twitter.com/stratfinancials" class="text-gray-400 hover:text-white">Twitter</a>
-        <a href="/privacy-policy.html" class="text-gray-400 hover:text-white">Privacy Policy</a>
+    <!-- FAQ Section -->
+    <div class="faq-container">
+      <div class="faq-toggle" role="button" aria-expanded="false" tabindex="0">FAQs</div>
+      <div class="faq-content hidden">
+        <div class="accordion-item">
+          <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">What is the 90-day roadmap?</div>
+          <div class="accordion-content">Our AI-driven roadmap optimizes your financials, cap table, and pitch deck to secure funding in 90 days.</div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">Who are your typical clients?</div>
+          <div class="accordion-content">We serve fintech, SaaS, and ESG startups aiming for Seed to Series A funding rounds.</div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">How do you ensure data security?</div>
+          <div class="accordion-content">We are SOC 2 compliant and GDPR-ready, ensuring your financial data is secure.</div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">What makes your AI-driven approach unique?</div>
+          <div class="accordion-content">Our AI analyzes 100+ data points to create a tailored funding strategy, achieving a 78% success rate with 50+ startups.</div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">Can you help with international expansion?</div>
+          <div class="accordion-content">Yes, we provide financial modeling and compliance support for global markets, including tax optimization and cross-border funding.</div>
+        </div>
       </div>
     </div>
-  </footer>
-  <!-- Exit Intent Popup -->
-  <div id="exit-popup" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-    <div class="bg-white rounded-lg p-6 max-w-md w-full text-center">
-      <h3 class="text-2xl font-bold mb-4">Avoid These 5 VC Pitch Mistakes</h3>
-      <p class="text-lg mb-4">Download our free checklist to nail your next funding round.</p>
-      <input type="email" id="popup-email" placeholder="your@email.com" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" required aria-required="true">
+    <!-- Cookies Popup -->
+    <div id="cookies-popup" class="cookies-popup hidden">
+      <h3 class="text-lg font-bold mb-2">We Use Cookies</h3>
+      <p class="text-sm mb-4">We use cookies to improve your experience. By continuing, you agree to our <a href="/privacy-policy.html" class="text-[var(--primary)] hover:underline">Privacy Policy</a>.</p>
       <div class="flex space-x-4 justify-center">
-        <button onclick="downloadChecklist()" class="btn-primary px-6 py-3 font-semibold">Get Checklist</button>
-        <button onclick="closePopup()" class="btn-primary px-6 py-3 font-semibold">Close</button>
+        <button onclick="acceptCookies()" class="btn-primary px-4 py-2 font-semibold">Accept</button>
+        <a href="/privacy-policy.html" class="btn-primary px-4 py-2 font-semibold">Learn More</a>
       </div>
     </div>
-  </div>
-  <!-- Modal for Runway Calculator -->
-  <div id="calc-modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-    <div class="bg-white rounded-lg p-6 max-w-md w-full text-center">
-      <h3 class="text-2xl font-bold mb-4">Extend Your Runway</h3>
-      <p class="text-lg mb-4" id="modal-message"></p>
-      <div class="flex space-x-4 justify-center">
-        <a href="#contact" class="btn-primary px-6 py-3 font-semibold" onclick="closeModal()">Book a Strategy Call</a>
-        <button onclick="closeModal()" class="btn-primary px-6 py-3 font-semibold">Close</button>
+    <footer class="bg-[var(--dark)] text-white text-center py-12">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-center gap-8 mb-6">
+          <a href="https://www.cfainstitute.org" target="_blank" class="text-[var(--accent)] font-semibold hover:underline">CFA Institute</a>
+          <a href="https://www.termsfeed.com/blog/gdpr-readiness-checklist/" target="_blank" class="text-[var(--accent)] font-semibold hover:underline">GDPR Ready</a>
+          <span class="text-[var(--accent)] font-semibold">SOC 2 Compliant</span>
+        </div>
+        <p>© 2025 Strategic Financial Leadership. All rights reserved.</p>
+        <div class="mt-4 flex justify-center space-x-6">
+          <a href="https://www.linkedin.com/company/strategic-financials" class="text-gray-400 hover:text-white">LinkedIn</a>
+          <a href="https://twitter.com/stratfinancials" class="text-gray-400 hover:text-white">Twitter</a>
+          <a href="/privacy-policy.html" class="text-gray-400 hover:text-white">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
+    <!-- Exit Intent Popup -->
+    <div id="exit-popup" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+      <div class="bg-white rounded-lg p-6 max-w-md w-full text-center">
+        <h3 class="text-2xl font-bold mb-4">Avoid These 5 VC Pitch Mistakes</h3>
+        <p class="text-lg mb-4">Download our free checklist to nail your next funding round.</p>
+        <input type="email" id="popup-email" placeholder="your@email.com" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" required aria-required="true">
+        <div class="flex space-x-4 justify-center">
+          <button onclick="downloadChecklist()" class="btn-primary px-6 py-3 font-semibold">Get Checklist</button>
+          <button onclick="closePopup()" class="btn-primary px-6 py-3 font-semibold">Close</button>
+        </div>
       </div>
     </div>
-  </div>
-  <script>
-    // Mobile Menu Toggle
-    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      mobileMenuToggle.setAttribute('aria-expanded', mobileMenu.classList.contains('hidden') ? 'false' : 'true');
-    });
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        mobileMenuToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
+    <!-- Modal for Runway Calculator -->
+    <div id="calc-modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+      <div class="bg-white rounded-lg p-6 max-w-md w-full text-center">
+        <h3 class="text-2xl font-bold mb-4">Extend Your Runway</h3>
+        <p class="text-lg mb-4" id="modal-message"></p>
+        <div class="flex space-x-4 justify-center">
+          <a href="#contact" class="btn-primary px-6 py-3 font-semibold" onclick="closeModal()">Book a Strategy Call</a>
+          <button onclick="closeModal()" class="btn-primary px-6 py-3 font-semibold">Close</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      // GSAP Animations
+      document.addEventListener('DOMContentLoaded', () => {
+        // Respect reduced motion preference
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          // Hero Section Animations
+          gsap.fromTo('.hero-bg', 
+            { scale: 1 }, 
+            { scale: 1.1, duration: 10, ease: 'power1.out' }
+          );
+          gsap.fromTo('.hero-overlay', 
+            { opacity: 0 }, 
+            { opacity: 0.5, duration: 1, ease: 'power2.out' }
+          );
+          gsap.fromTo('.hero-headline', 
+            { opacity: 0, y: 50 }, 
+            { opacity: 1, y: 0, duration: 1, ease: 'power3.out', delay: 0.3 }
+          );
+          gsap.fromTo('.hero-subtext', 
+            { opacity: 0, y: 30 }, 
+            { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', delay: 0.6 }
+          );
+          gsap.fromTo('.hero-cta', 
+            { opacity: 0, y: 30 }, 
+            { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', delay: 0.9 }
+          );
 
-    // Smooth Scroll & Active Nav
-    document.querySelectorAll('nav a, #mobile-menu a, a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = anchor.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-          document.querySelectorAll('nav a').forEach(link => link.classList.remove('active-nav'));
-          anchor.classList.add('active-nav');
+          // Featured In Animations (Left to Right)
+          gsap.fromTo('.featured-item', 
+            { opacity: 0, x: -50 }, 
+            { 
+              opacity: 1, 
+              x: 0, 
+              duration: 0.8, 
+              ease: 'power2.out', 
+              stagger: 0.2,
+              scrollTrigger: {
+                trigger: '.featured-item',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+              }
+            }
+          );
+        } else {
+          // Ensure elements are visible for reduced motion
+          gsap.set(['.hero-overlay', '.hero-headline', '.hero-subtext', '.hero-cta', '.featured-item'], { opacity: 1, y: 0, x: 0 });
         }
       });
-    });
 
-    // Scroll-Triggered Animations
-    document.addEventListener('DOMContentLoaded', () => {
-      const sections = document.querySelectorAll('.fade-in, .logo-animate');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+      // Mobile Menu Toggle
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenuToggle.setAttribute('aria-expanded', mobileMenu.classList.contains('hidden') ? 'false' : 'true');
+      });
+      document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      // Smooth Scroll & Active Nav
+      document.querySelectorAll('nav a, #mobile-menu a, a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = anchor.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+            document.querySelectorAll('nav a').forEach(link => link.classList.remove('active-nav'));
+            anchor.classList.add('active-nav');
           }
         });
-      }, { threshold: 0.1 });
-      sections.forEach(section => observer.observe(section));
-    });
+      });
 
-    // Runway Calculator with Chart
-    function calculateRunway() {
-      const cash = parseFloat(document.getElementById('cash').value);
-      const burn = parseFloat(document.getElementById('burn').value);
-      const email = document.getElementById('calc-email').value;
-      const resultDiv = document.getElementById('calc-result');
-      const modalMessage = document.getElementById('modal-message');
-      const modal = document.getElementById('calc-modal');
+      // Scroll-Triggered Animations
+      document.addEventListener('DOMContentLoaded', () => {
+        const sections = document.querySelectorAll('.fade-in, .logo-animate');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, { threshold: 0.1 });
+        sections.forEach(section => observer.observe(section));
+      });
 
-      if (!cash || !burn || burn <= 0 || !email) {
-        resultDiv.textContent = 'Please enter valid numbers and an email.';
-        return;
+      // Runway Calculator with Chart
+      function calculateRunway() {
+        const cash = parseFloat(document.getElementById('cash').value);
+        const burn = parseFloat(document.getElementById('burn').value);
+        const email = document.getElementById('calc-email').value;
+        const resultDiv = document.getElementById('calc-result');
+        const modalMessage = document.getElementById('modal-message');
+        const modal = document.getElementById('calc-modal');
+
+        if (!cash || !burn || burn <= 0 || !email) {
+          resultDiv.textContent = 'Please enter valid numbers and an email.';
+          return;
+        }
+
+        const runwayMonths = Math.round(cash / burn);
+        const industryAvg = 12;
+        resultDiv.textContent = `Your runway: ~${runwayMonths} months (vs. ${industryAvg}-month SaaS average).`;
+        modalMessage.textContent = `With ~${runwayMonths} months of runway, our AI-driven tool can extend it by 6+ months. Book a call now.`;
+        modal.classList.remove('hidden');
+        console.log(`Sending runway report to ${email}: ${runwayMonths} months`);
+
+        const ctx = document.getElementById('runway-chart').getContext('2d');
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Your Runway', 'SaaS Average'],
+            datasets: [{
+              label: 'Months',
+              data: [runwayMonths, industryAvg],
+              backgroundColor: ['#004D4D', '#D1D5DB'],
+              borderColor: ['#004D4D', '#D1D5DB'],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: { y: { beginAtZero: true } },
+            plugins: { legend: { labels: { font: { family: 'Inter', size: 12 } } } }
+          }
+        });
       }
 
-      const runwayMonths = Math.round(cash / burn);
-      const industryAvg = 12;
-      resultDiv.textContent = `Your runway: ~${runwayMonths} months (vs. ${industryAvg}-month SaaS average).`;
-      modalMessage.textContent = `With ~${runwayMonths} months of runway, our AI-driven tool can extend it by 6+ months. Book a call now.`;
-      modal.classList.remove('hidden');
-      console.log(`Sending runway report to ${email}: ${runwayMonths} months`);
-
-      const ctx = document.getElementById('runway-chart').getContext('2d');
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['Your Runway', 'SaaS Average'],
-          datasets: [{
-            label: 'Months',
-            data: [runwayMonths, industryAvg],
-            backgroundColor: ['#004D4D', '#D1D5DB'],
-            borderColor: ['#004D4D', '#D1D5DB'],
-            borderWidth: 1
-          }]
-        },
-        options: {
-          scales: { y: { beginAtZero: true } },
-          plugins: { legend: { labels: { font: { family: 'Inter', size: 12 } } } }
-        }
-      });
-    }
-
-    function closeModal() {
-      document.getElementById('calc-modal').classList.add('hidden');
-    }
-
-    // Case Study Chart
-    document.addEventListener('DOMContentLoaded', () => {
-      const ctx = document.getElementById('case-study-chart').getContext('2d');
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['PayStream', 'CloudCore'],
-          datasets: [{
-            label: 'Amount Raised ($M)',
-            data: [12, 7],
-            backgroundColor: '#004D4D',
-            borderColor: '#004D4D',
-            borderWidth: 1
-          }]
-        },
-        options: {
-          scales: { y: { beginAtZero: true } },
-          plugins: { legend: { labels: { font: { family: 'Inter', size: 12 } } } }
-        }
-      });
-    });
-
-    // Exit Intent Popup
-    let isExitIntentTriggered = false;
-    document.addEventListener('mouseout', (e) => {
-      if (!isExitIntentTriggered && e.relatedTarget === null && e.clientY < 10) {
-        document.getElementById('exit-popup').classList.remove('hidden');
-        isExitIntentTriggered = true;
+      function closeModal() {
+        document.getElementById('calc-modal').classList.add('hidden');
       }
-    });
 
-    function downloadChecklist() {
-      const email = document.getElementById('popup-email').value;
-      if (email) {
-        console.log(`Sending checklist to ${email}`);
+      // Case Study Chart
+      document.addEventListener('DOMContentLoaded', () => {
+        const ctx = document.getElementById('case-study-chart').getContext('2d');
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['PayStream', 'CloudCore'],
+            datasets: [{
+              label: 'Amount Raised ($M)',
+              data: [12, 7],
+              backgroundColor: '#004D4D',
+              borderColor: '#004D4D',
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: { y: { beginAtZero: true } },
+            plugins: { legend: { labels: { font: { family: 'Inter', size: 12 } } } }
+          }
+        });
+      });
+
+      // Exit Intent Popup
+      let isExitIntentTriggered = false;
+      document.addEventListener('mouseout', (e) => {
+        if (!isExitIntentTriggered && e.relatedTarget === null && e.clientY < 10) {
+          document.getElementById('exit-popup').classList.remove('hidden');
+          isExitIntentTriggered = true;
+        }
+      });
+
+      function downloadChecklist() {
+        const email = document.getElementById('popup-email').value;
+        if (email) {
+          console.log(`Sending checklist to ${email}`);
+          document.getElementById('exit-popup').classList.add('hidden');
+        } else {
+          alert('Please enter a valid email.');
+        }
+      }
+
+      function closePopup() {
         document.getElementById('exit-popup').classList.add('hidden');
-      } else {
-        alert('Please enter a valid email.');
       }
-    }
 
-    function closePopup() {
-      document.getElementById('exit-popup').classList.add('hidden');
-    }
+      // Cookies Popup
+      document.addEventListener('DOMContentLoaded', () => {
+        if (!localStorage.getItem('cookiesAccepted')) {
+          document.getElementById('cookies-popup').classList.remove('hidden');
+        }
+      });
 
-    // Cookies Popup
-    document.addEventListener('DOMContentLoaded', () => {
-      if (!localStorage.getItem('cookiesAccepted')) {
-        document.getElementById('cookies-popup').classList.remove('hidden');
+      function acceptCookies() {
+        localStorage.setItem('cookiesAccepted', 'true');
+        document.getElementById('cookies-popup').classList.add('hidden');
       }
-    });
 
-    function acceptCookies() {
-      localStorage.setItem('cookiesAccepted', 'true');
-      document.getElementById('cookies-popup').classList.add('hidden');
-    }
-
-    // FAQ Toggle
-    const faqToggle = document.querySelector('.faq-toggle');
-    const faqContent = document.querySelector('.faq-content');
-    faqToggle.addEventListener('click', () => {
-      faqContent.classList.toggle('hidden');
-      faqToggle.setAttribute('aria-expanded', faqContent.classList.contains('hidden') ? 'false' : 'true');
-    });
-
-    faqToggle.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
+      // FAQ Toggle
+      const faqToggle = document.querySelector('.faq-toggle');
+      const faqContent = document.querySelector('.faq-content');
+      faqToggle.addEventListener('click', () => {
         faqContent.classList.toggle('hidden');
         faqToggle.setAttribute('aria-expanded', faqContent.classList.contains('hidden') ? 'false' : 'true');
-      }
-    });
-
-    // FAQ Accordion
-    document.querySelectorAll('.accordion-header').forEach(header => {
-      header.addEventListener('click', () => {
-        const content = header.nextElementSibling;
-        content.classList.toggle('active');
-        header.setAttribute('aria-expanded', content.classList.contains('active') ? 'true' : 'false');
       });
-      header.addEventListener('keydown', (e) => {
+
+      faqToggle.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
+          faqContent.classList.toggle('hidden');
+          faqToggle.setAttribute('aria-expanded', faqContent.classList.contains('hidden') ? 'false' : 'true');
+        }
+      });
+
+      // FAQ Accordion
+      document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', () => {
           const content = header.nextElementSibling;
-          content.classList.toggle('active');
-          header.setAttribute('aria-expanded', content.classList.contains('active') ? 'true' : 'false');
-        }
+          const isActive = content.classList.contains('active');
+          document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('active'));
+          document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+          if (!isActive) {
+            content.classList.add('active');
+            header.classList.add('active');
+          }
+          header.setAttribute('aria-expanded', !isActive ? 'true' : 'false');
+        });
+        header.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            const content = header.nextElementSibling;
+            const isActive = content.classList.contains('active');
+            document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+            if (!isActive) {
+              content.classList.add('active');
+              header.classList.add('active');
+            }
+            header.setAttribute('aria-expanded', !isActive ? 'true' : 'false');
+          }
+        });
       });
-    });
 
-    // Calendar Fallback
-    document.addEventListener('DOMContentLoaded', () => {
-      const calendarIframe = document.getElementById('calendar-iframe');
-      let isIframeLoaded = false;
+      // Calendar Fallback
+      document.addEventListener('DOMContentLoaded', () => {
+        const calendarIframe = document.getElementById('calendar-iframe');
+        let isIframeLoaded = false;
 
-      calendarIframe.addEventListener('load', () => {
-        isIframeLoaded = true;
+        calendarIframe.addEventListener('load', () => {
+          isIframeLoaded = true;
+        });
+
+        setTimeout(() => {
+          if (!isIframeLoaded) {
+            document.getElementById('calendly-fallback').classList.remove('hidden');
+          }
+        }, 5000);
       });
-
-      setTimeout(() => {
-        if (!isIframeLoaded) {
-          document.getElementById('calendly-fallback').classList.remove('hidden');
-        }
-      }, 5000);
-    });
-  </script>
+    </script>
 </body>
 </html>
