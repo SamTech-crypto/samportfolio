@@ -3,14 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Fractional CFO services for fintech, SaaS, and ESG startups. Raise millions with our AI-driven 90-day financial roadmap.">
-  <meta name="keywords" content="fractional CFO, startup funding, fintech, SaaS, ESG, financial roadmap">
-  <title>Strategic CFO for Startups | Raise Millions with Precision</title>
+  <meta name="description" content="Fractional CFO for fintech, SaaS, ESG startups. Raise $5M+ with our AI-driven 90-day financial strategy, trusted by Sequoia and a16z.">
+  <meta name="keywords" content="fractional CFO, startup funding, fintech, SaaS, ESG, AI-driven financial strategy, VC pitch">
+  <title>Fractional CFO for Startups | Raise $5M+ in 90 Days</title>
   <link rel="icon" type="image/png" href="/assets/favicon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Strategic Financials",
+      "description": "Fractional CFO services for fintech, SaaS, and ESG startups, delivering AI-driven 90-day funding strategies.",
+      "url": "https://samuelmwendwa.netlify.app",
+      "founder": {
+        "@type": "Person",
+        "name": "Samuel Mwendwa",
+        "jobTitle": "Lead Strategist"
+      }
+    }
+  </script>
   <style>
     :root {
       --primary: #004D4D;
@@ -52,19 +66,12 @@
       opacity: 1;
       transform: translateY(0);
     }
-    .logo-animate {
-      transform: scale(1);
-      transition: transform 0.3s ease;
-    }
-    .logo-animate.visible {
-      transform: scale(1.1);
-    }
     @media (prefers-reduced-motion: reduce) {
-      .fade-in, .btn-primary, .logo-animate {
+      .fade-in, .btn-primary {
         transition: none;
         transform: none;
       }
-      .fade-in.visible, .logo-animate.visible { opacity: 1; }
+      .fade-in.visible { opacity: 1; }
     }
     .active-nav {
       border-bottom: 2px solid var(--accent);
@@ -72,14 +79,12 @@
     }
     .accordion-item {
       border-bottom: 1px solid #e2e8f0;
-      transition: all 0.3s ease;
     }
     .accordion-header {
       cursor: pointer;
       padding: 1rem;
       background-color: white;
       border-radius: 0.5rem;
-      transition: background-color 0.2s ease, transform 0.2s ease;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -88,7 +93,6 @@
     }
     .accordion-header:hover {
       background-color: #f8fafc;
-      transform: translateY(-2px);
     }
     .accordion-header::after {
       content: '\25BC';
@@ -104,87 +108,27 @@
       padding: 0 1rem;
       transition: max-height 0.3s ease-out, padding 0.3s ease-out;
       background-color: #f8fafc;
-      border-radius: 0 0 0.5rem 0.5rem;
-      color: var(--dark);
     }
     .accordion-content.active {
       max-height: 300px;
       padding: 1rem;
     }
-    .chart-font {
-      font-family: 'Inter', sans-serif;
-    }
-    .faq-container {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 320px;
-      background: white;
-      border-radius: 0.75rem;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-      z-index: 100;
-      transition: transform 0.3s ease;
-    }
-    .faq-container:hover {
-      transform: translateY(-5px);
-    }
-    .faq-toggle {
-      background-color: var(--primary);
-      color: white;
-      padding: 0.75rem;
-      border-radius: 0.75rem 0.75rem 0 0;
-      cursor: pointer;
-      text-align: center;
-      font-weight: 700;
-      font-size: 1.1rem;
-      transition: background-color 0.2s ease;
-    }
-    .faq-toggle:hover {
-      background-color: #006666;
-    }
-    .cookies-popup {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      right: 20px;
-      max-width: 400px;
-      background: white;
-      border-radius: 0.5rem;
-      padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      z-index: 100;
-    }
     .calendar-container {
-      max-width: 1000px;
+      max-width: 800px;
       margin: 0 auto;
       padding: 20px;
-      font-family: 'Inter', sans-serif;
-    }
-    .calendar-container h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: var(--dark);
     }
     .calendar-iframe {
       width: 100%;
-      height: 600px;
+      height: 400px;
       border: 1px solid #e2e8f0;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
     @media (max-width: 768px) {
-      .calendar-iframe { height: 500px; }
+      .calendar-iframe { height: 300px; }
     }
     .hero-bg {
-      transform: scale(1);
-      transform-origin: center;
-    }
-    .featured-item {
-      opacity: 0;
-      transform: translateX(-50px);
+      background: linear-gradient(135deg, #004D4D 0%, #006666 100%);
     }
   </style>
 </head>
@@ -193,12 +137,12 @@
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
       <div class="flex items-center">
         <h1 class="text-2xl font-bold">Strategic Financials</h1>
+        <p class="text-sm ml-2 hidden md:block">Fractional CFO for High-Growth Startups</p>
       </div>
       <nav class="hidden md:flex items-center space-x-6" role="navigation" aria-label="Main Navigation">
         <a href="#solutions" class="text-white hover:text-[var(--accent)] font-medium">Solutions</a>
         <a href="#case-studies" class="text-white hover:text-[var(--accent)] font-medium">Case Studies</a>
         <a href="#team" class="text-white hover:text-[var(--accent)] font-medium">Team</a>
-        <a href="#careers" class="text-white hover:text-[var(--accent)] font-medium">Careers</a>
         <a href="#contact" class="text-white hover:text-[var(--accent)] font-medium">Contact</a>
       </nav>
       <button id="mobile-menu-toggle" class="md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" aria-label="Toggle Mobile Menu">
@@ -207,56 +151,73 @@
     </div>
     <div id="mobile-menu" class="hidden md:hidden bg-[var(--primary)] w-full absolute top-full left-0 shadow-md" role="navigation" aria-label="Mobile Navigation">
       <div class="flex flex-col p-4 space-y-4">
+        <button id="mobile-menu-close" class="self-end p-2 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" aria-label="Close Mobile Menu">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
         <a href="#solutions" class="text-white hover:text-[var(--accent)] font-medium">Solutions</a>
         <a href="#case-studies" class="text-white hover:text-[var(--accent)] font-medium">Case Studies</a>
         <a href="#team" class="text-white hover:text-[var(--accent)] font-medium">Team</a>
-        <a href="#careers" class="text-white hover:text-[var(--accent)] font-medium">Careers</a>
         <a href="#contact" class="text-white hover:text-[var(--accent)] font-medium">Contact</a>
       </div>
     </div>
   </header>
-  <section class="relative bg-cover bg-center h-[80vh] flex items-center justify-center hero-bg" style="background-image: url('/assets/hero-vc-pitch.jpg');">
-    <div class="absolute inset-0 bg-black/50 hero-overlay"></div>
+  <section class="relative bg-cover bg-center h-[70vh] flex items-center justify-center hero-bg">
+    <div class="absolute inset-0 bg-black/40 hero-overlay"></div>
     <div class="relative z-10 max-w-7xl mx-auto px-4 text-center text-white">
-      <h1 class="text-4xl md:text-6xl font-bold mb-2 hero-headline">Raise Millions with Our AI-Driven 90-Day Roadmap</h1>
-      <p class="text-lg mb-6 hero-subtext">Trusted by Sequoia-backed startups to secure funding fast.</p>
-      <a href="#contact" class="btn-primary text-lg hero-cta" role="button">Book a Free Strategy Call</a>
+      <h1 class="text-4xl md:text-6xl font-bold mb-2 hero-headline">Fractional CFO: Raise $5M+ for Fintech, SaaS, ESG in 90 Days</h1>
+      <p class="text-lg mb-6 hero-subtext">AI-driven financial strategies trusted by Sequoia and a16z to close funding rounds fast.</p>
+      <a href="#quiz" class="btn-primary text-lg hero-cta" role="button">Take Our 3-Question VC Readiness Quiz</a>
+      <p class="text-sm mt-4">Limited Offer: First 10 clients in June get a free pitch deck audit.</p>
     </div>
   </section>
   <div class="max-w-7xl mx-auto px-4 py-16">
-    <!-- Featured In -->
+    <!-- Trusted By -->
     <section class="mb-16 text-center">
-      <h2 class="text-2xl font-bold mb-6">Featured In</h2>
+      <h2 class="text-2xl font-bold mb-6">Trusted By</h2>
       <div class="flex flex-wrap justify-center gap-8">
-        <a href="https://www.forbes.com" target="_blank" class="featured-item text-[var(--primary)] font-semibold hover:underline">Forbes</a>
-        <a href="https://techcrunch.com" target="_blank" class="featured-item text-[var(--primary)] font-semibold hover:underline">TechCrunch</a>
-        <a href="https://www.vcinsights.com" target="_blank" class="featured-item text-[var(--primary)] font-semibold hover:underline">VC Insights</a>
+        <img src="/assets/sequoia-logo.png" alt="Sequoia Capital logo" class="h-10">
+        <img src="/assets/a16z-logo.png" alt="Andreessen Horowitz logo" class="h-10">
+        <img src="/assets/paystream-logo.png" alt="PayStream logo" class="h-10">
+      </div>
+      <p class="text-sm mt-4 italic">“Strategic Financials’ AI-driven approach transformed our Series A pitch.” — Jane Doe, Partner, Sequoia Capital</p>
+    </section>
+    <!-- VC Readiness Quiz -->
+    <section id="quiz" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
+      <h2 class="text-3xl font-bold mb-6 text-center">Is Your Startup VC-Ready?</h2>
+      <p class="text-lg mb-4 text-center">Answer 3 questions to get a free funding readiness report.</p>
+      <div class="max-w-md mx-auto">
+        <label for="arr" class="block text-sm font-medium mb-2">Annual Recurring Revenue ($)</label>
+        <input type="number" id="arr" placeholder="e.g., 1,000,000" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" min="0" required aria-required="true">
+        <label for="burn-rate" class="block text-sm font-medium mb-2">Monthly Burn Rate ($)</label>
+        <input type="number" id="burn-rate" placeholder="e.g., 50,000" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" min="0" required aria-required="true">
+        <label for="quiz-email" class="block text-sm font-medium mb-2">Email for Report</label>
+        <input type="email" id="quiz-email" placeholder="your@email.com" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" required aria-required="true">
+        <button onclick="submitQuiz()" class="btn-primary px-6 py-3 font-semibold w-full" role="button">Get Your Report</button>
       </div>
     </section>
     <!-- Solutions -->
     <section id="solutions" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 text-center">Solve Your Toughest Financial Challenges</h2>
-      <p class="text-lg mb-4 text-center">We help fintech, SaaS, and ESG startups raise millions with our AI-driven 90-day roadmap, tailored to your metrics and growth stage.</p>
+      <h2 class="text-3xl font-bold mb-6 text-center">Close Your Funding Round in 90 Days</h2>
+      <p class="text-lg mb-4 text-center">Our AI analyzes 100+ financial metrics to craft a tailored strategy for fintech, SaaS, and ESG startups.</p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-        <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl">
+        <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <svg class="w-10 h-10 mx-auto mb-4 text-[var(--primary)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg>
           <h3 class="text-xl font-semibold mb-2">Extend Your Runway</h3>
-          <p>SaaS: Optimize ARR and LTV/CAC to extend runway by 6+ months. Our AI tool cuts burn rates by 25%.</p>
+          <p>SaaS: Boost ARR by 20% and cut burn by 25% with our AI-optimized financial models.</p>
         </div>
-        <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl">
+        <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <svg class="w-10 h-10 mx-auto mb-4 text-[var(--primary)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-7-2c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5z"/></svg>
           <h3 class="text-xl font-semibold mb-2">Audit-Ready Cap Tables</h3>
-          <p>Fintech: Streamline equity allocation with cap tables audited by Big 4 firms, passing 100% of VC diligence.</p>
+          <p>Fintech: Build Big 4-audited cap tables that pass 100% of VC due diligence.</p>
         </div>
-        <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl">
+        <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <svg class="w-10 h-10 mx-auto mb-4 text-[var(--primary)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h3l-4 4-4-4h3V7z"/></svg>
           <h3 class="text-xl font-semibold mb-2">Win Over VCs</h3>
-          <p>ESG: Secure funding with our pitch framework and exclusive VC introductions, raising $10M+ in under 60 days.</p>
+          <p>ESG: Craft pitches with our proprietary framework, securing $10M+ in 60 days.</p>
         </div>
       </div>
-      <!-- Comparison Table -->
       <div class="mt-8">
-        <h3 class="text-2xl font-bold mb-4 text-center">Why Choose Our AI-Driven Approach?</h3>
+        <h3 class="text-2xl font-bold mb-4 text-center">Why We’re Different</h3>
         <table class="w-full border-collapse text-left">
           <thead>
             <tr class="bg-gray-100">
@@ -291,152 +252,83 @@
     </section>
     <!-- Case Studies -->
     <section id="case-studies" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 text-center">Proven Results</h2>
+      <h2 class="text-3xl font-bold mb-6 text-center">Our Track Record</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="border-l-4 border-[var(--accent)] pl-4 bg-gray-50 p-6 rounded-r-lg">
+        <div class="border-l-4 border-[var(--accent)] pl-4 bg-gray-50 p-6 rounded-r-lg relative group">
           <a href="https://www.paystream.com" target="_blank" class="text-[var(--primary)] font-semibold hover:underline mb-4 block">PayStream</a>
           <h3 class="text-xl font-semibold mb-2">Fintech Series A: $12M Raised</h3>
-          <p class="text-lg mb-4">Cut burn rate by 30%, extending runway by 8 months, leading to a $12M round with Sequoia Capital in 90 days.</p>
-          <p class="text-sm text-gray-600 italic">“Their roadmap gave us the clarity to close our round.” — Alex Chen, CEO, PayStream</p>
+          <p class="text-lg mb-4">Optimized LTV/CAC by 40%, extending runway by 8 months, securing $12M from Sequoia in 90 days.</p>
+          <p class="text-sm text-gray-600 italic">“Their AI-driven models gave us the edge to close.” — Alex Chen, CEO</p>
+          <div class="absolute inset-0 bg-[var(--primary)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-r-lg"></div>
         </div>
-        <div class="border-l-4 border-[var(--accent)] pl-4 bg-gray-50 p-6 rounded-r-lg">
+        <div class="border-l-4 border-[var(--accent)] pl-4 bg-gray-50 p-6 rounded-r-lg relative group">
           <a href="https://www.cloudcore.com" target="_blank" class="text-[var(--primary)] font-semibold hover:underline mb-4 block">CloudCore</a>
           <h3 class="text-xl font-semibold mb-2">SaaS Seed: $7M Secured</h3>
-          <p class="text-lg mb-4">Built a data-driven pitch deck, securing $7M from a16z in 6 weeks.</p>
-          <p class="text-sm text-gray-600 italic">“They made our financials irresistible to VCs.” — Priya Patel, Founder, CloudCore</p>
+          <p class="text-lg mb-4">Built a pitch deck with 15+ financial scenarios, raising $7M from a16z in 6 weeks.</p>
+          <p class="text-sm text-gray-600 italic">“Their data-driven approach won us a16z.” — Priya Patel, Founder</p>
+          <div class="absolute inset-0 bg-[var(--primary)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-r-lg"></div>
         </div>
       </div>
       <div class="mt-6 text-center">
         <canvas id="case-study-chart" class="max-w-md mx-auto mb-4"></canvas>
-        <a href="#contact" class="btn-primary px-6 py-3 font-semibold">Download PayStream’s $12M Pitch Deck</a>
+        <a href="/assets/paystream-pitch-deck.pdf" class="btn-primary px-6 py-3 font-semibold" download>Get PayStream’s $12M Pitch Deck</a>
       </div>
     </section>
     <!-- Team -->
-    <section id="team" class="mb-16">
+    <section id="team" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
       <h2 class="text-3xl font-bold mb-6 text-center">Our Leadership</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col md:flex-row gap-6 items-center">
           <div>
             <p class="text-xl font-semibold">Samuel Mwendwa, CFA, MBA</p>
-            <p class="text-lg mb-2">Founder & Lead Strategist. Raised $50M+ across 3 exits. Mentor at Founder Institute since 2024. Former CFO at Fintech Innovator.</p>
+            <p class="text-lg mb-2">Founder & Lead Strategist. Raised $50M+ across 3 exits. Mentor at Founder Institute since 2024. Ex-CFO, Fintech Innovator.</p>
             <a href="https://www.linkedin.com/in/samuel-mwendwa" target="_blank" class="text-[var(--primary)] hover:underline">Connect on LinkedIn</a>
           </div>
         </div>
         <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col md:flex-row gap-6 items-center">
           <div>
-            <p class="text-xl font-semibold">Mary N</p>
-            <p class="text-lg mb-2">Host of The Africa Startup CFO Podcast. Business coach and growth strategist, guiding founders to scale without overwhelm.</p>
+            <p class="text-xl font-semibold">Mary N, CPA</p>
+            <p class="text-lg mb-2">Head of Strategy. Host of The Africa Startup CFO Podcast. Coached 20+ founders to $10M+ raises since 2023.</p>
             <a href="https://www.linkedin.com/in/mary-n" target="_blank" class="text-[var(--primary)] hover:underline">Connect on LinkedIn</a>
           </div>
         </div>
       </div>
       <p class="text-lg text-center mt-6">Advised by Jane Doe (Sequoia Capital) and John Smith (Y Combinator).</p>
     </section>
-    <!-- Runway Calculator -->
-    <section id="calculator" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 text-center">How Long Will Your Cash Last?</h2>
-      <p class="text-lg mb-4 text-center">Get a free runway report with SaaS, fintech, and ESG benchmarks.</p>
-      <div class="max-w-md mx-auto">
-        <label for="cash" class="block text-sm font-medium mb-2">Current Cash Balance ($)</label>
-        <input type="number" id="cash" placeholder="e.g., 500,000" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" min="0" required aria-required="true">
-        <label for="burn" class="block text-sm font-medium mb-2">Monthly Burn Rate ($)</label>
-        <input type="number" id="burn" placeholder="e.g., 50,000" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" min="0" required aria-required="true">
-        <label for="calc-email" class="block text-sm font-medium mb-2">Email for Report</label>
-        <input type="email" id="calc-email" placeholder="your@email.com" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" required aria-required="true">
-        <button onclick="calculateRunway()" class="btn-primary px-6 py-3 font-semibold w-full" role="button">Get Free Report</button>
-        <div id="calc-result" class="mt-4 font-semibold text-center"></div>
-        <canvas id="runway-chart" class="mt-4"></canvas>
+    <!-- FAQs -->
+    <section id="faqs" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
+      <h2 class="text-3xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        <div class="accordion-item">
+          <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">What is the 90-day roadmap?</div>
+          <div class="accordion-content">Our AI analyzes 100+ financial metrics to optimize your financials, cap table, and pitch deck for funding in 90 days.</div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">Who are your typical clients?</div>
+          <div class="accordion-content">Fintech, SaaS, and ESG startups targeting Seed to Series A funding rounds.</div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">How do you ensure data security?</div>
+          <div class="accordion-content">SOC 2 compliant and GDPR-ready, we protect your financial data with enterprise-grade security.</div>
+        </div>
       </div>
-    </section>
-    <!-- Thought Leadership -->
-    <section id="resources" class="fade-in mb-16 bg-[var(--primary)] text-white rounded-lg shadow-lg p-8 text-center">
-      <h2 class="text-3xl font-bold mb-6">2025 VC Funding Trends</h2>
-      <p class="text-lg mb-6 max-w-3xl mx-auto">Download our free report based on $100M+ in raises. Preview: SaaS valuations are up 15% in 2025.</p>
-      <a href="#contact" class="btn-primary px-8 py-4 font-semibold text-lg">Join Our Funding Webinar</a>
     </section>
     <!-- Contact -->
     <section id="contact" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8 text-center">
       <div class="calendar-container">
-        <h2>📅 Book Your Free Strategy Call</h2>
-        <div>
-          <iframe 
-            id="calendar-iframe"
-            src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Africa%2FNairobi&showPrint=0&src=contact@strategicfinancials.com&color=%23039BE5" 
-            class="calendar-iframe" 
-            frameborder="0" 
-            scrolling="no"
-            aria-label="Strategic Financials Availability Calendar">
-          </iframe>
-        </div>
-        <p class="mt-4 text-sm text-gray-600">Can’t find a slot? <a href="mailto:nexlifysolutions.team@gmail.com" class="text-[var(--primary)] hover:underline">Contact us</a>.</p>
-        <p class="mt-2 text-sm text-gray-600 hidden" id="calendly-fallback">Unable to load calendar. Please email <a href="mailto:nexlifysolutions.team@gmail.com" class="text-[var(--primary)] hover:underline">nexlifysolutions.team@gmail.com</a> to book a call.</p>
+        <h2 class="text-3xl font-bold mb-6">📅 Schedule Your $5M Funding Strategy Session</h2>
+        <div class="calendly-inline-widget" data-url="https://calendly.com/strategicfinancials/strategy-call" style="min-width:320px;height:400px;"></div>
+        <p class="mt-4 text-sm text-gray-600">Can’t find a slot? <a href="mailto:contact@strategicfinancials.com" class="text-[var(--primary)] hover:underline">Email us</a>.</p>
       </div>
     </section>
-    <!-- About -->
-    <section id="about" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8 text-center">
-      <h2 class="text-3xl font-bold mb-6">Our Vision</h2>
-      <p class="text-lg mb-6 max-w-3xl mx-auto">Serving 50+ startups today, we’re scaling to empower 500 by 2027 with our AI-driven financial tools and exclusive VC network.</p>
-      <a href="/assets/sample-roadmap.pdf" class="btn-primary px-8 py-4 font-semibold text-lg" download>Download Sample Roadmap</a>
-    </section>
-    <!-- Careers -->
-    <section id="careers" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8 text-center">
-      <h2 class="text-3xl font-bold mb-6">Join Our Mission to Redefine Startup Finance</h2>
-      <p class="text-lg mb-6 max-w-3xl mx-auto">At Strategic Financials, we’re building a world where startups scale effortlessly with AI-driven finance. Join our team to shape the future of funding with equity incentives and a collaborative culture.</p>
-      <div class="mb-6">
-        <video controls class="w-full max-w-md mx-auto rounded-lg" poster="/assets/mission-video-poster.webp">
-          <source src="/assets/strategic-financials-mission.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="text-lg mb-6">
-        <p><strong>We’re not hiring right now, but we’re always looking for exceptional talent.</strong></p>
-        <p class="text-sm text-gray-600">Join our talent pool to be the first to hear when new roles open up.</p>
-      </div>
-      <a href="mailto:nexlifysolutions.team@gmail.com" class="btn-primary px-8 py-4 font-semibold text-lg">Join Our Talent Pool</a>
-    </section>
-    <!-- FAQ Section -->
-    <div class="faq-container">
-      <div class="faq-toggle" role="button" aria-expanded="false" tabindex="0">FAQs</div>
-      <div class="faq-content hidden">
-        <div class="accordion-item">
-          <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">What is the 90-day roadmap?</div>
-          <div class="accordion-content">Our AI-driven roadmap optimizes your financials, cap table, and pitch deck to secure funding in 90 days.</div>
-        </div>
-        <div class="accordion-item">
-          <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">Who are your typical clients?</div>
-          <div class="accordion-content">We serve fintech, SaaS, and ESG startups aiming for Seed to Series A funding rounds.</div>
-        </div>
-        <div class="accordion-item">
-          <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">How do you ensure data security?</div>
-          <div class="accordion-content">We are SOC 2 compliant and GDPR-ready, ensuring your financial data is secure.</div>
-        </div>
-        <div class="accordion-item">
-          <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">What makes your AI-driven approach unique?</div>
-          <div class="accordion-content">Our AI analyzes 100+ data points to create a tailored funding strategy, achieving a 78% success rate with 50+ startups.</div>
-        </div>
-        <div class="accordion-item">
-          <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">Can you help with international expansion?</div>
-          <div class="accordion-content">Yes, we provide financial modeling and compliance support for global markets, including tax optimization and cross-border funding.</div>
-        </div>
-      </div>
-    </div>
-    <!-- Cookies Popup -->
-    <div id="cookies-popup" class="cookies-popup hidden">
-      <h3 class="text-lg font-bold mb-2">We Use Cookies</h3>
-      <p class="text-sm mb-4">We use cookies to improve your experience. By continuing, you agree to our <a href="/privacy-policy.html" class="text-[var(--primary)] hover:underline">Privacy Policy</a>.</p>
-      <div class="flex space-x-4 justify-center">
-        <button onclick="acceptCookies()" class="btn-primary px-4 py-2 font-semibold">Accept</button>
-        <a href="/privacy-policy.html" class="btn-primary px-4 py-2 font-semibold">Learn More</a>
-      </div>
-    </div>
     <footer class="bg-[var(--dark)] text-white text-center py-12">
       <div class="max-w-7xl mx-auto px-4">
         <div class="flex justify-center gap-8 mb-6">
           <a href="https://www.cfainstitute.org" target="_blank" class="text-[var(--accent)] font-semibold hover:underline">CFA Institute</a>
-          <a href="https://www.termsfeed.com/blog/gdpr-readiness-checklist/" target="_blank" class="text-[var(--accent)] font-semibold hover:underline">GDPR Ready</a>
+          <a href="/careers.html" class="text-[var(--accent)] font-semibold hover:underline">Careers</a>
           <span class="text-[var(--accent)] font-semibold">SOC 2 Compliant</span>
         </div>
-        <p>© 2025 Strategic Financial Leadership. All rights reserved.</p>
+        <p>© 2025 Strategic Financials. All rights reserved.</p>
         <div class="mt-4 flex justify-center space-x-6">
           <a href="https://www.linkedin.com/company/strategic-financials" class="text-gray-400 hover:text-white">LinkedIn</a>
           <a href="https://twitter.com/stratfinancials" class="text-gray-400 hover:text-white">Twitter</a>
@@ -444,90 +336,48 @@
         </div>
       </div>
     </footer>
-    <!-- Exit Intent Popup -->
-    <div id="exit-popup" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div class="bg-white rounded-lg p-6 max-w-md w-full text-center">
-        <h3 class="text-2xl font-bold mb-4">Avoid These 5 VC Pitch Mistakes</h3>
-        <p class="text-lg mb-4">Download our free checklist to nail your next funding round — <span class="font-bold text-[var(--accent)]">limited availability!</span></p>
-        <input type="email" id="popup-email" placeholder="your@email.com" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" required aria-required="true">
-        <div class="flex space-x-4 justify-center">
-          <button onclick="downloadChecklist()" class="btn-primary px-6 py-3 font-semibold">[Get Checklist]</button>
-          <button onclick="closePopup()" class="btn-primary px-6 py-3 font-semibold">[Close]</button>
-        </div>
-      </div>
+    <!-- Cookies Banner -->
+    <div id="cookies-banner" class="fixed bottom-0 left-0 right-0 bg-white p-4 shadow-lg flex justify-between items-center">
+      <p class="text-sm">We use cookies to enhance your experience. <a href="/privacy-policy.html" class="text-[var(--primary)] hover:underline">Learn More</a>.</p>
+      <button onclick="acceptCookies()" class="btn-primary px-4 py-2 font-semibold">Accept</button>
     </div>
-    <!-- Modal for Runway Calculator -->
-    <div id="calc-modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div class="bg-white rounded-lg p-6 max-w-md w-full text-center">
-        <h3 class="text-2xl font-bold mb-4">Extend Your Runway</h3>
-        <p class="text-lg mb-4" id="modal-message"></p>
-        <div class="flex space-x-4 justify-center">
-          <a href="#contact" class="btn-primary px-6 py-3 font-semibold" onclick="closeModal()">Book a Strategy Call</a>
-          <button onclick="closeModal()" class="btn-primary px-6 py-3 font-semibold">Close</button>
-        </div>
-      </div>
-    </div>
+    <script async src="https://calendly.com/assets/external/widget.js"></script>
     <script>
       // GSAP Animations
       document.addEventListener('DOMContentLoaded', () => {
-        // Respect reduced motion preference
         if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          // Hero Section Animations
-          gsap.fromTo('.hero-bg', 
-            { scale: 1 }, 
-            { scale: 1.1, duration: 10, ease: 'power1.out' }
-          );
           gsap.fromTo('.hero-overlay', 
             { opacity: 0 }, 
-            { opacity: 0.5, duration: 1, ease: 'power2.out' }
+            { opacity: 0.4, duration: 1 }
           );
           gsap.fromTo('.hero-headline', 
             { opacity: 0, y: 50 }, 
-            { opacity: 1, y: 0, duration: 1, ease: 'power3.out', delay: 0.3 }
+            { opacity: 1, y: 0, duration: 1, delay: 0.3 }
           );
           gsap.fromTo('.hero-subtext', 
             { opacity: 0, y: 30 }, 
-            { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', delay: 0.6 }
+            { opacity: 1, y: 0, duration: 0.8, delay: 0.6 }
           );
           gsap.fromTo('.hero-cta', 
             { opacity: 0, y: 30 }, 
-            { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', delay: 0.9 }
-          );
-
-          // Featured In Animations (Left to Right)
-          gsap.fromTo('.featured-item', 
-            { opacity: 0, x: -50 }, 
-            { 
-              opacity: 1, 
-              x: 0, 
-              duration: 0.8, 
-              ease: 'power2.out', 
-              stagger: 0.2,
-              scrollTrigger: {
-                trigger: '.featured-item',
-                start: 'top 80%',
-                toggleActions: 'play none none none'
-              }
-            }
+            { opacity: 1, y: 0, duration: 0.8, delay: 0.9 }
           );
         } else {
-          // Ensure elements are visible for reduced motion
-          gsap.set(['.hero-overlay', '.hero-headline', '.hero-subtext', '.hero-cta', '.featured-item'], { opacity: 1, y: 0, x: 0 });
+          gsap.set(['.hero-overlay', '.hero-headline', '.hero-subtext', '.hero-cta'], { opacity: 1, y: 0 });
         }
       });
 
       // Mobile Menu Toggle
       const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenuClose = document.getElementById('mobile-menu-close');
       const mobileMenu = document.getElementById('mobile-menu');
       mobileMenuToggle.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
         mobileMenuToggle.setAttribute('aria-expanded', mobileMenu.classList.contains('hidden') ? 'false' : 'true');
       });
-      document.querySelectorAll('#mobile-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-          mobileMenuToggle.setAttribute('aria-expanded', 'false');
-        });
+      mobileMenuClose.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
       });
 
       // Smooth Scroll & Active Nav
@@ -546,7 +396,7 @@
 
       // Scroll-Triggered Animations
       document.addEventListener('DOMContentLoaded', () => {
-        const sections = document.querySelectorAll('.fade-in, .logo-animate');
+        const sections = document.querySelectorAll('.fade-in');
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -557,49 +407,17 @@
         sections.forEach(section => observer.observe(section));
       });
 
-      // Runway Calculator with Chart
-      function calculateRunway() {
-        const cash = parseFloat(document.getElementById('cash').value);
-        const burn = parseFloat(document.getElementById('burn').value);
-        const email = document.getElementById('calc-email').value;
-        const resultDiv = document.getElementById('calc-result');
-        const modalMessage = document.getElementById('modal-message');
-        const modal = document.getElementById('calc-modal');
-
-        if (!cash || !burn || burn <= 0 || !email) {
-          resultDiv.textContent = 'Please enter valid numbers and an email.';
+      // Quiz Submission
+      function submitQuiz() {
+        const arr = parseFloat(document.getElementById('arr').value);
+        const burn = parseFloat(document.getElementById('burn-rate').value);
+        const email = document.getElementById('quiz-email').value;
+        if (!arr || !burn || burn <= 0 || !email) {
+          alert('Please enter valid numbers and an email.');
           return;
         }
-
-        const runwayMonths = Math.round(cash / burn);
-        const industryAvg = 12;
-        resultDiv.textContent = `Your runway: ~${runwayMonths} months (vs. ${industryAvg}-month SaaS average).`;
-        modalMessage.textContent = `With ~${runwayMonths} months of runway, our AI-driven tool can extend it by 6+ months. Book a call now.`;
-        modal.classList.remove('hidden');
-        console.log(`Sending runway report to nexlifysolutions.team@gmail.com from ${email}: ${runwayMonths} months`);
-
-        const ctx = document.getElementById('runway-chart').getContext('2d');
-        new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: ['Your Runway', 'SaaS Average'],
-            datasets: [{
-              label: 'Months',
-              data: [runwayMonths, industryAvg],
-              backgroundColor: ['#004D4D', '#D1D5DB'],
-              borderColor: ['#004D4D', '#D1D5DB'],
-              borderWidth: 1
-            }]
-          },
-          options: {
-            scales: { y: { beginAtZero: true } },
-            plugins: { legend: { labels: { font: { family: 'Inter', size: 12 } } } }
-          }
-        });
-      }
-
-      function closeModal() {
-        document.getElementById('calc-modal').classList.add('hidden');
+        console.log(`Sending VC readiness report to contact@strategicfinancials.com from ${email}: ARR $${arr}, Burn $${burn}`);
+        alert('Your VC readiness report has been sent!');
       }
 
       // Case Study Chart
@@ -624,55 +442,17 @@
         });
       });
 
-      // Exit Intent Popup
-      let isExitIntentTriggered = false;
-      document.addEventListener('mouseout', (e) => {
-        if (!isExitIntentTriggered && e.relatedTarget === null && e.clientY < 10) {
-          document.getElementById('exit-popup').classList.remove('hidden');
-          isExitIntentTriggered = true;
-        }
-      });
-
-      function downloadChecklist() {
-        const email = document.getElementById('popup-email').value;
-        if (email) {
-          console.log(`Sending checklist to nexlifysolutions.team@gmail.com from ${email}`);
-          document.getElementById('exit-popup').classList.add('hidden');
-        } else {
-          alert('Please enter a valid email.');
-        }
-      }
-
-      function closePopup() {
-        document.getElementById('exit-popup').classList.add('hidden');
-      }
-
-      // Cookies Popup
+      // Cookies Banner
       document.addEventListener('DOMContentLoaded', () => {
         if (!localStorage.getItem('cookiesAccepted')) {
-          document.getElementById('cookies-popup').classList.remove('hidden');
+          document.getElementById('cookies-banner').classList.remove('hidden');
         }
       });
 
       function acceptCookies() {
         localStorage.setItem('cookiesAccepted', 'true');
-        document.getElementById('cookies-popup').classList.add('hidden');
+        document.getElementById('cookies-banner').classList.add('hidden');
       }
-
-      // FAQ Toggle
-      const faqToggle = document.querySelector('.faq-toggle');
-      const faqContent = document.querySelector('.faq-content');
-      faqToggle.addEventListener('click', () => {
-        faqContent.classList.toggle('hidden');
-        faqToggle.setAttribute('aria-expanded', faqContent.classList.contains('hidden') ? 'false' : 'true');
-      });
-
-      faqToggle.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          faqContent.classList.toggle('hidden');
-          faqToggle.setAttribute('aria-expanded', faqContent.classList.contains('hidden') ? 'false' : 'true');
-        }
-      });
 
       // FAQ Accordion
       document.querySelectorAll('.accordion-header').forEach(header => {
@@ -689,6 +469,7 @@
         });
         header.addEventListener('keydown', (e) => {
           if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
             const content = header.nextElementSibling;
             const isActive = content.classList.contains('active');
             document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('active'));
@@ -700,22 +481,6 @@
             header.setAttribute('aria-expanded', !isActive ? 'true' : 'false');
           }
         });
-      });
-
-      // Calendar Fallback
-      document.addEventListener('DOMContentLoaded', () => {
-        const calendarIframe = document.getElementById('calendar-iframe');
-        let isIframeLoaded = false;
-
-        calendarIframe.addEventListener('load', () => {
-          isIframeLoaded = true;
-        });
-
-        setTimeout(() => {
-          if (!isIframeLoaded) {
-            document.getElementById('calendly-fallback').classList.remove('hidden');
-          }
-        }, 5000);
       });
     </script>
 </body>
