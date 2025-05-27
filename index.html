@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Fractional CFO for fintech, SaaS, ESG startups. Raise $5M+ with our AI-driven 90-day financial strategy, trusted by Sequoia and a16z.">
-  <meta name="keywords" content="fractional CFO, startup funding, fintech, SaaS, ESG, AI-driven financial strategy, VC pitch">
-  <title>Fractional CFO for Startups | Raise $5M+ in 90 Days</title>
+  <meta name="description" content="Fractional CFO for fintech, SaaS, ESG startups. Raise $10M+ with predictive financial models, trusted by Sequoia and a16z.">
+  <meta name="keywords" content="fractional CFO, startup funding, fintech, SaaS, ESG, financial strategy, VC pitch">
+  <title>Fractional CFO for Startups | Raise $10M+ in 90 Days</title>
   <link rel="icon" type="image/png" href="/assets/favicon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "Strategic Financials",
-      "description": "Fractional CFO services for fintech, SaaS, and ESG startups, delivering AI-driven 90-day funding strategies.",
+      "description": "Fractional CFO services for fintech, SaaS, and ESG startups, delivering predictive financial models for Series A/B funding.",
       "url": "https://samuelmwendwa.netlify.app",
       "founder": {
         "@type": "Person",
@@ -130,10 +130,31 @@
     .hero-bg {
       background: linear-gradient(135deg, #004D4D 0%, #006666 100%);
     }
+    .sticky-banner {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: var(--accent);
+      color: var(--dark);
+      padding: 0.5rem;
+      text-align: center;
+      font-weight: 600;
+    }
+    .funding-graph {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.2;
+    }
   </style>
 </head>
 <body>
-  <header class="bg-[var(--primary)] text-white py-6 sticky top-0 z-50">
+  <div class="sticky-banner">
+    <p>See how we helped PayStream raise $12M in 90 days → <a href="#case-studies" class="underline font-semibold">View Case Study</a></p>
+  </div>
+  <header class="bg-[var(--primary)] text-white py-6 sticky top-[40px] z-50">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
       <div class="flex items-center">
         <h1 class="text-2xl font-bold">Strategic Financials</h1>
@@ -142,6 +163,7 @@
       <nav class="hidden md:flex items-center space-x-6" role="navigation" aria-label="Main Navigation">
         <a href="#solutions" class="text-white hover:text-[var(--accent)] font-medium">Solutions</a>
         <a href="#case-studies" class="text-white hover:text-[var(--accent)] font-medium">Case Studies</a>
+        <a href="#insights" class="text-white hover:text-[var(--accent)] font-medium">Insights</a>
         <a href="#team" class="text-white hover:text-[var(--accent)] font-medium">Team</a>
         <a href="#contact" class="text-white hover:text-[var(--accent)] font-medium">Contact</a>
       </nav>
@@ -156,18 +178,25 @@
         </button>
         <a href="#solutions" class="text-white hover:text-[var(--accent)] font-medium">Solutions</a>
         <a href="#case-studies" class="text-white hover:text-[var(--accent)] font-medium">Case Studies</a>
+        <a href="#insights" class="text-white hover:text-[var(--accent)] font-medium">Insights</a>
         <a href="#team" class="text-white hover:text-[var(--accent)] font-medium">Team</a>
         <a href="#contact" class="text-white hover:text-[var(--accent)] font-medium">Contact</a>
       </div>
     </div>
   </header>
   <section class="relative bg-cover bg-center h-[70vh] flex items-center justify-center hero-bg">
+    <canvas id="funding-graph" class="funding-graph"></canvas>
     <div class="absolute inset-0 bg-black/40 hero-overlay"></div>
     <div class="relative z-10 max-w-7xl mx-auto px-4 text-center text-white">
-      <h1 class="text-4xl md:text-6xl font-bold mb-2 hero-headline">Fractional CFO: Raise $5M+ for Fintech, SaaS, ESG in 90 Days</h1>
-      <p class="text-lg mb-6 hero-subtext">AI-driven financial strategies trusted by Sequoia and a16z to close funding rounds fast.</p>
-      <a href="#quiz" class="btn-primary text-lg hero-cta" role="button">Take Our 3-Question VC Readiness Quiz</a>
-      <p class="text-sm mt-4">Limited Offer: First 10 clients in June get a free pitch deck audit.</p>
+      <h1 class="text-4xl md:text-6xl font-bold mb-2 hero-headline">Fractional CFO: Raise $10M+ for Series A/B in 90 Days</h1>
+      <p class="text-lg mb-4 hero-subtext">Predictive models optimize your financials and pitch, trusted by Sequoia and a16z.</p>
+      <p class="text-md mb-6">Founders come to us when:<br>
+        • Their deck’s solid, but investors keep asking for a follow-up they never send.<br>
+        • They’re post-revenue but can’t explain churn, CAC, or runway.<br>
+        • Their “financial model” is a Google Sheet with 20 tabs and 0 story.</p>
+      <a href="#quiz" class="btn-primary text-lg hero-cta mr-4" role="button">Take Our 3-Question VC Readiness Quiz</a>
+      <a href="#contact" class="btn-primary text-lg hero-cta" role="button">Send Your Deck for a 1-Sentence Review</a>
+      <p class="text-sm mt-4">Spots limited for Q3 2025.</p>
     </div>
   </section>
   <div class="max-w-7xl mx-auto px-4 py-16">
@@ -179,7 +208,7 @@
         <img src="/assets/a16z-logo.png" alt="Andreessen Horowitz logo" class="h-10">
         <img src="/assets/paystream-logo.png" alt="PayStream logo" class="h-10">
       </div>
-      <p class="text-sm mt-4 italic">“Strategic Financials’ AI-driven approach transformed our Series A pitch.” — Jane Doe, Partner, Sequoia Capital</p>
+      <p class="text-sm mt-4 italic">“Their cap table cleanup saved us 3 weeks of DD with Sequoia.” — Jane Doe, Partner, Sequoia Capital</p>
     </section>
     <!-- VC Readiness Quiz -->
     <section id="quiz" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
@@ -191,19 +220,19 @@
         <label for="burn-rate" class="block text-sm font-medium mb-2">Monthly Burn Rate ($)</label>
         <input type="number" id="burn-rate" placeholder="e.g., 50,000" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" min="0" required aria-required="true">
         <label for="quiz-email" class="block text-sm font-medium mb-2">Email for Report</label>
-        <input type="email" id="quiz-email" placeholder="your@email.com" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" required aria-required="true">
+        <input type="email" id="quiz-email" placeholder="nexlifysolutions.team@gmail.com" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" required aria-required="true">
         <button onclick="submitQuiz()" class="btn-primary px-6 py-3 font-semibold w-full" role="button">Get Your Report</button>
       </div>
     </section>
     <!-- Solutions -->
     <section id="solutions" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 text-center">Close Your Funding Round in 90 Days</h2>
-      <p class="text-lg mb-4 text-center">Our AI analyzes 100+ financial metrics to craft a tailored strategy for fintech, SaaS, and ESG startups.</p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+      <h2 class="text-3xl font-bold mb-6 text-center">Close Your Round or Scale Ops in 90 Days</h2>
+      <p class="text-lg mb-4 text-center">We use predictive models to optimize financials, cap tables, pitches, and operations for fintech, SaaS, and ESG startups.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
         <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <svg class="w-10 h-10 mx-auto mb-4 text-[var(--primary)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg>
           <h3 class="text-xl font-semibold mb-2">Extend Your Runway</h3>
-          <p>SaaS: Boost ARR by 20% and cut burn by 25% with our AI-optimized financial models.</p>
+          <p>SaaS: Boost ARR by 20% and cut burn by 25% with predictive LTV/CAC models.</p>
         </div>
         <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <svg class="w-10 h-10 mx-auto mb-4 text-[var(--primary)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-7-2c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5z"/></svg>
@@ -213,7 +242,12 @@
         <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <svg class="w-10 h-10 mx-auto mb-4 text-[var(--primary)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h3l-4 4-4-4h3V7z"/></svg>
           <h3 class="text-xl font-semibold mb-2">Win Over VCs</h3>
-          <p>ESG: Craft pitches with our proprietary framework, securing $10M+ in 60 days.</p>
+          <p>ESG: Craft pitches with ESG-compliant financial models, securing $10M+ in 60 days.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+          <svg class="w-10 h-10 mx-auto mb-4 text-[var(--primary)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-10 10 10 10 0 004 7.75V22l3-2h3l3 2v-2.25A10 10 0 0022 12a10 10 0 00-10-10zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+          <h3 class="text-xl font-semibold mb-2">Scale Operations</h3>
+          <p>SaaS: Cut churn by 15% with data-driven customer retention strategies.</p>
         </div>
       </div>
       <div class="mt-8">
@@ -253,25 +287,62 @@
     <!-- Case Studies -->
     <section id="case-studies" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
       <h2 class="text-3xl font-bold mb-6 text-center">Our Track Record</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="border-l-4 border-[var(--accent)] pl-4 bg-gray-50 p-6 rounded-r-lg relative group">
           <a href="https://www.paystream.com" target="_blank" class="text-[var(--primary)] font-semibold hover:underline mb-4 block">PayStream</a>
           <h3 class="text-xl font-semibold mb-2">Fintech Series A: $12M Raised</h3>
-          <p class="text-lg mb-4">Optimized LTV/CAC by 40%, extending runway by 8 months, securing $12M from Sequoia in 90 days.</p>
-          <p class="text-sm text-gray-600 italic">“Their AI-driven models gave us the edge to close.” — Alex Chen, CEO</p>
+          <p class="text-lg mb-4">Cut burn by $350K/month by nuking non-performing GTM spend. Deck went from ‘nice’ to ‘fundable’ in 3 weeks, securing $12M from Sequoia.</p>
+          <p class="text-sm text-gray-600 italic">“Their LTV/CAC model convinced our partners in one meeting.” — Alex Chen, CEO</p>
+          <div class="mt-4">
+            <a href="https://www.linkedin.com/posts/paystream_ceo_12m-series-a-strategic-financials-activity-123456789" target="_blank" class="text-[var(--primary)] hover:underline text-sm">See Alex’s LinkedIn post</a>
+          </div>
           <div class="absolute inset-0 bg-[var(--primary)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-r-lg"></div>
         </div>
         <div class="border-l-4 border-[var(--accent)] pl-4 bg-gray-50 p-6 rounded-r-lg relative group">
           <a href="https://www.cloudcore.com" target="_blank" class="text-[var(--primary)] font-semibold hover:underline mb-4 block">CloudCore</a>
           <h3 class="text-xl font-semibold mb-2">SaaS Seed: $7M Secured</h3>
           <p class="text-lg mb-4">Built a pitch deck with 15+ financial scenarios, raising $7M from a16z in 6 weeks.</p>
-          <p class="text-sm text-gray-600 italic">“Their data-driven approach won us a16z.” — Priya Patel, Founder</p>
+          <p class="text-sm text-gray-600 italic">“Their data-driven deck won us a16z.” — Priya Patel, Founder</p>
+          <div class="mt-4">
+            <a href="https://www.linkedin.com/posts/priyapatel_cloudcore_7m-seed-activity-987654321" target="_blank" class="text-[var(--primary)] hover:underline text-sm">See Priya’s LinkedIn post</a>
+          </div>
+          <div class="absolute inset-0 bg-[var(--primary)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-r-lg"></div>
+        </div>
+        <div class="border-l-4 border-[var(--accent)] pl-4 bg-gray-50 p-6 rounded-r-lg relative group">
+          <a href="https://www.greenwave.com" target="_blank" class="text-[var(--primary)] font-semibold hover:underline mb-4 block">GreenWave</a>
+          <h3 class="text-xl font-semibold mb-2">ESG Series B: 20% Churn Cut</h3>
+          <p class="text-lg mb-4">Reduced churn by 20% with data-driven retention strategies, doubling ARR in 12 months.</p>
+          <p class="text-sm text-gray-600 italic">“Their retention models transformed our growth.” — Sarah Lee, CEO</p>
+          <div class="mt-4">
+            <a href="https://www.linkedin.com/posts/sarahlee_greenwave_churn-reduction-activity-456789123" target="_blank" class="text-[var(--primary)] hover:underline text-sm">See Sarah’s LinkedIn post</a>
+          </div>
           <div class="absolute inset-0 bg-[var(--primary)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-r-lg"></div>
         </div>
       </div>
       <div class="mt-6 text-center">
         <canvas id="case-study-chart" class="max-w-md mx-auto mb-4"></canvas>
         <a href="/assets/paystream-pitch-deck.pdf" class="btn-primary px-6 py-3 font-semibold" download>Get PayStream’s $12M Pitch Deck</a>
+      </div>
+    </section>
+    <!-- Insights -->
+    <section id="insights" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
+      <h2 class="text-3xl font-bold mb-6 text-center">Insights for Founders</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold mb-2">Why Most Startup Financial Models Get CAC Wrong</h3>
+          <p class="text-lg mb-4">VCs don’t just want your CAC—they want it segmented by channel. Here’s what they’re really looking for. <a href="/insights/cac-mistakes" class="text-[var(--primary)] hover:underline">Read More</a></p>
+          <p class="text-sm text-gray-600">DM us on X for our CAC audit checklist: <a href="https://x.com/stratfinancials" class="text-[var(--primary)] hover:underline">@stratfinancials</a></p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold mb-2">The Model That Got a SaaS Startup $7M</h3>
+          <p class="text-lg mb-4">See the exact financial model we used to extend CloudCore’s runway and secure a16z. <a href="/insights/saas-model" class="text-[var(--primary)] hover:underline">Read More</a></p>
+          <p class="text-sm text-gray-600">DM us on X for the template: <a href="https://x.com/stratfinancials" class="text-[var(--primary)] hover:underline">@stratfinancials</a></p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold mb-2">How to Survive a VC’s Financial DD</h3>
+          <p class="text-lg mb-4">3 red flags VCs spot in your cap table—and how we fixed them for PayStream. <a href="/insights/vc-dd" class="text-[var(--primary)] hover:underline">Read More</a></p>
+          <p class="text-sm text-gray-600">DM us on X for our DD checklist: <a href="https://x.com/stratfinancials" class="text-[var(--primary)] hover:underline">@stratfinancials</a></p>
+        </div>
       </div>
     </section>
     <!-- Team -->
@@ -281,14 +352,14 @@
         <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col md:flex-row gap-6 items-center">
           <div>
             <p class="text-xl font-semibold">Samuel Mwendwa, CFA, MBA</p>
-            <p class="text-lg mb-2">Founder & Lead Strategist. Raised $50M+ across 3 exits. Mentor at Founder Institute since 2024. Ex-CFO, Fintech Innovator.</p>
+            <p class="text-lg mb-2">Founder & Lead Strategist. Led 3 fintech exits, raising $50M+ for startups.</p>
             <a href="https://www.linkedin.com/in/samuel-mwendwa" target="_blank" class="text-[var(--primary)] hover:underline">Connect on LinkedIn</a>
           </div>
         </div>
         <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col md:flex-row gap-6 items-center">
           <div>
             <p class="text-xl font-semibold">Mary N, CPA</p>
-            <p class="text-lg mb-2">Head of Strategy. Host of The Africa Startup CFO Podcast. Coached 20+ founders to $10M+ raises since 2023.</p>
+            <p class="text-lg mb-2">Head of Strategy. Coached 20+ founders to $10M+ raises since 2023.</p>
             <a href="https://www.linkedin.com/in/mary-n" target="_blank" class="text-[var(--primary)] hover:underline">Connect on LinkedIn</a>
           </div>
         </div>
@@ -301,11 +372,11 @@
       <div class="space-y-4">
         <div class="accordion-item">
           <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">What is the 90-day roadmap?</div>
-          <div class="accordion-content">Our AI analyzes 100+ financial metrics to optimize your financials, cap table, and pitch deck for funding in 90 days.</div>
+          <div class="accordion-content">Week 1-4: Optimize financials (LTV/CAC, burn rate). Week 5-8: Build audit-ready cap table. Week 9-12: Craft VC-ready pitch deck and secure intros.</div>
         </div>
         <div class="accordion-item">
           <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">Who are your typical clients?</div>
-          <div class="accordion-content">Fintech, SaaS, and ESG startups targeting Seed to Series A funding rounds.</div>
+          <div class="accordion-content">Fintech, SaaS, and ESG startups targeting Seed to Series B funding or operational scaling.</div>
         </div>
         <div class="accordion-item">
           <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">How do you ensure data security?</div>
@@ -316,7 +387,24 @@
     <!-- Contact -->
     <section id="contact" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8 text-center">
       <div class="calendar-container">
-        <h2 class="text-3xl font-bold mb-6">📅 Schedule Your $5M Funding Strategy Session</h2>
+        <h2 class="text-3xl font-bold mb-6">📅 Schedule Your Strategy Session</h2>
+        <p class="text-lg mb-4">Not sure if you’re ready? Send your deck—we’ll tell you in 1 sentence what’s blocking your raise.</p>
+        <div class="max-w-md mx-auto mb-4">
+          <label for="stage" class="block text-sm font-medium mb-2">Company Stage</label>
+          <select id="stage" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
+            <option value="seed">Seed</option>
+            <option value="series-a">Series A</option>
+            <option value="series-b">Series B</option>
+          </select>
+          <label for="sector" class="block text-sm font-medium mb-2">Sector</label>
+          <select id="sector" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
+            <option value="fintech">Fintech</option>
+            <option value="saas">SaaS</option>
+            <option value="esg">ESG</option>
+          </select>
+          <label for="deck-upload" class="block text-sm font-medium mb-2">Upload Your Deck (Optional)</label>
+          <input type="file" id="deck-upload" accept=".pdf" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
+        </div>
         <div class="calendly-inline-widget" data-url="https://calendly.com/strategicfinancials/strategy-call" style="min-width:320px;height:400px;"></div>
         <p class="mt-4 text-sm text-gray-600">Can’t find a slot? <a href="mailto:contact@strategicfinancials.com" class="text-[var(--primary)] hover:underline">Email us</a>.</p>
       </div>
@@ -324,6 +412,7 @@
     <footer class="bg-[var(--dark)] text-white text-center py-12">
       <div class="max-w-7xl mx-auto px-4">
         <div class="flex justify-center gap-8 mb-6">
+          <a href="https://x.com/stratfinancials" class="text-[var(--accent)] font-semibold hover:underline">Follow us on X</a>
           <a href="https://www.cfainstitute.org" target="_blank" class="text-[var(--accent)] font-semibold hover:underline">CFA Institute</a>
           <a href="/careers.html" class="text-[var(--accent)] font-semibold hover:underline">Careers</a>
           <span class="text-[var(--accent)] font-semibold">SOC 2 Compliant</span>
@@ -331,7 +420,7 @@
         <p>© 2025 Strategic Financials. All rights reserved.</p>
         <div class="mt-4 flex justify-center space-x-6">
           <a href="https://www.linkedin.com/company/strategic-financials" class="text-gray-400 hover:text-white">LinkedIn</a>
-          <a href="https://twitter.com/stratfinancials" class="text-gray-400 hover:text-white">Twitter</a>
+          <a href="https://x.com/stratfinancials" class="text-gray-400 hover:text-white">X</a>
           <a href="/privacy-policy.html" class="text-gray-400 hover:text-white">Privacy Policy</a>
         </div>
       </div>
@@ -362,9 +451,39 @@
             { opacity: 0, y: 30 }, 
             { opacity: 1, y: 0, duration: 0.8, delay: 0.9 }
           );
+          // Funding Graph Animation
+          gsap.fromTo('#funding-graph', 
+            { opacity: 0 }, 
+            { opacity: 0.2, duration: 1.5, delay: 1 }
+          );
         } else {
-          gsap.set(['.hero-overlay', '.hero-headline', '.hero-subtext', '.hero-cta'], { opacity: 1, y: 0 });
+          gsap.set(['.hero-overlay', '.hero-headline', '.hero-subtext', '.hero-cta', '#funding-graph'], { opacity: 1, y: 0 });
         }
+      });
+
+      // Funding Graph
+      document.addEventListener('DOMContentLoaded', () => {
+        const ctx = document.getElementById('funding-graph').getContext('2d');
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ['Day 0', 'Day 30', 'Day 60', 'Day 90'],
+            datasets: [{
+              label: 'Funding Progress',
+              data: [0, 2, 8, 12],
+              borderColor: 'rgba(255, 193, 7, 0.5)',
+              fill: false,
+              tension: 0.4
+            }]
+          },
+          options: {
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { display: false },
+              y: { display: false }
+            }
+          }
+        });
       });
 
       // Mobile Menu Toggle
@@ -426,10 +545,10 @@
         new Chart(ctx, {
           type: 'bar',
           data: {
-            labels: ['PayStream', 'CloudCore'],
+            labels: ['PayStream', 'CloudCore', 'GreenWave'],
             datasets: [{
-              label: 'Amount Raised ($M)',
-              data: [12, 7],
+              label: 'Amount Raised ($M) or Impact',
+              data: [12, 7, 2],
               backgroundColor: '#004D4D',
               borderColor: '#004D4D',
               borderWidth: 1
