@@ -57,6 +57,18 @@
       outline: 2px solid var(--accent);
       outline-offset: 2px;
     }
+    .btn-secondary {
+      background-color: var(--accent);
+      color: var(--dark);
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .btn-secondary:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -67,7 +79,7 @@
       transform: translateY(0);
     }
     @media (prefers-reduced-motion: reduce) {
-      .fade-in, .btn-primary {
+      .fade-in, .btn-primary, .btn-secondary {
         transition: none;
         transform: none;
       }
@@ -140,6 +152,14 @@
       text-align: center;
       font-weight: 600;
     }
+    .countdown-banner {
+      background-color: #FF4D4D;
+      color: white;
+      padding: 0.75rem;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
     .funding-graph {
       position: absolute;
       top: 0;
@@ -148,13 +168,22 @@
       height: 100%;
       opacity: 0.2;
     }
+    .product-card img {
+      max-width: 100%;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body>
-  <div class="sticky-banner">
-    <p>See how we helped PayStream raise $12M in 90 days → <a href="#case-studies" class="underline font-semibold">View Case Study</a></p>
+  <!-- Top-Level CTA Bar -->
+  <div class="countdown-banner">
+    <p>🔒 Only 2 Strategy Call Slots Left This Month! <a href="#contact" class="underline font-semibold">Book Now</a></p>
   </div>
-  <header class="bg-[var(--primary)] text-white py-6 sticky top-[40px] z-50">
+  <div class="sticky-banner">
+    <p>Download our Free Financial Modeling Toolkit or Book a Strategy Call → <a href="#contact" class="underline font-semibold">Get Started</a></p>
+  </div>
+  <header class="bg-[var(--primary)] text-white py-6 sticky top-[80px] z-50">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
       <div class="flex items-center">
         <h1 class="text-2xl font-bold">Strategic Financials</h1>
@@ -162,6 +191,7 @@
       </div>
       <nav class="hidden md:flex items-center space-x-6" role="navigation" aria-label="Main Navigation">
         <a href="#solutions" class="text-white hover:text-[var(--accent)] font-medium">Solutions</a>
+        <a href="#products" class="text-white hover:text-[var(--accent)] font-medium">Tools</a>
         <a href="#case-studies" class="text-white hover:text-[var(--accent)] font-medium">Case Studies</a>
         <a href="#insights" class="text-white hover:text-[var(--accent)] font-medium">Insights</a>
         <a href="#team" class="text-white hover:text-[var(--accent)] font-medium">Team</a>
@@ -177,6 +207,7 @@
           <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
         <a href="#solutions" class="text-white hover:text-[var(--accent)] font-medium">Solutions</a>
+        <a href="#products" class="text-white hover:text-[var(--accent)] font-medium">Tools</a>
         <a href="#case-studies" class="text-white hover:text-[var(--accent)] font-medium">Case Studies</a>
         <a href="#insights" class="text-white hover:text-[var(--accent)] font-medium">Insights</a>
         <a href="#team" class="text-white hover:text-[var(--accent)] font-medium">Team</a>
@@ -189,14 +220,14 @@
     <div class="absolute inset-0 bg-black/40 hero-overlay"></div>
     <div class="relative z-10 max-w-7xl mx-auto px-4 text-center text-white">
       <h1 class="text-4xl md:text-6xl font-bold mb-2 hero-headline">Fractional CFO: Raise $10M+ for Series A/B in 90 Days</h1>
-      <p class="text-lg mb-4 hero-subtext">Predictive models optimize your financials and pitch, trusted by Sequoia and a16z.</p>
+      <p class="text-lg mb-4 hero-subtext">Led by Samuel Mwendwa (CFA, 3 exits, $50M+ raised), we build predictive models trusted by Sequoia and a16z.</p>
       <p class="text-md mb-6">Founders come to us when:<br>
         • Their deck’s solid, but investors keep asking for a follow-up they never send.<br>
         • They’re post-revenue but can’t explain churn, CAC, or runway.<br>
         • Their “financial model” is a Google Sheet with 20 tabs and 0 story.</p>
-      <a href="#quiz" class="btn-primary text-lg hero-cta mr-4" role="button">Take Our 3-Question VC Readiness Quiz</a>
-      <a href="#contact" class="btn-primary text-lg hero-cta" role="button">Send Your Deck for a 1-Sentence Review</a>
-      <p class="text-sm mt-4">Spots limited for Q3 2025.</p>
+      <a href="#contact" class="btn-primary text-lg hero-cta mr-4" role="button">Book a Free Strategy Call</a>
+      <a href="/assets/financial-modeling-toolkit.pdf" class="btn-secondary text-lg hero-cta" role="button" download>Download Free Toolkit</a>
+      <p class="text-sm mt-4">🔒 Accepting 2 more clients for Q3 IPO prep</p>
     </div>
   </section>
   <div class="max-w-7xl mx-auto px-4 py-16">
@@ -223,7 +254,7 @@
         <input type="number" id="burn-rate" placeholder="e.g., 50,000" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" min="0" required aria-required="true">
         <label for="quiz-email" class="block text-sm font-medium mb-2">Email for Report</label>
         <input type="email" id="quiz-email" placeholder="nexlifysolutions.team@gmail.com" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" required aria-required="true">
-        <button onclick="submitQuiz()" class="btn-primary px-6 py-3 font-semibold w-full" role="button">Get Your Report</button>
+        <button onclick="submitQuiz()" class="btn-primary px-6 py-3 font-semibold w-full" role="button">Get Your Report</a>
       </div>
     </section>
     <!-- Problems Section -->
@@ -236,11 +267,14 @@
         <p>✅ No IPO roadmap = millions lost in delays</p>
         <p class="font-semibold mt-4">You don’t need more spreadsheets. You need a finance engine that scales.</p>
       </div>
+      <div class="mt-6 text-center">
+        <a href="#contact" class="btn-primary px-6 py-3 font-semibold">Book a Strategy Call</a>
+      </div>
     </section>
     <!-- Solutions / Services Section -->
     <section id="solutions" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
       <h2 class="text-3xl font-bold mb-6 text-center">🎯 Finance Systems for Fintechs</h2>
-      <p class="text-lg mb-4 text-center">We work with high-growth fintechs to scale finance from chaos to clarity:</p>
+      <p class="text-lg mb-4 text-center">We work with high-growth fintechs to scale finance from chaos to clarity. Consulting starts at $5K/month.</p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
         <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <h3 class="text-xl font-semibold mb-2">🧠 Finance Function Setup</h3>
@@ -256,31 +290,48 @@
         </div>
       </div>
       <div class="mt-6 text-center space-x-4">
-        <a href="/assets/full-package.pdf" class="btn-primary px-6 py-3 font-semibold" download>Download Full Package PDF</a>
         <a href="#contact" class="btn-primary px-6 py-3 font-semibold">Request Custom Proposal</a>
+        <a href="/assets/financial-modeling-toolkit.pdf" class="btn-secondary px-6 py-3 font-semibold" download>Download Free Toolkit</a>
       </div>
     </section>
     <!-- Products Section (Digital Toolkit) -->
     <section id="products" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 text-center">Build Investor-Grade Finance Fast — Without Hiring a Full Team</h2>
-      <p class="text-lg mb-4 text-center">Proven templates and models used by fintech CFOs and ex-VC operators.</p>
+      <h2 class="text-3xl font-bold mb-6 text-center">Investor-Grade Tools Starting at $49</h2>
+      <p class="text-lg mb-4 text-center">Used by 200+ CFOs to build finance systems fast. Toolkits start at $49.</p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-        <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 product-card">
+          <img src="/assets/financial-modeling-toolkit-screenshot.png" alt="Financial Modeling Toolkit Screenshot">
           <h3 class="text-xl font-semibold mb-2">🧾 Financial Modeling Toolkit</h3>
-          <p>3-statement model<br>Valuation + cohort tools<br>Fundraise runway calculator</p>
+          <p>3-statement model, valuation + cohort tools, fundraise runway calculator.</p>
+          <p class="font-semibold mt-2">$49 - $199</p>
+          <div class="mt-4 space-x-2">
+            <a href="/preview/financial-modeling-toolkit" class="btn-primary px-4 py-2">Preview Tool</a>
+            <a href="/buy/financial-modeling-toolkit" class="btn-secondary px-4 py-2">Buy Now</a>
+          </div>
+          <p class="text-sm mt-2 text-gray-600">Used by 200+ CFOs</p>
         </div>
-        <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 product-card">
+          <img src="/assets/ipo-board-pack-screenshot.png" alt="IPO Board Pack Kit Screenshot">
           <h3 class="text-xl font-semibold mb-2">📄 IPO Board Pack Kit</h3>
-          <p>Roadmap checklist<br>Multi-jurisdiction reporting packs<br>Investor decks & equity planning</p>
+          <p>Roadmap checklist, multi-jurisdiction reporting packs, investor decks & equity planning.</p>
+          <p class="font-semibold mt-2">$99 - $299</p>
+          <div class="mt-4 space-x-2">
+            <a href="/preview/ipo-board-pack" class="btn-primary px-4 py-2">Preview Tool</a>
+            <a href="/buy/ipo-board-pack" class="btn-secondary px-4 py-2">Buy Now</a>
+          </div>
+          <p class="text-sm mt-2 text-gray-600">See What’s Inside</p>
         </div>
-        <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 product-card">
+          <img src="/assets/cross-border-finance-screenshot.png" alt="Cross-Border Finance Kit Screenshot">
           <h3 class="text-xl font-semibold mb-2">🌍 Cross-Border Finance Kit</h3>
-          <p>GAAP-to-IFRS templates<br>Currency risk trackers<br>Global tax dashboards</p>
+          <p>GAAP-to-IFRS templates, currency risk trackers, global tax dashboards.</p>
+          <p class="font-semibold mt-2">$79 - $249</p>
+          <div class="mt-4 space-x-2">
+            <a href="/preview/cross-border-finance" class="btn-primary px-4 py-2">Preview Tool</a>
+            <a href="/buy/cross-border-finance" class="btn-secondary px-4 py-2">Buy Now</a>
+          </div>
+          <p class="text-sm mt-2 text-gray-600">Trusted by global fintechs</p>
         </div>
-      </div>
-      <div class="mt-6 text-center space-x-4">
-        <a href="/products" class="btn-primary px-6 py-3 font-semibold">View Products</a>
-        <a href="/buy" class="btn-primary px-6 py-3 font-semibold">Buy Now</a>
       </div>
     </section>
     <!-- Data & Dashboard Section -->
@@ -317,7 +368,7 @@
         <a href="/case-studies" class="btn-primary px-6 py-3 font-semibold">View More Wins</a>
       </div>
     </section>
-    <!-- Original Case Studies (renamed to Track Record) -->
+    <!-- Track Record -->
     <section id="track-record" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
       <h2 class="text-3xl font-bold mb-6 text-center">Our Track Record</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -383,6 +434,7 @@
       <h2 class="text-3xl font-bold mb-6 text-center">Our Leadership</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col md:flex-row gap-6 items-center">
+          <img src="/assets/samuel-mwendwa.jpg" alt="Samuel Mwendwa, CFA, MBA" class="w-32 h-32 rounded-full">
           <div>
             <p class="text-xl font-semibold">Samuel Mwendwa, CFA, MBA</p>
             <p class="text-lg mb-2">Founder & Lead Strategist. Led 3 fintech exits, raising $50M+ for startups.</p>
