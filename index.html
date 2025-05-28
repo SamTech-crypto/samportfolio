@@ -173,6 +173,10 @@
       border-radius: 0.5rem;
       margin-bottom: 1rem;
     }
+    .dashboard-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
   </style>
 </head>
 <body>
@@ -300,7 +304,7 @@
       <p class="text-lg mb-4 text-center">Used by 200+ CFOs to build finance systems fast. Toolkits start at $49.</p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
         <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 product-card">
-          <img src="/assets/financial-modeling-toolkit-screenshot.png" alt="Financial Modeling Toolkit Screenshot">
+          <img src="https://via.placeholder.com/600x400?text=Financial+Modeling+Toolkit+Screenshot" alt="Financial Modeling Toolkit Screenshot showing 3-statement model, valuation, cohort tools, and runway calculator">
           <h3 class="text-xl font-semibold mb-2">🧾 Financial Modeling Toolkit</h3>
           <p>3-statement model, valuation + cohort tools, fundraise runway calculator.</p>
           <p class="font-semibold mt-2">$49 - $199</p>
@@ -311,7 +315,7 @@
           <p class="text-sm mt-2 text-gray-600">Used by 200+ CFOs</p>
         </div>
         <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 product-card">
-          <img src="/assets/ipo-board-pack-screenshot.png" alt="IPO Board Pack Kit Screenshot">
+          <img src="https://via.placeholder.com/600x400?text=IPO+Board+Pack+Kit+Screenshot" alt="IPO Board Pack Kit Screenshot showing roadmap checklist, reporting packs, investor decks, and equity planning">
           <h3 class="text-xl font-semibold mb-2">📄 IPO Board Pack Kit</h3>
           <p>Roadmap checklist, multi-jurisdiction reporting packs, investor decks & equity planning.</p>
           <p class="font-semibold mt-2">$99 - $299</p>
@@ -322,7 +326,7 @@
           <p class="text-sm mt-2 text-gray-600">See What’s Inside</p>
         </div>
         <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 product-card">
-          <img src="/assets/cross-border-finance-screenshot.png" alt="Cross-Border Finance Kit Screenshot">
+          <img src="https://via.placeholder.com/600x400?text=Cross-Border+Finance+Kit+Screenshot" alt="Cross-Border Finance Kit Screenshot showing GAAP-to-IFRS templates, currency risk trackers, and global tax dashboards">
           <h3 class="text-xl font-semibold mb-2">🌍 Cross-Border Finance Kit</h3>
           <p>GAAP-to-IFRS templates, currency risk trackers, global tax dashboards.</p>
           <p class="font-semibold mt-2">$79 - $249</p>
@@ -343,6 +347,10 @@
         <p>✅ LTV/CAC by cohort</p>
         <p>✅ Investor-ready board views</p>
         <p>✅ Ongoing support with monthly insights</p>
+      </div>
+      <div class="dashboard-container mt-6">
+        <img src="https://via.placeholder.com/600x400?text=Sample+Power+BI+Tableau+Dashboard" alt="Sample Power BI/Tableau Dashboard showing cash flow, LTV/CAC, and investor KPIs">
+        <canvas id="sample-dashboard-chart" class="max-w-md mx-auto mb-4"></canvas>
       </div>
       <div class="mt-6 text-center space-x-4">
         <a href="/sample-dashboard" class="btn-primary px-6 py-3 font-semibold">See Sample Dashboard</a>
@@ -565,6 +573,42 @@
             scales: {
               x: { display: false },
               y: { display: false }
+            }
+          }
+        });
+      });
+
+      // Sample Dashboard Chart
+      document.addEventListener('DOMContentLoaded', () => {
+        const ctx = document.getElementById('sample-dashboard-chart').getContext('2d');
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Cohort 1', 'Cohort 2', 'Cohort 3'],
+            datasets: [
+              {
+                label: 'LTV ($)',
+                data: [150000, 200000, 180000],
+                backgroundColor: 'rgba(0, 77, 77, 0.8)',
+                borderColor: 'rgba(0, 77, 77, 1)',
+                borderWidth: 1
+              },
+              {
+                label: 'CAC ($)',
+                data: [50000, 60000, 55000],
+                backgroundColor: 'rgba(255, 193, 7, 0.8)',
+                borderColor: 'rgba(255, 193, 7, 1)',
+                borderWidth: 1
+              }
+            ]
+          },
+          options: {
+            scales: {
+              y: { beginAtZero: true, title: { display: true, text: 'Amount ($)' } }
+            },
+            plugins: {
+              legend: { labels: { font: { family: 'Inter', size: 12 } } },
+              title: { display: true, text: 'LTV/CAC by Cohort', font: { family: 'Montserrat', size: 16, weight: 'bold' } }
             }
           }
         });
