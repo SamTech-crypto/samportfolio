@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Fractional CFO for fintech, SaaS, ESG startups. Raise $10M+ with predictive financial models, trusted by Sequoia and a16z.">
-  <meta name="keywords" content="fractional CFO, startup funding, fintech, SaaS, ESG, financial strategy, VC pitch">
+  <meta name="description" content="Fractional CFO for fintech, SaaS, AI startups. Raise $10M+ with predictive financial models, trusted by Sequoia and a16z.">
+  <meta name="keywords" content="fractional CFO, startup funding, fintech, SaaS, AI, financial strategy, VC pitch">
   <title>Fractional CFO for Startups | Raise $10M+ in 90 Days</title>
   <link rel="icon" type="image/png" href="/assets/favicon.png">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -16,7 +16,7 @@
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "Strategic Financials",
-      "description": "Fractional CFO services for fintech, SaaS, and ESG startups, delivering predictive financial models for Series A/B funding.",
+      "description": "Fractional CFO services for fintech, SaaS, and AI startups, delivering predictive financial models for Series A/B funding.",
       "url": "https://samuelmwendwa.netlify.app",
       "founder": {
         "@type": "Person",
@@ -41,6 +41,7 @@
     h1 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 3.5rem; }
     h2 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 2.5rem; }
     h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.75rem; }
+    h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.5rem; }
     .btn-primary {
       background-color: var(--primary);
       color: white;
@@ -136,9 +137,6 @@
       border: 1px solid #e2e8f0;
       border-radius: 8px;
     }
-    @media (max-width: 768px) {
-      .calendar-iframe { height: 300px; }
-    }
     .hero-bg {
       background: linear-gradient(135deg, #004D4D 0%, #006666 100%);
     }
@@ -173,6 +171,39 @@
       border-radius: 0.5rem;
       margin-bottom: 1rem;
     }
+    .featured-in {
+      background-color: var(--neutral);
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .logo-list {
+      list-style: none;
+      padding: 0;
+    }
+    .logo-list li img {
+      transition: transform 0.2s ease;
+    }
+    .logo-list li img:hover {
+      transform: scale(1.1);
+    }
+    .small-quote {
+      font-style: italic;
+    }
+    .revenue-model-chart {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    @media (max-width: 768px) {
+      .featured-in h4 {
+        font-size: 1.5rem;
+      }
+      .small-quote {
+        font-size: 1rem;
+      }
+      .revenue-model-chart {
+        max-width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -194,6 +225,7 @@
         <a href="#products" class="text-white hover:text-[var(--accent)] font-medium">Tools</a>
         <a href="#case-studies" class="text-white hover:text-[var(--accent)] font-medium">Case Studies</a>
         <a href="#insights" class="text-white hover:text-[var(--accent)] font-medium">Insights</a>
+        <a href="#revenue-models" class="text-white hover:text-[var(--accent)] font-medium">Revenue Models</a>
         <a href="#team" class="text-white hover:text-[var(--accent)] font-medium">Team</a>
         <a href="#contact" class="text-white hover:text-[var(--accent)] font-medium">Contact</a>
       </nav>
@@ -210,6 +242,7 @@
         <a href="#products" class="text-white hover:text-[var(--accent)] font-medium">Tools</a>
         <a href="#case-studies" class="text-white hover:text-[var(--accent)] font-medium">Case Studies</a>
         <a href="#insights" class="text-white hover:text-[var(--accent)] font-medium">Insights</a>
+        <a href="#revenue-models" class="text-white hover:text-[var(--accent)] font-medium">Revenue Models</a>
         <a href="#team" class="text-white hover:text-[var(--accent)] font-medium">Team</a>
         <a href="#contact" class="text-white hover:text-[var(--accent)] font-medium">Contact</a>
       </div>
@@ -228,6 +261,21 @@
       <a href="#contact" class="btn-primary text-lg hero-cta mr-4" role="button">Book a Free Strategy Call</a>
       <a href="/assets/financial-modeling-toolkit.pdf" class="btn-secondary text-lg hero-cta" role="button" download>Download Free Toolkit</a>
       <p class="text-sm mt-4">🔒 Accepting 2 more clients for Q3 IPO prep</p>
+    </div>
+  </section>
+  <!-- Featured In & Trusted By Section -->
+  <section class="featured-in max-w-7xl mx-auto px-4 py-12 text-center fade-in">
+    <h4 class="text-2xl font-bold mb-6 text-[var(--primary)]">Featured In & Trusted By:</h4>
+    <ul class="logo-list flex flex-wrap justify-center gap-8 mb-6">
+      <li><img src="/assets/sequoia-logo.png" alt="Sequoia Capital logo" class="h-10"></li>
+      <li><img src="/assets/yc-logo.png" alt="Y Combinator logo" class="h-10"></li>
+      <li><img src="/assets/f1-logo.png" alt="F1 Startup Mentorship logo" class="h-10"></li>
+    </ul>
+    <p class="small-quote text-lg text-gray-600 max-w-2xl mx-auto">
+      “Recently featured in a mentorship session with the F1 team, guiding founders on building sustainable revenue models that scale.”
+    </p>
+    <div class="mt-6">
+      <a href="#revenue-models" class="btn-primary px-6 py-3 font-semibold">Learn About Revenue Models</a>
     </div>
   </section>
   <div class="max-w-7xl mx-auto px-4 py-16">
@@ -273,8 +321,8 @@
     </section>
     <!-- Solutions / Services Section -->
     <section id="solutions" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 text-center">🎯 Finance Systems for Fintechs</h2>
-      <p class="text-lg mb-4 text-center">We work with high-growth fintechs to scale finance from chaos to clarity. Consulting starts at $5K/month.</p>
+      <h2 class="text-3xl font-bold mb-6 text-center">🎯 Finance Systems for Fintechs & AI Startups</h2>
+      <p class="text-lg mb-4 text-center">We work with high-growth fintechs and AI startups to scale finance from chaos to clarity. Consulting starts at $5K/month.</p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
         <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
           <h3 class="text-xl font-semibold mb-2">🧠 Finance Function Setup</h3>
@@ -337,7 +385,7 @@
     <!-- Data & Dashboard Section -->
     <section id="data-dashboards" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
       <h2 class="text-3xl font-bold mb-6 text-center">From Excel Hell to Real-Time Investor Dashboards</h2>
-      <p class="text-lg mb-4 text-center">We design custom Power BI/Tableau dashboards for Series A–D fintechs.</p>
+      <p class="text-lg mb-4 text-center">We design custom Power BI/Tableau dashboards for Series A–D fintechs and AI startups.</p>
       <div class="space-y-4 text-lg">
         <p>✅ Live cash flow tracking</p>
         <p>✅ LTV/CAC by cohort</p>
@@ -394,7 +442,7 @@
         </div>
         <div class="border-l-4 border-[var(--accent)] pl-4 bg-gray-50 p-6 rounded-r-lg relative group">
           <a href="https://www.greenwave.com" target="_blank" class="text-[var(--primary)] font-semibold hover:underline mb-4 block">GreenWave</a>
-          <h3 class="text-xl font-semibold mb-2">ESG Series B: 20% Churn Cut</h3>
+          <h3 class="text-xl font-semibold mb-2">AI Series B: 20% Churn Cut</h3>
           <p class="text-lg mb-4">Reduced churn by 20% with data-driven retention strategies, doubling ARR in 12 months.</p>
           <p class="text-sm text-gray-600 italic">“Their retention models transformed our growth.” — Sarah Lee, CEO</p>
           <div class="mt-4">
@@ -429,6 +477,49 @@
         </div>
       </div>
     </section>
+    <!-- Revenue Models Section -->
+    <section id="revenue-models" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
+      <h2 class="text-3xl font-bold mb-6 text-center">Building Sustainable Revenue Models</h2>
+      <p class="text-lg mb-4 text-center">Learn how to select, test, and scale revenue models that drive growth for fintech and AI startups, as featured in our F1 mentorship session.</p>
+      <div class="space-y-6 text-lg">
+        <div>
+          <h3 class="text-xl font-semibold mb-2">1. Choose the Right Model</h3>
+          <p>Align your revenue model with your value proposition:</p>
+          <ul class="list-disc list-inside space-y-2">
+            <li><strong>Subscription</strong>: Ideal for SaaS or AI tools with recurring value (e.g., $49/month for analytics).</li>
+            <li><strong>Transaction-Based</strong>: Suits fintechs with high-volume usage (e.g., 1% per payment).</li>
+            <li><strong>Freemium</strong>: Attracts users with free features, upselling premium (e.g., free basic tools, $199 for advanced).</li>
+            <li><strong>Licensing</strong>: One-time fees for specialized tools (e.g., Financial Modeling Toolkit).</li>
+            <li><strong>Outcome-Based</strong>: Charges based on results (e.g., 2% of funds raised).</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">2. Test and Validate</h3>
+          <p>Build a hypothesis (e.g., “Subscriptions will yield 20% MoM growth with 5% churn”) and test it:</p>
+          <ul class="list-disc list-inside space-y-2">
+            <li><strong>Landing Page Tests</strong>: Use tools like Google Optimize to compare conversion rates for different models.</li>
+            <li><strong>Pilot Programs</strong>: Offer beta access to 10 startups to test pricing willingness.</li>
+            <li><strong>Cohort Analysis</strong>: Track LTV, CAC, and churn by customer segment, as we did for GreenWave’s 20% churn reduction.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-2">3. Optimize with Pricing and Features</h3>
+          <p>Refine your model based on data:</p>
+          <ul class="list-disc list-inside space-y-2">
+            <li><strong>Pricing Adjustments</strong>: Test tiered pricing (e.g., $49 basic, $199 pro) to capture more segments.</li>
+            <li><strong>Feature Bundling</strong>: Bundle high-demand features (e.g., cohort analysis in your toolkit) to increase upsell rates.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="revenue-model-chart mt-6">
+        <canvas id="revenue-model-chart"></canvas>
+        <p class="text-sm text-gray-600 mt-2">Hypothetical ARR after 12 months for different revenue models.</p>
+      </div>
+      <div class="mt-6 text-center">
+        <a href="#contact" class="btn-primary px-6 py-3 font-semibold">Book a Strategy Call</a>
+        <a href="/assets/revenue-model-canvas.pdf" class="btn-secondary px-6 py-3 font-semibold" download>Download Revenue Model Canvas</a>
+      </div>
+    </section>
     <!-- Team -->
     <section id="team" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
       <h2 class="text-3xl font-bold mb-6 text-center">Our Leadership</h2>
@@ -461,7 +552,7 @@
         </div>
         <div class="accordion-item">
           <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">Who are your typical clients?</div>
-          <div class="accordion-content">Fintech, SaaS, and ESG startups targeting Seed to Series B funding or operational scaling.</div>
+          <div class="accordion-content">Fintech, SaaS, and AI startups targeting Seed to Series B funding or operational scaling.</div>
         </div>
         <div class="accordion-item">
           <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">How do you ensure data security?</div>
@@ -485,7 +576,7 @@
           <select id="sector" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
             <option value="fintech">Fintech</option>
             <option value="saas">SaaS</option>
-            <option value="esg">ESG</option>
+            <option value="ai">AI</option>
           </select>
           <label for="deck-upload" class="block text-sm font-medium mb-2">Upload Your Deck (Optional)</label>
           <input type="file" id="deck-upload" accept=".pdf" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
@@ -565,6 +656,50 @@
             scales: {
               x: { display: false },
               y: { display: false }
+            }
+          }
+        });
+      });
+
+      // Revenue Model Chart
+      document.addEventListener('DOMContentLoaded', () => {
+        const ctx = document.getElementById('revenue-model-chart').getContext('2d');
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Subscription', 'Transaction', 'Freemium', 'Licensing', 'Outcome-Based'],
+            datasets: [{
+              label: 'ARR after 12 Months ($M)',
+              data: [2.5, 1.8, 1.2, 0.8, 1.5],
+              backgroundColor: ['#004D4D', '#FFC107', '#FF4D4D', '#4A90E2', '#2ECC71'],
+              borderColor: ['#004D4D', '#FFC107', '#FF4D4D', '#4A90E2', '#2ECC71'],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: 'ARR ($M)',
+                  font: { family: 'Inter', size: 12 }
+                }
+              },
+              x: {
+                title: {
+                  display: true,
+                  text: 'Revenue Model',
+                  font: { family: 'Inter', size: 12 }
+                }
+              }
+            },
+            plugins: {
+              legend: {
+                labels: {
+                  font: { family: 'Inter', size: 12 }
+                }
+              }
             }
           }
         });
