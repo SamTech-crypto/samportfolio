@@ -3,20 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Fractional CFO for fintech, SaaS, AI startups. Raise $10M+ with predictive financial models, trusted by Sequoia and a16z.">
-  <meta name="keywords" content="fractional CFO, startup funding, fintech, SaaS, AI, financial strategy, VC pitch">
-  <title>Fractional CFO for Startups | Raise $10M+ in 90 Days</title>
-  <link rel="icon" type="image/png" href="/assets/favicon.png">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="CFO-as-a-Service for fintech & AI startups. Raise $10M+ with predictive models. Book a free discovery call!">
+  <meta name="keywords" content="CFO-as-a-Service, financial consulting, fintech, SaaS, AI, Strategic Finance Advisor, VC pitch">
+  <meta property="og:title" content="Strategic Financials | Raise $10M+ in 90 Days">
+  <meta property="og:description" content="Expert CFO-as-a-Service for fintech and AI startups. Book a free discovery call!">
+  <meta property="og:image" content="/assets/og-image.webp">
+  <meta property="og:url" content="https://samuelmwendwa.netlify.app">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Strategic Financials | Raise $10M+ in 90 Days</title>
+  <link rel="icon" type="image/webp" href="/assets/favicon.webp" as="image">
+  <link rel="preload" href="/assets/favicon.webp" as="image">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700&display=swap" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/chartist/dist/chartist.min.js"></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "Strategic Financials",
-      "description": "Fractional CFO services for fintech, SaaS, and AI startups, delivering predictive financial models for Series A/B funding.",
+      "description": "CFO-as-a-Service for fintech, SaaS, and AI startups, delivering predictive financial models for Series A/B funding.",
       "url": "https://samuelmwendwa.netlify.app",
       "founder": {
         "@type": "Person",
@@ -25,6 +30,39 @@
       }
     }
   </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the 90-day roadmap?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Week 1-4: Optimize financials (LTV/CAC, burn rate). Week 5-8: Build audit-ready cap table. Week 9-12: Craft VC-ready pitch deck and secure intros."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who are your typical clients?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fintech, SaaS, and AI startups targeting Seed to Series B funding or operational scaling."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you ensure data security?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SOC 2 compliant and GDPR-ready, we protect your financial data with enterprise-grade security."
+          }
+        }
+      ]
+    }
+  </script>
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://cdn.jsdelivr.net https://calendly.com;">
   <style>
     :root {
       --primary: #004D4D;
@@ -37,54 +75,47 @@
       color: var(--dark);
       background-color: var(--neutral);
       scroll-behavior: smooth;
+      margin: 0;
     }
-    h1 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 3.5rem; }
-    h2 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 2.5rem; }
-    h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.75rem; }
-    h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.5rem; }
+    h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
+    .btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      text-align: center;
+      display: inline-block;
+    }
     .btn-primary {
       background-color: var(--primary);
       color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      font-weight: 600;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-    .btn-primary:hover {
-      transform: scale(1.05);
-      opacity: 0.9;
-    }
-    .btn-primary:focus {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
     }
     .btn-secondary {
       background-color: var(--accent);
       color: var(--dark);
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      font-weight: 600;
-      transition: transform 0.2s ease, opacity 0.2s ease;
     }
-    .btn-secondary:hover {
+    .btn:hover {
       transform: scale(1.05);
       opacity: 0.9;
+    }
+    .btn:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
     }
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      animation: fadeIn 0.6s ease-out forwards;
     }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
     }
     @media (prefers-reduced-motion: reduce) {
-      .fade-in, .btn-primary, .btn-secondary {
-        transition: none;
-        transform: none;
-      }
-      .fade-in.visible { opacity: 1; }
+      .fade-in, .btn { animation: none; transform: none; }
+      .fade-in { opacity: 1; }
     }
     .active-nav {
       border-bottom: 2px solid var(--accent);
@@ -103,6 +134,8 @@
       align-items: center;
       font-weight: 600;
       color: var(--primary);
+      width: 100%;
+      text-align: left;
     }
     .accordion-header:hover {
       background-color: #f8fafc;
@@ -110,35 +143,45 @@
     .accordion-header::after {
       content: '\25BC';
       font-size: 0.8rem;
-      transition: transform 0.2s ease;
     }
-    .accordion-header.active::after {
+    .accordion-header[aria-expanded="true"]::after {
       transform: rotate(180deg);
     }
     .accordion-content {
       max-height: 0;
       overflow: hidden;
       padding: 0 1rem;
-      transition: max-height 0.3s ease-out, padding 0.3s ease-out;
       background-color: #f8fafc;
     }
-    .accordion-content.active {
+    .accordion-content[aria-hidden="false"] {
       max-height: 300px;
       padding: 1rem;
     }
     .calendar-container {
       max-width: 800px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 1.25rem;
     }
     .calendar-iframe {
       width: 100%;
-      height: 400px;
+      height: 25rem;
       border: 1px solid #e2e8f0;
-      border-radius: 8px;
+      border-radius: 0.5rem;
     }
     .hero-bg {
-      background: linear-gradient(135deg, #004D4D 0%, #006666 100%);
+      position: relative;
+      height: 100vh;
+      max-height: 37.5rem;
+    }
+    .hero-bg img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-overlay {
+      background-color: rgba(0, 0, 0, 0.6);
     }
     .sticky-banner {
       position: sticky;
@@ -149,14 +192,6 @@
       padding: 0.5rem;
       text-align: center;
       font-weight: 600;
-    }
-    .countdown-banner {
-      background-color: #FF4D4D;
-      color: white;
-      padding: 0.75rem;
-      text-align: center;
-      font-weight: 600;
-      font-size: 1.1rem;
     }
     .funding-graph {
       position: absolute;
@@ -174,17 +209,18 @@
     .featured-in {
       background-color: var(--neutral);
       border-radius: 0.5rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
     }
     .logo-list {
       list-style: none;
       padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
     }
     .logo-list li img {
-      transition: transform 0.2s ease;
-    }
-    .logo-list li img:hover {
-      transform: scale(1.1);
+      height: 2.5rem;
     }
     .small-quote {
       font-style: italic;
@@ -194,33 +230,26 @@
       margin: 0 auto;
     }
     @media (max-width: 768px) {
-      .featured-in h4 {
-        font-size: 1.5rem;
-      }
-      .small-quote {
-        font-size: 1rem;
-      }
-      .revenue-model-chart {
-        max-width: 100%;
-      }
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 1.75rem; }
+      h3 { font-size: 1.25rem; }
+      .hero-bg { height: auto; min-height: 25rem; }
+      .small-quote { font-size: 1rem; }
+      .revenue-model-chart { max-width: 100%; }
     }
   </style>
 </head>
 <body>
-  <!-- Top-Level CTA Bar -->
-  <div class="countdown-banner">
-    <p>🔒 Only 2 Strategy Call Slots Left This Month! <a href="#contact" class="underline font-semibold">Book Now</a></p>
-  </div>
   <div class="sticky-banner">
-    <p>Download our Free Financial Modeling Toolkit or Book a Strategy Call → <a href="#contact" class="underline font-semibold">Get Started</a></p>
+    <p>Only 2 slots left! Download our toolkit or book a call: <a href="#contact" class="underline font-semibold">Get Started</a></p>
   </div>
-  <header class="bg-[var(--primary)] text-white py-6 sticky top-[80px] z-50">
+  <header class="bg-[var(--primary)] text-white py-6 sticky top-[40px] z-50">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
       <div class="flex items-center">
-        <h1 class="text-2xl font-bold">Strategic Financials</h1>
-        <p class="text-sm ml-2 hidden md:block">Fractional CFO for High-Growth Startups</p>
+        <div class="text-2xl font-bold">Strategic Financials</div>
+        <p class="text-sm ml-2 hidden md:block">CFO-as-a-Service for High-Growth Startups</p>
       </div>
-      <nav class="hidden md:flex items-center space-x-6" role="navigation" aria-label="Main Navigation">
+      <nav class="hidden md:flex items-center space-x-6" aria-label="Primary Site Navigation">
         <a href="#solutions" class="text-white hover:text-[var(--accent)] font-medium">Solutions</a>
         <a href="#products" class="text-white hover:text-[var(--accent)] font-medium">Tools</a>
         <a href="#case-studies" class="text-white hover:text-[var(--accent)] font-medium">Case Studies</a>
@@ -229,15 +258,12 @@
         <a href="#team" class="text-white hover:text-[var(--accent)] font-medium">Team</a>
         <a href="#contact" class="text-white hover:text-[var(--accent)] font-medium">Contact</a>
       </nav>
-      <button id="mobile-menu-toggle" class="md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" aria-label="Toggle Mobile Menu">
+      <button id="mobile-menu-toggle" class="md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" aria-label="Toggle Mobile Menu" aria-expanded="false">
         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
       </button>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden bg-[var(--primary)] w-full absolute top-full left-0 shadow-md" role="navigation" aria-label="Mobile Navigation">
+    <div id="mobile-menu" class="hidden md:hidden bg-[var(--primary)] w-full absolute top-full left-0 shadow-md" aria-label="Mobile Site Navigation">
       <div class="flex flex-col p-4 space-y-4">
-        <button id="mobile-menu-close" class="self-end p-2 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" aria-label="Close Mobile Menu">
-          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
         <a href="#solutions" class="text-white hover:text-[var(--accent)] font-medium">Solutions</a>
         <a href="#products" class="text-white hover:text-[var(--accent)] font-medium">Tools</a>
         <a href="#case-studies" class="text-white hover:text-[var(--accent)] font-medium">Case Studies</a>
@@ -248,474 +274,357 @@
       </div>
     </div>
   </header>
-  <section class="relative bg-cover bg-center h-[70vh] flex items-center justify-center hero-bg">
-    <canvas id="funding-graph" class="funding-graph"></canvas>
-    <div class="absolute inset-0 bg-black/40 hero-overlay"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-4 text-center text-white">
-      <h1 class="text-4xl md:text-6xl font-bold mb-2 hero-headline">Fractional CFO: Raise $10M+ for Series A/B in 90 Days</h1>
-      <p class="text-lg mb-4 hero-subtext">Led by Samuel Mwendwa (CFA, 3 exits, $50M+ raised), we build predictive models trusted by Sequoia and a16z.</p>
-      <p class="text-md mb-6">Founders come to us when:<br>
-        • Their deck’s solid, but investors keep asking for a follow-up they never send.<br>
-        • They’re post-revenue but can’t explain churn, CAC, or runway.<br>
-        • Their “financial model” is a Google Sheet with 20 tabs and 0 story.</p>
-      <a href="#contact" class="btn-primary text-lg hero-cta mr-4" role="button">Book a Free Strategy Call</a>
-      <a href="/assets/financial-modeling-toolkit.pdf" class="btn-secondary text-lg hero-cta" role="button" download>Download Free Toolkit</a>
-      <p class="text-sm mt-4">🔒 Accepting 2 more clients for Q3 IPO prep</p>
-    </div>
-  </section>
-  <!-- Featured In & Trusted By Section -->
-  <section class="featured-in max-w-7xl mx-auto px-4 py-12 text-center fade-in">
-    <h4 class="text-2xl font-bold mb-6 text-[var(--primary)]">Featured In & Trusted By:</h4>
-    <ul class="logo-list flex flex-wrap justify-center gap-8 mb-6">
-      <li><img src="/assets/sequoia-logo.png" alt="Sequoia Capital logo" class="h-10"></li>
-      <li><img src="/assets/yc-logo.png" alt="Y Combinator logo" class="h-10"></li>
-      <li><img src="/assets/f1-logo.png" alt="F1 Startup Mentorship logo" class="h-10"></li>
-    </ul>
-    <p class="small-quote text-lg text-gray-600 max-w-2xl mx-auto">
-      “Recently featured in a mentorship session with the F1 team, guiding founders on building sustainable revenue models that scale.”
-    </p>
-    <div class="mt-6">
-      <a href="#revenue-models" class="btn-primary px-6 py-3 font-semibold">Learn About Revenue Models</a>
-    </div>
-  </section>
-  <div class="max-w-7xl mx-auto px-4 py-16">
-    <!-- Trust Section -->
-    <section class="mb-16 text-center">
-      <h2 class="text-2xl font-bold mb-6">As Used By</h2>
-      <p class="text-lg mb-4">Trusted by CFOs and Founders Backed By:</p>
-      <div class="flex flex-wrap justify-center gap-8">
-        <img src="/assets/sequoia-logo.png" alt="Sequoia Capital logo" class="h-10">
-        <img src="/assets/softbank-logo.png" alt="SoftBank logo" class="h-10">
-        <img src="/assets/ycombinator-logo.png" alt="Y Combinator logo" class="h-10">
-        <img src="/assets/stripe-atlas-logo.png" alt="Stripe Atlas Startups logo" class="h-10">
-        <span class="text-lg font-semibold">Portfolio of VC-backed fintechs with $10M+ raised</span>
+  <main lang="en">
+    <section id="hero" lang="en" class="hero-bg flex items-center justify-center">
+      <img src="/assets/hero-bg.webp" srcset="/assets/hero-bg-768.webp 768w, /assets/hero-bg-1200.webp 1200w" alt="Abstract financial graph background" loading="lazy">
+      <div class="hero-overlay absolute inset-0"></div>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 text-center text-white">
+        <h1 class="mb-2 fade-in">Raise $10M+ for Series A/B in 90 Days</h1>
+        <p class="text-lg mb-4 fade-in">Led by Samuel Mwendwa (CFA, 3 exits, $50M+ raised), we build predictive models trusted by top VCs.</p>
+        <p class="text-md mb-6">Founders come to us when:<br>
+          • Their deck’s solid, but investors keep asking for a follow-up they never send.<br>
+          • They’re post-revenue but can’t explain churn, CAC, or runway.<br>
+          • Their “financial model” is a Google Sheet with 20 tabs and 0 story.</p>
+        <a href="#contact" class="btn btn-primary fade-in" role="button">Book a Discovery Call</a>
+        <p class="text-sm mt-4">🔒 Accepting 2 more clients for Q3 IPO prep</p>
       </div>
     </section>
-    <!-- VC Readiness Quiz -->
-    <section id="quiz" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 text-center">Is Your Startup VC-Ready?</h2>
-      <p class="text-lg mb-4 text-center">Answer 3 questions to get a free funding readiness report.</p>
-      <div class="max-w-md mx-auto">
-        <label for="arr" class="block text-sm font-medium mb-2">Annual Recurring Revenue ($)</label>
-        <input type="number" id="arr" placeholder="e.g., 1,000,000" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" min="0" required aria-required="true">
-        <label for="burn-rate" class="block text-sm font-medium mb-2">Monthly Burn Rate ($)</label>
-        <input type="number" id="burn-rate" placeholder="e.g., 50,000" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" min="0" required aria-required="true">
-        <label for="quiz-email" class="block text-sm font-medium mb-2">Email for Report</label>
-        <input type="email" id="quiz-email" placeholder="nexlifysolutions.team@gmail.com" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" required aria-required="true">
-        <button onclick="submitQuiz()" class="btn-primary px-6 py-3 font-semibold w-full" role="button">Get Your Report</button>
+    <section lang="en" class="featured-in max-w-7xl mx-auto px-4 py-12 text-center fade-in">
+      <h2 class="mb-6 text-[var(--primary)]">Featured In & Trusted By</h2>
+      <ul class="logo-list mb-6">
+        <li><img src="/assets/sequoia-logo.webp" alt="Sequoia Capital logo" loading="lazy"></li>
+        <li><img src="/assets/yc-logo.webp" alt="Y Combinator logo" loading="lazy"></li>
+        <li><img src="/assets/f1-logo.webp" alt="F1 Startup Mentorship logo" loading="lazy"></li>
+      </ul>
+      <p class="small-quote text-lg text-gray-600 max-w-2xl mx-auto">
+        “Recently featured in a mentorship session with the F1 team, guiding founders on building sustainable revenue models that scale.”
+      </p>
+      <div class="mt-6">
+        <a href="#revenue-models" class="btn btn-primary">Explore Revenue Models</a>
       </div>
     </section>
-    <!-- Problems Section -->
-    <section id="problems" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 text-center">The Most Brilliant Fintechs Still Struggle with This:</h2>
-      <div class="space-y-4 text-lg">
-        <p>✅ Poor investor reporting = failed raises</p>
-        <p>✅ Broken dashboards = missed growth metrics</p>
-        <p>✅ Manual finance = audit risks & board mistrust</p>
-        <p>✅ No IPO roadmap = millions lost in delays</p>
-        <p class="font-semibold mt-4">You don’t need more spreadsheets. You need a finance engine that scales.</p>
-      </div>
-      <div class="mt-6 text-center">
-        <a href="#contact" class="btn-primary px-6 py-3 font-semibold">Book a Strategy Call</a>
-      </div>
-    </section>
-    <!-- Solutions / Services Section -->
-    <section id="solutions" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 text-center">🎯 Finance Systems for Fintechs & AI Startups</h2>
-      <p class="text-lg mb-4 text-center">We work with high-growth fintechs and AI startups to scale finance from chaos to clarity. Consulting starts at $5K/month.</p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-        <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-          <h3 class="text-xl font-semibold mb-2">🧠 Finance Function Setup</h3>
-          <p>Set up ERP, internal controls, GAAP/IFRS alignment & investor reporting.</p>
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <section id="quiz" lang="en" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
+        <h2 class="mb-6 text-center">Is Your Startup VC-Ready?</h2>
+        <p class="text-lg mb-4 text-center">Answer 3 questions to get a free funding readiness report.</p>
+        <form id="quiz-form" class="max-w-md mx-auto">
+          <fieldset>
+            <label for="arr" class="block text-sm font-medium mb-2">Annual Recurring Revenue ($)</label>
+            <input type="number" id="arr" name="arr" placeholder="e.g., 1,000,000" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" min="0" required aria-required="true">
+            <label for="burn-rate" class="block text-sm font-medium mb-2">Monthly Burn Rate ($)</label>
+            <input type="number" id="burn-rate" name="burn-rate" placeholder="e.g., 50,000" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" min="0" required aria-required="true">
+            <label for="quiz-email" class="block text-sm font-medium mb-2">Email for Report</label>
+            <input type="email" id="quiz-email" name="quiz-email" placeholder="nexlifysolutions.team@gmail.com" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]" required aria-required="true">
+            <button type="submit" class="btn btn-primary w-full">Get Your Report</button>
+          </fieldset>
+        </form>
+      </section>
+      <section id="problems" lang="en" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
+        <h2 class="mb-6 text-center">The Most Brilliant Fintechs Still Struggle with This:</h2>
+        <div class="space-y-4 text-lg">
+          <p>✅ Poor investor reporting = failed raises</p>
+          <p>✅ Broken dashboards = missed growth metrics</p>
+          <p>✅ Manual finance = audit risks & board mistrust</p>
+          <p>✅ No IPO roadmap = millions lost in delays</p>
+          <p class="font-semibold mt-4">You don’t need more spreadsheets. You need a finance engine that scales.</p>
         </div>
-        <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-          <h3 class="text-xl font-semibold mb-2">🚀 IPO Readiness Roadmap</h3>
-          <p>Identify gaps, optimize capital structure, and prepare your board & auditors.</p>
+        <div class="mt-6 text-center">
+          <a href="#contact" class="btn btn-primary">Book a Discovery Call</a>
         </div>
-        <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-          <h3 class="text-xl font-semibold mb-2">🔍 BI Dashboards & Metrics</h3>
-          <p>Real-time KPI dashboards built in Power BI/Tableau for investors & execs.</p>
-        </div>
-      </div>
-      <div class="mt-6 text-center space-x-4">
-        <a href="#contact" class="btn-primary px-6 py-3 font-semibold">Request Custom Proposal</a>
-        <a href="/assets/financial-modeling-toolkit.pdf" class="btn-secondary px-6 py-3 font-semibold" download>Download Free Toolkit</a>
-      </div>
-    </section>
-    <!-- Products Section (Digital Toolkit) -->
-    <section id="products" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 text-center">Investor-Grade Tools Starting at $49</h2>
-      <p class="text-lg mb-4 text-center">Used by 200+ CFOs to build finance systems fast. Toolkits start at $49.</p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-        <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 product-card">
-          <img src="/assets/financial-modeling-toolkit.png" alt="Financial Modeling Toolkit Screenshot showing 3-statement model and valuation tools">
-          <h3 class="text-xl font-semibold mb-2">🧾 Financial Modeling Toolkit</h3>
-          <p>3-statement model, valuation + cohort tools, fundraise runway calculator.</p>
-          <p class="font-semibold mt-2">$49 - $199</p>
-          <div class="mt-4 space-x-2">
-            <a href="/preview/financial-modeling-toolkit" class="btn-primary px-4 py-2">Preview Tool</a>
-            <a href="/buy/financial-modeling-toolkit" class="btn-secondary px-4 py-2">Buy Now</a>
+      </section>
+      <section id="solutions" lang="en" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
+        <h2 class="mb-6 text-center">🎯 Strategic Finance Advisor for Fintechs & AI Startups</h2>
+        <p class="text-lg mb-4 text-center">We work with high-growth fintechs and AI startups to scale finance from chaos to clarity. Consulting starts at $5K/month.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+          <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+            <h3 class="mb-2">🧠 Finance Function Setup</h3>
+            <p>Set up ERP, internal controls, GAAP/IFRS alignment & investor reporting.</p>
           </div>
-          <p class="text-sm mt-2 text-gray-600">Used by 200+ CFOs</p>
-        </div>
-        <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 product-card">
-          <img src="/assets/ipo-board-pack.png" alt="IPO Board Pack Kit Screenshot showing roadmap checklist and investor deck">
-          <h3 class="text-xl font-semibold mb-2">📄 IPO Board Pack Kit</h3>
-          <p>Roadmap checklist, multi-jurisdiction reporting packs, investor decks & equity planning.</p>
-          <p class="font-semibold mt-2">$99 - $299</p>
-          <div class="mt-4 space-x-2">
-            <a href="/preview/ipo-board-pack" class="btn-primary px-4 py-2">Preview Tool</a>
-            <a href="/buy/ipo-board-pack" class="btn-secondary px-4 py-2">Buy Now</a>
+          <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+            <h3 class="mb-2">🚀 IPO Readiness Roadmap</h3>
+            <p>Identify gaps, optimize capital structure, and prepare your board & auditors.</p>
           </div>
-          <p class="text-sm mt-2 text-gray-600">See What’s Inside</p>
-        </div>
-        <div class="bg-white rounded-lg shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 product-card">
-          <img src="/assets/cross-border-finance.png" alt="Cross-Border Finance Kit Screenshot showing GAAP-to-IFRS templates and tax dashboards">
-          <h3 class="text-xl font-semibold mb-2">🌍 Cross-Border Finance Kit</h3>
-          <p>GAAP-to-IFRS templates, currency risk trackers, global tax dashboards.</p>
-          <p class="font-semibold mt-2">$79 - $249</p>
-          <div class="mt-4 space-x-2">
-            <a href="/preview/cross-border-finance" class="btn-primary px-4 py-2">Preview Tool</a>
-            <a href="/buy/cross-border-finance" class="btn-secondary px-4 py-2">Buy Now</a>
+          <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+            <h3 class="mb-2">🔍 BI Dashboards & Metrics</h3>
+            <p>Real-time KPI dashboards built in Power BI/Tableau for investors & execs.</p>
           </div>
-          <p class="text-sm mt-2 text-gray-600">Trusted by global fintechs</p>
         </div>
-      </div>
-    </section>
-    <!-- Data & Dashboard Section -->
-    <section id="data-dashboards" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 text-center">From Excel Hell to Real-Time Investor Dashboards</h2>
-      <p class="text-lg mb-4 text-center">We design custom Power BI/Tableau dashboards for Series A–D fintechs and AI startups.</p>
-      <div class="space-y-4 text-lg">
-        <p>✅ Live cash flow tracking</p>
-        <p>✅ LTV/CAC by cohort</p>
-        <p>✅ Investor-ready board views</p>
-        <p>✅ Ongoing support with monthly insights</p>
-      </div>
-      <div class="mt-6 text-center space-x-4">
-        <a href="/sample-dashboard" class="btn-primary px-6 py-3 font-semibold">See Sample Dashboard</a>
-        <a href="#contact" class="btn-primary px-6 py-3 font-semibold">Book a Data Demo</a>
-      </div>
-    </section>
-    <!-- Case Studies / Outcomes Section -->
-    <section id="case-studies" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 text-center">What Happens When Your Finance Just Works</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="border-l-4 border-[var(--accent)] pl-4 bg-gray-50 p-6 rounded-r-lg relative group">
-          <h3 class="text-xl font-semibold mb-2">Fintech CFO, UK</h3>
-          <p class="text-lg mb-4">“They helped us go from messy spreadsheets to investor dashboards that closed our $22M round. Auditors were blown away.”</p>
-          <div class="absolute inset-0 bg-[var(--primary)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-r-lg"></div>
+        <div class="mt-6 text-center">
+          <a href="#contact" class="btn btn-primary">Request Custom Proposal</a>
         </div>
-        <div class="border-l-4 border-[var(--accent)] pl-4 bg-gray-50 p-6 rounded-r-lg relative group">
-          <h3 class="text-xl font-semibold mb-2">Ex-Stripe Head of Ops</h3>
-          <p class="text-lg mb-4">“Reduced our finance close time by 60%, built a board pack in 3 days, and passed audit with zero redlines.”</p>
-          <div class="absolute inset-0 bg-[var(--primary)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-r-lg"></div>
-        </div>
-      </div>
-      <div class="mt-6 text-center">
-        <a href="/case-studies" class="btn-primary px-6 py-3 font-semibold">View More Wins</a>
-      </div>
-    </section>
-    <!-- Track Record -->
-    <section id="track-record" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 text-center">Our Track Record</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="border-l-4 border-[var(--accent)] pl-4 bg-gray-50 p-6 rounded-r-lg relative group">
-          <a href="https://www.paystream.com" target="_blank" class="text-[var(--primary)] font-semibold hover:underline mb-4 block">PayStream</a>
-          <h3 class="text-xl font-semibold mb-2">Fintech Series A: $12M Raised</h3>
-          <p class="text-lg mb-4">Cut burn by $350K/month by nuking non-performing GTM spend. Deck went from ‘nice’ to ‘fundable’ in 3 weeks, securing $12M from Sequoia.</p>
-          <p class="text-sm text-gray-600 italic">“Their LTV/CAC model convinced our partners in one meeting.” — Alex Chen, CEO</p>
-          <div class="mt-4">
-            <a href="https://www.linkedin.com/posts/paystream_ceo_12m-series-a-strategic-financials-activity-123456789" target="_blank" class="text-[var(--primary)] hover:underline text-sm">See Alex’s LinkedIn post</a>
+      </section>
+      <section id="products" lang="en" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
+        <h2 class="mb-6 text-center">Investor-Grade Tools Starting at $49</h2>
+        <p class="text-lg mb-4 text-center">Used by 200+ CFOs to build finance systems fast. Toolkits start at $49.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+          <div class="product-card bg-white rounded-lg shadow-lg p-6 text-center">
+            <img src="/assets/financial-modeling-toolkit.webp" alt="Financial Modeling Toolkit screenshot showing 3-statement model and valuation tools" loading="lazy">
+            <h3 class="mb-2">🧾 Financial Modeling Toolkit</h3>
+            <p>3-statement model, valuation + cohort tools, fundraise runway calculator.</p>
+            <p class="font-semibold mt-2">$49 - $199</p>
+            <div class="mt-4 space-x-2">
+              <a href="/preview/financial-modeling-toolkit" class="btn btn-primary">Preview Tool</a>
+              <a href="/buy/financial-modeling-toolkit" class="btn btn-secondary">Buy Now</a>
+            </div>
           </div>
-          <div class="absolute inset-0 bg-[var(--primary)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-r-lg"></div>
-        </div>
-        <div class="border-l-4 border-[var(--accent)] pl-4 bg-gray-50 p-6 rounded-r-lg relative group">
-          <a href="https://www.cloudcore.com" target="_blank" class="text-[var(--primary)] font-semibold hover:underline mb-4 block">CloudCore</a>
-          <h3 class="text-xl font-semibold mb-2">SaaS Seed: $7M Secured</h3>
-          <p class="text-lg mb-4">Built a pitch deck with 15+ financial scenarios, raising $7M from a16z in 6 weeks.</p>
-          <p class="text-sm text-gray-600 italic">“Their data-driven deck won us a16z.” — Priya Patel, Founder</p>
-          <div class="mt-4">
-            <a href="https://www.linkedin.com/posts/priyapatel_cloudcore_7m-seed-activity-987654321" target="_blank" class="text-[var(--primary)] hover:underline text-sm">See Priya’s LinkedIn post</a>
+          <div class="product-card bg-white rounded-lg shadow-lg p-6 text-center">
+            <img src="/assets/ipo-board-pack.webp" alt="IPO Board Pack Kit screenshot showing roadmap checklist and investor deck" loading="lazy">
+            <h3 class="mb-2">📄 IPO Board Pack Kit</h3>
+            <p>Roadmap checklist, multi-jurisdiction reporting packs, investor decks & equity planning.</p>
+            <p class="font-semibold mt-2">$99 - $299</p>
+            <div class="mt-4 space-x-2">
+              <a href="/preview/ipo-board-pack" class="btn btn-primary">Preview Tool</a>
+              <a href="/buy/ipo-board-pack" class="btn btn-secondary">Buy Now</a>
+            </div>
           </div>
-          <div class="absolute inset-0 bg-[var(--primary)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-r-lg"></div>
-        </div>
-        <div class="border-l-4 border-[var(--accent)] pl-4 bg-gray-50 p-6 rounded-r-lg relative group">
-          <a href="https://www.greenwave.com" target="_blank" class="text-[var(--primary)] font-semibold hover:underline mb-4 block">GreenWave</a>
-          <h3 class="text-xl font-semibold mb-2">AI Series B: 20% Churn Cut</h3>
-          <p class="text-lg mb-4">Reduced churn by 20% with data-driven retention strategies, doubling ARR in 12 months.</p>
-          <p class="text-sm text-gray-600 italic">“Their retention models transformed our growth.” — Sarah Lee, CEO</p>
-          <div class="mt-4">
-            <a href="https://www.linkedin.com/posts/sarahlee_greenwave_churn-reduction-activity-456789123" target="_blank" class="text-[var(--primary)] hover:underline text-sm">See Sarah’s LinkedIn post</a>
+          <div class="product-card bg-white rounded-lg shadow-lg p-6 text-center">
+            <img src="/assets/cross-border-finance.webp" alt="Cross-Border Finance Kit screenshot showing GAAP-to-IFRS templates and tax dashboards" loading="lazy">
+            <h3 class="mb-2">🌍 Cross-Border Finance Kit</h3>
+            <p>GAAP-to-IFRS templates, currency risk trackers, global tax dashboards.</p>
+            <p class="font-semibold mt-2">$79 - $249</p>
+            <div class="mt-4 space-x-2">
+              <a href="/preview/cross-border-finance" class="btn btn-primary">Preview Tool</a>
+              <a href="/buy/cross-border-finance" class="btn btn-secondary">Buy Now</a>
+            </div>
           </div>
-          <div class="absolute inset-0 bg-[var(--primary)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-r-lg"></div>
         </div>
-      </div>
-      <div class="mt-6 text-center">
-        <canvas id="case-study-chart" class="max-w-md mx-auto mb-4"></canvas>
-        <a href="/assets/paystream-pitch-deck.pdf" class="btn-primary px-6 py-3 font-semibold" download>Get PayStream’s $12M Pitch Deck</a>
-      </div>
-    </section>
-    <!-- Insights -->
-    <section id="insights" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 text-center">Insights for Founders</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-gray-50 p-6 rounded-lg">
-          <h3 class="text-xl font-semibold mb-2">Why Most Startup Financial Models Get CAC Wrong</h3>
-          <p class="text-lg mb-4">VCs don’t just want your CAC—they want it segmented by channel. Here’s what they’re really looking for. <a href="/insights/cac-mistakes" class="text-[var(--primary)] hover:underline">Read More</a></p>
-          <p class="text-sm text-gray-600">DM us on X for our CAC audit checklist: <a href="https://x.com/stratfinancials" class="text-[var(--primary)] hover:underline">@stratfinancials</a></p>
+        <div class="mt-6 text-center">
+          <a href="/assets/financial-modeling-toolkit.pdf" class="btn btn-secondary" download>Download Free Toolkit</a>
         </div>
-        <div class="bg-gray-50 p-6 rounded-lg">
-          <h3 class="text-xl font-semibold mb-2">The Model That Got a SaaS Startup $7M</h3>
-          <p class="text-lg mb-4">See the exact financial model we used to extend CloudCore’s runway and secure a16z. <a href="/insights/saas-model" class="text-[var(--primary)] hover:underline">Read More</a></p>
-          <p class="text-sm text-gray-600">DM us on X for the template: <a href="https://x.com/stratfinancials" class="text-[var(--primary)] hover:underline">@stratfinancials</a></p>
+      </section>
+      <section id="data-dashboards" lang="en" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
+        <h2 class="mb-6 text-center">From Excel Hell to Real-Time Investor Dashboards</h2>
+        <p class="text-lg mb-4 text-center">We design custom Power BI/Tableau dashboards for Series A–D fintechs and AI startups.</p>
+        <div class="space-y-4 text-lg">
+          <p>✅ Live cash flow tracking</p>
+          <p>✅ LTV/CAC by cohort</p>
+          <p>✅ Investor-ready board views</p>
+          <p>✅ Ongoing support with monthly insights</p>
         </div>
-        <div class="bg-gray-50 p-6 rounded-lg">
-          <h3 class="text-xl font-semibold mb-2">How to Survive a VC’s Financial DD</h3>
-          <p class="text-lg mb-4">3 red flags VCs spot in your cap table—and how we fixed them for PayStream. <a href="/insights/vc-dd" class="text-[var(--primary)] hover:underline">Read More</a></p>
-          <p class="text-sm text-gray-600">DM us on X for our DD checklist: <a href="https://x.com/stratfinancials" class="text-[var(--primary)] hover:underline">@stratfinancials</a></p>
+        <div class="mt-6 text-center">
+          <a href="#contact" class="btn btn-primary">Book a Data Demo</a>
         </div>
-      </div>
-    </section>
-    <!-- Revenue Models Section -->
-    <section id="revenue-models" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 text-center">Building Sustainable Revenue Models</h2>
-      <p class="text-lg mb-4 text-center">Learn how to select, test, and scale revenue models that drive growth for fintech and AI startups, as featured in our F1 mentorship session.</p>
-      <div class="space-y-6 text-lg">
-        <div>
-          <h3 class="text-xl font-semibold mb-2">1. Choose the Right Model</h3>
-          <p>Align your revenue model with your value proposition:</p>
-          <ul class="list-disc list-inside space-y-2">
-            <li><strong>Subscription</strong>: Ideal for SaaS or AI tools with recurring value (e.g., $49/month for analytics).</li>
-            <li><strong>Transaction-Based</strong>: Suits fintechs with high-volume usage (e.g., 1% per payment).</li>
-            <li><strong>Freemium</strong>: Attracts users with free features, upselling premium (e.g., free basic tools, $199 for advanced).</li>
-            <li><strong>Licensing</strong>: One-time fees for specialized tools (e.g., Financial Modeling Toolkit).</li>
-            <li><strong>Outcome-Based</strong>: Charges based on results (e.g., 2% of funds raised).</li>
-          </ul>
+      </section>
+      <section id="case-studies" lang="en" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
+        <h2 class="mb-6 text-center">What Happens When Your Finance Just Works</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="border-l-4 border-[var(--accent)] pl-4 bg-gray-50 p-6 rounded-r-lg">
+            <h3 class="mb-2">Fintech CFO, UK</h3>
+            <p class="text-lg mb-4">“They helped us go from messy spreadsheets to investor dashboards that closed our $22M round. Auditors were blown away.”</p>
+          </div>
+          <div class="border-l-4 border-[var(--accent)] pl-4 bg-gray-50 p-6 rounded-r-lg">
+            <h3 class="mb-2">Ex-Stripe Head of Ops</h3>
+            <p class="text-lg mb-4">“Reduced our finance close time by 60%, built a board pack in 3 days, and passed audit with zero redlines.”</p>
+          </div>
         </div>
-        <div>
-          <h3 class="text-xl font-semibold mb-2">2. Test and Validate</h3>
-          <p>Build a hypothesis (e.g., “Subscriptions will yield 20% MoM growth with 5% churn”) and test it:</p>
-          <ul class="list-disc list-inside space-y-2">
-            <li><strong>Landing Page Tests</strong>: Use tools like Google Optimize to compare conversion rates for different models.</li>
-            <li><strong>Pilot Programs</strong>: Offer beta access to 10 startups to test pricing willingness.</li>
-            <li><strong>Cohort Analysis</strong>: Track LTV, CAC, and churn by customer segment, as we did for GreenWave’s 20% churn reduction.</li>
-          </ul>
+        <div class="mt-6 text-center">
+          <a href="/case-studies" class="btn btn-primary">View More Wins</a>
         </div>
-        <div>
-          <h3 class="text-xl font-semibold mb-2">3. Optimize with Pricing and Features</h3>
-          <p>Refine your model based on data:</p>
-          <ul class="list-disc list-inside space-y-2">
-            <li><strong>Pricing Adjustments</strong>: Test tiered pricing (e.g., $49 basic, $199 pro) to capture more segments.</li>
-            <li><strong>Feature Bundling</strong>: Bundle high-demand features (e.g., cohort analysis in your toolkit) to increase upsell rates.</li>
-          </ul>
+      </section>
+      <section id="track-record" lang="en" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
+        <h2 class="mb-6 text-center">Our Track Record</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="border-l-4 border-[var(--accent)] pl-4 bg-gray-50 p-6 rounded-r-lg">
+            <a href="https://www.paystream.com" target="_blank" rel="noopener noreferrer" class="text-[var(--primary)] font-semibold hover:underline mb-4 block">PayStream</a>
+            <h3 class="mb-2">Fintech Series A: $12M Raised</h3>
+            <p class="text-lg mb-4">Cut burn by $350K/month by optimizing GTM spend. Deck went from ‘nice’ to ‘fundable’ in 3 weeks, securing $12M from Sequoia.</p>
+            <p class="text-sm text-gray-600 italic">“Their LTV/CAC model convinced our partners in one meeting.” — Alex Chen, CEO</p>
+          </div>
+          <div class="border-l-4 border-[var(--accent)] pl-4 bg-gray-50 p-6 rounded-r-lg">
+            <a href="https://www.cloudcore.com" target="_blank" rel="noopener noreferrer" class="text-[var(--primary)] font-semibold hover:underline mb-4 block">CloudCore</a>
+            <h3 class="mb-2">SaaS Seed: $7M Secured</h3>
+            <p class="text-lg mb-4">Built a pitch deck with 15+ financial scenarios, raising $7M from a16z in 6 weeks.</p>
+            <p class="text-sm text-gray-600 italic">“Their data-driven deck won us a16z.” — Priya Patel, Founder</p>
+          </div>
+          <div class="border-l-4 border-[var(--accent)] pl-4 bg-gray-50 p-6 rounded-r-lg">
+            <a href="https://www.greenwave.com" target="_blank" rel="noopener noreferrer" class="text-[var(--primary)] font-semibold hover:underline mb-4 block">GreenWave</a>
+            <h3 class="mb-2">AI Series B: 20% Churn Cut</h3>
+            <p class="text-lg mb-4">Reduced churn by 20% with data-driven retention strategies, doubling ARR in 12 months.</p>
+            <p class="text-sm text-gray-600 italic">“Their retention models transformed our growth.” — Sarah Lee, CEO</p>
+          </div>
         </div>
-      </div>
-      <div class="revenue-model-chart mt-6">
-        <canvas id="revenue-model-chart"></canvas>
-        <p class="text-sm text-gray-600 mt-2">Hypothetical ARR after 12 months for different revenue models.</p>
-      </div>
-      <div class="mt-6 text-center">
-        <a href="#contact" class="btn-primary px-6 py-3 font-semibold">Book a Strategy Call</a>
-        <a href="/assets/revenue-model-canvas.pdf" class="btn-secondary px-6 py-3 font-semibold" download>Download Revenue Model Canvas</a>
-      </div>
-    </section>
-    <!-- Team -->
-    <section id="team" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 text-center">Our Leadership</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col md:flex-row gap-6 items-center">
-          <img src="/assets/samuel-mwendwa.jpg" alt="Samuel Mwendwa, CFA, MBA" class="w-32 h-32 rounded-full">
+        <div class="mt-6 text-center">
+          <div id="case-study-chart" class="max-w-md mx-auto mb-4"></div>
+          <a href="/assets/paystream-pitch-deck.pdf" class="btn btn-primary" download>Get PayStream’s $12M Pitch Deck</a>
+        </div>
+      </section>
+      <section id="insights" lang="en" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
+        <h2 class="mb-6 text-center">Insights for Founders</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <h3 class="mb-2">Why Most Startup Financial Models Get CAC Wrong</h3>
+            <p class="text-lg mb-4">VCs expect CAC segmented by channel (e.g., paid ads vs. organic). We break down how to calculate and present it effectively to secure funding. <a href="/insights/cac-mistakes" class="text-[var(--primary)] hover:underline">Read More</a></p>
+            <p class="text-sm text-gray-600">DM us on X for our CAC audit checklist: <a href="https://x.com/stratfinancials" class="text-[var(--primary)] hover:underline" rel="noopener noreferrer">@stratfinancials</a></p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <h3 class="mb-2">The Model That Got a SaaS Startup $7M</h3>
+            <p class="text-lg mb-4">Learn how we extended CloudCore’s runway with a financial model that impressed a16z, including cohort analysis and burn rate optimization. <a href="/insights/saas-model" class="text-[var(--primary)] hover:underline">Read More</a></p>
+            <p class="text-sm text-gray-600">DM us on X for the template: <a href="https://x.com/stratfinancials" class="text-[var(--primary)] hover:underline" rel="noopener noreferrer">@stratfinancials</a></p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <h3 class="mb-2">How to Survive a VC’s Financial DD</h3>
+            <p class="text-lg mb-4">Discover 3 cap table red flags VCs spot and how we fixed them for PayStream, ensuring a smooth $12M raise. <a href="/insights/vc-dd" class="text-[var(--primary)] hover:underline">Read More</a></p>
+            <p class="text-sm text-gray-600">DM us on X for our DD checklist: <a href="https://x.com/stratfinancials" class="text-[var(--primary)] hover:underline" rel="noopener noreferrer">@stratfinancials</a></p>
+          </div>
+        </div>
+      </section>
+      <section id="revenue-models" lang="en" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
+        <h2 class="mb-6 text-center">Building Sustainable Revenue Models</h2>
+        <p class="text-lg mb-4 text-center">Learn how to select, test, and scale revenue models that drive growth for fintech and AI startups, as featured in our F1 mentorship session.</p>
+        <div class="space-y-6 text-lg">
           <div>
-            <p class="text-xl font-semibold">Samuel Mwendwa, CFA, MBA</p>
-            <p class="text-lg mb-2">Founder & Lead Strategist. Led 3 fintech exits, raising $50M+ for startups.</p>
-            <a href="https://www.linkedin.com/in/samuel-mwendwa" target="_blank" class="text-[var(--primary)] hover:underline">Connect on LinkedIn</a>
+            <h3 class="mb-2">1. Choose the Right Model</h3>
+            <p>Align your revenue model with your value proposition:</p>
+            <ul class="list-disc list-inside space-y-2">
+              <li><strong>Subscription</strong>: Ideal for SaaS or AI tools with recurring value (e.g., $49/month for analytics).</li>
+              <li><strong>Transaction-Based</strong>: Suits fintechs with high-volume usage (e.g., 1% per payment).</li>
+              <li><strong>Freemium</strong>: Attracts users with free features, upselling premium (e.g., free basic tools, $199 for advanced).</li>
+              <li><strong>Licensing</strong>: One-time fees for specialized tools (e.g., Financial Modeling Toolkit).</li>
+              <li><strong>Outcome-Based</strong>: Charges based on results (e.g., 2% of funds raised).</li>
+            </ul>
           </div>
-        </div>
-        <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col md:flex-row gap-6 items-center">
           <div>
-            <p class="text-xl font-semibold">Mary N, CPA</p>
-            <p class="text-lg mb-2">Head of Strategy. Coached 20+ founders to $10M+ raises since 2023.</p>
-            <a href="https://www.linkedin.com/in/mary-n" target="_blank" class="text-[var(--primary)] hover:underline">Connect on LinkedIn</a>
+            <h3 class="mb-2">2. Test and Validate</h3>
+            <p>Build a hypothesis (e.g., “Subscriptions will yield 20% MoM growth with 5% churn”) and test it:</p>
+            <ul class="list-disc list-inside space-y-2">
+              <li><strong>Landing Page Tests</strong>: Use tools like Google Optimize to compare conversion rates for different models.</li>
+              <li><strong>Pilot Programs</strong>: Offer beta access to 10 startups to test pricing willingness.</li>
+              <li><strong>Cohort Analysis</strong>: Track LTV, CAC, and churn by customer segment, as we did for GreenWave’s 20% churn reduction.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="mb-2">3. Optimize with Pricing and Features</h3>
+            <p>Refine your model based on data:</p>
+            <ul class="list-disc list-inside space-y-2">
+              <li><strong>Pricing Adjustments</strong>: Test tiered pricing (e.g., $49 basic, $199 pro) to capture more segments.</li>
+              <li><strong>Feature Bundling</strong>: Bundle high-demand features (e.g., cohort analysis in your toolkit) to increase upsell rates.</li>
+            </ul>
           </div>
         </div>
-      </div>
-      <p class="text-lg text-center mt-6">Advised by Jane Doe (Sequoia Capital) and John Smith (Y Combinator).</p>
-    </section>
-    <!-- FAQs -->
-    <section id="faqs" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
-      <div class="space-y-4">
-        <div class="accordion-item">
-          <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">What is the 90-day roadmap?</div>
-          <div class="accordion-content">Week 1-4: Optimize financials (LTV/CAC, burn rate). Week 5-8: Build audit-ready cap table. Week 9-12: Craft VC-ready pitch deck and secure intros.</div>
+        <div class="revenue-model-chart mt-6">
+          <div id="revenue-model-chart"></div>
+          <p class="text-sm text-gray-600 mt-2">Hypothetical ARR after 12 months for different revenue models.</p>
         </div>
-        <div class="accordion-item">
-          <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">Who are your typical clients?</div>
-          <div class="accordion-content">Fintech, SaaS, and AI startups targeting Seed to Series B funding or operational scaling.</div>
+        <div class="mt-6 text-center">
+          <a href="#contact" class="btn btn-primary">Book a Discovery Call</a>
         </div>
-        <div class="accordion-item">
-          <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">How do you ensure data security?</div>
-          <div class="accordion-content">SOC 2 compliant and GDPR-ready, we protect your financial data with enterprise-grade security.</div>
+      </section>
+      <section id="team" lang="en" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
+        <h2 class="mb-6 text-center">Our Leadership</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col md:flex-row gap-6 items-center">
+            <img src="/assets/samuel-mwendwa.webp" alt="Samuel Mwendwa, CFA, MBA, Lead Strategist" class="w-32 h-32 rounded-full" loading="lazy">
+            <div>
+              <p class="text-xl font-semibold">Samuel Mwendwa, CFA, MBA</p>
+              <p class="text-lg mb-2">Founder & Lead Strategist. Led 3 fintech exits, raising $50M+ for startups.</p>
+              <a href="https://www.linkedin.com/in/samuel-mwendwa" target="_blank" rel="noopener noreferrer" class="text-[var(--primary)] hover:underline">Connect on LinkedIn</a>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col md:flex-row gap-6 items-center">
+            <img src="/assets/mary-n.webp" alt="Mary N, CPA, Head of Strategy" class="w-32 h-32 rounded-full" loading="lazy">
+            <div>
+              <p class="text-xl font-semibold">Mary N, CPA</p>
+              <p class="text-lg mb-2">Head of Strategy. Coached 20+ founders to $10M+ raises since 2023.</p>
+              <a href="https://www.linkedin.com/in/mary-n" target="_blank" rel="noopener noreferrer" class="text-[var(--primary)] hover:underline">Connect on LinkedIn</a>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
-    <!-- Contact -->
-    <section id="contact" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8 text-center">
-      <div class="calendar-container">
-        <h2 class="text-3xl font-bold mb-6">📅 Schedule Your Strategy Session</h2>
-        <p class="text-lg mb-4">Not sure if you’re ready? Send your deck—we’ll tell you in 1 sentence what’s blocking your raise.</p>
-        <div class="max-w-md mx-auto mb-4">
-          <label for="stage" class="block text-sm font-medium mb-2">Company Stage</label>
-          <select id="stage" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
-            <option value="seed">Seed</option>
-            <option value="series-a">Series A</option>
-            <option value="series-b">Series B</option>
-          </select>
-          <label for="sector" class="block text-sm font-medium mb-2">Sector</label>
-          <select id="sector" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
-            <option value="fintech">Fintech</option>
-            <option value="saas">SaaS</option>
-            <option value="ai">AI</option>
-          </select>
-          <label for="deck-upload" class="block text-sm font-medium mb-2">Upload Your Deck (Optional)</label>
-          <input type="file" id="deck-upload" accept=".pdf" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
+        <p class="text-lg text-center mt-6">Advised by Jane Doe (Sequoia Capital) and John Smith (Y Combinator).</p>
+      </section>
+      <section id="faqs" lang="en" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8">
+        <h2 class="mb-6 text-center">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false" aria-controls="faq1">What is the 90-day roadmap?</button>
+            <div id="faq1" class="accordion-content" aria-hidden="true">Week 1-4: Optimize financials (LTV/CAC, burn rate). Week 5-8: Build audit-ready cap table. Week 9-12: Craft VC-ready pitch deck and secure intros.</div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false" aria-controls="faq2">Who are your typical clients?</button>
+            <div id="faq2" class="accordion-content" aria-hidden="true">Fintech, SaaS, and AI startups targeting Seed to Series B funding or operational scaling.</div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false" aria-controls="faq3">How do you ensure data security?</button>
+            <div id="faq3" class="accordion-content" aria-hidden="true">SOC 2 compliant and GDPR-ready, we protect your financial data with enterprise-grade security.</div>
+          </div>
         </div>
-        <div class="calendly-inline-widget" data-url="https://calendly.com/strategicfinancials/strategy-call" style="min-width:320px;height:400px;"></div>
-        <p class="mt-4 text-sm text-gray-600">Can’t find a slot? <a href="mailto:nexlifysolutions.team@gmail.com" class="text-[var(--primary)] hover:underline">Email us</a>.</p>
-      </div>
-    </section>
+      </section>
+      <section id="contact" lang="en" class="fade-in mb-16 bg-white rounded-lg shadow-lg p-8 text-center">
+        <div class="calendar-container">
+          <h2 class="mb-6">📅 Schedule Your Discovery Session</h2>
+          <p class="text-lg mb-4">Not sure if you’re ready? Send your deck—we’ll tell you in 1 sentence what’s blocking your raise.</p>
+          <form id="contact-form" class="max-w-md mx-auto mb-4">
+            <fieldset>
+              <label for="stage" class="block text-sm font-medium mb-2">Company Stage</label>
+              <select id="stage" name="stage" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
+                <option value="seed">Seed</option>
+                <option value="series-a">Series A</option>
+                <option value="series-b">Series B</option>
+              </select>
+              <label for="sector" class="block text-sm font-medium mb-2">Sector</label>
+              <select id="sector" name="sector" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
+                <option value="fintech">Fintech</option>
+                <option value="saas">SaaS</option>
+                <option value="ai">AI</option>
+              </select>
+              <label for="deck-upload" class="block text-sm font-medium mb-2">Upload Your Deck (Optional)</label>
+              <input type="file" id="deck-upload" name="deck-upload" accept=".pdf" class="w-full p-3 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]">
+              <button type="submit" class="btn btn-primary w-full">Schedule Now</button>
+            </fieldset>
+          </form>
+          <div class="calendly-inline-widget" data-url="https://calendly.com/nexlifysolutions-team/strategy-call" style="min-width:320px;height:25rem;"></div>
+          <p class="mt-4 text-sm text-gray-600">Booking issues? <a href="mailto:nexlifysolutions.team@gmail.com" class="text-[var(--primary)] hover:underline">Email us</a>.</p>
+        </div>
+      </section>
+    </main>
     <footer class="bg-[var(--dark)] text-white text-center py-12">
       <div class="max-w-7xl mx-auto px-4">
         <div class="flex justify-center gap-8 mb-6">
-          <a href="https://x.com/stratfinancials" class="text-[var(--accent)] font-semibold hover:underline">Follow us on X</a>
-          <a href="https://www.cfainstitute.org" target="_blank" class="text-[var(--accent)] font-semibold hover:underline">CFA Institute</a>
+          <a href="https://x.com/stratfinancials" class="text-[var(--accent)] font-semibold hover:underline" rel="noopener noreferrer">Follow us on X</a>
+          <a href="https://www.cfainstitute.org" target="_blank" class="text-[var(--accent)] font-semibold hover:underline" rel="noopener noreferrer">CFA Institute</a>
           <a href="/careers.html" class="text-[var(--accent)] font-semibold hover:underline">Careers</a>
           <span class="text-[var(--accent)] font-semibold">SOC 2 Compliant</span>
         </div>
         <p>© 2025 Strategic Financials. All rights reserved.</p>
         <div class="mt-4 flex justify-center space-x-6">
-          <a href="https://www.linkedin.com/company/strategic-financials" class="text-gray-400 hover:text-white">LinkedIn</a>
-          <a href="https://x.com/stratfinancials" class="text-gray-400 hover:text-white">X</a>
+          <a href="https://www.linkedin.com/company/strategic-financials" class="text-gray-400 hover:text-white" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://x.com/stratfinancials" class="text-gray-400 hover:text-white" rel="noopener noreferrer">X</a>
           <a href="/privacy-policy.html" class="text-gray-400 hover:text-white">Privacy Policy</a>
         </div>
       </div>
     </footer>
-    <!-- Cookies Banner -->
-    <div id="cookies-banner" class="fixed bottom-0 left-0 right-0 bg-white p-4 shadow-lg flex justify-between items-center">
+    <div id="cookies-banner" class="fixed bottom-0 left-0 right-0 bg-white p-4 shadow-lg flex justify-between items-center hidden">
       <p class="text-sm">We use cookies to enhance your experience. <a href="/privacy-policy.html" class="text-[var(--primary)] hover:underline">Learn More</a>.</p>
-      <button onclick="acceptCookies()" class="btn-primary px-4 py-2 font-semibold">Accept</button>
+      <button class="btn btn-primary" onclick="acceptCookies()">Accept</button>
     </div>
     <script async src="https://calendly.com/assets/external/widget.js"></script>
     <script>
-      // GSAP Animations
-      document.addEventListener('DOMContentLoaded', () => {
-        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          gsap.fromTo('.hero-overlay', 
-            { opacity: 0 }, 
-            { opacity: 0.4, duration: 1 }
-          );
-          gsap.fromTo('.hero-headline', 
-            { opacity: 0, y: 50 }, 
-            { opacity: 1, y: 0, duration: 1, delay: 0.3 }
-          );
-          gsap.fromTo('.hero-subtext', 
-            { opacity: 0, y: 30 }, 
-            { opacity: 1, y: 0, duration: 0.8, delay: 0.6 }
-          );
-          gsap.fromTo('.hero-cta', 
-            { opacity: 0, y: 30 }, 
-            { opacity: 1, y: 0, duration: 0.8, delay: 0.9 }
-          );
-          gsap.fromTo('#funding-graph', 
-            { opacity: 0 }, 
-            { opacity: 0.2, duration: 1.5, delay: 1 }
-          );
-        } else {
-          gsap.set(['.hero-overlay', '.hero-headline', '.hero-subtext', '.hero-cta', '#funding-graph'], { opacity: 1, y: 0 });
+      // Mobile Menu Toggle with Focus Trapping
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuLinks = mobileMenu.querySelectorAll('a');
+      mobileMenuToggle.addEventListener('click', () => {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        mobileMenu.classList.toggle('hidden');
+        mobileMenuToggle.setAttribute('aria-expanded', !isOpen);
+        if (!isOpen) {
+          menuLinks[0].focus();
         }
       });
-
-      // Funding Graph
-      document.addEventListener('DOMContentLoaded', () => {
-        const ctx = document.getElementById('funding-graph').getContext('2d');
-        new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels: ['Day 0', 'Day 30', 'Day 60', 'Day 90'],
-            datasets: [{
-              label: 'Funding Progress',
-              data: [0, 2, 8, 12],
-              borderColor: 'rgba(255, 193, 7, 0.5)',
-              fill: false,
-              tension: 0.4
-            }]
-          },
-          options: {
-            plugins: { legend: { display: false } },
-            scales: {
-              x: { display: false },
-              y: { display: false }
-            }
+      mobileMenu.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          mobileMenu.classList.add('hidden');
+          mobileMenuToggle.setAttribute('aria-expanded', 'false');
+          mobileMenuToggle.focus();
+        }
+      });
+      menuLinks.forEach((link, index) => {
+        link.addEventListener('keydown', (e) => {
+          if (e.key === 'Tab') {
+            e.preventDefault();
+            const nextIndex = e.shiftKey ? (index - 1 + menuLinks.length) % menuLinks.length : (index + 1) % menuLinks.length;
+            menuLinks[nextIndex].focus();
           }
         });
-      });
-
-      // Revenue Model Chart
-      document.addEventListener('DOMContentLoaded', () => {
-        const ctx = document.getElementById('revenue-model-chart').getContext('2d');
-        new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: ['Subscription', 'Transaction', 'Freemium', 'Licensing', 'Outcome-Based'],
-            datasets: [{
-              label: 'ARR after 12 Months ($M)',
-              data: [2.5, 1.8, 1.2, 0.8, 1.5],
-              backgroundColor: ['#004D4D', '#FFC107', '#FF4D4D', '#4A90E2', '#2ECC71'],
-              borderColor: ['#004D4D', '#FFC107', '#FF4D4D', '#4A90E2', '#2ECC71'],
-              borderWidth: 1
-            }]
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true,
-                title: {
-                  display: true,
-                  text: 'ARR ($M)',
-                  font: { family: 'Inter', size: 12 }
-                }
-              },
-              x: {
-                title: {
-                  display: true,
-                  text: 'Revenue Model',
-                  font: { family: 'Inter', size: 12 }
-                }
-              }
-            },
-            plugins: {
-              legend: {
-                labels: {
-                  font: { family: 'Inter', size: 12 }
-                }
-              }
-            }
-          }
-        });
-      });
-
-      // Mobile Menu Toggle
-      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-      const mobileMenuClose = document.getElementById('mobile-menu-close');
-      const mobileMenu = document.getElementById('mobile-menu');
-      mobileMenuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        mobileMenuToggle.setAttribute('aria-expanded', mobileMenu.classList.contains('hidden') ? 'false' : 'true');
-      });
-      mobileMenuClose.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        mobileMenuToggle.setAttribute('aria-expanded', 'false');
       });
 
       // Smooth Scroll & Active Nav
@@ -726,27 +635,15 @@
           const targetElement = document.getElementById(targetId);
           if (targetElement) {
             targetElement.scrollIntoView({ behavior: 'smooth' });
-            document.querySelectorAll('nav a').forEach(link => link.classList.remove('active-nav'));
+            document.querySelectorAll('nav a, #mobile-menu a').forEach(link => link.classList.remove('active-nav'));
             anchor.classList.add('active-nav');
           }
         });
       });
 
-      // Scroll-Triggered Animations
-      document.addEventListener('DOMContentLoaded', () => {
-        const sections = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-            }
-          });
-        }, { threshold: 0.1 });
-        sections.forEach(section => observer.observe(section));
-      });
-
       // Quiz Submission
-      function submitQuiz() {
+      document.getElementById('quiz-form').addEventListener('submit', (e) => {
+        e.preventDefault();
         const arr = parseFloat(document.getElementById('arr').value);
         const burn = parseFloat(document.getElementById('burn-rate').value);
         const email = document.getElementById('quiz-email').value;
@@ -756,27 +653,29 @@
         }
         console.log(`Sending VC readiness report to nexlifysolutions.team@gmail.com from ${email}: ARR $${arr}, Burn $${burn}`);
         alert('Your VC readiness report has been sent!');
-      }
+      });
 
       // Case Study Chart
       document.addEventListener('DOMContentLoaded', () => {
-        const ctx = document.getElementById('case-study-chart').getContext('2d');
-        new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: ['PayStream', 'CloudCore', 'GreenWave'],
-            datasets: [{
-              label: 'Amount Raised ($M) or Impact',
-              data: [12, 7, 2],
-              backgroundColor: '#004D4D',
-              borderColor: '#004D4D',
-              borderWidth: 1
-            }]
-          },
-          options: {
-            scales: { y: { beginAtZero: true } },
-            plugins: { legend: { labels: { font: { family: 'Inter', size: 12 } } } }
-          }
+        new Chartist.Bar('#case-study-chart', {
+          labels: ['PayStream', 'CloudCore', 'GreenWave'],
+          series: [[12, 7, 2]]
+        }, {
+          axisY: { onlyInteger: true, offset: 20 },
+          axisX: { offset: 20 },
+          chartPadding: { top: 10, right: 10, bottom: 10, left: 10 }
+        });
+      });
+
+      // Revenue Model Chart
+      document.addEventListener('DOMContentLoaded', () => {
+        new Chartist.Bar('#revenue-model-chart', {
+          labels: ['Subscription', 'Transaction', 'Freemium', 'Licensing', 'Outcome-Based'],
+          series: [[2.5, 1.8, 1.2, 0.8, 1.5]]
+        }, {
+          axisY: { onlyInteger: false, offset: 40, labelInterpolationFnc: value => `$${value}M` },
+          axisX: { offset: 40 },
+          chartPadding: { top: 10, right: 10, bottom: 10, left: 10 }
         });
       });
 
@@ -786,7 +685,6 @@
           document.getElementById('cookies-banner').classList.remove('hidden');
         }
       });
-
       function acceptCookies() {
         localStorage.setItem('cookiesAccepted', 'true');
         document.getElementById('cookies-banner').classList.add('hidden');
@@ -795,28 +693,19 @@
       // FAQ Accordion
       document.querySelectorAll('.accordion-header').forEach(header => {
         header.addEventListener('click', () => {
-          const content = header.nextElementSibling;
-          const isActive = content.classList.contains('active');
-          document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('active'));
-          document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+          const content = document.getElementById(header.getAttribute('aria-controls'));
+          const isActive = header.getAttribute('aria-expanded') === 'true';
+          document.querySelectorAll('.accordion-header').forEach(h => h.setAttribute('aria-expanded', 'false'));
+          document.querySelectorAll('.accordion-content').forEach(c => c.setAttribute('aria-hidden', 'true'));
           if (!isActive) {
-            content.classList.add('active');
-            header.classList.add('active');
+            header.setAttribute('aria-expanded', 'true');
+            content.setAttribute('aria-hidden', 'false');
           }
-          header.setAttribute('aria-expanded', !isActive ? 'true' : 'false');
         });
         header.addEventListener('keydown', (e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            const content = header.nextElementSibling;
-            const isActive = content.classList.contains('active');
-            document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('active'));
-            document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
-            if (!isActive) {
-              content.classList.add('active');
-              header.classList.add('active');
-            }
-            header.setAttribute('aria-expanded', !isActive ? 'true' : 'false');
+            header.click();
           }
         });
       });
