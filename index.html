@@ -147,20 +147,6 @@
       <div class="funnel-card">Operators who need clarity and confidence around financial strategy</div>
       <div class="funnel-card">Startups who don’t need ‘fluff decks’ — but real traction-backed storytelling</div>
     </div>
-
-    <!-- Reveal Email CTA -->
-    <div style="background: white; padding: 40px 30px; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); margin-top: 60px; max-width: 600px; margin-left: auto; margin-right: auto; animation: fadeInUp 1.6s ease-out;">
-      <p style="font-size: 1.15em; color: #333; margin-bottom: 20px;">
-        Interested in collaborating or viewing more?
-      </p>
-      <button onclick="toggleEmail()" style="background-color: #0d1a2d; color: white; padding: 14px 28px; border: none; border-radius: 8px; cursor: pointer; font-weight: 500; font-size: 1em;">
-        Reveal Contact
-      </button>
-      <div id="emailReveal" style="display: none; margin-top: 20px; font-size: 1.1em; color: #0d1a2d;">
-        hello@founderfinancepartners.com
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -198,21 +184,6 @@
     to { opacity: 1; }
   }
 </style>
-
-<!-- Toggle Script -->
-<script>
-  function toggleEmail() {
-    const x = document.getElementById('emailReveal');
-    const btn = event.target;
-    if (x.style.display === 'none' || x.style.display === '') {
-      x.style.display = 'block';
-      btn.innerText = 'Hide Contact';
-    } else {
-      x.style.display = 'none';
-      btn.innerText = 'Reveal Contact';
-    }
-  }
-</script>
   
   <!-- QUIZ FUNNEL SECTION -->
 <section id="scorecard" class="bg-blue-50 py-16 px-6 md:px-16 lg:px-32 max-w-4xl mx-auto rounded-lg shadow-lg">
