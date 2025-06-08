@@ -125,59 +125,94 @@
   </section>
 
  <!-- Projects That Drive Impact -->
-<section style="padding: 100px 20px; background-color: #fdfdfd; font-family: 'Inter', sans-serif;">
-  <div style="max-width: 880px; margin: 0 auto; text-align: center;">
+<section style="padding: 100px 20px; background: linear-gradient(145deg, #e6f0ff, #f2f8ff); font-family: 'Inter', sans-serif;">
+  <div style="max-width: 960px; margin: 0 auto; text-align: center;">
 
-    <!-- Heading -->
-    <h2 style="font-size: 2.75em; font-weight: 600; position: relative; margin-bottom: 20px; color: #111;">
+    <!-- Animated Heading -->
+    <h2 style="font-size: 3em; font-weight: 700; position: relative; margin-bottom: 20px; color: #0d1a2d; animation: fadeInDown 1s ease-out;">
       Projects That Drive Impact
-      <span style="position: absolute; left: 0; bottom: 0.15em; width: 100%; height: 0.4em; background: #ffe98a; z-index: -1;"></span>
+      <span style="position: absolute; left: 50%; bottom: 0.15em; transform: translateX(-50%); width: 100%; height: 0.35em; background: #a0c4ff; z-index: -1; opacity: 0.4;"></span>
     </h2>
 
     <!-- Subheading -->
-    <p style="font-size: 1.2em; color: #555; margin-bottom: 40px;">
-      We work with early-stage founders facing real financial inflection points — not pitch-deck fantasies.
+    <p style="font-size: 1.25em; color: #3a3a3a; margin-bottom: 60px; animation: fadeInUp 1.2s ease-out;">
+      We work with early-stage founders at real financial inflection points — not pitch-deck fantasies.
     </p>
 
-    <!-- Pain Points List -->
-    <ul style="list-style: none; padding: 0; margin: 0 auto 60px; font-size: 1.1em; line-height: 1.8; color: #333; text-align: left; max-width: 680px;">
-      <li>Seed to Series B fintechs preparing to raise $3M–$30M</li>
-      <li>Founders who’ve been ghosted by 6+ VCs</li>
-      <li>Teams lacking a full-time CFO — but still expected to ‘know their numbers’</li>
-      <li>Operators who need clarity and confidence around financial strategy</li>
-      <li>Startups who don’t need ‘fluff decks’ — but real traction-backed storytelling</li>
-    </ul>
+    <!-- Funnel-Style Pain Point Cards -->
+    <div style="display: flex; flex-direction: column; gap: 30px; align-items: center; animation: fadeIn 1.4s ease-out;">
+      <div class="funnel-card">Seed to Series B fintechs preparing to raise $3M–$30M</div>
+      <div class="funnel-card">Founders who’ve been ghosted by 6+ VCs</div>
+      <div class="funnel-card">Teams lacking a full-time CFO — but still expected to ‘know their numbers’</div>
+      <div class="funnel-card">Operators who need clarity and confidence around financial strategy</div>
+      <div class="funnel-card">Startups who don’t need ‘fluff decks’ — but real traction-backed storytelling</div>
+    </div>
 
     <!-- Reveal Email CTA -->
-    <div style="background: #f5f5f5; padding: 40px 20px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 600px; margin: 0 auto;">
-      <p style="font-size: 1.15em; margin-bottom: 20px; color: #444;">
+    <div style="background: white; padding: 40px 30px; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); margin-top: 60px; max-width: 600px; margin-left: auto; margin-right: auto; animation: fadeInUp 1.6s ease-out;">
+      <p style="font-size: 1.15em; color: #333; margin-bottom: 20px;">
         Interested in collaborating or viewing more?
       </p>
-      <button onclick="
-        var x = document.getElementById('emailReveal');
-        if (x.style.display === 'none') {
-          x.style.display = 'block';
-          this.innerText = 'Hide Contact';
-        } else {
-          x.style.display = 'none';
-          this.innerText = 'Reveal Contact';
-        }
-      " style="
-        background-color: #111;
-        color: white;
-        padding: 12px 24px;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-weight: 500;
-      ">Reveal Contact</button>
-      <div id="emailReveal" style="display: none; margin-top: 20px; font-size: 1.1em; color: #333;">
-        📧 nexlifysolutions.team@gmail.com
+      <button onclick="toggleEmail()" style="background-color: #0d1a2d; color: white; padding: 14px 28px; border: none; border-radius: 8px; cursor: pointer; font-weight: 500; font-size: 1em;">
+        Reveal Contact
+      </button>
+      <div id="emailReveal" style="display: none; margin-top: 20px; font-size: 1.1em; color: #0d1a2d;">
+        hello@founderfinancepartners.com
       </div>
     </div>
 
   </div>
 </section>
+
+<!-- Funnel Card Styles -->
+<style>
+  .funnel-card {
+    background: #ffffff;
+    border-left: 6px solid #4f8dfc;
+    padding: 20px 24px;
+    font-size: 1.1em;
+    color: #1f2a40;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 720px;
+    transition: all 0.3s ease;
+  }
+  .funnel-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  }
+
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+</style>
+
+<!-- Toggle Script -->
+<script>
+  function toggleEmail() {
+    const x = document.getElementById('emailReveal');
+    const btn = event.target;
+    if (x.style.display === 'none' || x.style.display === '') {
+      x.style.display = 'block';
+      btn.innerText = 'Hide Contact';
+    } else {
+      x.style.display = 'none';
+      btn.innerText = 'Reveal Contact';
+    }
+  }
+</script>
   
   <!-- QUIZ FUNNEL SECTION -->
 <section id="scorecard" class="bg-blue-50 py-16 px-6 md:px-16 lg:px-32 max-w-4xl mx-auto rounded-lg shadow-lg">
