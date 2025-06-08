@@ -124,7 +124,7 @@
     </div>
   </section>
 
-  <!-- Projects That Drive Impact -->
+ <!-- Projects That Drive Impact -->
 <section style="padding: 100px 20px; background-color: #fdfdfd; font-family: 'Inter', sans-serif;">
   <div style="max-width: 880px; margin: 0 auto; text-align: center;">
 
@@ -139,25 +139,20 @@
       We work with early-stage founders facing real financial inflection points — not pitch-deck fantasies.
     </p>
 
-    <!-- Filter Buttons -->
-    <div style="margin-bottom: 40px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
-      <button class="filter-btn" data-filter="all" style="padding: 10px 18px; background: #111; color: #fff; border: none; border-radius: 6px; cursor: pointer;">All</button>
-      <button class="filter-btn" data-filter="react" style="padding: 10px 18px; background: #eee; color: #333; border: none; border-radius: 6px; cursor: pointer;">React</button>
-      <button class="filter-btn" data-filter="fintech" style="padding: 10px 18px; background: #eee; color: #333; border: none; border-radius: 6px; cursor: pointer;">Fintech</button>
-      <button class="filter-btn" data-filter="ai" style="padding: 10px 18px; background: #eee; color: #333; border: none; border-radius: 6px; cursor: pointer;">AI</button>
-    </div>
-
-    <!-- Project Grid -->
-    <div id="projectGrid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-      <div class="project-card fintech" style="width: 260px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 12px rgba(0,0,0,0.06);">Fintech Solution A</div>
-      <div class="project-card react" style="width: 260px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 12px rgba(0,0,0,0.06);">React App Tracker</div>
-      <div class="project-card ai" style="width: 260px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 12px rgba(0,0,0,0.06);">AI Forecasting Tool</div>
-      <div class="project-card fintech ai" style="width: 260px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 12px rgba(0,0,0,0.06);">AI-Powered Fintech</div>
-    </div>
+    <!-- Pain Points List -->
+    <ul style="list-style: none; padding: 0; margin: 0 auto 60px; font-size: 1.1em; line-height: 1.8; color: #333; text-align: left; max-width: 680px;">
+      <li>Seed to Series B fintechs preparing to raise $3M–$30M</li>
+      <li>Founders who’ve been ghosted by 6+ VCs</li>
+      <li>Teams lacking a full-time CFO — but still expected to ‘know their numbers’</li>
+      <li>Operators who need clarity and confidence around financial strategy</li>
+      <li>Startups who don’t need ‘fluff decks’ — but real traction-backed storytelling</li>
+    </ul>
 
     <!-- Reveal Email CTA -->
-    <div style="background: #f5f5f5; padding: 40px 20px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 600px; margin: 60px auto 0;">
-      <p style="font-size: 1.15em; margin-bottom: 20px; color: #444;">Interested in collaborating or viewing more?</p>
+    <div style="background: #f5f5f5; padding: 40px 20px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 600px; margin: 0 auto;">
+      <p style="font-size: 1.15em; margin-bottom: 20px; color: #444;">
+        Interested in collaborating or viewing more?
+      </p>
       <button onclick="
         var x = document.getElementById('emailReveal');
         if (x.style.display === 'none') {
@@ -167,34 +162,22 @@
           x.style.display = 'none';
           this.innerText = 'Reveal Contact';
         }
-      " style="background-color: #111; color: white; padding: 12px 24px; border: none; border-radius: 6px; cursor: pointer; font-weight: 500;">Reveal Contact</button>
-      <div id="emailReveal" style="display: none; margin-top: 20px; font-size: 1.1em; color: #333;">📧 nexlifysolutions.team@gmail.com</div>
+      " style="
+        background-color: #111;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+      ">Reveal Contact</button>
+      <div id="emailReveal" style="display: none; margin-top: 20px; font-size: 1.1em; color: #333;">
+        📧 nexlifysolutions.team@gmail.com
+      </div>
     </div>
 
   </div>
 </section>
-
-<!-- JavaScript Filter Logic -->
-<script>
-  document.querySelectorAll('.filter-btn').forEach(button => {
-    button.addEventListener('click', () => {
-      const filter = button.getAttribute('data-filter');
-      document.querySelectorAll('.project-card').forEach(card => {
-        if (filter === 'all' || card.classList.contains(filter)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-
-      // Update button styling
-      document.querySelectorAll('.filter-btn').forEach(btn => btn.style.background = '#eee');
-      button.style.background = '#111';
-      button.style.color = '#fff';
-    });
-  });
-</script>
-
   
   <!-- QUIZ FUNNEL SECTION -->
 <section id="scorecard" class="bg-blue-50 py-16 px-6 md:px-16 lg:px-32 max-w-4xl mx-auto rounded-lg shadow-lg">
